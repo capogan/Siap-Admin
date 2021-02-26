@@ -44,7 +44,7 @@
                             <br />
 
                             <div>
-                                <h1><i class="fa fa-paw"></i> SIAP ADMINISTRATOR!</h1>
+                                <h1>SIAP ADMINISTRATOR!</h1>
                                 <p>©2021 All Rights Reserved</p>
                             </div>
                         </div>
