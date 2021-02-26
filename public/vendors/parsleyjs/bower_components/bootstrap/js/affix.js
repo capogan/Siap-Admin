@@ -106,7 +106,7 @@
   }
 
 
-  // AFFIX DATA-API
+  // AFFIX DATA-Api
   // ==============
 
   $(window).on('load', function () {

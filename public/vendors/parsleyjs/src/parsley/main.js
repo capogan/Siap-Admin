@@ -32,7 +32,7 @@ $.extend(ParsleyForm.prototype, ParsleyUI.Form, ParsleyAbstract.prototype);
 // Inherit actualizeOptions and _resetOptions:
 $.extend(ParsleyFactory.prototype, ParsleyAbstract.prototype);
 
-// ### jQuery API
+// ### jQuery Api
 // `$('.elem').parsley(options)` or `$('.elem').psly(options)`
 $.fn.parsley = $.fn.psly = function (options) {
   if (this.length > 1) {

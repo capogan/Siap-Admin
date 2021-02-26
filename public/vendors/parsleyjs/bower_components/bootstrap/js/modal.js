@@ -221,7 +221,7 @@
   }
 
 
-  // MODAL DATA-API
+  // MODAL DATA-Api
   // ==============
 
   $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {

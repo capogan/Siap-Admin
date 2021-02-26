@@ -4,10 +4,10 @@ return [
     /*
     |
     |--------------------------------------------------------------------------
-    | Flare API key
+    | Flare Api key
     |--------------------------------------------------------------------------
     |
-    | Specify Flare's API key below to enable error reporting to the service.
+    | Specify Flare's Api key below to enable error reporting to the service.
     |
     | More info: https://flareapp.io/docs/general/projects
     |

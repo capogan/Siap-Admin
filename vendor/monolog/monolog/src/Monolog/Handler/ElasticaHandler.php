@@ -108,7 +108,7 @@ class ElasticaHandler extends AbstractProcessingHandler
     }
 
     /**
-     * Use Elasticsearch bulk API to send list of documents
+     * Use Elasticsearch bulk Api to send list of documents
      * @throws \RuntimeException
      */
     protected function bulkSend(array $documents): void

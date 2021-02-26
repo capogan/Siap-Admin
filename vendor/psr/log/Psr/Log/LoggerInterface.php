@@ -68,7 +68,7 @@ interface LoggerInterface
     /**
      * Exceptional occurrences that are not errors.
      *
-     * Example: Use of deprecated APIs, poor use of an API, undesirable things
+     * Example: Use of deprecated APIs, poor use of an Api, undesirable things
      * that are not necessarily wrong.
      *
      * @param string  $message

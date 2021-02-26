@@ -12,7 +12,7 @@ use Whoops\Exception\Formatter;
 /**
  * Catches an exception and converts it to an XML
  * response. Additionally can also return exception
- * frames for consumption by an API.
+ * frames for consumption by an Api.
  */
 class XmlResponseHandler extends Handler
 {

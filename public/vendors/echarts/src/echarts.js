@@ -372,7 +372,7 @@ define(function (require) {
 
             // TODO
             // Save total ecModel here for undo/redo (after restoring data and before processing data).
-            // Undo (restoration of total ecModel) can be carried out in 'action' or outside API call.
+            // Undo (restoration of total ecModel) can be carried out in 'action' or outside Api call.
 
             // Create new coordinate system each update
             // In LineView may save the old coordinate system and use it to get the orignal point

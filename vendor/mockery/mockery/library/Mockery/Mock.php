@@ -884,9 +884,9 @@ class Mock implements MockInterface
         } elseif ($this->_mockery_deferMissing && get_parent_class($this) && method_exists(get_parent_class($this), '__call')) {
             return call_user_func('parent::__call', $method, $args);
         } elseif ($method == '__toString') {
-            // __toString is special because we force its addition to the class API regardless of the
+            // __toString is special because we force its addition to the class Api regardless of the
             // original implementation.  Thus, we should always return a string rather than honor
-            // _mockery_ignoreMissing and break the API with an error.
+            // _mockery_ignoreMissing and break the Api with an error.
             return sprintf("%s#%s", __CLASS__, spl_object_hash($this));
         } elseif ($this->_mockery_ignoreMissing) {
             if (\Mockery::getConfiguration()->mockingNonExistentMethodsAllowed() || (!is_null($this->_mockery_partial) && method_exists($this->_mockery_partial, $method)) || is_callable("parent::$method")) {

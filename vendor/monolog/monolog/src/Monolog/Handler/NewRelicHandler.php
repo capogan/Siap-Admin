@@ -43,7 +43,7 @@ class NewRelicHandler extends AbstractProcessingHandler
 
     /**
      * Some context and extra data is passed into the handler as arrays of values. Do we send them as is
-     * (useful if we are using the API), or explode them for display on the NewRelic RPM website?
+     * (useful if we are using the Api), or explode them for display on the NewRelic RPM website?
      *
      * @var bool
      */

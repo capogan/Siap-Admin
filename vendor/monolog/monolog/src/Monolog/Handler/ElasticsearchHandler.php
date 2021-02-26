@@ -121,7 +121,7 @@ class ElasticsearchHandler extends AbstractProcessingHandler
     }
 
     /**
-     * Use Elasticsearch bulk API to send list of documents
+     * Use Elasticsearch bulk Api to send list of documents
      *
      * @param  array             $records
      * @throws \RuntimeException

@@ -11,7 +11,7 @@ namespace Hamcrest;
  * <p/>
  * Matcher implementations should <b>NOT directly implement this interface</b>.
  * Instead, <b>extend</b> the {@link Hamcrest\BaseMatcher} abstract class,
- * which will ensure that the Matcher API can grow to support
+ * which will ensure that the Matcher Api can grow to support
  * new features and remain compatible with all Matcher implementations.
  * <p/>
  * For easy access to common Matcher implementations, use the static factory

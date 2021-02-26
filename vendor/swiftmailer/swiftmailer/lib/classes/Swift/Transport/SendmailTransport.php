@@ -85,7 +85,7 @@ class Swift_Transport_SendmailTransport extends Swift_Transport_AbstractSmtpTran
     /**
      * Send the given Message.
      *
-     * Recipient/sender data will be retrieved from the Message API.
+     * Recipient/sender data will be retrieved from the Message Api.
      *
      * The return value is the number of recipients who were accepted for delivery.
      * NOTE: If using 'sendmail -t' you will not be aware of any failures until

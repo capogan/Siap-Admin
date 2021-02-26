@@ -15,7 +15,7 @@ class MailgunTransport extends Transport
     protected $client;
 
     /**
-     * The Mailgun API key.
+     * The Mailgun Api key.
      *
      * @var string
      */
@@ -29,7 +29,7 @@ class MailgunTransport extends Transport
     protected $domain;
 
     /**
-     * The Mailgun API endpoint.
+     * The Mailgun Api endpoint.
      *
      * @var string
      */
@@ -112,7 +112,7 @@ class MailgunTransport extends Transport
     }
 
     /**
-     * Get the "to" payload field for the API request.
+     * Get the "to" payload field for the Api request.
      *
      * @param  \Swift_Mime_SimpleMessage  $message
      * @return string
@@ -151,7 +151,7 @@ class MailgunTransport extends Transport
     }
 
     /**
-     * Get the API key being used by the transport.
+     * Get the Api key being used by the transport.
      *
      * @return string
      */
@@ -161,7 +161,7 @@ class MailgunTransport extends Transport
     }
 
     /**
-     * Set the API key being used by the transport.
+     * Set the Api key being used by the transport.
      *
      * @param  string  $key
      * @return string
@@ -193,7 +193,7 @@ class MailgunTransport extends Transport
     }
 
     /**
-     * Get the API endpoint being used by the transport.
+     * Get the Api endpoint being used by the transport.
      *
      * @return string
      */
@@ -203,7 +203,7 @@ class MailgunTransport extends Transport
     }
 
     /**
-     * Set the API endpoint being used by the transport.
+     * Set the Api endpoint being used by the transport.
      *
      * @param  string  $endpoint
      * @return string

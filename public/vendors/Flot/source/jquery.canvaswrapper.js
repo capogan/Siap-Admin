@@ -9,7 +9,7 @@ the list of classes to apply to the canvas adnd the containter,
 element onto which to append the canvas. The canvas operations
 don't work unless the canvas is attached to the DOM.
 
-### jquery.canvaswrapper.js API functions
+### jquery.canvaswrapper.js Api functions
 */
 
 (function($) {

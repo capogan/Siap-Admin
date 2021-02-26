@@ -170,7 +170,7 @@ class HTMLPurifier_Config
     {
         if ($a !== null) {
             $this->triggerError(
-                "Using deprecated API: use \$config->get('$key.$a') instead",
+                "Using deprecated Api: use \$config->get('$key.$a') instead",
                 E_USER_WARNING
             );
             $key = "$key.$a";
@@ -300,7 +300,7 @@ class HTMLPurifier_Config
             $directive = $value;
             $value = $a;
             $key = "$key.$directive";
-            $this->triggerError("Using deprecated API: use \$config->set('$key', ...) instead", E_USER_NOTICE);
+            $this->triggerError("Using deprecated Api: use \$config->set('$key', ...) instead", E_USER_NOTICE);
         } else {
             list($namespace) = explode('.', $key);
         }

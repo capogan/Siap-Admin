@@ -37,7 +37,7 @@ use ZipStream\Option\Version;
  *     $zip->finish();
  *
  * You can also add an archive comment, add comments to individual files,
- * and adjust the timestamp of files. See the API documentation for each
+ * and adjust the timestamp of files. See the Api documentation for each
  * method below for additional information.
  *
  * Example:

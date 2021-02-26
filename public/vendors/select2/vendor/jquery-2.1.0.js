@@ -1973,7 +1973,7 @@
                 Expr.pseudos[ i ] = createButtonPseudo( i );
             }
 
-// Easy API for creating new setFilters
+// Easy Api for creating new setFilters
             function setFilters() {}
             setFilters.prototype = Expr.filters = Expr.pseudos;
             Expr.setFilters = new setFilters();
@@ -3660,7 +3660,7 @@
     /*
      Implementation Summary
 
-     1. Enforce API surface and semantic compatibility with 1.9.x branch
+     1. Enforce Api surface and semantic compatibility with 1.9.x branch
      2. Improve the module's maintainability by reducing the storage
      paths to a single mechanism.
      3. Use the same single mechanism to support "private" and "user" data.

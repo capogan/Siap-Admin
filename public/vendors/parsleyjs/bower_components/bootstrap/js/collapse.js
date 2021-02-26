@@ -154,7 +154,7 @@
   }
 
 
-  // COLLAPSE DATA-API
+  // COLLAPSE DATA-Api
   // =================
 
   $(document).on('click.bs.collapse.data-api', '[data-toggle=collapse]', function (e) {

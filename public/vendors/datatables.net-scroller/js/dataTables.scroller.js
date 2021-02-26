@@ -81,7 +81,7 @@ var DataTable = $.fn.dataTable;
  *  @class
  *  @constructor
  *  @global
- *  @param {object} dt DataTables settings object or API instance
+ *  @param {object} dt DataTables settings object or Api instance
  *  @param {object} [opts={}] Configuration object for FixedColumns. Options 
  *    are defined by {@link Scroller.defaults}
  *
@@ -1271,7 +1271,7 @@ $.fn.dataTable.Scroller = Scroller;
 $.fn.DataTable.Scroller = Scroller;
 
 
-// DataTables 1.10 API method aliases
+// DataTables 1.10 Api method aliases
 var Api = $.fn.dataTable.Api;
 
 Api.register( 'scroller()', function () {

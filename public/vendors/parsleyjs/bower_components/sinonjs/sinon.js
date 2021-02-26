@@ -1328,7 +1328,7 @@ if (!this.sinon && commonJSModule) {
 
     var uuid = 0;
 
-    // Public API
+    // Public Api
     var spyApi = {
         reset: function () {
             this.called = false;
@@ -2580,7 +2580,7 @@ if (!this.sinon && commonJSModule) {
 /*jslint eqeqeq: false, plusplus: false, evil: true, onevar: false, browser: true, forin: false*/
 /*global module, require, window*/
 /**
- * Fake timer API
+ * Fake timer Api
  * setTimeout
  * setInterval
  * clearTimeout
@@ -3519,7 +3519,7 @@ if (typeof module == "object" && typeof require == "function") {
 /*global module, require, window*/
 /**
  * The Sinon "server" mimics a web server that receives requests from
- * sinon.FakeXMLHttpRequest and provides an API to respond to those requests,
+ * sinon.FakeXMLHttpRequest and provides an Api to respond to those requests,
  * both synchronously and asynchronously. To respond synchronuously, canned
  * answers have to be provided upfront.
  *

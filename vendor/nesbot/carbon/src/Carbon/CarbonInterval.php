@@ -30,7 +30,7 @@ use ReflectionException;
 use Throwable;
 
 /**
- * A simple API extension for DateInterval.
+ * A simple Api extension for DateInterval.
  * The implementation provides helpers to handle weeks but only days are saved.
  * Weeks are calculated based on the total days of the current instance.
  *

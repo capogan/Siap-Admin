@@ -74,7 +74,7 @@ to one direction when the drag direction is close to it;
 'smartLock'. The graph shows pan hint bar and the pan movement will always
 snap to a direction that the drag diorection started with.
 
-Example API usage:
+Example Api usage:
 ```js
     plot = $.plot(...);
 

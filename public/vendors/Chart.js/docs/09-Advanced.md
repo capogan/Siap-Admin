@@ -303,7 +303,7 @@ Chart.controllers.MyType = Chart.DatasetController.extend({
 });
 
 
-// Now we can create a new instance of our chart, using the Chart.js API
+Api
 new Chart(ctx, {
 	// this is the string the constructor was registered at, ie Chart.controllers.MyType
 	type: 'MyType',

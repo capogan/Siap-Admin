@@ -102,7 +102,7 @@
   }
 
 
-  // BUTTON DATA-API
+  // BUTTON DATA-Api
   // ===============
 
   $(document).on('click.bs.button.data-api', '[data-toggle^=button]', function (e) {

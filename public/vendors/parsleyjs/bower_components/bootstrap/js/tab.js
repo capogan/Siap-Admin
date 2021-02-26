@@ -124,7 +124,7 @@
   }
 
 
-  // TAB DATA-API
+  // TAB DATA-Api
   // ============
 
   $(document).on('click.bs.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]', function (e) {

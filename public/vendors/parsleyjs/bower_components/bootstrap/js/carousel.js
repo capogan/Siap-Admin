@@ -188,7 +188,7 @@
   }
 
 
-  // CAROUSEL DATA-API
+  // CAROUSEL DATA-Api
   // =================
 
   $(document).on('click.bs.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {

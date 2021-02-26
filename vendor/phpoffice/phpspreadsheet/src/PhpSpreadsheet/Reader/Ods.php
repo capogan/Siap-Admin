@@ -364,7 +364,7 @@ class Ods extends BaseReader
                         case 'table-header-rows':
                             /// TODO :: Figure this out. This is only a partial implementation I guess.
                             //          ($rowData it's not used at all and I'm not sure that PHPExcel
-                            //          has an API for this)
+                            //          has an Api for this)
 
 //                            foreach ($rowData as $keyRowData => $cellData) {
 //                                $rowData = $cellData;

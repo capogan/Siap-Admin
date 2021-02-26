@@ -41,11 +41,11 @@ use function substr;
  *
  * @psalm-immutable
  *
- * Note: the {@see FieldsInterface} does not declare methods that deprecated API
- *        relies upon: the API has been ported from the {@see \Ramsey\Uuid\Uuid} definition,
+ * Note: the {@see FieldsInterface} does not declare methods that deprecated Api
+ *        relies upon: the Api has been ported from the {@see \Ramsey\Uuid\Uuid} definition,
  *        and is deprecated anyway.
- * Note: the deprecated API from {@see \Ramsey\Uuid\Uuid} is in use here (on purpose): it will be removed
- *       once the deprecated API is gone from this class too.
+ * Note: the deprecated Api from {@see \Ramsey\Uuid\Uuid} is in use here (on purpose): it will be removed
+ *       once the deprecated Api is gone from this class too.
  *
  * @psalm-suppress UndefinedInterfaceMethod
  * @psalm-suppress DeprecatedMethod

@@ -11,7 +11,7 @@ use Whoops\Exception\Formatter;
 /**
  * Catches an exception and converts it to a JSON
  * response. Additionally can also return exception
- * frames for consumption by an API.
+ * frames for consumption by an Api.
  */
 class JsonResponseHandler extends Handler
 {

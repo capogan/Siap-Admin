@@ -81,7 +81,7 @@ define(function (require) {
 
     function cloneShallowInjection(opt, res) {
         // cloneShallow, which brings about some fragilities, may be inappropriate
-        // to be exposed as an API. So for implementation simplicity we can make
+        // to be exposed as an Api. So for implementation simplicity we can make
         // the restriction that cloneShallow of not-mainData should not be invoked
         // outside, but only be invoked here.
         each(res[DATAS], function (data, dataType) {

@@ -23,7 +23,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   var pastWarnings = {};
 
   var ParsleyUtils__ParsleyUtils = {
-    // Parsley DOM-API
+    // Parsley DOM-Api
     // returns object from dom attributes and values
     attr: function attr($element, namespace, obj) {
       var i;
@@ -138,14 +138,14 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   var ParsleyUtils__default = ParsleyUtils__ParsleyUtils;
 
   // All these options could be overriden and specified directly in DOM using
-  // `data-parsley-` default DOM-API
+  // `data-parsley-` default DOM-Api
   // eg: `inputs` can be set in DOM using `data-parsley-inputs="input, textarea"`
   // eg: `data-parsley-stop-on-first-failing-constraint="false"`
 
   var ParsleyDefaults = {
     // ### General
 
-    // Default data-namespace for DOM API
+    // Default data-namespace for DOM Api
     namespace: 'data-parsley-',
 
     // Supported inputs by default
@@ -587,7 +587,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     //        }
     //    })
     //
-    // Old API was addValidator(name, function, priority)
+    // Old Api was addValidator(name, function, priority)
     //
     addValidator: function addValidator(name, arg1, arg2) {
       if (this.validators[name]) ParsleyUtils__default.warn('Validator "' + name + '" is already defined.');else if (ParsleyDefaults.hasOwnProperty(name)) {
@@ -1412,7 +1412,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   var parsley_field__statusMapping = { pending: null, resolved: true, rejected: false };
 
   ParsleyField.prototype = {
-    // # Public API
+    // # Public Api
     // Validate field and trigger some events for mainly `ParsleyUI`
     // @returns `true`, an array of the validators that failed, or
     // `null` if validation is not finished. Prefer using whenValidate
@@ -1643,7 +1643,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       this.constraints = constraints;
       this.constraintsByName = constraintsByName;
 
-      // then re-add Parsley DOM-API constraints
+      // then re-add Parsley DOM-Api constraints
       for (var name in this.options) this.addConstraint(name, this.options[name], undefined, true);
 
       // finally, bind special HTML5 constraints
@@ -1985,7 +1985,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   // Inherit actualizeOptions and _resetOptions:
   $.extend(ParsleyFactory.prototype, ParsleyAbstract.prototype);
 
-  // ### jQuery API
+  // ### jQuery Api
   // `$('.elem').parsley(options)` or `$('.elem').psly(options)`
   $.fn.parsley = $.fn.psly = function (options) {
     if (this.length > 1) {

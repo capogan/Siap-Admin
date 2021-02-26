@@ -14,20 +14,20 @@ namespace Monolog\Handler;
 use Monolog\Logger;
 
 /**
- * SendGridrHandler uses the SendGrid API v2 function to send Log emails, more information in https://sendgrid.com/docs/API_Reference/Web_API/mail.html
+ * SendGridrHandler uses the SendGrid Api v2 function to send Log emails, more information in https://sendgrid.com/docs/API_Reference/Web_API/mail.html
  *
  * @author Ricardo Fontanelli <ricardo.fontanelli@hotmail.com>
  */
 class SendGridHandler extends MailHandler
 {
     /**
-     * The SendGrid API User
+     * The SendGrid Api User
      * @var string
      */
     protected $apiUser;
 
     /**
-     * The SendGrid API Key
+     * The SendGrid Api Key
      * @var string
      */
     protected $apiKey;
@@ -51,8 +51,8 @@ class SendGridHandler extends MailHandler
     protected $subject;
 
     /**
-     * @param string       $apiUser The SendGrid API User
-     * @param string       $apiKey  The SendGrid API Key
+     * @param string       $apiUser The SendGrid Api User
+     * @param string       $apiKey  The SendGrid Api Key
      * @param string       $from    The sender of the email
      * @param string|array $to      The recipients of the email
      * @param string       $subject The subject of the mail

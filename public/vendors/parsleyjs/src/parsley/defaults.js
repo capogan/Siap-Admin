@@ -1,12 +1,12 @@
 // All these options could be overriden and specified directly in DOM using
-// `data-parsley-` default DOM-API
+// `data-parsley-` default DOM-Api
 // eg: `inputs` can be set in DOM using `data-parsley-inputs="input, textarea"`
 // eg: `data-parsley-stop-on-first-failing-constraint="false"`
 
 var ParsleyDefaults = {
   // ### General
 
-  // Default data-namespace for DOM API
+  // Default data-namespace for DOM Api
   namespace: 'data-parsley-',
 
   // Supported inputs by default

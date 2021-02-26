@@ -274,7 +274,7 @@
 	 * =============
 	 *
 	 * The Buffer constructor returns instances of `Uint8Array` that are augmented
-	 * with function properties for all the node `Buffer` API functions. We use
+	 * with function properties for all the node `Buffer` Api functions. We use
 	 * `Uint8Array` so that square bracket notation works as expected -- it returns
 	 * a single octet.
 	 *
@@ -20071,7 +20071,7 @@
 	};
 	Readable.prototype.addListener = Readable.prototype.on;
 
-	// pause() and resume() are remnants of the legacy readable stream API
+	// pause() and resume() are remnants of the legacy readable stream Api
 	// If the user uses them, then switch into old mode.
 	Readable.prototype.resume = function() {
 	  var state = this._readableState;

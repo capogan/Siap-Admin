@@ -15,14 +15,14 @@ use RuntimeException;
 use Monolog\Logger;
 
 /**
- * Handler send logs to Telegram using Telegram Bot API.
+ * Handler send logs to Telegram using Telegram Bot Api.
  *
  * How to use:
  *  1) Create telegram bot with https://telegram.me/BotFather
  *  2) Create a telegram channel where logs will be recorded.
  *  3) Add created bot from step 1 to the created channel from step 2.
  *
- * Use telegram bot API key from step 1 and channel name with '@' prefix from step 2 to create instance of TelegramBotHandler
+ * Use telegram bot Api key from step 1 and channel name with '@' prefix from step 2 to create instance of TelegramBotHandler
  *
  * @link https://core.telegram.org/bots/api
  *
@@ -175,7 +175,7 @@ class TelegramBotHandler extends AbstractProcessingHandler
         $result = json_decode($result, true);
 
         if ($result['ok'] === false) {
-            throw new RuntimeException('Telegram API error. Description: ' . $result['description']);
+            throw new RuntimeException('Telegram Api error. Description: ' . $result['description']);
         }
     }
 }

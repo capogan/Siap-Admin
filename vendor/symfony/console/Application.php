@@ -1075,7 +1075,7 @@ class Application implements ResetInterface
     /**
      * Returns the namespace part of the command name.
      *
-     * This method is not part of public API and should not be used directly.
+     * This method is not part of public Api and should not be used directly.
      *
      * @return string The namespace of the command
      */

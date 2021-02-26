@@ -16,7 +16,7 @@ namespace League\Fractal\Resource;
  *
  * The Null Resource represents a resource that doesn't exist. This can be
  * useful to indicate that a certain relationship is null in some output
- * formats (e.g. JSON API), which require even a relationship that is null at
+ * formats (e.g. JSON Api), which require even a relationship that is null at
  * the moment to be listed.
  */
 class NullResource extends ResourceAbstract

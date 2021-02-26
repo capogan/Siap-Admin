@@ -145,7 +145,7 @@
   }
 
 
-  // SCROLLSPY DATA-API
+  // SCROLLSPY DATA-Api
   // ==================
 
   $(window).on('load', function () {
