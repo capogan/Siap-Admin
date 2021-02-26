@@ -18,4 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/get/user', 'Api\ApiMasterController@get_user')->name('api.get.user');
+Route::post('/get/user', 'Api\ApiMasterController@get_user')->name('api.get.user');
