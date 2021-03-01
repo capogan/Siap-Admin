@@ -3722,6 +3722,13 @@ ul.project_files li a i {
 .caption p {
   margin-bottom: 5px; }
 
+  .caption2 {
+  padding: 9px 5px;
+ }
+
+.caption2 p {
+  margin-bottom: 5px; }
+
 .thumbnail {
   height: 190px;
   overflow: hidden; }
