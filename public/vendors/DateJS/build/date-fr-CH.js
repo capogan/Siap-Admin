@@ -4419,7 +4419,7 @@ Date.CultureStrings.lang = "fr-CH";
 	Date.TimeSpan = TimeSpan;
 
 	if (typeof window !== "undefined" ) {
-		// keeping API compatible for v1.x 
+		// keeping Api compatible for v1.x
 		window.TimeSpan = TimeSpan;
 	}
 }());
@@ -4520,7 +4520,7 @@ Date.CultureStrings.lang = "fr-CH";
 	Date.TimePeriod = TimePeriod;
 
 	if (typeof window !== "undefined") {
-		// keeping API compatible for v1.x 
+		// keeping Api compatible for v1.x
 		window.TimePeriod = TimePeriod;
 	}
 }());

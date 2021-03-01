@@ -80,7 +80,7 @@ class Container
     /**
      * Generates a new mock object for this container
      *
-     * I apologies in advance for this. A God Method just fits the API which
+     * I apologies in advance for this. A God Method just fits the Api which
      * doesn't require differentiating between classes, interfaces, abstracts,
      * names or partials - just so long as it's something that can be mocked.
      * I'll refactor it one day so it's easier to follow.

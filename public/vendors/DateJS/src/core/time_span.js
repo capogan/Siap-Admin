@@ -170,7 +170,7 @@
 	Date.TimeSpan = TimeSpan;
 
 	if (typeof window !== "undefined" ) {
-		// keeping API compatible for v1.x 
+		// keeping Api compatible for v1.x 
 		window.TimeSpan = TimeSpan;
 	}
 }());

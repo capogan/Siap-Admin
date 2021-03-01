@@ -1305,7 +1305,7 @@ $.extend( _dtButtons, {
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- * DataTables API
+ * DataTables Api
  *
  * For complete documentation, please refer to the docs/api directory or the
  * DataTables site
@@ -1635,7 +1635,7 @@ $.fn.DataTable.Buttons = Buttons;
 // DataTables creation - check if the buttons have been defined for this table,
 // they will have been if the `B` option was used in `dom`, otherwise we should
 // create the buttons instance here so they can be inserted into the document
-// using the API. Listen for `init` for compatibility with pre 1.10.10, but to
+// using the Api. Listen for `init` for compatibility with pre 1.10.10, but to
 // be removed in future.
 $(document).on( 'init.dt plugin-init.dt', function (e, settings) {
 	if ( e.namespace !== 'dt' ) {

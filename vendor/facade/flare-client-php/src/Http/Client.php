@@ -202,7 +202,7 @@ class Client
             'Content-Type: application/json',
         ], $headers));
 
-        curl_setopt($curlHandle, CURLOPT_USERAGENT, 'Laravel/Flare API 1.0');
+        curl_setopt($curlHandle, CURLOPT_USERAGENT, 'Laravel/Flare Api 1.0');
         curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curlHandle, CURLOPT_TIMEOUT, $this->timeout);
         curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, true);

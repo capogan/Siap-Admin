@@ -15,7 +15,7 @@
  */
 class Swift_Transport_NullTransport implements Swift_Transport
 {
-    /** The event dispatcher from the plugin API */
+    /** The event dispatcher from the plugin Api */
     private $eventDispatcher;
 
     /**

@@ -3747,7 +3747,7 @@ var Grid = FC.Grid = Class.extend(ListenerMixin, MouseIgnorerMixin, {
 
 
 	// Kills all in-progress dragging.
-	// Useful for when public API methods that result in re-rendering are invoked during a drag.
+	// Useful for when public Api methods that result in re-rendering are invoked during a drag.
 	// Also useful for when touch devices misbehave and don't fire their touchend.
 	clearDragListeners: function() {
 		this.dayDragListener.endInteraction();
@@ -3915,7 +3915,7 @@ var Grid = FC.Grid = Class.extend(ListenerMixin, MouseIgnorerMixin, {
 
 	// Renders a set of rectangles over the given segments of time.
 	// MUST RETURN a subset of segs, the segs that were actually rendered.
-	// Responsible for populating this.elsByFill. TODO: better API for expressing this requirement
+	// Responsible for populating this.elsByFill. TODO: better Api for expressing this requirement
 	renderFill: function(type, segs) {
 		// subclasses must implement
 	},
@@ -4967,7 +4967,7 @@ Grid.mixin({
 	},
 
 
-	// List of classes that were defined by the caller of the API in some way
+	// List of classes that were defined by the caller of the Api in some way
 	getSegCustomClasses: function(seg) {
 		var event = seg.event;
 
@@ -7194,7 +7194,7 @@ var TimeGrid = FC.TimeGrid = Grid.extend(DayTableMixin, {
 		var dayRange;
 
 		for (dayIndex = 0; dayIndex < this.daysPerRow; dayIndex++) {
-			dayDate = this.dayDates[dayIndex].clone(); // TODO: better API for this?
+			dayDate = this.dayDates[dayIndex].clone(); // TODO: better Api for this?
 			dayRange = {
 				start: dayDate.clone().time(this.minTime),
 				end: dayDate.clone().time(this.maxTime)
@@ -8383,7 +8383,7 @@ var View = FC.View = Class.extend(EmitterMixin, ListenerMixin, {
 		this.unbindGlobalHandlers();
 
 		this.el.remove();
-		// NOTE: don't null-out this.el in case the View was destroyed within an API callback.
+		// NOTE: don't null-out this.el in case the View was destroyed within an Api callback.
 		// We don't null-out the View's other jQuery element references upon destroy,
 		//  so we shouldn't kill this.el either.
 	},
@@ -9171,7 +9171,7 @@ var View = FC.View = Class.extend(EmitterMixin, ListenerMixin, {
 	},
 
 
-	// Triggers event-drop handlers that have subscribed via the API
+	// Triggers event-drop handlers that have subscribed via the Api
 	triggerEventDrop: function(event, dateDelta, undoFunc, el, ev) {
 		this.publiclyTrigger('eventDrop', el[0], event, dateDelta, undoFunc, ev, {}); // {} = jqui dummy
 	},
@@ -9199,7 +9199,7 @@ var View = FC.View = Class.extend(EmitterMixin, ListenerMixin, {
 	},
 
 
-	// Triggers external-drop handlers that have subscribed via the API
+	// Triggers external-drop handlers that have subscribed via the Api
 	triggerExternalDrop: function(event, dropLocation, el, ev, ui) {
 
 		// trigger 'drop' regardless of whether element represents an event
@@ -9274,7 +9274,7 @@ var View = FC.View = Class.extend(EmitterMixin, ListenerMixin, {
 	},
 
 
-	// Triggers event-resize handlers that have subscribed via the API
+	// Triggers event-resize handlers that have subscribed via the Api
 	triggerEventResize: function(event, durationDelta, undoFunc, el, ev) {
 		this.publiclyTrigger('eventResize', el[0], event, durationDelta, undoFunc, ev, {}); // {} = jqui dummy
 	},
@@ -9311,7 +9311,7 @@ var View = FC.View = Class.extend(EmitterMixin, ListenerMixin, {
 		this.publiclyTrigger(
 			'select',
 			null,
-			this.calendar.applyTimezone(span.start), // convert to calendar's tz for external API
+			this.calendar.applyTimezone(span.start), // convert to calendar's tz for external Api
 			this.calendar.applyTimezone(span.end), // "
 			ev
 		);
@@ -9422,7 +9422,7 @@ var View = FC.View = Class.extend(EmitterMixin, ListenerMixin, {
 		this.publiclyTrigger(
 			'dayClick',
 			dayEl,
-			this.calendar.applyTimezone(span.start), // convert to calendar's timezone for external API
+			this.calendar.applyTimezone(span.start), // convert to calendar's timezone for external Api
 			ev
 		);
 	},
@@ -10175,7 +10175,7 @@ var Calendar = FC.Calendar = Class.extend({
 	},
 
 
-	// Given arguments to the select method in the API, returns a span (unzoned start/end and other info)
+	// Given arguments to the select method in the Api, returns a span (unzoned start/end and other info)
 	buildSelectSpan: function(zonedStartInput, zonedEndInput) {
 		var start = this.moment(zonedStartInput).stripZone();
 		var end;
@@ -10463,7 +10463,7 @@ function Calendar_constructor(element, overrides) {
 			initialRender();
 		}
 		else if (elementVisible()) {
-			// mainly for the public API
+			// mainly for the public Api
 			calcSize();
 			renderView();
 		}
@@ -10532,7 +10532,7 @@ function Calendar_constructor(element, overrides) {
 		if (currentView) {
 			currentView.removeElement();
 
-			// NOTE: don't null-out currentView/t.view in case API methods are called after destroy.
+			// NOTE: don't null-out currentView/t.view in case Api methods are called after destroy.
 			// It is still the "current" view, just not rendered.
 		}
 
@@ -10743,7 +10743,7 @@ function Calendar_constructor(element, overrides) {
 	-----------------------------------------------------------------------------*/
 
 
-	function rerenderEvents() { // API method. destroys old events if previously rendered.
+	function rerenderEvents() { // Api method. destroys old events if previously rendered.
 		if (elementVisible()) {
 			t.reportEventChange(); // will re-trasmit events to the view, causing a rerender
 		}
@@ -10895,7 +10895,7 @@ function Calendar_constructor(element, overrides) {
 	}
 
 
-	// for external API
+	// for external Api
 	function getDate() {
 		return t.applyTimezone(date); // infuse the calendar's timezone
 	}
@@ -11975,13 +11975,13 @@ function EventManager() { // assumed to be a calendar
 	-----------------------------------------------------------------------------*/
 
 
-	// Only ever called from the externally-facing API
+	// Only ever called from the externally-facing Api
 	function updateEvent(event) {
 		updateEvents([ event ]);
 	}
 
 
-	// Only ever called from the externally-facing API
+	// Only ever called from the externally-facing Api
 	function updateEvents(events) {
 		var i, event;
 
@@ -12723,7 +12723,7 @@ Calendar.prototype.isSpanAllowed = function(span, constraint, overlap, event) {
 };
 
 
-// Given an event input from the API, produces an array of event objects. Possible event inputs:
+// Given an event input from the Api, produces an array of event objects. Possible event inputs:
 // 'businessHours'
 // An event ID (number or string)
 // An object with specific start/end dates or a recurring event (like what businessHours accepts)

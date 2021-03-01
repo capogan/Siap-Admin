@@ -36,7 +36,7 @@
  *    printer needs to do more substantial DOM manipulations to support that, so
  *    some css styles may not be preserved.
  * </ol>
- * That's it.  I wanted to keep the API as simple as possible, so there's no
+ * That's it.  I wanted to keep the Api as simple as possible, so there's no
  * need to specify which language the code is in, but if you wish, you can add
  * another class to the {@code <pre>} or {@code <code>} element to specify the
  * language, as in {@code <pre class="prettyprint lang-java">}.  Any class that
@@ -1635,18 +1635,18 @@ var prettyPrint;
              : (prettyPrint = $prettyPrint)
       };
 
-  // Make PR available via the Asynchronous Module Definition (AMD) API.
+  // Make PR available via the Asynchronous Module Definition (AMD) Api.
   // Per https://github.com/amdjs/amdjs-api/wiki/AMD:
-  // The Asynchronous Module Definition (AMD) API specifies a
+  // The Asynchronous Module Definition (AMD) Api specifies a
   // mechanism for defining modules such that the module and its
   // dependencies can be asynchronously loaded.
   // ...
   // To allow a clear indicator that a global define function (as
-  // needed for script src browser loading) conforms to the AMD API,
+  // needed for script src browser loading) conforms to the AMD Api,
   // any global define function SHOULD have a property called "amd"
   // whose value is an object. This helps avoid conflict with any
   // other existing JavaScript code that could have defined a define()
-  // function that does not conform to the AMD API.
+  // function that does not conform to the AMD Api.
   if (typeof define === "function" && define['amd']) {
     define("google-code-prettify", [], function () {
       return PR; 

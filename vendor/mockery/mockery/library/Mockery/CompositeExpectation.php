@@ -99,7 +99,7 @@ class CompositeExpectation implements ExpectationInterface
     }
 
     /**
-     * Mockery API alias to getMock
+     * Mockery Api alias to getMock
      *
      * @return \Mockery\LegacyMockInterface|\Mockery\MockInterface
      */

@@ -138,7 +138,7 @@ $.extend( DataTable.ext.buttons, {
 
 		_columnText: function ( dt, col ) {
 			// Use DataTables' internal data structure until this is presented
-			// is a public API. The other option is to use
+			// is a public Api. The other option is to use
 			// `$( column(col).node() ).text()` but the node might not have been
 			// populated when Buttons is constructed.
 			var idx = dt.column( col ).index();

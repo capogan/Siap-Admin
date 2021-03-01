@@ -112,7 +112,7 @@ class RouteRegistrar
     }
 
     /**
-     * Route an API resource to a controller.
+     * Route an Api resource to a controller.
      *
      * @param  string  $name
      * @param  string  $controller

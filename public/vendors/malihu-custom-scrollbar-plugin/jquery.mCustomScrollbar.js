@@ -2336,7 +2336,7 @@ and dependencies (minified).
 		/* -------------------- */
 		
 		
-		/* checks if browser tab is hidden/inactive via Page Visibility API */
+		/* checks if browser tab is hidden/inactive via Page Visibility Api */
 		_isTabHidden=function(){
 			var prop=_getHiddenProp();
 			if(!prop) return false;

@@ -89,7 +89,7 @@ class FleepHookHandler extends SocketHandler
     }
 
     /**
-     * Builds the header of the API Call
+     * Builds the header of the Api Call
      */
     private function buildHeader(string $content): string
     {
@@ -103,7 +103,7 @@ class FleepHookHandler extends SocketHandler
     }
 
     /**
-     * Builds the body of API call
+     * Builds the body of Api call
      */
     private function buildContent(array $record): string
     {

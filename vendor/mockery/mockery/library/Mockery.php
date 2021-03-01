@@ -339,7 +339,7 @@ class Mockery
      * Return instance of AndAnyOtherArgs matcher.
      *
      * An alternative name to `andAnyOtherArgs` so
-     * the API stays closer to `any` as well.
+     * the Api stays closer to `any` as well.
      *
      * @return \Mockery\Matcher\AndAnyOtherArgs
      */

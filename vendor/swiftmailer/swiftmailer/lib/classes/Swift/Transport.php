@@ -58,7 +58,7 @@ interface Swift_Transport
     /**
      * Send the given Message.
      *
-     * Recipient/sender data will be retrieved from the Message API.
+     * Recipient/sender data will be retrieved from the Message Api.
      * The return value is the number of recipients who were accepted for delivery.
      *
      * This is the responsibility of the send method to start the transport if needed.

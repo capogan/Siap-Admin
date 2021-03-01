@@ -67,7 +67,7 @@ final class TableParser implements BlockParserInterface, EnvironmentAwareInterfa
         $table = new Table(function (Cursor $cursor, Table $table) use ($columns): bool {
             // The next line cannot be a new block start
             // This is a bit inefficient, but it's the only feasible way to check
-            // given the current v1 API.
+            // given the current v1 Api.
             if (self::isANewBlock($this->environment, $cursor->getLine())) {
                 return false;
             }

@@ -45,7 +45,7 @@ class JsonFormatter extends NormalizerFormatter
      * The batch mode option configures the formatting style for
      * multiple records. By default, multiple records will be
      * formatted as a JSON-encoded array. However, for
-     * compatibility with some API endpoints, alternative styles
+     * compatibility with some Api endpoints, alternative styles
      * are available.
      */
     public function getBatchMode(): int

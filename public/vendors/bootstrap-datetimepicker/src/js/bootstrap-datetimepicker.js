@@ -1432,7 +1432,7 @@
 
         /********************************************************************************
          *
-         * Public API functions
+         * Public Api functions
          * =====================
          *
          * Important: Do not expose direct references to private objects or the options

@@ -155,7 +155,7 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
   }
 
 
-  // ALERT DATA-API
+  // ALERT DATA-Api
   // ==============
 
   $(document).on('click.bs.alert.data-api', dismiss, Alert.prototype.close)
@@ -266,7 +266,7 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
   }
 
 
-  // BUTTON DATA-API
+  // BUTTON DATA-Api
   // ===============
 
   $(document).on('click.bs.button.data-api', '[data-toggle^=button]', function (e) {
@@ -468,7 +468,7 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
   }
 
 
-  // CAROUSEL DATA-API
+  // CAROUSEL DATA-Api
   // =================
 
   $(document).on('click.bs.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
@@ -652,7 +652,7 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
   }
 
 
-  // COLLAPSE DATA-API
+  // COLLAPSE DATA-Api
   // =================
 
   $(document).on('click.bs.collapse.data-api', '[data-toggle=collapse]', function (e) {
@@ -1054,7 +1054,7 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
   }
 
 
-  // MODAL DATA-API
+  // MODAL DATA-Api
   // ==============
 
   $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {
@@ -1730,7 +1730,7 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
   }
 
 
-  // SCROLLSPY DATA-API
+  // SCROLLSPY DATA-Api
   // ==================
 
   $(window).on('load', function () {
@@ -1868,7 +1868,7 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
   }
 
 
-  // TAB DATA-API
+  // TAB DATA-Api
   // ============
 
   $(document).on('click.bs.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]', function (e) {
@@ -1986,7 +1986,7 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
   }
 
 
-  // AFFIX DATA-API
+  // AFFIX DATA-Api
   // ==============
 
   $(window).on('load', function () {

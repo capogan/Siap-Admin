@@ -187,9 +187,9 @@ abstract class Enum implements \JsonSerializable
         $class = static::class;
 
         if (!isset(static::$cache[$class])) {
-            /** @psalm-suppress ImpureMethodCall this reflection API usage has no side-effects here */
+            /** @psalm-suppress ImpureMethodCall this reflection Api usage has no side-effects here */
             $reflection            = new \ReflectionClass($class);
-            /** @psalm-suppress ImpureMethodCall this reflection API usage has no side-effects here */
+            /** @psalm-suppress ImpureMethodCall this reflection Api usage has no side-effects here */
             static::$cache[$class] = $reflection->getConstants();
         }
 

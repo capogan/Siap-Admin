@@ -47,7 +47,7 @@ class Logger implements LoggerInterface, ResettableInterface
     /**
      * Exceptional occurrences that are not errors
      *
-     * Examples: Use of deprecated APIs, poor use of an API,
+     * Examples: Use of deprecated APIs, poor use of an Api,
      * undesirable things that are not necessarily wrong.
      */
     public const WARNING = 300;
@@ -78,9 +78,9 @@ class Logger implements LoggerInterface, ResettableInterface
     public const EMERGENCY = 600;
 
     /**
-     * Monolog API version
+     * Monolog Api version
      *
-     * This is only bumped when API breaks are done and should
+     * This is only bumped when Api breaks are done and should
      * follow the major version of the library
      *
      * @var int

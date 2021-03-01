@@ -17,7 +17,7 @@ use Prophecy\PhpDocumentor\ClassAndInterfaceTagRetriever;
 use Prophecy\PhpDocumentor\MethodTagRetrieverInterface;
 
 /**
- * Discover Magical API using "@method" PHPDoc format.
+ * Discover Magical Api using "@method" PHPDoc format.
  *
  * @author Thomas Tourlourat <thomas@tourlourat.com>
  * @author Kévin Dunglas <dunglas@gmail.com>
@@ -45,7 +45,7 @@ class MagicCallPatch implements ClassPatchInterface
     }
 
     /**
-     * Discover Magical API
+     * Discover Magical Api
      *
      * @param ClassNode $node
      */

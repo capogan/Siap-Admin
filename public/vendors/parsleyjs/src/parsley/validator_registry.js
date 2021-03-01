@@ -136,7 +136,7 @@ ParsleyValidatorRegistry.prototype = {
   //        }
   //    })
   //
-  // Old API was addValidator(name, function, priority)
+  // Old Api was addValidator(name, function, priority)
   //
   addValidator: function (name, arg1, arg2) {
     if (this.validators[name])

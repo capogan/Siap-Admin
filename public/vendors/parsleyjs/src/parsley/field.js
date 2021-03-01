@@ -28,7 +28,7 @@ var ParsleyField = function (field, domOptions, options, parsleyFormInstance) {
 var statusMapping = {pending: null, resolved: true, rejected: false};
 
 ParsleyField.prototype = {
-  // # Public API
+  // # Public Api
   // Validate field and trigger some events for mainly `ParsleyUI`
   // @returns `true`, an array of the validators that failed, or
   // `null` if validation is not finished. Prefer using whenValidate
@@ -250,7 +250,7 @@ ParsleyField.prototype = {
     this.constraints = constraints;
     this.constraintsByName = constraintsByName;
 
-    // then re-add Parsley DOM-API constraints
+    // then re-add Parsley DOM-Api constraints
     for (var name in this.options)
       this.addConstraint(name, this.options[name], undefined, true);
 

@@ -49,7 +49,7 @@ class Swift_Transport_FailoverTransport extends Swift_Transport_LoadBalancedTran
     /**
      * Send the given Message.
      *
-     * Recipient/sender data will be retrieved from the Message API.
+     * Recipient/sender data will be retrieved from the Message Api.
      * The return value is the number of recipients who were accepted for delivery.
      *
      * @param string[] $failedRecipients An array of failures by-reference

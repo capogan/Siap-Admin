@@ -85,7 +85,7 @@ ____________________________________________________
  *  v0.6   flot 0.8 compatibility and some bug fixes
  *  v0.6.x changed versioning schema
  *
- *  v1.0.0 API Break marked existing implementation/options as deprecated
+ *  v1.0.0 Api Break marked existing implementation/options as deprecated
  *  v1.1.0 added the new curved line calculations based on hermite splines
  *  v1.1.1 added a rough parameter check to make sure the new options are used
  */
@@ -462,7 +462,7 @@ ____________________________________________________
 			if (typeof curvedLinesOptions.fit != 'undefined' ||
 			    typeof curvedLinesOptions.curvePointFactor != 'undefined' ||
 			    typeof curvedLinesOptions.fitPointDist != 'undefined') {
-			    	throw new Error("CurvedLines detected illegal parameters. The CurvedLines API changed with version 1.0.0 please check the options object.");
+			    	throw new Error("CurvedLines detected illegal parameters. The CurvedLines Api changed with version 1.0.0 please check the options object.");
 			    	return true;
 			    }
 			return false;

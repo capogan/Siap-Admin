@@ -96,7 +96,7 @@ module.exports = function(Chart) {
 
 				// Desired view properties
 				_model: {
-					x: reset ? scale.xCenter : pointPosition.x, // value not used in dataset scale, but we want a consistent API between scales
+					x: reset ? scale.xCenter : pointPosition.x, // value not used in dataset scale, but we want a consistent Api between scales
 					y: reset ? scale.yCenter : pointPosition.y,
 
 					// Appearance

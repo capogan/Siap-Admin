@@ -56,7 +56,7 @@ describe('Plugin initialization and component basic construction', function () {
     });
 });
 
-describe('Public API method tests', function () {
+describe('Public Api method tests', function () {
     'use strict';
     var dtp,
         dtpElement,

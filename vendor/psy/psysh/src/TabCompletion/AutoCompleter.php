@@ -101,7 +101,7 @@ class AutoCompleter
      */
     public function __destruct()
     {
-        // PHP didn't implement the whole readline API when they first switched
+        // PHP didn't implement the whole readline Api when they first switched
         // to libedit. And they still haven't.
         if (\function_exists('readline_callback_handler_remove')) {
             \readline_callback_handler_remove();

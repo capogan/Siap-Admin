@@ -18,7 +18,7 @@ class TokenGuard implements Guard
     protected $request;
 
     /**
-     * The name of the query string item from the request containing the API token.
+     * The name of the query string item from the request containing the Api token.
      *
      * @var string
      */
@@ -32,7 +32,7 @@ class TokenGuard implements Guard
     protected $storageKey;
 
     /**
-     * Indicates if the API token is hashed in storage.
+     * Indicates if the Api token is hashed in storage.
      *
      * @var bool
      */

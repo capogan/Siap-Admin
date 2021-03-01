@@ -6473,7 +6473,7 @@ jQuery.extend({
 		}
 	}
 });
-// Limit scope pollution from any deprecated API
+// Limit scope pollution from any deprecated Api
 (function() {
 
 var matched, browser;

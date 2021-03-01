@@ -224,7 +224,7 @@ class JsonApiSerializer extends ArraySerializer
 
     /**
      * Hook to manipulate the final sideloaded includes.
-     * The JSON API specification does not allow the root object to be included
+     * The JSON Api specification does not allow the root object to be included
      * into the sideloaded `included`-array. We have to make sure it is
      * filtered out, in case some object links to the root object in a
      * relationship.
@@ -275,7 +275,7 @@ class JsonApiSerializer extends ArraySerializer
     }
 
     /**
-     * Set the root objects of the JSON API tree.
+     * Set the root objects of the JSON Api tree.
      *
      * @param array $objects
      */
@@ -287,7 +287,7 @@ class JsonApiSerializer extends ArraySerializer
     }
 
     /**
-     * Determines whether an object is a root object of the JSON API tree.
+     * Determines whether an object is a root object of the JSON Api tree.
      *
      * @param array $object
      *
@@ -381,7 +381,7 @@ class JsonApiSerializer extends ArraySerializer
     {
         if (!array_key_exists('id', $data)) {
             throw new InvalidArgumentException(
-                'JSON API resource objects MUST have a valid id'
+                'JSON Api resource objects MUST have a valid id'
             );
         }
         return $data['id'];

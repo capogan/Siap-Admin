@@ -18,7 +18,7 @@ class Swift_Transport_SpoolTransport implements Swift_Transport
     /** The spool instance */
     private $spool;
 
-    /** The event dispatcher from the plugin API */
+    /** The event dispatcher from the plugin Api */
     private $eventDispatcher;
 
     /**

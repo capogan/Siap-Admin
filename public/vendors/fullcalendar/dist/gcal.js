@@ -35,7 +35,7 @@ FC.sourceNormalizers.push(function(sourceOptions) {
 		if (/^[^\/]+@([^\/\.]+\.)*(google|googlemail|gmail)\.com$/.test(url)) {
 			googleCalendarId = url;
 		}
-		// try to scrape it out of a V1 or V3 API feed URL
+		// try to scrape it out of a V1 or V3 Api feed URL
 		else if (
 			(match = /^https:\/\/www.googleapis.com\/calendar\/v3\/calendars\/([^\/]*)/.exec(url)) ||
 			(match = /^https?:\/\/www.google.com\/calendar\/feeds\/([^\/]*)/.exec(url))
@@ -94,7 +94,7 @@ function transformOptions(sourceOptions, start, end, timezone, calendar) {
 		return {}; // an empty source to use instead. won't fetch anything.
 	}
 
-	// The API expects an ISO8601 datetime with a time and timezone part.
+	// The Api expects an ISO8601 datetime with a time and timezone part.
 	// Since the calendar's timezone offset isn't always known, request the date in UTC and pad it by a day on each
 	// side, guaranteeing we will receive all events in the desired range, albeit a superset.
 	// .utc() will set a zone and give it a 00:00:00 time.
@@ -132,7 +132,7 @@ function transformOptions(sourceOptions, start, end, timezone, calendar) {
 			var successRes;
 
 			if (data.error) {
-				reportError('Google Calendar API: ' + data.error.message, data.error.errors);
+				reportError('Google Calendar Api: ' + data.error.message, data.error.errors);
 			}
 			else if (data.items) {
 				$.each(data.items, function(i, entry) {

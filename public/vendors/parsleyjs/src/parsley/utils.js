@@ -4,7 +4,7 @@ var globalID = 1;
 var pastWarnings = {};
 
 var ParsleyUtils = {
-  // Parsley DOM-API
+  // Parsley DOM-Api
   // returns object from dom attributes and values
   attr: function ($element, namespace, obj) {
     var i;

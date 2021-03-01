@@ -17,7 +17,7 @@ section: main
 // deprecated
 zip.file("test.txt").options.date
 zip.file("test.txt").options.dir
-// new API
+Api
 zip.file("test.txt").date
 zip.file("test.txt").dir
 ```

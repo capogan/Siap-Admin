@@ -178,7 +178,7 @@ Zepto(function($) {
   // Render late enough for highlightCurrentLine to be ready
   renderCurrentCodeblock();
 
-  // Avoid to quit the page with some protocol (e.g. IntelliJ Platform REST API)
+  // Avoid to quit the page with some protocol (e.g. IntelliJ Platform REST Api)
   $ajaxEditors.on('click', function(e){
     e.preventDefault();
     $.get(this.href);

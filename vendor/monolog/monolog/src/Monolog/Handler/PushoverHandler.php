@@ -68,15 +68,15 @@ class PushoverHandler extends SocketHandler
     /**
      * @param string       $token             Pushover api token
      * @param string|array $users             Pushover user id or array of ids the message will be sent to
-     * @param string|null  $title             Title sent to the Pushover API
+     * @param string|null  $title             Title sent to the Pushover Api
      * @param string|int   $level             The minimum logging level at which this handler will be triggered
      * @param bool         $bubble            Whether the messages that are handled can bubble up the stack or not
      * @param bool         $useSSL            Whether to connect via SSL. Required when pushing messages to users that are not
      *                                        the pushover.net app owner. OpenSSL is required for this option.
      * @param string|int   $highPriorityLevel The minimum logging level at which this handler will start
-     *                                        sending "high priority" requests to the Pushover API
+     *                                        sending "high priority" requests to the Pushover Api
      * @param string|int   $emergencyLevel    The minimum logging level at which this handler will start
-     *                                        sending "emergency" requests to the Pushover API
+     *                                        sending "emergency" requests to the Pushover Api
      * @param int          $retry             The retry parameter specifies how often (in seconds) the Pushover servers will
      *                                        send the same notification to the user.
      * @param int          $expire            The expire parameter specifies how many seconds your notification will continue
@@ -146,7 +146,7 @@ class PushoverHandler extends SocketHandler
         // Least important info should be merged with subsequent info
         $dataArray = array_merge($extra, $context, $dataArray);
 
-        // Only pass sounds that are supported by the API
+        // Only pass sounds that are supported by the Api
         if (isset($dataArray['sound']) && !in_array($dataArray['sound'], $this->sounds)) {
             unset($dataArray['sound']);
         }

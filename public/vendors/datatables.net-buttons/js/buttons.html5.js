@@ -83,7 +83,7 @@ var _saveAs = (function(view) {
 		}
 		, force_saveable_type = "application/octet-stream"
 		, fs_min_size = 0
-		// the Blob API is fundamentally broken as there is no "downloadfinished" event to subscribe to
+		// the Blob Api is fundamentally broken as there is no "downloadfinished" event to subscribe to
 		, arbitrary_revoke_timeout = 1000 * 40 // in ms
 		, revoke = function(file) {
 			var revoker = function() {
@@ -312,7 +312,7 @@ var _saveAs = (function(view) {
 ));
 
 
-// Expose file saver on the DataTables API. Can't attach to `DataTables.Buttons`
+// Expose file saver on the DataTables Api. Can't attach to `DataTables.Buttons`
 // since this file can be loaded before Button's core!
 DataTable.fileSave = _saveAs;
 
@@ -403,7 +403,7 @@ var _newLine = function ( config )
  * Combine the data from the `buttons.exportData` method into a string that
  * will be used in the export file.
  *
- * @param	{DataTable.Api} dt		 DataTables API instance
+ * @param	{DataTable.Api} dt		 DataTables Api instance
  * @param	{object}				config Button configuration
  * @return {object}							 The data to export
  */
