@@ -19,20 +19,37 @@ use jdavidbakr\MailTracker\AdminController;
 //});
 Auth::routes();
 
+//Route::get('/set-role', function(){
+//    auth()->user()->assignRole('superadmin');
+//});
 
-Route::get('/', 'AdminController@index');
-Route::get('/loan', 'AdminController@loan')->name('loan');
-Route::get('/loan/detail/{invoice_number}', 'AdminController@loan_detail')->name('loan.detail');
+
+Route::get('/', 'AdminController@index')->name('dashboard');
+
 Route::get('/lender', 'AdminController@lender')->name('lender');
 Route::get('/borrower', 'AdminController@borrower')->name('borrower');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout','AdminController@logout')->name('logout');
 
 
+//borrower
+Route::get('/borrower/verification/data/{id}', 'BorrowerController@verification')->name('borrower.verification');
+
+//loan
+
+Route::get('/loan', 'LoanController@index')->name('loan');
+Route::get('/loan/invoice/detail/{id}', 'LoanController@invoice_detail')->name('loan.detail');
+Route::get('/loan/verification/data/{id}', 'LoanController@verification_data')->name('loan.verification');
+
+
+
+//creditscore
+Route::get('/credit/score', 'CreditScoreController@index')->name('loan.credit.score');
+Route::post('/credit/score', 'CreditScoreController@credit_score_submit')->name('loan.credit.score.update');
+
+
 //Master
 Route::post('/get/location','MasterController@get_location')->name('location.get');
-
-
 
 
 //Product
@@ -41,6 +58,21 @@ Route::get('/product/add','ProductController@add')->name('product.add');
 Route::get('/product/edit/{id}','ProductController@edit')->name('product.edit');
 Route::post('/product/store','ProductController@store')->name('product.store');
 Route::post('/product/paging','ProductController@paging')->name('product.paging');
+
+
+//setting
+Route::get('/setting/users','SettingController@user_admin')->name('setting.user.admin');
+Route::post('/setting/list/admin/users','SettingController@user_admin_paging')->name('get.list.admin.users');
+Route::get('/setting/users/add','SettingController@add_user_admin')->name('setting.user.admin.add');
+Route::post('/setting/users/add','SettingController@store_user_admin')->name('setting.user.admin.add');
+
+
+
+//PCG
+Route::get('/pcg/','PcgController@index')->name('pcg');
+Route::get('/move/','PcgController@move')->name('pcg.move');
+Route::get('/pcg/users/data/{id}','PcgController@view_data')->name('pcg.users.data');
+
 
 
 

@@ -136,4 +136,6 @@ class ProductController extends Controller
 
         return DataTables::of(Products::orderBy('created_at','DESC')->get())->addIndexColumn()->make(true);
     }
+
+
 }

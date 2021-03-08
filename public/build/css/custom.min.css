@@ -11,3 +11,6 @@
 #slash{
 	display: none;
 }
+.modal-header {
+	display: block;
+}

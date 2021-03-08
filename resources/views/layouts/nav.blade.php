@@ -1,27 +1,29 @@
 <!-- sidebar menu -->
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+    @role('superadmin')
     <div class="menu_section">
         <h3>General</h3>
+
         <ul class="nav side-menu">
             <li><a><i class="fa fa-home"></i> Beranda </a></li>
-            <li><a><i class="fa fa-edit"></i> Permintaan <span class="fa fa-chevron-down"></span></a>
+
+            <li><a><i class="fa fa-users"></i> Peminjam <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="/loan">Pinjaman</a></li>
-                    <li><a href="/funding">Pendanaan</a></li>
+                    <li><a href="/loan">Permintaan Pinjaman</a></li>
+                    <li><a href="/borrower">Borrower</a></li>
+                    <li><a href="/credit/score">Kredit Score</a></li>
                 </ul>
             </li>
-            <li><a><i class="fa fa-users"></i> Pengguna <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="fa fa-users"></i> Pemberi Pinjaman <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="/lender">Lender</a></li>
                     <li><a href="/borrower">Borrower</a></li>
                 </ul>
             </li>
-            <li><a href="/product"><i class="fa fa-folder-o"></i> Data Produk </a></li>
-            <li><a><i class="fa fa-desktop"></i> Kredit Skoring </a></li>
-            <li><a><i class="fa fa-money"></i> Skoring & APUPPT </a></li>
-
         </ul>
+
     </div>
+
     <div class="menu_section">
         <h3>Master Data</h3>
         <ul class="nav side-menu">
@@ -43,7 +45,7 @@
             </li>
             <li><a><i class="fa fa-wrench"></i> Pengaturan <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="#level1_1">User Admin</a>
+                    <li><a href="/setting/users">Pengguna</a>
                     <li><a>Website<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="#level2_1">Banner</a></li>
@@ -55,6 +57,18 @@
                         </ul>
                     </li>
                     </li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+    @endrole
+    <div class="menu_section">
+
+        <ul class="nav side-menu">
+            <li><a><i class="fa fa-cloud-upload"></i> PCG <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="/pcg/">Unggah Data Shortfall</a></li>
                 </ul>
             </li>
         </ul>

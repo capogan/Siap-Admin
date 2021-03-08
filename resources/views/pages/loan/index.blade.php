@@ -34,43 +34,22 @@
                                     </thead>
 
                                     <tbody>
-                                    <tr class="even pointer">
-                                        <td class=" "><a href="/loan/detail/121000040">121000040</a></td>
-                                        <td class=" ">Februari 23, 2021 11:30:12 PM</td>
-                                        <td class=" ">John Blank L</td>
-                                        <td class=" ">Paid</td>
-                                        <td class="a-right a-right ">$7.45</td>
-                                        <td class=" last">
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100</div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="odd pointer">
-                                        <td class=" "><a href="/loan/detail/121000039">121000039</a></td>
-                                        <td class=" ">Februari 23, 2021 11:30:12 PM</td>
-                                        <td class=" ">John Blank L</td>
-                                        <td class=" ">Paid</td>
-                                        <td class="a-right a-right ">$741.20</td>
-                                        <td class=" last"><a href="#">
+                                    @foreach($loan_request as $key=> $val)
+
+                                        <tr class="even pointer">
+                                            <td class=" "><a href="/loan/invoice/detail/{{$val->id}}">{{$val->invoice_number}}</a></td>
+                                            <td class=" ">{{$val->created_at}}</td>
+                                            <td class=" "><a href="/borrower/{{$val->uid}}">{{$val->get_user->name}}</a></td>
+                                            <td class=" ">{{Utils::convert_status($val->status)}}</td>
+                                            <td class="a-right a-right ">{{number_format($val->loan_amount,2)}}</td>
+                                            <td class=" last">
                                                 <div class="progress">
-                                                    <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75</div>
-                                                </div></a>
-                                        </td>
-                                    </tr>
-                                    <tr class="even pointer">
-                                        <td class=" "><a href="/loan/detail/121000038">121000038</a></td>
-                                        <td class=" ">Februari 22, 2021 11:30:12 PM</td>
-                                        <td class=" ">Mike Smith</td>
-                                        <td class=" ">Paid</td>
-                                        <td class="a-right a-right ">$432.26</td>
-                                        <td class=" last"><a href="#">
-                                                <div class="progress">
-                                                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">10</div>
+                                                    <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: {{$val->current_score->score ?? 0}}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="{{$val->current_score->score ?? 0 }}">{{$val->current_score->score ?? '0'}}</div>
                                                 </div>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+
+                                    @endforeach
 
                                     </tbody>
                                 </table>

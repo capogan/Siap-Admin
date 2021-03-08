@@ -65,11 +65,12 @@
 <script src="{{asset('vendors/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
 <script src="{{asset('vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js')}}"></script>
 <script src="{{asset('vendors/datatables.net-scroller/js/dataTables.scroller.min.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js" crossorigin="anonymous"></script>
+
 
 <script src="{{ asset('/js/main.js') }}"></script>
 <!-- Custom Theme Scripts -->
 <script src="{{ asset('/build/js/custom.js') }}"></script>
+<script src="{{ asset('/build/js/bootbox.min.js') }}"></script>
 @yield('js')
 
 </body>
