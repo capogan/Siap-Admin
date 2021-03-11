@@ -14,7 +14,7 @@ class CreditScoreController extends Controller
     ];
     function index(Request $request){
 
-        $category_score = CategoryScore::with(['credit_score' => function ($q) {
+        $category_score = CategoryScore::where('status',true)->with(['credit_score' => function ($q) {
             $q->orderBy('sequence', 'asc');
         }])->get();
 

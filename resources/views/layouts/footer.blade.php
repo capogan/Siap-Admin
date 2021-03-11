@@ -71,6 +71,9 @@
 <!-- Custom Theme Scripts -->
 <script src="{{ asset('/build/js/custom.js') }}"></script>
 <script src="{{ asset('/build/js/bootbox.min.js') }}"></script>
+<script>
+    $($('.active').children('ul').get(0)).css('display', 'block');
+</script>
 @yield('js')
 
 </body>

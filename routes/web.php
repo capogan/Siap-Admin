@@ -27,16 +27,16 @@ Auth::routes();
 Route::get('/', 'AdminController@index')->name('dashboard');
 
 Route::get('/lender', 'AdminController@lender')->name('lender');
-Route::get('/borrower', 'AdminController@borrower')->name('borrower');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout','AdminController@logout')->name('logout');
 
 
 //borrower
-Route::get('/borrower/verification/data/{id}', 'BorrowerController@verification')->name('borrower.verification');
+Route::get('/borrower', 'BorrowerController@index')->name('borrower');
+Route::post('/borrower/paging', 'BorrowerController@paging')->name('borrower.paguing');
+Route::get('/borrower/detail/{id}', 'BorrowerController@detail')->name('borrower.detail');
 
 //loan
-
 Route::get('/loan', 'LoanController@index')->name('loan');
 Route::get('/loan/invoice/detail/{id}', 'LoanController@invoice_detail')->name('loan.detail');
 Route::get('/loan/verification/data/{id}', 'LoanController@verification_data')->name('loan.verification');
@@ -72,6 +72,7 @@ Route::post('/setting/users/add','SettingController@store_user_admin')->name('se
 Route::get('/pcg/','PcgController@index')->name('pcg');
 Route::get('/move/','PcgController@move')->name('pcg.move');
 Route::get('/pcg/users/data/{id}','PcgController@view_data')->name('pcg.users.data');
+Route::post('/pcg/shoortfall/add','PcgController@add')->name('pcg.shoortfall.add');
 
 
 

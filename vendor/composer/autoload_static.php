@@ -621,6 +621,7 @@ class ComposerStaticInitade150c1b588d7967a8e0c492146d208
 
     public static $classMap = array (
         'App\\AdminUsers' => __DIR__ . '/../..' . '/app/AdminUsers.php',
+        'App\\BussinessCriteria' => __DIR__ . '/../..' . '/app/BussinessCriteria.php',
         'App\\CategoryScore' => __DIR__ . '/../..' . '/app/CategoryScore.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\CreditScore' => __DIR__ . '/../..' . '/app/CreditScore.php',
@@ -642,7 +643,6 @@ class ComposerStaticInitade150c1b588d7967a8e0c492146d208
         'App\\Http\\Controllers\\MasterController' => __DIR__ . '/../..' . '/app/Http/Controllers/MasterController.php',
         'App\\Http\\Controllers\\PcgController' => __DIR__ . '/../..' . '/app/Http/Controllers/PcgController.php',
         'App\\Http\\Controllers\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductController.php',
-        'App\\Http\\Controllers\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/RoleController.php',
         'App\\Http\\Controllers\\SettingController' => __DIR__ . '/../..' . '/app/Http/Controllers/SettingController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -664,6 +664,7 @@ class ComposerStaticInitade150c1b588d7967a8e0c492146d208
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Providers\\UtilsServiceProvider' => __DIR__ . '/../..' . '/app/Providers/UtilsServiceProvider.php',
         'App\\Roles' => __DIR__ . '/../..' . '/app/Roles.php',
+        'App\\ShortFall' => __DIR__ . '/../..' . '/app/ShortFall.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/CorsService.php',
@@ -4774,7 +4775,6 @@ class ComposerStaticInitade150c1b588d7967a8e0c492146d208
         'Ramsey\\Uuid\\UuidInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidInterface.php',
         'Ramsey\\Uuid\\Validator\\GenericValidator' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/GenericValidator.php',
         'Ramsey\\Uuid\\Validator\\ValidatorInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/ValidatorInterface.php',
-        'RoleSeeder' => __DIR__ . '/../..' . '/database/seeds/RoleSeeder.php',
         'SebastianBergmann\\CliParser\\AmbiguousOptionException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/AmbiguousOptionException.php',
         'SebastianBergmann\\CliParser\\Exception' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/Exception.php',
         'SebastianBergmann\\CliParser\\OptionDoesNotAllowArgumentException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/OptionDoesNotAllowArgumentException.php',

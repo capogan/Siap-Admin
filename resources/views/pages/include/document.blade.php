@@ -217,3 +217,9 @@
         </div>
     </div>
 </div>
+{{--<div class="item form-group">--}}
+{{--    <div class="col-md-6 col-sm-6 offset-md-3">--}}
+{{--        <button class="btn btn-danger" type="button" id="btn_reject"><i class="fa fa-close"></i> Tolak</button>--}}
+{{--        <button type="button" class="btn btn-primary btnNext">Lanjut Dokumen <i class="fa fa-arrow-right"></i></button>--}}
+{{--    </div>--}}
+{{--</div>--}}

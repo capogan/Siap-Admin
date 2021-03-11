@@ -47,8 +47,13 @@
 
                                             <div class="col-md-2">
                                                 <div class="form-group">
-                                                    <label for="exampleFormControlSelect1">Skor</label>
+                                                    @if($row->id_category_score == '13')
+                                                        <label for="exampleFormControlSelect1">Skor dalam persen</label>
+                                                    @else
+                                                        <label for="exampleFormControlSelect1">Skor</label>
+                                                    @endif
                                                     <input class="form-control" type="text" name="score_{{$row->id}}" id="score_{{$row->id}}" data-validate-minmax="10,100" required="required" placeholder="" value="{{$row->score}}">
+
                                                 </div>
                                             </div>
 

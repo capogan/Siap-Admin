@@ -7,7 +7,7 @@
         <ul class="nav side-menu">
             <li><a><i class="fa fa-home"></i> Beranda </a></li>
 
-            <li><a><i class="fa fa-users"></i> Peminjam <span class="fa fa-chevron-down"></span></a>
+            <li class="{{ request()->is('loan/*') ||  request()->is('borrower/*') ||  request()->is('credit/*') ? "active" : "" }}"><a><i class="fa fa-users"></i> Peminjam <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="/loan">Permintaan Pinjaman</a></li>
                     <li><a href="/borrower">Borrower</a></li>
@@ -17,7 +17,6 @@
             <li><a><i class="fa fa-users"></i> Pemberi Pinjaman <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="/lender">Lender</a></li>
-                    <li><a href="/borrower">Borrower</a></li>
                 </ul>
             </li>
         </ul>
@@ -106,7 +105,7 @@
             <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                        <img src="{{asset('images/img.jpg')}}" alt="">John Doe
+                        <img src="{{asset('images/img.jpg')}}" alt="">{{Auth::user()->name}}
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item"  href="javascript:;"> Akun</a>
@@ -128,7 +127,7 @@
                             <a class="dropdown-item">
                                 <span class="image"><img src="{{asset('images/img.jpg')}}" alt="Profile Image" /></span>
                                 <span>
-                          <span>John Smith</span>
+                          <span>{{Auth::user()->name}}</span>
                           <span class="time">3 mins ago</span>
                         </span>
                                 <span class="message">

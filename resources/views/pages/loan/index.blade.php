@@ -1,7 +1,6 @@
 @extends('layouts.main')
 @section('content')
 
-
             <div class="row" style="display: block;">
                 <div class="clearfix"></div>
 

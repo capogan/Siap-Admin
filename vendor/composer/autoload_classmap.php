@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\AdminUsers' => $baseDir . '/app/AdminUsers.php',
+    'App\\BussinessCriteria' => $baseDir . '/app/BussinessCriteria.php',
     'App\\CategoryScore' => $baseDir . '/app/CategoryScore.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\CreditScore' => $baseDir . '/app/CreditScore.php',
@@ -28,7 +29,6 @@ return array(
     'App\\Http\\Controllers\\MasterController' => $baseDir . '/app/Http/Controllers/MasterController.php',
     'App\\Http\\Controllers\\PcgController' => $baseDir . '/app/Http/Controllers/PcgController.php',
     'App\\Http\\Controllers\\ProductController' => $baseDir . '/app/Http/Controllers/ProductController.php',
-    'App\\Http\\Controllers\\RoleController' => $baseDir . '/app/Http/Controllers/RoleController.php',
     'App\\Http\\Controllers\\SettingController' => $baseDir . '/app/Http/Controllers/SettingController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
@@ -50,6 +50,7 @@ return array(
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\Providers\\UtilsServiceProvider' => $baseDir . '/app/Providers/UtilsServiceProvider.php',
     'App\\Roles' => $baseDir . '/app/Roles.php',
+    'App\\ShortFall' => $baseDir . '/app/ShortFall.php',
     'App\\User' => $baseDir . '/app/User.php',
     'Asm89\\Stack\\Cors' => $vendorDir . '/asm89/stack-cors/src/Cors.php',
     'Asm89\\Stack\\CorsService' => $vendorDir . '/asm89/stack-cors/src/CorsService.php',
@@ -4160,7 +4161,6 @@ return array(
     'Ramsey\\Uuid\\UuidInterface' => $vendorDir . '/ramsey/uuid/src/UuidInterface.php',
     'Ramsey\\Uuid\\Validator\\GenericValidator' => $vendorDir . '/ramsey/uuid/src/Validator/GenericValidator.php',
     'Ramsey\\Uuid\\Validator\\ValidatorInterface' => $vendorDir . '/ramsey/uuid/src/Validator/ValidatorInterface.php',
-    'RoleSeeder' => $baseDir . '/database/seeds/RoleSeeder.php',
     'SebastianBergmann\\CliParser\\AmbiguousOptionException' => $vendorDir . '/sebastian/cli-parser/src/exceptions/AmbiguousOptionException.php',
     'SebastianBergmann\\CliParser\\Exception' => $vendorDir . '/sebastian/cli-parser/src/exceptions/Exception.php',
     'SebastianBergmann\\CliParser\\OptionDoesNotAllowArgumentException' => $vendorDir . '/sebastian/cli-parser/src/exceptions/OptionDoesNotAllowArgumentException.php',
