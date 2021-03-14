@@ -29,8 +29,13 @@ class Utils {
                 echo "Tertunda";
         }
     }
-    public static function calculate_age($dob){
-        return Carbon::parse($dob)->diff(Carbon::now())->format('%y Tahun');
+    public static function calculate_age($dob,$option){
+        if($option == 'years'){
+            return Carbon::parse($dob)->diff(Carbon::now())->format('%y Tahun');
+        }else if($option == 'month'){
+            return Carbon::parse($dob)->diff(Carbon::now())->format('%y Tahu %m Bulan');
+        }
+
     }
     public static function convert_currency($amount){
         $result = "Rp " . number_format($amount,2,',','.');

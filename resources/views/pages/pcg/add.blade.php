@@ -265,11 +265,11 @@
                                     <tbody>
                                     <tr>
                                         <th style="width:50%">Usia :</th>
-                                        <td>{{Utils::calculate_age($get_user->date_of_birth)}}</td>
+                                        <td>{{Utils::calculate_age($get_user->date_of_birth,'years')}}</td>
                                     </tr>
                                     <tr>
                                         <th style="width:50%">Jumlah Tanggungan :</th>
-                                        <td>{{$get_user->number_of_dependents}}</td>
+                                        <td>{{$get_user->master_dependent_title}}</td>
                                     </tr>
                                     <tr>
                                         <th>Status Badan Hukum:</th>
@@ -281,7 +281,7 @@
                                     </tr>
                                     <tr>
                                         <th>Lama Usaha:</th>
-                                        <td>{{Utils::calculate_age($get_user->business_established_since)}}</td>
+                                        <td>{{$get_user->master_since_title}}</td>
                                     </tr>
                                     <tr>
                                         <th>Status tempat Usaha:</th>
@@ -289,7 +289,7 @@
                                     </tr>
                                     <tr>
                                         <th>Lama kerjasama dengan supplier:</th>
-                                        <td>{{$get_user->partnership_since}}</td>
+                                        <td>{{$get_user->master_partner_title}}</td>
                                     </tr>
                                     <tr>
                                         <th>Biro Kredit:</th>

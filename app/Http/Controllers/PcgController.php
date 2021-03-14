@@ -41,14 +41,19 @@ class PcgController extends Controller
         $get_sf = ShortFall::where('id_loan',$id_loan)->first();
         $get_data_user = LoanRequest::select('uid')->where('id',$id_loan)->first();
         $uid = $get_data_user->uid;
-        $get_user = User::
+        $get_user = User::select('personal_info.*','personal_business.*','business_legality.*','cap_of_business_criteria.*','business_place_status.*',
+                        'beurau_credit.*','credit_score_income_factory.*','master_dependents.*','master_dependents.title as master_dependent_title',
+                        'master_business_since.*','master_business_since.title as master_since_title','master_partnership_since.title as master_partner_title')->
                         leftJoin('personal_info', 'users.id', '=', 'personal_info.uid')->
                         leftJoin('personal_business', 'users.id', '=', 'personal_business.uid')->
                         leftJoin('business_legality', 'personal_business.legality_status', '=', 'business_legality.id')->
                         leftJoin('cap_of_business_criteria', 'personal_business.id_cap_of_business', '=', 'cap_of_business_criteria.id')->
                         leftJoin('business_place_status', 'personal_business.business_place_status', '=', 'business_place_status.id')->
                         leftJoin('beurau_credit', 'personal_business.id_beurau_credit', '=', 'beurau_credit.id')->
-                        leftJoin('credit_score_income_factory', 'personal_business.id_credit_score_income_factor', '=', 'credit_score_income_factory.id')
+                        leftJoin('credit_score_income_factory', 'personal_business.id_credit_score_income_factor', '=', 'credit_score_income_factory.id')->
+                        leftJoin('master_dependents', 'personal_info.number_of_dependents', '=', 'master_dependents.id')->
+                        leftJoin('master_business_since', 'personal_business.business_established_since', '=', 'master_business_since.id')->
+                        leftJoin('master_partnership_since', 'personal_business.partnership_since', '=', 'master_partnership_since.id')
             ->where('users.id',$uid)->first();
 
 
