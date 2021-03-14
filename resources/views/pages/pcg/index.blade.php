@@ -47,9 +47,8 @@
                             <td class=" ">{{$val->get_personal_info->identity_number}}</td>
                             <td class=" ">{{Utils::convert_status($val->status)}}</td>
                             <td class="a-right a-right ">{{number_format($val->loan_amount,2)}}</td>
-                            <td class="a-right a-right ">
-                                <a href="/pcg/users/data/{{$val->id}}"><button class="btn btn-default"><i class="fa fa-check"></i></button></a>
-                                <a href="/pcg/users/data/{{$val->id}}"><button class="btn btn-default"><i class="fa fa-times"></i></button></a>
+                            <td>
+                                <a href="/pcg/users/data/{{$val->id}}"><button class="btn btn-default"><i class="fa fa-folder-open"></i></button></a>
                             </td>
 
                         </tr>
@@ -63,15 +62,6 @@
     </div>
 </div>
     @section('js')
-        <script>
 
-
-            $('input[name="daterange"]').daterangepicker({
-                showDropdowns: true,
-                format: "mm-yyyy",
-                startView: "months",
-                minViewMode: "months"
-            });
-        </script>
     @endsection
 @endsection

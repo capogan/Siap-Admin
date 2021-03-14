@@ -14,14 +14,7 @@ use jdavidbakr\MailTracker\AdminController;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 Auth::routes();
-
-//Route::get('/set-role', function(){
-//    auth()->user()->assignRole('superadmin');
-//});
 
 
 Route::get('/', 'AdminController@index')->name('dashboard');
@@ -40,6 +33,8 @@ Route::get('/borrower/detail/{id}', 'BorrowerController@detail')->name('borrower
 Route::get('/loan', 'LoanController@index')->name('loan');
 Route::get('/loan/invoice/detail/{id}', 'LoanController@invoice_detail')->name('loan.detail');
 Route::get('/loan/verification/data/{id}', 'LoanController@verification_data')->name('loan.verification');
+Route::post('/loan/reject', 'LoanController@reject')->name('loan.reject');
+Route::post('/loan/verification/phone', 'LoanController@verification_phone')->name('loan.verification.phone');
 
 
 
@@ -73,6 +68,9 @@ Route::get('/pcg/','PcgController@index')->name('pcg');
 Route::get('/move/','PcgController@move')->name('pcg.move');
 Route::get('/pcg/users/data/{id}','PcgController@view_data')->name('pcg.users.data');
 Route::post('/pcg/shoortfall/add','PcgController@add')->name('pcg.shoortfall.add');
+Route::post('/pcg/reject/loan','PcgController@reject')->name('pcg.reject.loan');
+Route::post('/pcg/confirm/loan','PcgController@confirm')->name('pcg.confirm.loan');
+
 
 
 

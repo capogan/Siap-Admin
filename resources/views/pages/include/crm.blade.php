@@ -29,7 +29,7 @@
                         </label>
                         <div class="col-md-6 col-sm-6 ">
                             <div class="input-group">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" value="{{$get_data_business->business_phone_number ?? '-' }}">
                                 <span class="input-group-btn">
                                     <button type="button" class="btn btn-primary"><i class="fa fa-phone"></i></button>
                                      <button type="button" class="btn btn-danger"><i class="fa fa-microphone"></i></button>
@@ -88,7 +88,7 @@
 </div>
 
 
-
+<form id="crm_form" data-parsley-validate class="form-horizontal form-label-left">
 <div class="row">
     <div class="x_panel">
         <div class="x_title">
@@ -129,18 +129,21 @@
                             <div class="row">
                                 <div class="col">
                                     <p>{{$key}}</p>
+                                    <input type="hidden" value="{{$key}}" id="variable" name="variable[]">
                                 </div>
                                 <div class="col">
                                     <p>{{$val}}</p>
+                                    <input type="hidden" value="{{$val}}" id="data_user" name="data_user_{{ $loop->iteration }}">
+                                </div>
+
+                                <div class="col">
+                                    <label><input type="radio" name="result_{{ $loop->iteration }}" value="1" class="flat"> Sama</label>
                                 </div>
                                 <div class="col">
-                                    <label><input type="radio" name="iCheck{{ $loop->iteration }}" class="flat"> Sama</label>
+                                    <label><input type="radio" name="result_{{ $loop->iteration }}"  value="0" class="flat"> Beda</label>
                                 </div>
                                 <div class="col">
-                                    <label><input type="radio" name="iCheck{{ $loop->iteration }}" class="flat"> Beda</label>
-                                </div>
-                                <div class="col">
-                                    <input type="text" placeholder="keterangan" id="description{{ $loop->iteration }}" name="decription" class="form-control ">
+                                    <input type="text" placeholder="keterangan" id="description_{{ $loop->iteration }}" name="decription_{{ $loop->iteration }}" class="form-control ">
                                 </div>
                             </div>
                         <br>
@@ -180,14 +183,13 @@
             </div>
             <div class="x_content">
                 <br />
-                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
+                    <input type="hidden" name="id_loan" id="id_loan" value="{{$id_loan}}">
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Penjelasan Kegiatan Usaha
                         </label>
                         <div class="col-md-6 col-sm-6 ">
                             <div class="input-group">
-                                <textarea class="form-control" style="resize: none"></textarea>
+                                <textarea class="form-control" style="resize: none" id="description_business" name="description_business"></textarea>
                             </div>
 
                         </div>
@@ -199,13 +201,13 @@
                             <div class="input-group">
                                 <div class="row">
                                     <div class="col">
-                                        <label><input type="radio" name="iCheck" class="flat"> Resiko Rendah</label>
+                                        <label><input type="radio" name="risk" class="flat" value="Resiko Rendah"> Resiko Rendah</label>
                                     </div>
                                     <div class="col">
-                                        <label><input type="radio" name="iCheck" class="flat"> Resiko Sedang</label>
+                                        <label><input type="radio" name="risk" class="flat" value="Resiko Sedang"> Resiko Sedang</label>
                                     </div>
                                     <div class="col">
-                                        <label><input type="radio" name="iCheck" class="flat"> Resiko Tinggi</label>
+                                        <label><input type="radio" name="risk" class="flat" value="Resiko Tinggi"> Resiko Tinggi</label>
                                     </div>
                                 </div>
                             </div>
@@ -217,14 +219,20 @@
                         </label>
                         <div class="col-md-6 col-sm-6 ">
                             <div class="input-group">
-                                <textarea class="form-control" style="resize: none"></textarea>
+                                <textarea class="form-control" style="resize: none" name="noted" id="noted"></textarea>
                             </div>
 
                         </div>
                     </div>
                     <div class="ln_solid"></div>
-                </form>
+                    <div class="item form-group">
+                        <div class="col-md-6 col-sm-6 offset-md-3">
+                            <button class="btn btn-danger" type="button" id="btn_reject"><i class="fa fa-close"></i> Tolak</button>
+                            <button type="button" class="btn btn-primary" id="btn_submit_crm"><i class="fa fa-external-link-square"></i> Konfirmasi</button>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
 </div>
+</form>

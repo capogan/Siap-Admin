@@ -15,7 +15,7 @@ class CreateCapOfBusinessCriteria extends Migration
     {
         Schema::create('cap_of_business_criteria', function (Blueprint $table) {
             $table->id();
-            $table->string('title_bussiness');
+            $table->string('title_business');
             $table->float('d_asset');
             $table->boolean('status');
             $table->timestamps();

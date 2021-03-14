@@ -103,59 +103,9 @@
                             <!-- /.col -->
                         </div>
 
-                        <!-- Table row -->
-                        <div class="row">
-                            <div class="  table">
-                                <table class="table table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th>Qty</th>
-                                        <th>Product</th>
-                                        <th>Serial #</th>
-                                        <th style="width: 59%">Description</th>
-                                        <th>Subtotal</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Call of Duty</td>
-                                        <td>455-981-221</td>
-                                        <td>El snort testosterone trophy driving gloves handsome gerry Richardson helvetica tousled street art master testosterone trophy driving gloves handsome gerry Richardson
-                                        </td>
-                                        <td>$64.50</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Need for Speed IV</td>
-                                        <td>247-925-726</td>
-                                        <td>Wes Anderson umami biodiesel</td>
-                                        <td>$50.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Monsters DVD</td>
-                                        <td>735-845-642</td>
-                                        <td>Terry Richardson helvetica tousled street art master, El snort testosterone trophy driving gloves handsome letterpress erry Richardson helvetica tousled</td>
-                                        <td>$10.70</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Grown Ups Blue Ray</td>
-                                        <td>422-568-642</td>
-                                        <td>Tousled lomo letterpress erry Richardson helvetica tousled street art master helvetica tousled street art master, El snort testosterone</td>
-                                        <td>$25.99</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-
                         <div class="row no-print">
                             <div class=" ">
-                                <a href="/loan/verification/data/{{$loan_request->uid}}"><button class="btn btn-primary pull-right"><i class="fa fa-credit-card"></i>  Verifikasi Data Peminjam</button></a>
+                                <a href="/loan/verification/data/{{$loan_request->id}}"><button class="btn btn-primary pull-right"><i class="fa fa-credit-card"></i>  Verifikasi Data Peminjam</button></a>
                             </div>
                         </div>
                     </section>

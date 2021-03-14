@@ -18,6 +18,7 @@ class CreatePhoneVerification extends Migration
             $table->integer('id_request_loan');
             $table->text('desc_business_activities');
             $table->string('result_data_analyst');
+            $table->text('noted');
             $table->timestamps();
         });
     }

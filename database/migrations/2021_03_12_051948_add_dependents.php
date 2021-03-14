@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAddFieldRequestLoan extends Migration
+class AddDependents extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateAddFieldRequestLoan extends Migration
      */
     public function up()
     {
-        Schema::table('request_loan', function($table)
+        Schema::table('personal_info', function($table)
         {
-            $table->text('reject_description')->nullable();
-            $table->text('reject_date')->nullable();
-        });
+            $table->integer('number_of_dependents')->nullable();
 
+        });
     }
 
     /**
@@ -28,6 +27,6 @@ class CreateAddFieldRequestLoan extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('request_loan');
+        Schema::dropIfExists('personal_info');
     }
 }

@@ -28,33 +28,64 @@
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="text" id="first-name" required="required" class="form-control ">
+                            <h5 class="" for="first-name">{{$get_data_emergency->emergency_name ?? "-"}}</h5>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Hubungan
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                           <select class="form-control" name="" id="">
-                               <option></option>
-                               <option>test</option>
-                           </select>
+                            <h5 class="" for="first-name">{{$get_data_emergency->sibling_name ?? "-"}}</h5>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Nomor Telepon Saudara</label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input id="middle-name" class="form-control" type="text" name="middle-name">
+                            <h5 class="" for="first-name">{{$get_data_emergency->emergency_phone ?? "-"}}</h5>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align">Alamat</label>
                         <div class="col-md-6 col-sm-6 ">
-
-                            <textarea class="form-control" id="address" name="address" style="resize: none"></textarea>
-
+                            <h5 class="" for="first-name">{{$get_data_emergency->emergency_full_address ?? "-"}}</h5>
                         </div>
                     </div>
+
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Propinsi</label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <h5 class="" for="first-name">{{$get_data_emergency->province_name ?? "-" }}</h5>
+                        </div>
+                    </div>
+
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Kabupaten / Kota</label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <h5 class="" for="first-name">{{$get_data_emergency->city_name ?? "-" }}</h5>
+                        </div>
+                    </div>
+
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Kecamatan</label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <h5 class="" for="first-name">{{$get_data_emergency->emergency_sub_kecamatan ?? "-" }}</h5>
+                        </div>
+                    </div>
+
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Kelurahan</label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <h5 class="" for="first-name">{{$get_data_emergency->emergency_sub_kelurahan ?? "-" }}</h5>
+                        </div>
+                    </div>
+
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Kodepos</label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <h5 class="" for="first-name">{{$get_data_emergency->emergency_zip_code ?? "-" }}</h5>
+                        </div>
+                    </div>
+
 
                     <div class="ln_solid"></div>
                 </form>

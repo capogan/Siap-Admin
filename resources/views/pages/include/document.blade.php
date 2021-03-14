@@ -24,7 +24,7 @@
                     <div class="col-md-55">
                         <div class="thumbnail">
                             <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="{{asset('images/media.jpg')}}" alt="image">
+                                <img style="width: 100%; display: block;" src="http://172.31.143.11/{{$get_data_document->identity_photo}}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
                                         <a href="#"><i class="fa fa-link"></i></a>
@@ -34,7 +34,7 @@
                                 </div>
                             </div>
                             <div class="caption">
-                                <p><strong>Image Name</strong>
+                                <p><strong>Foto Ktp</strong>
                                 </p>
                                 <p>Snow and Ice Incoming</p>
                             </div>
@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                             <div class="caption">
-                                <p><strong>Image Name</strong>
+                                <p><strong>Foto Diri</strong>
                                 </p>
                                 <p>Snow and Ice Incoming</p>
                             </div>
@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                             <div class="caption">
-                                <p><strong>Image Name</strong>
+                                <p><strong>Foto Npwp</strong>
                                 </p>
                                 <p>Snow and Ice Incoming</p>
                             </div>
@@ -91,7 +91,7 @@
                                 </div>
                             </div>
                             <div class="caption">
-                                <p><strong>Image Name</strong>
+                                <p><strong>Foto tempat usaha</strong>
                                 </p>
                                 <p>Snow and Ice Incoming</p>
                             </div>
@@ -110,7 +110,7 @@
                                 </div>
                             </div>
                             <div class="caption">
-                                <p><strong>Image Name</strong>
+                                <p><strong>Foto bukti kepemilikan atau kontrak tempat usaha</strong>
                                 </p>
                                 <p>Snow and Ice Incoming</p>
                             </div>
@@ -130,7 +130,7 @@
                                 </div>
                             </div>
                             <div class="caption">
-                                <p><strong>Image Name</strong>
+                                <p><strong>Foto dokumen usaha</strong>
                                 </p>
                                 <p>Snow and Ice Incoming</p>
                             </div>
@@ -149,7 +149,7 @@
                                 </div>
                             </div>
                             <div class="caption">
-                                <p><strong>Image Name</strong>
+                                <p><strong>Foto aktifitas usaha</strong>
                                 </p>
                                 <p>Snow and Ice Incoming</p>
                             </div>
@@ -168,50 +168,13 @@
                                 </div>
                             </div>
                             <div class="caption">
-                                <p><strong>Image Name</strong>
+                                <p><strong>Foto NPWP usaha</strong>
                                 </p>
                                 <p>Snow and Ice Incoming</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-55">
-                        <div class="thumbnail">
-                            <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="{{asset('images/media.jpg')}}" alt="image">
-                                <div class="mask no-caption">
-                                    <div class="tools tools-bottom">
-                                        <a href="#"><i class="fa fa-link"></i></a>
-                                        <a href="#"><i class="fa fa-pencil"></i></a>
-                                        <a href="#"><i class="fa fa-times"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caption">
-                                <p><strong>Image Name</strong>
-                                </p>
-                                <p>Snow and Ice Incoming</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-55">
-                        <div class="thumbnail">
-                            <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="{{asset('images/media.jpg')}}" alt="image">
-                                <div class="mask no-caption">
-                                    <div class="tools tools-bottom">
-                                        <a href="#"><i class="fa fa-link"></i></a>
-                                        <a href="#"><i class="fa fa-pencil"></i></a>
-                                        <a href="#"><i class="fa fa-times"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caption">
-                                <p><strong>Image Name</strong>
-                                </p>
-                                <p>Snow and Ice Incoming</p>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>

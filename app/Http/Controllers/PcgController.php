@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 use App\CreditScore;
 use App\LoanRequest;
 use App\ShortFall;
+use App\User;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-
+use App\Helpers\Utils;
 use File;
 
 class PcgController extends Controller
@@ -24,7 +25,7 @@ class PcgController extends Controller
 
     public function index(Request $request){
 
-        $loan_request = LoanRequest::with('current_score')->where('status','0')->get();
+        $loan_request = LoanRequest::with('current_score')->get();
         $data = [
             'loan_request'=> $loan_request
         ];
@@ -35,31 +36,25 @@ class PcgController extends Controller
     public function view_data(Request $request){
 
         $id_loan = $request->id;
-        $legal_status = CreditScore::where('id_category_score','=','2')->get();
-        $bussiness_criteria =  CreditScore::where('id_category_score','=','8')->get();
-        $business_place_status =  CreditScore::where('id_category_score','=','4')->get();
-        $age_of_bussiness =  CreditScore::where('id_category_score','=','9')->get();
-        $duration_active_merchant =  CreditScore::where('id_category_score','=','5')->get();
-        $age =  CreditScore::where('id_category_score','=','10')->get();
-        $dependents_number =  CreditScore::where('id_category_score','=','11')->get();
-        $bureau_credit =  CreditScore::where('id_category_score','=','12')->get();
-        $income_factory =  CreditScore::where('id_category_score','=','13')->get();
+
         $months = array('september','oktober','november','desember','januari','februari','maret','april','mei','juni','juli','agustus');
         $get_sf = ShortFall::where('id_loan',$id_loan)->first();
+        $uid = LoanRequest::select('uid')->where('id',$id_loan)->first();
+        $get_user = User::
+                        leftJoin('personal_info', 'users.id', '=', 'personal_info.uid')->
+                        leftJoin('personal_business', 'users.id', '=', 'personal_business.uid')->
+                        leftJoin('business_legality', 'personal_business.legality_status', '=', 'business_legality.id')->
+                        leftJoin('cap_of_business_criteria', 'personal_business.id_cap_of_business', '=', 'cap_of_business_criteria.id')->
+                        leftJoin('business_place_status', 'personal_business.business_place_status', '=', 'business_place_status.id')->
+                        leftJoin('beurau_credit', 'personal_business.id_beurau_credit', '=', 'beurau_credit.id')->
+                        leftJoin('credit_score_income_factory', 'personal_business.id_credit_score_income_factor', '=', 'credit_score_income_factory.id')
+            ->first();
 
         $data = [
-            'legal_status'=> $legal_status,
-            'bussiness_criteria'=> $bussiness_criteria,
-            'business_place_status'=> $business_place_status,
-            'age_of_bussiness'=> $age_of_bussiness,
-            'duration_active_merchant'=> $duration_active_merchant,
-            'age'=> $age,
-            'dependents_number'=> $dependents_number,
-            'bureau_credit'=> $bureau_credit,
-            'income_factory'=> $income_factory,
             'months'=> $months,
             'id_loan'=>$id_loan,
             'get_shortfall'=>$get_sf,
+            'get_user'=>$get_user,
 
         ];
         return view('pages.pcg.add', $this->merge_response($data, static::$CONFIG));
@@ -181,6 +176,53 @@ class PcgController extends Controller
             $message = "Shortfall berhasil di input";
             return json_encode(['status'=> true, 'message'=> $message ]);
         }
+
+    }
+
+    public function reject(Request $request){
+
+        $id_loan = $request->id_loan;
+        $validator = Validator::make($request->all(), [
+            'desc_reject' => 'required',
+        ],
+        [
+            'desc_reject.required' => 'Masukkan alasan penolakan pinjaman',
+        ]);
+
+        if ($validator->fails()) {
+            return json_encode(['status'=> false, 'message'=> $validator->messages() ]);
+        }
+        LoanRequest::where([
+            ['id',$id_loan],
+
+        ])->update
+        ([
+            "reject_description" => $request->desc_reject,
+            "status" => static::STATUS_REJECT_PCG,
+            "reject_date" => date('Y-m-d H:i:s'),
+            "updated_at"=>date('Y-m-d H:i:s'),
+        ]);
+        $message = "Sukses menyimpan Data";
+        return json_encode(['status'=> true, 'message'=> $message]);
+
+    }
+
+    public function confirm(Request $request){
+
+        $id_loan = $request->id_loan;
+
+        LoanRequest::where([
+            ['id',$id_loan],
+
+        ])->update
+        ([
+            "reject_description" => $request->desc_reject,
+            "status" => static::STATUS_VERIFICATION,
+            "reject_date" => date('Y-m-d H:i:s'),
+            "updated_at"=>date('Y-m-d H:i:s'),
+        ]);
+        $message = "Sukses menyimpan Data";
+        return json_encode(['status'=> true, 'message'=> $message]);
 
     }
 }

@@ -37,6 +37,11 @@ class AdminController extends Controller
         return view('pages.borrower');
     }
 
+    public function reject(Request $request){
+
+        $id_loan = $request->id;
+
+    }
 
     function logout(Request $request){
         Auth::logout();

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePhoneMatchingData extends Migration
+class CreateBeurauCredit extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreatePhoneMatchingData extends Migration
      */
     public function up()
     {
-        Schema::create('phone_matching_data', function (Blueprint $table) {
+        Schema::create('beurau_credit', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_phone_verification');
-            $table->string('variable');
-            $table->string('data_user');
-            $table->integer('result');
-            $table->string('description')->nullable();
+            $table->string('beurau_credit_name');
+            $table->string('beurau_value');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreatePhoneMatchingData extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('phone_matching_data');
+        Schema::dropIfExists('beurau_credit');
     }
 }

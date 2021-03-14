@@ -73,12 +73,7 @@
                         </div>
 
                     </div>
-                    <div class="item form-group">
-                        <div class="col-md-6 col-sm-6 offset-md-3">
-                            <button class="btn btn-danger" type="button" id="btn_reject"><i class="fa fa-close"></i> Tolak</button>
-                            <button type="button" class="btn btn-primary btnNext">Lanjut <i class="fa fa-arrow-right"></i></button>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -87,16 +82,18 @@
         <div id="modal_reject_reason" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
+                    <form id="reject_form">
+                        <div class="modal-body">
+                            <p>Berikan Alasan penolakan</p>
+                            <textarea class="form-control" name="desc_reject" id="desc_reject" style="resize: none" rows="10"></textarea>
+                            <div class="alert-dismissible result-message " role="alert"></div>
+                        </div>
 
-                    <div class="modal-body">
-                        <p>Berikan Alasan penolakan</p>
-                        <textarea class="form-control" style="resize: none" rows="10"></textarea>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                        <button type="button" class="btn btn-primary">Kirim</button>
-                    </div>
-
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                            <input type="submit" class="btn btn-primary" value="Simpan">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

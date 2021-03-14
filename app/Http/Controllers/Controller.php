@@ -9,6 +9,10 @@ use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
+    protected const STATUS_VERIFICATION = "1";
+    protected const STATUS_REJECT_SIAP = "4";
+    protected const STATUS_REJECT_PCG = "5";
+
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function merge_response($data, $config = null){
         if($config == null){
