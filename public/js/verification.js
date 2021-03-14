@@ -152,10 +152,46 @@ $( document ).ready(function() {
                 }
             }
         })
-
     });
 
-
-
-
 });
+
+
+function reject_image(uid,str){
+    var token = $('meta[name="csrf-token"]').attr('content');
+    bootbox.confirm({
+        message: "Apakah Anda menolak gambar?",
+        buttons: {
+            confirm: {
+                label: 'Ya',
+                className: 'btn-success'
+            },
+            cancel: {
+                label: 'Tutup',
+                className: 'btn-secondary'
+            }
+        },
+        callback: function (result) {
+            if(result){
+                $.ajax({
+                    url: '/loan/reject/image',
+                    method:"POST",
+                    headers: {
+                        'X-CSRF-TOKEN': token
+                    },
+                    async:true,
+                    dataType:'json',
+                    data: {
+                        uid:uid,
+                        str:str
+                    },
+                    success:function(response)
+                    {
+
+                    }
+                })
+            }
+        }
+    });
+
+}

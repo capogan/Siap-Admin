@@ -17,7 +17,6 @@ class BorrowerController extends Controller
         $this->middleware('auth');
     }
     function index(Request $request){
-
         $data = [
             'users'=> User::get(),
         ];
@@ -27,9 +26,19 @@ class BorrowerController extends Controller
     public function detail(Request $request){
 
         $uid = $request->id;
+        $user = User::
+                    select('users.*','personal_info.*','married_status.status as status_married','education.level as level_education','personal_emergency_contact.*','siblings_master.sibling_name')->
+                    leftJoin('personal_info', 'users.id', '=', 'personal_info.uid')->
+                    leftJoin('married_status', 'personal_info.married_status', '=', 'married_status.id')->
+                    leftJoin('education', 'personal_info.education', '=', 'education.id')->
+                    leftJoin('personal_emergency_contact', 'users.id', '=', 'personal_emergency_contact.uid')->
+                    leftJoin('siblings_master', 'personal_emergency_contact.id', '=', 'siblings_master.id')->
+                    where('users.id',$uid)->first();
+
         $data = [
-            'user'=> User::select('users.*','personal_info.*')->leftJoin('personal_info', 'users.id', '=', 'personal_info.uid')->where('users.id',$uid)->first(),
+            'user'=> $user,
         ];
+
         return view('pages.borrower.detail', $this->merge_response($data, static::$CONFIG));
     }
 

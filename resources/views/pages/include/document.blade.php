@@ -24,29 +24,27 @@
                     <div class="col-md-55">
                         <div class="thumbnail">
                             <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="http://172.31.143.11/{{$get_data_document->identity_photo}}" alt="image">
+                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->identity_photo) ? 'http://172.31.143.11/'.$get_data_document->identity_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
-                                        <a href="#"><i class="fa fa-link"></i></a>
                                         <a href="#"><i class="fa fa-pencil"></i></a>
-                                        <a href="#"><i class="fa fa-times"></i></a>
+                                        <a href="#"><i class="fa fa-times" onclick="reject_image('{{$uid}}','noted_identity_photo')"></i></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="caption">
                                 <p><strong>Foto Ktp</strong>
                                 </p>
-                                <p>Snow and Ice Incoming</p>
+                                <p>{{$get_data_document->noted_identity_photo ?? '-'}}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-55">
                         <div class="thumbnail">
                             <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="{{asset('images/media.jpg')}}" alt="image">
+                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->self_photo) ? 'http://172.31.143.11/'.$get_data_document->self_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
-                                        <a href="#"><i class="fa fa-link"></i></a>
                                         <a href="#"><i class="fa fa-pencil"></i></a>
                                         <a href="#"><i class="fa fa-times"></i></a>
                                     </div>
@@ -55,17 +53,16 @@
                             <div class="caption">
                                 <p><strong>Foto Diri</strong>
                                 </p>
-                                <p>Snow and Ice Incoming</p>
+                                <p>{{$get_data_document->noted_self_photo ?? '-'}}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-55">
                         <div class="thumbnail">
                             <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="{{asset('images/media.jpg')}}" alt="image">
+                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->npwp_photo) ? 'http://172.31.143.11/'.$get_data_document->npwp_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
-                                        <a href="#"><i class="fa fa-link"></i></a>
                                         <a href="#"><i class="fa fa-pencil"></i></a>
                                         <a href="#"><i class="fa fa-times"></i></a>
                                     </div>
@@ -74,45 +71,7 @@
                             <div class="caption">
                                 <p><strong>Foto Npwp</strong>
                                 </p>
-                                <p>Snow and Ice Incoming</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-55">
-                        <div class="thumbnail">
-                            <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="{{asset('images/media.jpg')}}" alt="image">
-                                <div class="mask no-caption">
-                                    <div class="tools tools-bottom">
-                                        <a href="#"><i class="fa fa-link"></i></a>
-                                        <a href="#"><i class="fa fa-pencil"></i></a>
-                                        <a href="#"><i class="fa fa-times"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caption">
-                                <p><strong>Foto tempat usaha</strong>
-                                </p>
-                                <p>Snow and Ice Incoming</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-55">
-                        <div class="thumbnail">
-                            <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="{{asset('images/media.jpg')}}" alt="image">
-                                <div class="mask no-caption">
-                                    <div class="tools tools-bottom">
-                                        <a href="#"><i class="fa fa-link"></i></a>
-                                        <a href="#"><i class="fa fa-pencil"></i></a>
-                                        <a href="#"><i class="fa fa-times"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="caption">
-                                <p><strong>Foto bukti kepemilikan atau kontrak tempat usaha</strong>
-                                </p>
-                                <p>Snow and Ice Incoming</p>
+                                <p>{{$get_data_document->noted_npwp_photo ?? '-'}}</p>
                             </div>
                         </div>
                     </div>
@@ -120,29 +79,46 @@
                     <div class="col-md-55">
                         <div class="thumbnail">
                             <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="{{asset('images/media.jpg')}}" alt="image">
+                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->business_build_photo) ? 'http://172.31.143.11/'.$get_data_document->business_build_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
-                                        <a href="#"><i class="fa fa-link"></i></a>
                                         <a href="#"><i class="fa fa-pencil"></i></a>
                                         <a href="#"><i class="fa fa-times"></i></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="caption">
-                                <p><strong>Foto dokumen usaha</strong>
+                                <p><strong>Foto bangunan Usaha</strong>
                                 </p>
-                                <p>Snow and Ice Incoming</p>
+                                <p>{{$get_data_document->noted_business_build_photo ?? '-'}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-55">
+                        <div class="thumbnail">
+                            <div class="image view view-first">
+                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->siup_photo) ? 'http://172.31.143.11/'.$get_data_document->siup_photo : '/images/no_photo.jpeg' }}" alt="image">
+                                <div class="mask no-caption">
+                                    <div class="tools tools-bottom">
+                                        <a href="#"><i class="fa fa-pencil"></i></a>
+                                        <a href="#"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="caption">
+                                <p><strong>Foto SIUP usaha</strong>
+                                </p>
+                                <p>{{$get_data_document->noted_siup_photo ?? '-'}}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-55">
                         <div class="thumbnail">
                             <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="{{asset('images/media.jpg')}}" alt="image">
+                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->business_activity_photo) ? 'http://172.31.143.11/'.$get_data_document->business_activity_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
-                                        <a href="#"><i class="fa fa-link"></i></a>
                                         <a href="#"><i class="fa fa-pencil"></i></a>
                                         <a href="#"><i class="fa fa-times"></i></a>
                                     </div>
@@ -151,17 +127,16 @@
                             <div class="caption">
                                 <p><strong>Foto aktifitas usaha</strong>
                                 </p>
-                                <p>Snow and Ice Incoming</p>
+                                <p>{{$get_data_document->noted_business_activity_photo ?? '-'}}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-55">
                         <div class="thumbnail">
                             <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="{{asset('images/media.jpg')}}" alt="image">
+                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->npwp_business_photo) ? 'http://172.31.143.11/'.$get_data_document->npwp_business_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
-                                        <a href="#"><i class="fa fa-link"></i></a>
                                         <a href="#"><i class="fa fa-pencil"></i></a>
                                         <a href="#"><i class="fa fa-times"></i></a>
                                     </div>
@@ -170,7 +145,7 @@
                             <div class="caption">
                                 <p><strong>Foto NPWP usaha</strong>
                                 </p>
-                                <p>Snow and Ice Incoming</p>
+                                <p>{{$get_data_document->noted_npwp_business_photo ?? '-'}}</p>
                             </div>
                         </div>
                     </div>

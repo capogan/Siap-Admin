@@ -88,6 +88,7 @@ class LoanController extends Controller
         $data = [
             'id_loan' => $id_loan,
             'data_crm'=> $data_crm,
+            'uid'=>$uid,
             'get_data_business'=>$get_data_business,
             'get_data_emergency'=>$get_data_emergency,
             'loan_request'=> $loan_request,
@@ -211,6 +212,21 @@ class LoanController extends Controller
 
         return json_encode(['status'=> true, 'message'=> $message]);
 
+    }
+
+    function reject_image(Request $request){
+
+        $uid = $request->uid;
+        $variable = $request->str;
+        UserFile::where([
+            ['uid',$uid],
+        ])->update
+        ([
+             $variable       => 'telah ditolak',
+             "updated_at"             => date('Y-m-d H:i:s'),
+        ]);
+
+        return json_encode(['status'=> true, 'message'=> $uid]);
     }
 
     function reject(Request $request){

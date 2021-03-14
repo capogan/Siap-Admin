@@ -35,6 +35,7 @@ Route::get('/loan/invoice/detail/{id}', 'LoanController@invoice_detail')->name('
 Route::get('/loan/verification/data/{id}', 'LoanController@verification_data')->name('loan.verification');
 Route::post('/loan/reject', 'LoanController@reject')->name('loan.reject');
 Route::post('/loan/verification/phone', 'LoanController@verification_phone')->name('loan.verification.phone');
+Route::post('/loan/reject/image', 'LoanController@reject_image')->name('loan.reject.image');
 
 
 
