@@ -39,7 +39,8 @@ class PcgController extends Controller
 
         $months = array('september','oktober','november','desember','januari','februari','maret','april','mei','juni','juli','agustus');
         $get_sf = ShortFall::where('id_loan',$id_loan)->first();
-        $uid = LoanRequest::select('uid')->where('id',$id_loan)->first();
+        $get_data_user = LoanRequest::select('uid')->where('id',$id_loan)->first();
+        $uid = $get_data_user->uid;
         $get_user = User::
                         leftJoin('personal_info', 'users.id', '=', 'personal_info.uid')->
                         leftJoin('personal_business', 'users.id', '=', 'personal_business.uid')->
@@ -48,7 +49,9 @@ class PcgController extends Controller
                         leftJoin('business_place_status', 'personal_business.business_place_status', '=', 'business_place_status.id')->
                         leftJoin('beurau_credit', 'personal_business.id_beurau_credit', '=', 'beurau_credit.id')->
                         leftJoin('credit_score_income_factory', 'personal_business.id_credit_score_income_factor', '=', 'credit_score_income_factory.id')
-            ->first();
+            ->where('users.id',$uid)->first();
+
+
 
         $data = [
             'months'=> $months,
