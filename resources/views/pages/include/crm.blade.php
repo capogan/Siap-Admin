@@ -51,32 +51,33 @@
                             </div>
                         </div>
                     </div>
-
+                    <button type="button" id="btn_desc_add" class="btn btn-primary"><i class="fa fa-plus"></i></button>
                     <table class="table table-striped">
                         <thead>
                         <tr>
                             <th>No</th>
                             <th>Tanggal Tindakan</th>
                             <th>Status Telepon</th>
+                            <th>Deskripsi</th>
                             <th>Rekaman</th>
                             <th>Nama Agent</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>10 Maret 2021 13:15:00</td>
-                            <td>Telepon Sibuk</td>
-                            <td>-</td>
-                            <td>Ogan</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>10 Maret 2021 14:15:00</td>
-                            <td>Tersambung</td>
-                            <td><button type="button" class="btn btn-sm btn-success">Mendengarkan Rekaman</button></td>
-                            <td>Ogan</td>
-                        </tr>
+                        @foreach($phone_description as $key => $val)
+                            <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$val->created_at}}</td>
+                                <td>{{Utils::convert_status_phone($val->phone_status)}}</td>
+                                <td>{{$val->phone_description}}</td>
+                                @if($val->phone_status == '4')
+                                    <td><button type="button" class="btn btn-success"><i class="fa fa-headphones"></i></button></td>
+                                @else
+                                <td>-</td>
+                                @endif
+                                <td>{{$val->updated_by}}</td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
 
@@ -185,7 +186,7 @@
                 <br />
                     <input type="hidden" name="id_loan" id="id_loan" value="{{$id_loan}}">
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Penjelasan Kegiatan Usaha
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Penjelasan Kegiatan Usaha <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 ">
                             <div class="input-group">
@@ -195,7 +196,7 @@
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Kesimpulan Analisa Data
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Kesimpulan Analisa Data <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 ">
                             <div class="input-group">
@@ -215,7 +216,7 @@
 
                     </div>
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Catatan
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Catatan <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 ">
                             <div class="input-group">

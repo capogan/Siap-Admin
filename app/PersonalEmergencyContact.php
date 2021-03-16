@@ -18,6 +18,7 @@ class PersonalEmergencyContact extends Model
         'emergency_sub_kecamatan',
         'emergency_sub_kelurahan',
         'emergency_zip_code',
+        'emergency_response',
         'created_at',
         'updated_at',
     ];

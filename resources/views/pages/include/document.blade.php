@@ -27,8 +27,9 @@
                                 <img style="width: 100%; display: block;" src="{{ isset($get_data_document->identity_photo) ? 'http://172.31.143.11/'.$get_data_document->identity_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
-                                        <a href="#"><i class="fa fa-pencil"></i></a>
-                                        <a href="#"><i class="fa fa-times" onclick="reject_image('{{$uid}}','noted_identity_photo')"></i></a>
+                                        <a href="#"><i class="fa fa-check" onclick="confirm_image('{{$uid}}','noted_identity_photo','confirm')"></i></a>
+                                        <a href="#"><i class="fa fa-pencil" onclick="confirm_image('{{$uid}}','noted_identity_photo','noted')"></i></a>
+                                        <a href="#"><i class="fa fa-times" onclick="confirm_image('{{$uid}}','noted_identity_photo','reject')"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -45,15 +46,16 @@
                                 <img style="width: 100%; display: block;" src="{{ isset($get_data_document->self_photo) ? 'http://172.31.143.11/'.$get_data_document->self_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
-                                        <a href="#"><i class="fa fa-pencil"></i></a>
-                                        <a href="#"><i class="fa fa-times"></i></a>
+                                        <a href="#"><i class="fa fa-check" onclick="confirm_image('{{$uid}}','noted_self_photo','confirm')"></i></a>
+                                        <a href="#"><i class="fa fa-pencil" onclick="confirm_image('{{$uid}}','noted_self_photo','noted')"></i></a>
+                                        <a href="#"><i class="fa fa-times" onclick="confirm_image('{{$uid}}','noted_self_photo','reject')"></i></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="caption">
                                 <p><strong>Foto Diri</strong>
                                 </p>
-                                <p>{{$get_data_document->noted_self_photo ?? '-'}}</p>
+                                <p> {{$get_data_document->noted_self_photo ?? '-'}}</p>
                             </div>
                         </div>
                     </div>
@@ -63,8 +65,9 @@
                                 <img style="width: 100%; display: block;" src="{{ isset($get_data_document->npwp_photo) ? 'http://172.31.143.11/'.$get_data_document->npwp_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
-                                        <a href="#"><i class="fa fa-pencil"></i></a>
-                                        <a href="#"><i class="fa fa-times"></i></a>
+                                        <a href="#"><i class="fa fa-check" onclick="confirm_image('{{$uid}}','noted_npwp_photo','confirm')"></i></a>
+                                        <a href="#"><i class="fa fa-pencil" onclick="confirm_image('{{$uid}}','noted_npwp_photo','noted')"></i></a>
+                                        <a href="#"><i class="fa fa-times" onclick="confirm_image('{{$uid}}','noted_npwp_photo','reject')"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -82,8 +85,9 @@
                                 <img style="width: 100%; display: block;" src="{{ isset($get_data_document->business_build_photo) ? 'http://172.31.143.11/'.$get_data_document->business_build_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
-                                        <a href="#"><i class="fa fa-pencil"></i></a>
-                                        <a href="#"><i class="fa fa-times"></i></a>
+                                        <a href="#"><i class="fa fa-check" onclick="confirm_image('{{$uid}}','noted_business_build_photo','confirm')"></i></a>
+                                        <a href="#"><i class="fa fa-pencil" onclick="confirm_image('{{$uid}}','noted_business_build_photo','noted')"></i></a>
+                                        <a href="#"><i class="fa fa-times" onclick="confirm_image('{{$uid}}','noted_business_build_photo','reject')"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -101,8 +105,9 @@
                                 <img style="width: 100%; display: block;" src="{{ isset($get_data_document->siup_photo) ? 'http://172.31.143.11/'.$get_data_document->siup_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
-                                        <a href="#"><i class="fa fa-pencil"></i></a>
-                                        <a href="#"><i class="fa fa-times"></i></a>
+                                        <a href="#"><i class="fa fa-check" onclick="confirm_image('{{$uid}}','noted_siup_photo','confirm')"></i></a>
+                                        <a href="#"><i class="fa fa-pencil" onclick="confirm_image('{{$uid}}','noted_siup_photo','noted')"></i></a>
+                                        <a href="#"><i class="fa fa-times" onclick="confirm_image('{{$uid}}','noted_siup_photo','reject')"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -119,8 +124,9 @@
                                 <img style="width: 100%; display: block;" src="{{ isset($get_data_document->business_activity_photo) ? 'http://172.31.143.11/'.$get_data_document->business_activity_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
-                                        <a href="#"><i class="fa fa-pencil"></i></a>
-                                        <a href="#"><i class="fa fa-times"></i></a>
+                                        <a href="#"><i class="fa fa-check" onclick="confirm_image('{{$uid}}','noted_business_activity_photo','confirm')"></i></a>
+                                        <a href="#"><i class="fa fa-pencil" onclick="confirm_image('{{$uid}}','noted_business_activity_photo','noted')"></i></a>
+                                        <a href="#"><i class="fa fa-times" onclick="confirm_image('{{$uid}}','noted_business_activity_photo','reject')"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -137,8 +143,9 @@
                                 <img style="width: 100%; display: block;" src="{{ isset($get_data_document->npwp_business_photo) ? 'http://172.31.143.11/'.$get_data_document->npwp_business_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
-                                        <a href="#"><i class="fa fa-pencil"></i></a>
-                                        <a href="#"><i class="fa fa-times"></i></a>
+                                        <a href="#"><i class="fa fa-check" onclick="confirm_image('{{$uid}}','noted_npwp_business_photo','confirm')"></i></a>
+                                        <a href="#"><i class="fa fa-pencil" onclick="confirm_image('{{$uid}}','noted_npwp_business_photo','noted')"></i></a>
+                                        <a href="#"><i class="fa fa-times" onclick="confirm_image('{{$uid}}','noted_npwp_business_photo','reject')"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -155,9 +162,3 @@
         </div>
     </div>
 </div>
-{{--<div class="item form-group">--}}
-{{--    <div class="col-md-6 col-sm-6 offset-md-3">--}}
-{{--        <button class="btn btn-danger" type="button" id="btn_reject"><i class="fa fa-close"></i> Tolak</button>--}}
-{{--        <button type="button" class="btn btn-primary btnNext">Lanjut Dokumen <i class="fa fa-arrow-right"></i></button>--}}
-{{--    </div>--}}
-{{--</div>--}}

@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-12 col-sm-12 ">
+    <div class="col-md-6 col-sm-12 ">
         <div class="x_panel">
             <div class="x_title">
                 <h2>Informasi Kontak Darurat</h2>
@@ -91,5 +91,51 @@
                 </form>
             </div>
         </div>
+    </div>
+
+    <div class="col-md-6 ">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Kesimpulan</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Settings 1</a>
+                            <a class="dropdown-item" href="#">Settings 2</a>
+                        </div>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br>
+                <form id="result_from_emergency_form">
+                    <label class="col-form-label label-align" for="first-name">Kesimpulan <span class="required">*</span>
+                    </label>
+                    <input type="hidden" name="uid" id="uid" value="{{$uid}}">
+                    <select id="result_text" name="result_text" class="form-control">
+                        <option value="">--Pilih salah satu--</option>
+                        <option value="recommendation" {{ $get_data_emergency->emergency_response === "recommendation" ? "selected" : "" }}>Rekomendasi</option>
+                        <option value="notrecommended" {{ $get_data_emergency->emergency_response === "notrecommended" ? "selected" : "" }}>Tidak direkomendasi</option>
+
+                    </select>
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-9 col-sm-9  offset-md-3">
+                            <button type="button" class="btn btn-primary">Cancel</button>
+                            <button type="reset" class="btn btn-primary">Reset</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
     </div>
 </div>

@@ -97,6 +97,43 @@
                 </div>
             </div>
         </div>
+
+        <div id="modal_add_crm_description" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog  modal-lg ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Tambah deskripsi</h4>
+                        </button>
+                    </div>
+                    <form id="add_crm_description_form" name="contact" role="form">
+                        <input type="hidden" name="id_loan" id="id_loan" value="{{$id_loan}}">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="name">Status Telepon</label>
+                                <select class="form-control" name="phone_status" id="phone_status">
+                                    <option value="">--Pilih salah satu--</option>
+                                    <option value="1">Tidak Aktif</option>
+                                    <option value="2">Tidak ditempat</option>
+                                    <option value="3">Nomor Salah</option>
+                                    <option value="4">Tidak ditempat</option>
+                                    <option value="5">Tersambung</option>
+                                    <option value="6">Pemohon meminta reschedule telepon</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Description</label>
+                                <textarea name="description" id="description" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                            <input type="submit" class="btn btn-success" id="submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
 @section('js')

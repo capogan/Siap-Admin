@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\PersonalBusiness;
 use App\PersonalEmergencyContact;
+use App\PhoneDescription;
 use App\PhoneVerification;
 use App\UserFile;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ use App\PhoneMatchingData;
 use App\Helpers\Utils;
 use Illuminate\Support\Facades\Validator;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class LoanController extends Controller
 {
@@ -84,15 +86,21 @@ class LoanController extends Controller
         );
 
 
+        $phone_description = PhoneDescription::where('id_request_loan',$id_loan)->get();
+
+        $get_data_users = DB::table('view_request_loan')->where('id',$id_loan)->first();
+
 
         $data = [
             'id_loan' => $id_loan,
             'data_crm'=> $data_crm,
             'uid'=>$uid,
+            'get_data_users'=>$get_data_users,
             'get_data_business'=>$get_data_business,
             'get_data_emergency'=>$get_data_emergency,
             'loan_request'=> $loan_request,
-            'get_data_document'=> $get_data_document
+            'get_data_document'=> $get_data_document,
+            'phone_description'=> $phone_description
         ];
         return view('pages.loan.verification', $this->merge_response($data, static::$CONFIG));
     }
@@ -209,7 +217,6 @@ class LoanController extends Controller
             $message = "Data berhasil di tambah";
         }
 
-
         return json_encode(['status'=> true, 'message'=> $message]);
 
     }
@@ -218,12 +225,15 @@ class LoanController extends Controller
 
         $uid = $request->uid;
         $variable = $request->str;
+        $result_desc = $request->desc;
+
+        if($request->desc)
         UserFile::where([
             ['uid',$uid],
         ])->update
         ([
-             $variable       => 'telah ditolak',
-             "updated_at"             => date('Y-m-d H:i:s'),
+             $variable       => $result_desc,
+             "updated_at"    => date('Y-m-d H:i:s'),
         ]);
 
         return json_encode(['status'=> true, 'message'=> $uid]);
@@ -243,6 +253,56 @@ class LoanController extends Controller
         }
 
         $message = "test";
+        return json_encode(['status'=> true, 'message'=> $message]);
+    }
+
+
+    function add_noted_emergency(Request $request){
+
+        $uid = $request->uid;
+        $validator = Validator::make($request->all(), [
+            'result_text' => 'required',
+        ],
+            [
+                'result_text.required' => 'Masukkan kesimpulan dari Kontak darurat',
+            ]);
+
+        if ($validator->fails()) {
+            return json_encode(['status'=> false, 'message'=> $validator->messages() ]);
+        }
+
+        PersonalEmergencyContact::where([
+            ['uid',$uid],
+        ])->update
+        ([
+            'emergency_response'       => $request->result_text,
+            "updated_at"    => date('Y-m-d H:i:s'),
+        ]);
+        $message = "Kesimpulan dari kontak darurat berhasil di ubah";
+        return json_encode(['status'=> true, 'message'=> $message]);
+    }
+
+    function add_description_crm(Request $request){
+        $id_loan = $request->id_loan;
+        $validator = Validator::make($request->all(), [
+            'phone_status' => 'required',
+        ],
+            [
+                'phone_status.required' => 'pilih salah satu dari status telepon',
+            ]);
+
+        if ($validator->fails()) {
+            return json_encode(['status'=> false, 'message'=> $validator->messages() ]);
+        }
+        PhoneDescription::create([
+           'id_request_loan' => $id_loan,
+            'phone_status'=>$request->phone_status,
+            'phone_description'=>$request->description,
+            'created_at'                => date('Y-m-d H:i:s'),
+            'updated_at'                => date('Y-m-d H:i:s'),
+            'updated_by'                => Auth::user()->name,
+        ]);
+        $message = "Deskripsi berhasil ditambahkan";
         return json_encode(['status'=> true, 'message'=> $message]);
     }
 }

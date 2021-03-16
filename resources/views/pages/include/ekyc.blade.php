@@ -33,21 +33,39 @@
                         <tbody>
                         <tr>
                             <td>NIK</td>
-                            <td>1221161189003</td>
-                            <td><label class="alert alert-success">Verified</label></td>
+                            <td>{{$get_data_users->identity_number}}</td>
+                            <td class="e_nik"></td>
                         </tr>
                         <tr>
                             <td>NAMA</td>
-                            <td>SAHALA MORGAN ANDREAS TOBING</td>
-                            <td><label class="alert alert-success">Verified</label></td>
+                            <td>{{$get_data_users->first_name}} {{$get_data_users->last_name ?? $get_data_users->first_name}}</td>
+                            <td class="e_name"></td>
                         </tr>
                         <tr>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
+                            <td>TEMPAT LAHIR</td>
+                            <td>{{$get_data_users->place_of_birth }}</td>
+                            <td class="e_pob"></td>
+                        </tr>
+                        <tr>
+                            <td>TANGGAL LAHIR</td>
+                            <td>{{$get_data_users->date_of_birth }}</td>
+                            <td class="e_dob"></td>
+
+                        </tr>
+                        <tr>
+                            <td>ALAMAT</td>
+                            <td>{{$get_data_users->address }}</td>
+                            <td class="e_address"></td>
+                        </tr>
+                        <tr>
+                            <td>FOTO DIRI</td>
+                            <td></td>
+                            <td class="e_selfie"></td>
                         </tr>
                         </tbody>
                     </table>
+                    <button class="btn btn-warning" id="check_ekyc_button"><i class="fa fa-refresh"></i> CEK EKYC</button>
+                    <span class="e_result"></span>
 
                 </div>
             </div>

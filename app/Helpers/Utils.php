@@ -43,4 +43,27 @@ class Utils {
 
     }
 
+    public static function convert_status_phone($status) {
+
+        switch ($status) {
+            case "1":
+                return "Tidak Aktif";
+                break;
+            case "2":
+                echo "Tidak ditempat";
+                break;
+            case "3":
+                echo "Nomor Salah";
+                break;
+            case "4";
+                echo "Tidak ditempat";
+                break;
+            case "5":
+                echo "Tersambung";
+                break;
+            default:
+                echo "Pemohon meminta reschedule telepon";
+        }
+    }
+
 }
