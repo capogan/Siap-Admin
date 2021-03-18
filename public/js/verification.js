@@ -1,8 +1,35 @@
 $( document ).ready(function() {
-    $('.btnNext').click(function() {
-        $('.nav-tabs .active').parent().next('li').find('a').trigger('click');
+
+
+    //wizard
+    $('.nav-tabs > li a[title]').tooltip();
+
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+        var $target = $(e.target);
+        if ($target.parent().hasClass('disabled')) {
+            return false;
+        }
+    });
+    function nextTab(elem) {
+        $(elem).parent().next().find('a[data-toggle="tab"]').click();
+    }
+
+    function prevTab(elem) {
+        $(elem).parent().prev().find('a[data-toggle="tab"]').click();
+    }
+
+    $(".prev-step").click(function (e) {
+        var $active = $('.nav-tabs li>a.active');
+        prevTab($active);
     });
 
+    $(".next-step").click(function (e) {
+        var $active = $('.nav-tabs li>.active');
+        $active.parent().next().find('.nav-link').removeClass('disabled');
+        nextTab($active);
+    });
+
+    //End Wizard
 
     $('#btn_reject').click(function(){
         $('#modal_reject_reason').modal({backdrop: 'static', keyboard: false})
@@ -34,8 +61,6 @@ $( document ).ready(function() {
 
 
 
-
-
     });
 
 
@@ -59,12 +84,6 @@ $( document ).ready(function() {
 
 
 
-
-    //
-    // $(".nav .disabled>a").on("click", function(e) {
-    //     e.preventDefault();
-    //     return false;
-    // });
 
 
     // $("#reject_form").on("submit", function(event) {

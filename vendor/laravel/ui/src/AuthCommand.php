@@ -36,7 +36,7 @@ class AuthCommand extends Command
         'auth/passwords/reset.stub' => 'auth/passwords/reset.blade.php',
         'auth/register.stub' => 'auth/register.blade.php',
         'auth/verify.stub' => 'auth/verify.blade.php',
-        'home.stub' => 'home.blade.php',
+        'home.stub' => 'index.blade.php',
         'layouts/app.stub' => 'layouts/app.blade.php',
     ];
 

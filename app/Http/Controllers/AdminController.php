@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     static $CONFIG = [
-        "title" => "Peminjam",
-        "subtitle" => "Data semua produk",
+        "title" => "Beranda",
+        "subtitle" => "Monitoring Data",
         "icon" => "image"
     ];
     public function __construct()
@@ -24,7 +24,7 @@ class AdminController extends Controller
             'coy'=>''
         ];
 
-        return view('pages.index', $this->merge_response($data, static::$CONFIG));
+        return view('pages.home.index', $this->merge_response($data, static::$CONFIG));
     }
 
     function lender(Request $request){

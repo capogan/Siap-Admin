@@ -5,7 +5,7 @@
         <h3>General</h3>
 
         <ul class="nav side-menu">
-            <li><a><i class="fa fa-home"></i> Beranda </a></li>
+            <li><a href="/"><i class="fa fa-home"></i> Beranda </a></li>
 
             <li class="{{ request()->is('loan/*') ||  request()->is('borrower/*') ||  request()->is('credit/*') ? "active" : "" }}"><a><i class="fa fa-users"></i> Peminjam <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">

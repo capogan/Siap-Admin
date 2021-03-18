@@ -31,22 +31,22 @@
                             <a class="nav-link active" id="detail-tab" data-toggle="tab" href="#detail1" role="tab" aria-controls="detail" aria-selected="true">Detail Peminjaman</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="home-tab" data-toggle="tab" href="#home1" role="tab" aria-controls="home" aria-selected="false">Dokumen</a>
+                            <a class="nav-link disabled" id="home-tab" data-toggle="tab" href="#home1" role="tab" aria-controls="home" aria-selected="false">Dokumen</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile1" role="tab" aria-controls="profile" aria-selected="false">EKYC</a>
+                            <a class="nav-link disabled" id="profile-tab" data-toggle="tab" href="#profile1" role="tab" aria-controls="profile" aria-selected="false">EKYC</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="bussiness-tab" data-toggle="tab" href="#bussines1" role="tab" aria-controls="bussiness" aria-selected="false">Usaha</a>
+                            <a class="nav-link disabled" id="bussiness-tab" data-toggle="tab" href="#bussines1" role="tab" aria-controls="bussiness" aria-selected="false">Usaha</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="emergency_contact-tab" data-toggle="tab" href="#emergency_contact1" role="tab" aria-controls="emergency_contact" aria-selected="false">Kontak Darurat</a>
+                            <a class="nav-link disabled" id="emergency_contact-tab" data-toggle="tab" href="#emergency_contact1" role="tab" aria-controls="emergency_contact" aria-selected="false">Kontak Darurat</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="false">History Peminjaman</a>
+                            <a class="nav-link disabled" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="false">History Peminjaman</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="crm-tab" data-toggle="tab" href="#crm" role="tab" aria-controls="crm" aria-selected="false">Verifikasi Telepon</a>
+                            <a class="nav-link disabled" id="crm-tab" data-toggle="tab" href="#crm" role="tab" aria-controls="crm" aria-selected="false">Verifikasi Telepon</a>
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
@@ -73,7 +73,8 @@
                         </div>
 
                     </div>
-
+{{--                    <button class="btn btn-secondary">< Kembali</button>--}}
+{{--                    <button class="btn btn-primary">Selanjutnya ></button>--}}
                 </div>
             </div>
         </div>

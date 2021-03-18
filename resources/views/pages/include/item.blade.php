@@ -43,7 +43,7 @@
                         <div class="col-md-6 col-sm-6 ">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="v_username" id="v_username" value="{{ $loan_request->get_user->name ?? "-" }}">
-{{--                                <td><a href="/borrower/{{$loan_request->uid}}">{{$loan_request->get_user->name}}</a></td>--}}
+
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-danger" type="button">Salah</button>
                                     <button class="btn btn-outline-success" type="button">Benar</button>
@@ -67,7 +67,7 @@
                         <label class="col-form-label col-md-3 col-sm-3 label-align">Tanggal Pengajuan <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-{{--                            <h5 class="" for="first-name">{{ $loan_request->created_at ?? "-" }}</h5>--}}
+
                             <div class="input-group">
                                 <input type="text" class="form-control" name="v_loan_amount" id="v_loan_amount" value="{{ $loan_request->created_at ?? "-"  }}">
                                 <div class="input-group-append">
@@ -77,8 +77,8 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="ln_solid"></div>
+                    <button type="button" class="btn btn-primary next-step float-right">Selanjutnya ></button>
                 </form>
             </div>
         </div>

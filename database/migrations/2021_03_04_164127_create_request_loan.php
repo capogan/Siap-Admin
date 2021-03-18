@@ -29,6 +29,8 @@ class CreateRequestLoan extends Migration
             $table->decimal('penalty_max_percentage');
             $table->float('penalty_max_amount');
             $table->integer('status')->comment = '0=pending;1;process;2=approve;3=run;4=rejected';
+            $table->text('reject_description')->nullable();
+            $table->date('reject_date')->nullable();
             $table->timestamps();
         });
     }

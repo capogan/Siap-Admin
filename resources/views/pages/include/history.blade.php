@@ -43,5 +43,9 @@
 
             </div>
         </div>
+        <div class="ln_solid"></div>
+        <button type="button" class="btn btn-primary next-step float-right">Selanjutnya ></button>
+        <button type="button" class="btn btn-secondary  prev-step  float-right">< Kembali</button>
+
     </div>
 </div>
