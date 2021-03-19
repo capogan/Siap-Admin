@@ -15,7 +15,7 @@ $(document).ready(function () {
         event.preventDefault();
 
         var btn = $("#btn_submit_shortfall");
-        btn.attr("disabled", "disabled");
+        //btn.attr("disabled", "disabled");
 
         var token = $('meta[name="csrf-token"]').attr('content');
 
@@ -64,7 +64,7 @@ $(document).ready(function () {
                             feather.replace();
                         },
                         callback: function() {
-                            btn.removeAttr("disabled");
+                            //btn.removeAttr("disabled");
                         }
                     });
                 }

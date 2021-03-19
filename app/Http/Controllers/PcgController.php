@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use App\Helpers\Utils;
 use File;
+use App\ShortFallMaster;
 
 class PcgController extends Controller
 {
@@ -70,6 +71,7 @@ class PcgController extends Controller
 
     public function add(Request $request){
 
+        
         $id_loan  = $request->id_loan;
 
         $validator = Validator::make($request->all(), [
@@ -118,69 +120,63 @@ class PcgController extends Controller
         }
         else{
             $check_id_loan = ShortFall::where('id_loan',$id_loan)->first();
-            if($check_id_loan){
-
-                ShortFall::where([
-                    ['id_loan',$id_loan],
-                ])->update
-                ([
-                    'invoice_amount_1' => $request->amount_1,
-                    'month_1' => $request->month1,
-                    'invoice_amount_2' => $request->amount_2,
-                    'month_2' => $request->month2,
-                    'invoice_amount_3' => $request->amount_3,
-                    'month_3' => $request->month3,
-                    'invoice_amount_4' => $request->amount_4,
-                    'month_4' => $request->month4,
-                    'invoice_amount_5' => $request->amount_5,
-                    'month_5' => $request->month5,
-                    'invoice_amount_6' => $request->amount_6,
-                    'month_6' => $request->month6,
-                    'invoice_amount_7' => $request->amount_7,
-                    'month_7' => $request->month7,
-                    'invoice_amount_8' => $request->amount_8,
-                    'month_8' => $request->month8,
-                    'invoice_amount_9' => $request->amount_9,
-                    'month_9' => $request->month9,
-                    'invoice_amount_10' => $request->amount_10,
-                    'month_10' => $request->month10,
-                    'invoice_amount_11' => $request->amount_11,
-                    'month_11' => $request->month11,
-                    'invoice_amount_12' => $request->amount_12,
-                    'month_12' => $request->month12,
-                    "updated_at"=>date('Y-m-d H:i:s'),
-                ]);
-
-            }else{
-                ShortFall::create([
-                    'id_loan' => $id_loan,
-                    'invoice_amount_1' => $request->amount_1,
-                    'month_1' => $request->month1,
-                    'invoice_amount_2' => $request->amount_2,
-                    'month_2' => $request->month2,
-                    'invoice_amount_3' => $request->amount_3,
-                    'month_3' => $request->month3,
-                    'invoice_amount_4' => $request->amount_4,
-                    'month_4' => $request->month4,
-                    'invoice_amount_5' => $request->amount_5,
-                    'month_5' => $request->month5,
-                    'invoice_amount_6' => $request->amount_6,
-                    'month_6' => $request->month6,
-                    'invoice_amount_7' => $request->amount_7,
-                    'month_7' => $request->month7,
-                    'invoice_amount_8' => $request->amount_8,
-                    'month_8' => $request->month8,
-                    'invoice_amount_9' => $request->amount_9,
-                    'month_9' => $request->month9,
-                    'invoice_amount_10' => $request->amount_10,
-                    'month_10' => $request->month10,
-                    'invoice_amount_11' => $request->amount_11,
-                    'month_11' => $request->month11,
-                    'invoice_amount_12' => $request->amount_12,
-                    'month_12' => $request->month12,
-                ]);
+            $data_shortfall = [];
+            //$total_invoice = 0;
+            //$total_shortfall = 0;
+            
+            $c_value = 0;
+            for($i = 1; $i<=12 ; $i++){
+                $mo  = 'month'.$i;
+                $am  = 'amount_'.$i;
+                
+                if(isset($request->$mo)){
+                    $p_value = $c_value;
+                    $total_invoice[] = $request->$am;
+                    if($i>1){
+                        if($p_value > $request->$am){
+                            $data_shortfall[$request->$mo] = $p_value - $request->$am;
+                            $total_shortfall[] = $request->$am - $p_value ;
+                        }
+                    }
+                    $c_value = $request->$am;
+                    $result[$request->$mo] = $request->$am;
+                }
+                
             }
 
+           // echo $c_value .'-'.round((array_sum($total_invoice)/count($total_invoice)));
+            if(round((array_sum($total_invoice)/count($total_invoice))) < $c_value){
+                $total_shortfall[] = (array_sum($total_invoice)/count($total_invoice)) - $c_value;
+                $data_shortfall['last'] = $c_value - (array_sum($total_invoice)/count($total_invoice));
+            }
+
+
+            $average_shortfall = (array_sum($total_shortfall)/count($total_shortfall));
+            $average_invoice =(array_sum($total_invoice)/count($total_invoice));
+            $core_shortfall = 0;
+            $data_score_shortfall = ShortFallMaster::whereRaw(abs(round((($average_shortfall / $average_invoice)) * 100)).' BETWEEN min AND max')->first();
+            if($data_score_shortfall){
+                $core_shortfall = $data_score_shortfall->score;
+            }
+            
+            $results = [
+                'data' => $result , 
+                'data_shortfall' => $data_shortfall , 
+                'average_invoice' => $average_invoice, 
+                'average_shortfall' => $average_shortfall,
+                'shortfall' => round((($average_shortfall / $average_invoice)) * 100),
+                'shortfall_score' => $core_shortfall
+            ];
+            ShortFall::updateOrCreate(
+                ['id_loan'=>$id_loan],
+                ['shortfall' => json_encode($results) , 'updated_at' => date('Y-m-d')]
+            );
+            if($check_id_loan){
+                ShortFall::updateOrCreate(
+                    ['id_loan'=>$id_loan],
+                    ['shortfall' => json_encode($results) , 'updated_at' => date('Y-m-d')]
+                );
+            }
             $message = "Shortfall berhasil di input";
             return json_encode(['status'=> true, 'message'=> $message ]);
         }
