@@ -223,8 +223,8 @@ function calculate_scoring(){
         {
 
             console.log(response);
-            $('#status_score').text(response.credit_score);
-            $('#total_score').text(response.message);
+            $('#total_score').text(response.credit_score);
+            $('#status_score').text(response.message);
         },
         error: function(xhr, status, error) {
             var err = eval("(" + xhr.responseText + ")");
