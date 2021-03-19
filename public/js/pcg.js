@@ -222,7 +222,7 @@ function calculate_scoring(){
         success:function(response)
         {
 
-            
+            console.log(response);
             $('#status_score').text(response.message);
             $('#total_score').text(response.message);
         },
