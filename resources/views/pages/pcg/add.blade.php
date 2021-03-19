@@ -311,7 +311,7 @@
                                     <tbody>
                                     <tr>
                                         <th style="width:50%">Skor Total:</th>
-                                        <td>-</td>
+                                        <td><span id="total_score"></span></td>
                                     </tr>
                                     <tr>
                                         <th>Total Persentasi</th>
@@ -319,7 +319,7 @@
                                     </tr>
                                     <tr>
                                         <th>Status:</th>
-                                        <td>-</td>
+                                        <td>-<span id="status_score"></span></td>
                                     </tr>
                                     <tr>
                                         <th>Batas Disetujui:</th>
