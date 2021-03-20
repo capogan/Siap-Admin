@@ -32,7 +32,7 @@ class BorrowerController extends Controller
                     leftJoin('married_status', 'personal_info.married_status', '=', 'married_status.id')->
                     leftJoin('education', 'personal_info.education', '=', 'education.id')->
                     leftJoin('personal_emergency_contact', 'users.id', '=', 'personal_emergency_contact.uid')->
-                    leftJoin('siblings_master', 'personal_emergency_contact.id', '=', 'siblings_master.id')->
+                    leftJoin('siblings_master', 'personal_emergency_contact.id_siblings_master', '=', 'siblings_master.id')->
                     where('users.id',$uid)->first();
 
         $data = [

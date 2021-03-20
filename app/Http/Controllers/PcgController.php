@@ -26,7 +26,8 @@ class PcgController extends Controller
 
     public function index(Request $request){
 
-        $loan_request = LoanRequest::with('current_score')->get();
+//        $loan_request = LoanRequest::with('current_score')->get();
+        $loan_request = DB::table('view_request_loan')->where('request_loan_status','0')->get();
         $data = [
             'loan_request'=> $loan_request
         ];
@@ -34,28 +35,28 @@ class PcgController extends Controller
 
     }
 
-    public function view_data(Request $request){
+    public function view_data_step_1(Request $request){
 
         $id_loan = $request->id;
+        $get_user = DB::table('view_request_loan')->where('id',$id_loan)->first();
 
+
+
+        $data = [
+
+            'id_loan'=>$id_loan,
+            'get_user'=>$get_user,
+
+        ];
+        return view('pages.pcg.step_1', $this->merge_response($data, static::$CONFIG));
+    }
+
+    public function view_data_step_2(Request $request){
+
+        $id_loan = $request->id;
         $months = array('september','oktober','november','desember','januari','februari','maret','april','mei','juni','juli','agustus');
         $get_sf = ShortFall::where('id_loan',$id_loan)->first();
-        $get_data_user = LoanRequest::select('uid')->where('id',$id_loan)->first();
-        $uid = $get_data_user->uid;
-        $get_user = User::select('personal_info.*','personal_business.*','business_legality.*','cap_of_business_criteria.*','business_place_status.*',
-                        'beurau_credit.*','credit_score_income_factory.*','master_dependents.*','master_dependents.title as master_dependent_title',
-                        'master_business_since.*','master_business_since.title as master_since_title','master_partnership_since.title as master_partner_title')->
-                        leftJoin('personal_info', 'users.id', '=', 'personal_info.uid')->
-                        leftJoin('personal_business', 'users.id', '=', 'personal_business.uid')->
-                        leftJoin('business_legality', 'personal_business.legality_status', '=', 'business_legality.id')->
-                        leftJoin('cap_of_business_criteria', 'personal_business.id_cap_of_business', '=', 'cap_of_business_criteria.id')->
-                        leftJoin('business_place_status', 'personal_business.business_place_status', '=', 'business_place_status.id')->
-                        leftJoin('beurau_credit', 'personal_business.id_beurau_credit', '=', 'beurau_credit.id')->
-                        leftJoin('credit_score_income_factory', 'personal_business.id_credit_score_income_factor', '=', 'credit_score_income_factory.id')->
-                        leftJoin('master_dependents', 'personal_info.number_of_dependents', '=', 'master_dependents.id')->
-                        leftJoin('master_business_since', 'personal_business.business_established_since', '=', 'master_business_since.id')->
-                        leftJoin('master_partnership_since', 'personal_business.partnership_since', '=', 'master_partnership_since.id')
-            ->where('users.id',$uid)->first();
+        $get_user = DB::table('view_request_loan')->where('id',$id_loan)->first();
 
 
 
@@ -66,8 +67,29 @@ class PcgController extends Controller
             'get_user'=>$get_user,
 
         ];
-        return view('pages.pcg.add', $this->merge_response($data, static::$CONFIG));
+        return view('pages.pcg.step_2', $this->merge_response($data, static::$CONFIG));
     }
+
+    public function view_data_step_3(Request $request){
+
+        $id_loan = $request->id;
+        $months = array('september','oktober','november','desember','januari','februari','maret','april','mei','juni','juli','agustus');
+        $get_sf = ShortFall::where('id_loan',$id_loan)->first();
+        $get_user = DB::table('view_request_loan')->where('id',$id_loan)->first();
+
+
+
+        $data = [
+            'months'=> $months,
+            'id_loan'=>$id_loan,
+            'get_shortfall'=>$get_sf,
+            'get_user'=>$get_user,
+
+        ];
+        return view('pages.pcg.step_3', $this->merge_response($data, static::$CONFIG));
+    }
+
+
 
     public function add(Request $request){
 
@@ -75,13 +97,13 @@ class PcgController extends Controller
         $id_loan  = $request->id_loan;
 
         $validator = Validator::make($request->all(), [
-            'amount_1'=>'required_with:month1',
+            'amount_1'=>'required|required_with:month1',
             'month1'=>'required_with:amount_1',
             //
-            'amount_2'=>'required_with:month2',
+            'amount_2'=>'required|required_with:month2',
             'month2'=>'required_with:amount_2',
             //
-            'amount_3'=>'required_with:month3',
+            'amount_3'=>'required|required_with:month3',
             'month3'=>'required_with:amount_3',
             //
             'amount_4'=>'required_with:month4',
@@ -112,6 +134,7 @@ class PcgController extends Controller
             'month12'=>'required_with:amount_12',
         ],
             [
+                '*.required' => 'masukkan nilai Invoice Minimal 3 bulan',
                 '*.required_with' => 'Apabila nama bulan sudah diisi, jumlah invoice wajib isi (berlaku untuk kebalikan)',
             ]);
 
@@ -128,7 +151,7 @@ class PcgController extends Controller
             for($i = 1; $i<=12 ; $i++){
                 $mo  = 'month'.$i;
                 $am  = 'amount_'.$i;
-                
+                $am  =  str_replace(array(',', 'Rp.', ' '), '', $am);
                 if(isset($request->$mo)){
                     $p_value = $c_value;
                     $total_invoice[] = $request->$am;

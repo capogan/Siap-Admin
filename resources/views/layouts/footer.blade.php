@@ -1,7 +1,7 @@
 <!-- footer content -->
 <footer>
     <div class="pull-right">
-        SIAP ADMINISTRATOR
+
     </div>
     <div class="clearfix"></div>
 </footer>
@@ -65,6 +65,7 @@
 <script src="{{asset('vendors/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
 <script src="{{asset('vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js')}}"></script>
 <script src="{{asset('vendors/datatables.net-scroller/js/dataTables.scroller.min.js')}}"></script>
+<script src="https://cdnjs.com/libraries/Chart.js"></script>
 
 
 <script src="{{ asset('/js/main.js') }}"></script>
