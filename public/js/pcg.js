@@ -1,19 +1,12 @@
 $(document).ready(function () {
-
     $('#btn_reject').click(function(){
         $('#modal_reject_reason').modal({backdrop: 'static', keyboard: false})
     });
-
     $('#btn_send_loan').click(function(){
         $('#modal_confirm_loan').modal({backdrop: 'static', keyboard: false})
     });
-
-
-
     $("#shortfall_form").on("submit", function(event) {
-
         event.preventDefault();
-
         var btn = $("#btn_submit_shortfall");
         //btn.attr("disabled", "disabled");
 
@@ -35,7 +28,6 @@ $(document).ready(function () {
                 var text = '';
                 var res = JSON.parse(response);
                 if(res.status) {
-
                     bootbox.alert({
                         title: "Berhasil!",
                         message: "<i data-feather='check'></i> "+res.message,
@@ -170,9 +162,6 @@ $(document).ready(function () {
 
 
 });
-
-
-
 
 function confirm_loan(){
     var token = $('meta[name="csrf-token"]').attr('content');
