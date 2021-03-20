@@ -30,7 +30,7 @@
                         <th class="column-title">Nomor Faktur </th>
                         <th class="column-title">Tanggal Pemesanan </th>
                         <th class="column-title">Borrower </th>
-                        <th class="column-title">No Ktp </th>
+                      
                         <th class="column-title">Status </th>
                         <th class="column-title">Total Pinjaman </th>
                         <th class="column-title"> </th>
@@ -44,7 +44,7 @@
                             <td class=" ">{{$val->invoice_number}}</td>
                             <td class=" ">{{$val->created_at}}</td>
                             <td class=" ">{{$val->get_user->name}}</td>
-                            <td class=" ">{{$val->get_personal_info->identity_number}}</td>
+                          
                             <td class=" ">{{Utils::convert_status($val->status)}}</td>
                             <td class="a-right a-right ">{{number_format($val->loan_amount,2)}}</td>
                             <td>
