@@ -5,16 +5,14 @@ $(document).ready(function () {
     $('#btn_send_loan').click(function(){
         $('#modal_confirm_loan').modal({backdrop: 'static', keyboard: false})
     });
-<<<<<<< HEAD
-=======
+
+
 
     $('#table_pcg').DataTable();
 
     //calculate
 
 
-
->>>>>>> 2ef4015bd6ca6d9e6c06643ab6d925ab0255bef2
     $("#shortfall_form").on("submit", function(event) {
         event.preventDefault();
         var btn = $("#btn_submit_shortfall");
