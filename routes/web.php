@@ -70,10 +70,14 @@ Route::post('/setting/users/add','SettingController@store_user_admin')->name('se
 //PCG
 Route::get('/pcg/','PcgController@index')->name('pcg');
 Route::get('/move/','PcgController@move')->name('pcg.move');
-Route::get('/pcg/users/data/{id}','PcgController@view_data')->name('pcg.users.data');
 Route::post('/pcg/shoortfall/add','PcgController@add')->name('pcg.shoortfall.add');
 Route::post('/pcg/reject/loan','PcgController@reject')->name('pcg.reject.loan');
 Route::post('/pcg/confirm/loan','PcgController@confirm')->name('pcg.confirm.loan');
+Route::get('/pcg/users/data/{id}/step-1','PcgController@view_data_step_1')->name('pcg.users.data');
+Route::get('/pcg/users/data/{id}/step-2','PcgController@view_data_step_2')->name('pcg.users.data');
+Route::get('/pcg/users/data/{id}/step-3','PcgController@view_data_step_3')->name('pcg.users.data');
+Route::post('/pcg/set/score','PcgController@set_loan_score')->name('pcg.set.score');
+
 
 
 

@@ -4,7 +4,7 @@
     <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Form Design <small>different form elements</small></h2>
+                <h2>Permintaan Pinjaman</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -24,13 +24,13 @@
             </div>
             <div class="x_content">
                 <br>
-                <table class="table table-striped jambo_table bulk_action">
+                <table id="table_pcg" class="table table-striped table-bordered dataTable no-footer">
                     <thead>
                     <tr class="headings">
                         <th class="column-title">Nomor Faktur </th>
                         <th class="column-title">Tanggal Pemesanan </th>
                         <th class="column-title">Borrower </th>
-                        <th class="column-title">No Ktp </th>
+                        <th class="column-title">Nomor KTP </th>
                         <th class="column-title">Status </th>
                         <th class="column-title">Total Pinjaman </th>
                         <th class="column-title"> </th>
@@ -42,13 +42,13 @@
 
                         <tr class="even pointer">
                             <td class=" ">{{$val->invoice_number}}</td>
-                            <td class=" ">{{$val->created_at}}</td>
-                            <td class=" ">{{$val->get_user->name}}</td>
-                            <td class=" ">{{$val->get_personal_info->identity_number}}</td>
-                            <td class=" ">{{Utils::convert_status($val->status)}}</td>
+                            <td class=" ">{{$val->request_loan_created_at}}</td>
+                            <td class=" ">{{$val->user_name}}</td>
+                            <td class=" ">{{$val->identity_number}}</td>
+                            <td class=" ">{{Utils::convert_status($val->request_loan_status)}}</td>
                             <td class="a-right a-right ">{{number_format($val->loan_amount,2)}}</td>
                             <td>
-                                <a href="/pcg/users/data/{{$val->id}}"><button class="btn btn-default"><i class="fa fa-folder-open"></i></button></a>
+                                <a href="/pcg/users/data/{{$val->id}}/step-1"><button class="btn btn-default"><i class="fa fa-folder-open"></i></button></a>
                             </td>
 
                         </tr>
@@ -62,6 +62,6 @@
     </div>
 </div>
     @section('js')
-
+        <script src="{{ asset('/js/pcg.js') }}"></script>
     @endsection
 @endsection

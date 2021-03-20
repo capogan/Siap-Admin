@@ -43,7 +43,7 @@
                                             <td class="a-right a-right ">{{number_format($val->loan_amount,2)}}</td>
                                             <td class=" last">
                                                 <div class="progress">
-                                                    <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: {{$val->current_score->score ?? 0}}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="{{$val->current_score->score ?? 0 }}">{{$val->current_score->score ?? '0'}}</div>
+                                                    <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: {{$val->current_score->score ?? 0}}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="{{$val->current_score->score ?? 0 }}">{{$val->loan_score_currently->score ?? '0'}}</div>
                                                 </div>
                                             </td>
                                         </tr>
