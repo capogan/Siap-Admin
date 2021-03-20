@@ -31,7 +31,7 @@
                         <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile1" role="tab" aria-controls="profile" aria-selected="false">Detail Score</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" id="contact-tab" data-toggle="tab" href="#contact1" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                        <a class="nav-link disabled" id="contact-tab" data-toggle="tab" href="#contact1" role="tab" aria-controls="contact" aria-selected="false">Shortfall</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -251,7 +251,7 @@
             </div>
         </div>
         <a href="step-2"><button class="btn btn-bd-download pull-left"><i class="fa fa-arrow-left"></i> Kembali</button></a>
-        <a href="step-3"><button class="btn btn-primary pull-right"><i class="fa fa-arrow-right"></i> Selesai</button></a>
+        <button class="btn btn-primary pull-right" id="btn_send_loan"><i class="fa fa-arrow-right"></i> Selesai</button>
         <button class="btn btn-danger pull-right" id="btn_reject"><i class="fa fa-close"></i> Tolak Pengajuan</button>
     </div>
 
@@ -276,6 +276,28 @@
         </div>
     </div>
 
+    <div id="modal_confirm_loan" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Apakah Anda yakin?</h4>
+                </div>
+                <form id="confirm_form">
+                    <input type="hidden" name="id_loan" id="id_loan" value="{{$id_loan}}">
+                    <div class="modal-body">
+                        <p>Anda akan menyetujui Pinjaman Ini?</p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                        <button type="submit" class="btn btn-primary">Yakin</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
 @section('js')
     <script src="{{ asset('/js/pcg.js') }}"></script>
@@ -285,6 +307,7 @@
                 return 'Rp' + value.replace(/(?!\.)\D/g, "").replace(/(?<=\..*)\./g, "").replace(/(?<=\.\d\d).*/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             });
         }));
+
     </script>
 @endsection
 

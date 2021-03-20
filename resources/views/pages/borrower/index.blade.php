@@ -13,18 +13,13 @@
 
                 <div class="x_content">
                     <div class="table-responsive">
-                        <table id="table_borrower" class="table table-striped jambo_table bulk_action">
+                        <table id="table_borrower" class="table table-striped jambo_table bulk_action" style="width:100%">
                             <thead>
-                            <tr class="headings">
+
                                 <th class="column-title">No</th>
                                 <th class="column-title">Nama</th>
                                 <th class="column-title">Email</th>
                                 <th class="column-title">Tanggal Daftar</th>
-                                </th>
-                                <th class="bulk-actions" colspan="7">
-                                    <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
-                                </th>
-                            </tr>
                             </thead>
                             <tbody>
                             </tbody>

@@ -4,7 +4,7 @@
     <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Form Design <small>different form elements</small></h2>
+                <h2>Permintaan Pinjaman</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -24,7 +24,7 @@
             </div>
             <div class="x_content">
                 <br>
-                <table class="table table-striped jambo_table bulk_action">
+                <table id="table_pcg" class="table table-striped table-bordered dataTable no-footer">
                     <thead>
                     <tr class="headings">
                         <th class="column-title">Nomor Faktur </th>
@@ -62,6 +62,6 @@
     </div>
 </div>
     @section('js')
-
+        <script src="{{ asset('/js/pcg.js') }}"></script>
     @endsection
 @endsection

@@ -46,6 +46,8 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
+                <input type="hidden" value="{{$id_loan}}" id="id_loan" name="id_loan">
+                <input type="hidden" value="{{$get_user->uid_request_loan}}" id="uid" name="uid">
                 <table class="table">
                         <tbody>
                         <tr>
@@ -81,7 +83,7 @@
     <div class="col-md-12 col-sm-12  ">
         <div class="x_panel">
             <div class="x_title">
-                <h2><i class="fa fa-bars"></i> Tabs <small>Float right</small></h2>
+                <h2>Info Personal & Usaha</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -108,7 +110,7 @@
                         <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile1" role="tab" aria-controls="profile" aria-selected="false">Detail Score</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" id="contact-tab" data-toggle="tab" href="#contact1" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                        <a class="nav-link disabled" id="contact-tab" data-toggle="tab" href="#contact1" role="tab" aria-controls="contact" aria-selected="false">Shortfall</a>
                     </li>
                 </ul>
             </div>
@@ -160,40 +162,6 @@
                                             </tr>
                                             </tbody>
                                         </table>
-{{--                                        <div class="col-md-6">--}}
-{{--                                            <p class="lead">Akumulasi Skor</p>--}}
-{{--                                            <div class="table-responsive">--}}
-{{--                                                <table class="table">--}}
-{{--                                                    <tbody>--}}
-{{--                                                    <tr>--}}
-{{--                                                        <th style="width:50%">Skor Total:</th>--}}
-{{--                                                        <td><span id="total_score"></span></td>--}}
-{{--                                                    </tr>--}}
-{{--                                                    <tr>--}}
-{{--                                                        <th>Total Persentasi</th>--}}
-{{--                                                        <td>-</td>--}}
-{{--                                                    </tr>--}}
-{{--                                                    <tr>--}}
-{{--                                                        <th>Status:</th>--}}
-{{--                                                        <td>-<span id="status_score"></span></td>--}}
-{{--                                                    </tr>--}}
-{{--                                                    <tr>--}}
-{{--                                                        <th>Batas Disetujui:</th>--}}
-{{--                                                        <td>-</td>--}}
-{{--                                                    </tr>--}}
-{{--                                                    <tr>--}}
-{{--                                                        <th>Potongan dari faktor pendapatan</th>--}}
-{{--                                                        <td>-</td>--}}
-{{--                                                    </tr>--}}
-{{--                                                    <tr>--}}
-{{--                                                        <th>Batas Disetujui (Final):</th>--}}
-{{--                                                        <td>-</td>--}}
-{{--                                                    </tr>--}}
-{{--                                                    </tbody>--}}
-{{--                                                </table>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <button class="btn btn-secondary" onclick="calculate_scoring()"><i class="fa fa-calculator"></i> Hitung Skor</button>--}}
 
                                     </div>
                                 </div>
@@ -210,57 +178,14 @@
     </div>
 
 
+
+
 @section('js')
     <script src="{{ asset('vendors/echarts/dist/echarts.min.js')}}"></script>
     <script src="{{ asset('/js/pcg.js') }}"></script>
     <script>
         var ctx = document.getElementById('myChart');
-        var myChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Usia', 'Jumlah Tanggungan', 'Status Badan Hukum', 'Kriteria Usaha', 'Lama Usaha', 'Status tempat Usaha','Lama kerjasama dengan supplier','Biro Kredit','Faktor Pendapatan'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3, 5, 7, 9],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)',
-                        'rgba(255, 159, 64, 1)',
-                        'rgba(255, 159, 64, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                legend: {
-                    display: false
-                },
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
+        var myChart = new Chart(ctx, { type: 'bar', data: { labels: [], datasets: [] } });
     </script>
 @endsection
 

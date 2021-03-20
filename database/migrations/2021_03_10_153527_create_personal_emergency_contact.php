@@ -20,10 +20,10 @@ class CreatePersonalEmergencyContact extends Migration
             $table->integer('id_siblings_master');
             $table->string('emergency_phone');
             $table->text('emergency_full_address');
-            $table->integer('emergency_province');
-            $table->integer('emergency_city');
-            $table->string('emergency_sub_kecamatan');
-            $table->string('emergency_sub_kelurahan');
+            $table->integer('emergency_province')->nullable();
+            $table->integer('emergency_city')->nullable();
+            $table->string('emergency_sub_kecamatan')->nullable();
+            $table->string('emergency_sub_kelurahan')->nullable();
             $table->string('emergency_zip_code')->nullable();
             $table->string('emergency_response')->nullable();
             $table->timestamps();

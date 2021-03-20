@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use App\CreditScore;
 use App\LoanRequest;
+use App\LoanScore;
+use App\PCGUser;
+use App\Products;
 use App\ShortFall;
 use App\User;
 use Illuminate\Http\Request;
@@ -12,6 +15,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Helpers\Utils;
 use File;
 use App\ShortFallMaster;
+use Yajra\DataTables\DataTables;
 
 class PcgController extends Controller
 {
@@ -26,7 +30,7 @@ class PcgController extends Controller
 
     public function index(Request $request){
 
-//        $loan_request = LoanRequest::with('current_score')->get();
+
         $loan_request = DB::table('view_request_loan')->where('request_loan_status','0')->get();
         $data = [
             'loan_request'=> $loan_request
@@ -251,5 +255,22 @@ class PcgController extends Controller
         $message = "Sukses menyimpan Data";
         return json_encode(['status'=> true, 'message'=> $message]);
 
+    }
+
+    public function paging(Request $request){
+
+        return DataTables::of( DB::table('view_request_loan')->where('request_loan_status','0')->get())->addIndexColumn()->make(true);
+    }
+
+    public function set_loan_score(Request $request){
+
+
+        LoanScore::create([
+            'id_loan'    => $request->id_loan,
+            'score'     =>$request->score_loan,
+            'created_at'=>date('Y-m-d H:i:s'),
+            'updated_at'=>date('Y-m-d H:i:s'),
+        ]);
+        return json_encode(['status'=> true, 'message'=>'success set data']);
     }
 }
