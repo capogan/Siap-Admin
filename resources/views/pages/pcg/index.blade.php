@@ -30,7 +30,7 @@
                         <th class="column-title">Nomor Faktur </th>
                         <th class="column-title">Tanggal Pemesanan </th>
                         <th class="column-title">Borrower </th>
-                      
+                        <th class="column-title">Nomor KTP </th>
                         <th class="column-title">Status </th>
                         <th class="column-title">Total Pinjaman </th>
                         <th class="column-title"> </th>
@@ -42,17 +42,10 @@
 
                         <tr class="even pointer">
                             <td class=" ">{{$val->invoice_number}}</td>
-<<<<<<< HEAD
-                            <td class=" ">{{$val->created_at}}</td>
-                            <td class=" ">{{$val->get_user->name}}</td>
-                          
-                            <td class=" ">{{Utils::convert_status($val->status)}}</td>
-=======
                             <td class=" ">{{$val->request_loan_created_at}}</td>
                             <td class=" ">{{$val->user_name}}</td>
                             <td class=" ">{{$val->identity_number}}</td>
                             <td class=" ">{{Utils::convert_status($val->request_loan_status)}}</td>
->>>>>>> c8dd7f9e30de796e84bbee9b03df078e05c5f5b5
                             <td class="a-right a-right ">{{number_format($val->loan_amount,2)}}</td>
                             <td>
                                 <a href="/pcg/users/data/{{$val->id}}/step-1"><button class="btn btn-default"><i class="fa fa-folder-open"></i></button></a>
