@@ -32,6 +32,8 @@ class CreateViewRequestLoan extends Migration
                       request_loan.penalty_max_percentage,
                       request_loan.penalty_max_amount,
                       request_loan.status as request_loan_status,
+                      request_loan.created_at as request_loan_created_at,
+                      request_loan.updated_at as request_loan_updated_at,
                       users.id as user_id,
                       users.name as user_name,
                       users.email as user_email,

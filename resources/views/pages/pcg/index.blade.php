@@ -42,13 +42,13 @@
 
                         <tr class="even pointer">
                             <td class=" ">{{$val->invoice_number}}</td>
-                            <td class=" ">{{$val->created_at}}</td>
-                            <td class=" ">{{$val->get_user->name}}</td>
-                            <td class=" ">{{$val->get_personal_info->identity_number}}</td>
-                            <td class=" ">{{Utils::convert_status($val->status)}}</td>
+                            <td class=" ">{{$val->request_loan_created_at}}</td>
+                            <td class=" ">{{$val->user_name}}</td>
+                            <td class=" ">{{$val->identity_number}}</td>
+                            <td class=" ">{{Utils::convert_status($val->request_loan_status)}}</td>
                             <td class="a-right a-right ">{{number_format($val->loan_amount,2)}}</td>
                             <td>
-                                <a href="/pcg/users/data/{{$val->id}}"><button class="btn btn-default"><i class="fa fa-folder-open"></i></button></a>
+                                <a href="/pcg/users/data/{{$val->id}}/step-1"><button class="btn btn-default"><i class="fa fa-folder-open"></i></button></a>
                             </td>
 
                         </tr>

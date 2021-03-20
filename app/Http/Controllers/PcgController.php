@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use App\Helpers\Utils;
 use File;
+use App\ShortFallMaster;
 
 class PcgController extends Controller
 {
@@ -25,7 +26,8 @@ class PcgController extends Controller
 
     public function index(Request $request){
 
-        $loan_request = LoanRequest::with('current_score')->get();
+//        $loan_request = LoanRequest::with('current_score')->get();
+        $loan_request = DB::table('view_request_loan')->where('request_loan_status','0')->get();
         $data = [
             'loan_request'=> $loan_request
         ];
@@ -33,7 +35,23 @@ class PcgController extends Controller
 
     }
 
-    public function view_data(Request $request){
+    public function view_data_step_1(Request $request){
+
+        $id_loan = $request->id;
+        $get_user = DB::table('view_request_loan')->where('id',$id_loan)->first();
+
+
+
+        $data = [
+
+            'id_loan'=>$id_loan,
+            'get_user'=>$get_user,
+
+        ];
+        return view('pages.pcg.step_1', $this->merge_response($data, static::$CONFIG));
+    }
+
+    public function view_data_step_2(Request $request){
 
         $id_loan = $request->id;
         $months = array('september','oktober','november','desember','januari','februari','maret','april','mei','juni','juli','agustus');
@@ -49,21 +67,43 @@ class PcgController extends Controller
             'get_user'=>$get_user,
 
         ];
-        return view('pages.pcg.add', $this->merge_response($data, static::$CONFIG));
+        return view('pages.pcg.step_2', $this->merge_response($data, static::$CONFIG));
     }
+
+    public function view_data_step_3(Request $request){
+
+        $id_loan = $request->id;
+        $months = array('september','oktober','november','desember','januari','februari','maret','april','mei','juni','juli','agustus');
+        $get_sf = ShortFall::where('id_loan',$id_loan)->first();
+        $get_user = DB::table('view_request_loan')->where('id',$id_loan)->first();
+
+
+
+        $data = [
+            'months'=> $months,
+            'id_loan'=>$id_loan,
+            'get_shortfall'=>$get_sf,
+            'get_user'=>$get_user,
+
+        ];
+        return view('pages.pcg.step_3', $this->merge_response($data, static::$CONFIG));
+    }
+
+
 
     public function add(Request $request){
 
+        
         $id_loan  = $request->id_loan;
 
         $validator = Validator::make($request->all(), [
-            'amount_1'=>'required_with:month1',
+            'amount_1'=>'required|required_with:month1',
             'month1'=>'required_with:amount_1',
             //
-            'amount_2'=>'required_with:month2',
+            'amount_2'=>'required|required_with:month2',
             'month2'=>'required_with:amount_2',
             //
-            'amount_3'=>'required_with:month3',
+            'amount_3'=>'required|required_with:month3',
             'month3'=>'required_with:amount_3',
             //
             'amount_4'=>'required_with:month4',
@@ -94,6 +134,7 @@ class PcgController extends Controller
             'month12'=>'required_with:amount_12',
         ],
             [
+                '*.required' => 'masukkan nilai Invoice Minimal 3 bulan',
                 '*.required_with' => 'Apabila nama bulan sudah diisi, jumlah invoice wajib isi (berlaku untuk kebalikan)',
             ]);
 
@@ -102,69 +143,63 @@ class PcgController extends Controller
         }
         else{
             $check_id_loan = ShortFall::where('id_loan',$id_loan)->first();
-            if($check_id_loan){
-
-                ShortFall::where([
-                    ['id_loan',$id_loan],
-                ])->update
-                ([
-                    'invoice_amount_1' => $request->amount_1,
-                    'month_1' => $request->month1,
-                    'invoice_amount_2' => $request->amount_2,
-                    'month_2' => $request->month2,
-                    'invoice_amount_3' => $request->amount_3,
-                    'month_3' => $request->month3,
-                    'invoice_amount_4' => $request->amount_4,
-                    'month_4' => $request->month4,
-                    'invoice_amount_5' => $request->amount_5,
-                    'month_5' => $request->month5,
-                    'invoice_amount_6' => $request->amount_6,
-                    'month_6' => $request->month6,
-                    'invoice_amount_7' => $request->amount_7,
-                    'month_7' => $request->month7,
-                    'invoice_amount_8' => $request->amount_8,
-                    'month_8' => $request->month8,
-                    'invoice_amount_9' => $request->amount_9,
-                    'month_9' => $request->month9,
-                    'invoice_amount_10' => $request->amount_10,
-                    'month_10' => $request->month10,
-                    'invoice_amount_11' => $request->amount_11,
-                    'month_11' => $request->month11,
-                    'invoice_amount_12' => $request->amount_12,
-                    'month_12' => $request->month12,
-                    "updated_at"=>date('Y-m-d H:i:s'),
-                ]);
-
-            }else{
-                ShortFall::create([
-                    'id_loan' => $id_loan,
-                    'invoice_amount_1' => $request->amount_1,
-                    'month_1' => $request->month1,
-                    'invoice_amount_2' => $request->amount_2,
-                    'month_2' => $request->month2,
-                    'invoice_amount_3' => $request->amount_3,
-                    'month_3' => $request->month3,
-                    'invoice_amount_4' => $request->amount_4,
-                    'month_4' => $request->month4,
-                    'invoice_amount_5' => $request->amount_5,
-                    'month_5' => $request->month5,
-                    'invoice_amount_6' => $request->amount_6,
-                    'month_6' => $request->month6,
-                    'invoice_amount_7' => $request->amount_7,
-                    'month_7' => $request->month7,
-                    'invoice_amount_8' => $request->amount_8,
-                    'month_8' => $request->month8,
-                    'invoice_amount_9' => $request->amount_9,
-                    'month_9' => $request->month9,
-                    'invoice_amount_10' => $request->amount_10,
-                    'month_10' => $request->month10,
-                    'invoice_amount_11' => $request->amount_11,
-                    'month_11' => $request->month11,
-                    'invoice_amount_12' => $request->amount_12,
-                    'month_12' => $request->month12,
-                ]);
+            $data_shortfall = [];
+            //$total_invoice = 0;
+            //$total_shortfall = 0;
+            
+            $c_value = 0;
+            for($i = 1; $i<=12 ; $i++){
+                $mo  = 'month'.$i;
+                $am  = 'amount_'.$i;
+                $am  =  str_replace(array(',', 'Rp.', ' '), '', $am);
+                if(isset($request->$mo)){
+                    $p_value = $c_value;
+                    $total_invoice[] = $request->$am;
+                    if($i>1){
+                        if($p_value > $request->$am){
+                            $data_shortfall[$request->$mo] = $p_value - $request->$am;
+                            $total_shortfall[] = $request->$am - $p_value ;
+                        }
+                    }
+                    $c_value = $request->$am;
+                    $result[$request->$mo] = $request->$am;
+                }
+                
             }
 
+           // echo $c_value .'-'.round((array_sum($total_invoice)/count($total_invoice)));
+            if(round((array_sum($total_invoice)/count($total_invoice))) < $c_value){
+                $total_shortfall[] = (array_sum($total_invoice)/count($total_invoice)) - $c_value;
+                $data_shortfall['last'] = $c_value - (array_sum($total_invoice)/count($total_invoice));
+            }
+
+
+            $average_shortfall = (array_sum($total_shortfall)/count($total_shortfall));
+            $average_invoice =(array_sum($total_invoice)/count($total_invoice));
+            $core_shortfall = 0;
+            $data_score_shortfall = ShortFallMaster::whereRaw(abs(round((($average_shortfall / $average_invoice)) * 100)).' BETWEEN min AND max')->first();
+            if($data_score_shortfall){
+                $core_shortfall = $data_score_shortfall->score;
+            }
+            
+            $results = [
+                'data' => $result , 
+                'data_shortfall' => $data_shortfall , 
+                'average_invoice' => $average_invoice, 
+                'average_shortfall' => $average_shortfall,
+                'shortfall' => round((($average_shortfall / $average_invoice)) * 100),
+                'shortfall_score' => $core_shortfall
+            ];
+            ShortFall::updateOrCreate(
+                ['id_loan'=>$id_loan],
+                ['shortfall' => json_encode($results) , 'updated_at' => date('Y-m-d')]
+            );
+            if($check_id_loan){
+                ShortFall::updateOrCreate(
+                    ['id_loan'=>$id_loan],
+                    ['shortfall' => json_encode($results) , 'updated_at' => date('Y-m-d')]
+                );
+            }
             $message = "Shortfall berhasil di input";
             return json_encode(['status'=> true, 'message'=> $message ]);
         }
