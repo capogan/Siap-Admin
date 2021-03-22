@@ -16,6 +16,7 @@ use App\Helpers\Utils;
 use File;
 use App\ShortFallMaster;
 use Yajra\DataTables\DataTables;
+use function GuzzleHttp\json_decode;
 
 class PcgController extends Controller
 {
@@ -61,13 +62,15 @@ class PcgController extends Controller
         $months = array('september','oktober','november','desember','januari','februari','maret','april','mei','juni','juli','agustus');
         $get_sf = ShortFall::where('id_loan',$id_loan)->first();
         $get_user = DB::table('view_request_loan')->where('id',$id_loan)->first();
-
-
-
+        if($get_sf){
+            $get_sf = json_decode($get_sf->shortfall , true);
+            $get_sf = $get_sf['data'];
+        }
         $data = [
             'months'=> $months,
             'id_loan'=>$id_loan,
             'get_shortfall'=>$get_sf,
+            'keys_sf' => array_keys($get_sf),
             'get_user'=>$get_user,
 
         ];
