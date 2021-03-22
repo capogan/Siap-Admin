@@ -31,7 +31,7 @@ class PcgController extends Controller
     public function index(Request $request){
 
 
-        $loan_request = DB::table('view_request_loan')->where('request_loan_status','0')->get();
+        $loan_request = DB::table('view_request_loan')->where('request_loan_status','0')->orderBy('request_loan_created_at','Desc')->get();
         $data = [
             'loan_request'=> $loan_request
         ];
@@ -72,6 +72,7 @@ class PcgController extends Controller
 
         ];
         return view('pages.pcg.step_2', $this->merge_response($data, static::$CONFIG));
+
     }
 
     public function view_data_step_3(Request $request){
@@ -91,13 +92,14 @@ class PcgController extends Controller
 
         ];
         return view('pages.pcg.step_3', $this->merge_response($data, static::$CONFIG));
+
+
     }
 
 
 
     public function add(Request $request){
 
-        
         $id_loan  = $request->id_loan;
 
         $validator = Validator::make($request->all(), [
@@ -142,6 +144,7 @@ class PcgController extends Controller
                 '*.required_with' => 'Apabila nama bulan sudah diisi, jumlah invoice wajib isi (berlaku untuk kebalikan)',
             ]);
 
+
         if ($validator->fails()) {
             return json_encode(['status'=> false, 'message'=> $validator->messages() ]);
         }
@@ -155,23 +158,28 @@ class PcgController extends Controller
             for($i = 1; $i<=12 ; $i++){
                 $mo  = 'month'.$i;
                 $am  = 'amount_'.$i;
-                $am  =  str_replace(array(',', 'Rp.', ' '), '', $am);
+
+
+
                 if(isset($request->$mo)){
+                    $iamount  = str_replace(array(',', 'Rp', ' '), '',  $request->$am);
                     $p_value = $c_value;
-                    $total_invoice[] = $request->$am;
+                    $total_invoice[] = $iamount;
                     if($i>1){
-                        if($p_value > $request->$am){
-                            $data_shortfall[$request->$mo] = $p_value - $request->$am;
-                            $total_shortfall[] = $request->$am - $p_value ;
+                        if($p_value > $iamount){
+                            $data_shortfall[$request->$mo] = $p_value - $iamount;
+                            $total_shortfall[] = $iamount - $p_value ;
                         }
                     }
-                    $c_value = $request->$am;
-                    $result[$request->$mo] = $request->$am;
+                    $c_value = $iamount;
+                    $result[$request->$mo] = $iamount;
                 }
+
                 
             }
 
            // echo $c_value .'-'.round((array_sum($total_invoice)/count($total_invoice)));
+//            print_r($result);
             if(round((array_sum($total_invoice)/count($total_invoice))) < $c_value){
                 $total_shortfall[] = (array_sum($total_invoice)/count($total_invoice)) - $c_value;
                 $data_shortfall['last'] = $c_value - (array_sum($total_invoice)/count($total_invoice));

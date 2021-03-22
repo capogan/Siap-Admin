@@ -209,7 +209,7 @@ function calculate_scoring(){
     var uid = $("#uid").val();
     var id_loan = $("#id_loan").val();
     $.ajax({
-        url:'http://172.31.143.11/api/borrower/credit/scoring',
+        url:'http://127.0.0.1:8002/api/borrower/credit/scoring',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },

@@ -29,8 +29,8 @@ class CreatePersonalBussiness extends Migration
             $table->integer('id_beurau_credit')->nullable();
             $table->integer('business_province');
             $table->integer('business_city');
-            $table->string('business_sub_kecamatan')->nullable();
-            $table->string('business_sub_kelurahan')->nullable();
+            $table->bigInteger('business_sub_kecamatan')->nullable();
+            $table->bigInteger('business_sub_kelurahan')->nullable();
             $table->string('business_zip_code');
             $table->string('business_phone_number');
             $table->string('average_sales_revenue_six_month')->nullable();

@@ -16,7 +16,7 @@ class CreateViewRequestLoan extends Migration
 
         DB::statement("CREATE OR REPLACE VIEW view_request_loan AS
 
-                SELECT
+                SELECT DISTINCT
                       request_loan.id,
                       request_loan.invoice_number,
                       request_loan.uid as uid_request_loan,
