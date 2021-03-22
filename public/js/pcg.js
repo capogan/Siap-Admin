@@ -223,7 +223,15 @@ function calculate_scoring(){
         {
             console.log(response);
             $('#total_score').text(response.data.credit_score);
-            $('#status_score').text(response.message);
+            $('#status_score').text(response.data.message.credibiliti_status);
+            $('#credibility_percentage').text(response.data.message.credibiliti_percentage);
+            var cl = parseFloat(response.data.message.credit_limit);
+            var	reverse = cl.toString().split('').reverse().join(''),
+            ribuan 	= reverse.match(/\d{1,3}/g);
+            ribuan	= ribuan.join('.').split('').reverse().join('');
+            $('#credit_limit').text('Rp.'+ribuan);
+
+
             var a = response.data.detail.business_established_since;
             var b = response.data.detail.business_place_status;
             var c = response.data.detail.date_of_birth;
@@ -307,3 +315,4 @@ function set_score(id_loan,score){
         }
     })
 }
+

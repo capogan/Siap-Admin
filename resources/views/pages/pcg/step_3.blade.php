@@ -55,25 +55,19 @@
                             <td><h3 id="total_score"></h3></td>
                         </tr>
                         <tr>
-                            <th>Total Persentasi</th>
-                            <td>-</td>
+                            <th>Total Persentasi kredibilitas</th>
+                            <td><h3 id="credibility_percentage"></h3></td>
                         </tr>
                         <tr>
                             <th>Status:</th>
-                            <td>-<span id="status_score"></span></td>
+                            <td><h5 id="status_score"></h5></td>
                         </tr>
+
                         <tr>
-                            <th>Batas Disetujui:</th>
-                            <td>-</td>
+                            <th>Limit Pinjaman</th>
+                            <td><h5 id="credit_limit"></h5></td>
                         </tr>
-                        <tr>
-                            <th>Potongan dari faktor pendapatan</th>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <th>Batas Disetujui (Final):</th>
-                            <td>-</td>
-                        </tr>
+
                         </tbody>
                     </table>
                 <button class="btn btn-secondary" onclick="calculate_scoring()"><i class="fa fa-calculator"></i> Hitung Skor</button>
