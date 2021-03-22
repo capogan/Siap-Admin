@@ -163,7 +163,8 @@ class CreateViewRequestLoan extends Migration
                       LEFT JOIN master_dependents ON ((master_dependents.id = personal_info.number_of_dependents))
                       LEFT JOIN master_business_since ON ((master_business_since.id = personal_business.business_established_since))
                       LEFT JOIN master_partnership_since ON ((master_partnership_since.id = personal_business.partnership_since))
-                      LEFT JOIN loan_score ON ((loan_score.id_loan = request_loan.id))                 
+                      LEFT JOIN loan_score ON ((loan_score.id_loan = request_loan.id))                
+                ORDER BY request_loan.created_at DESC    
                 ");
 
 

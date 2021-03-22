@@ -31,7 +31,7 @@ class PcgController extends Controller
     public function index(Request $request){
 
 
-        $loan_request = DB::table('view_request_loan')->where('request_loan_status','0')->orderBy('request_loan_created_at','Desc')->get();
+        $loan_request = DB::table('view_request_loan')->where('request_loan_status','0')->orderBy('request_loan_created_at','DESC')->get();
         $data = [
             'loan_request'=> $loan_request
         ];

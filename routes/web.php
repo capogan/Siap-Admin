@@ -77,6 +77,7 @@ Route::get('/pcg/users/data/{id}/step-1','PcgController@view_data_step_1')->name
 Route::get('/pcg/users/data/{id}/step-2','PcgController@view_data_step_2')->name('pcg.users.data');
 Route::get('/pcg/users/data/{id}/step-3','PcgController@view_data_step_3')->name('pcg.users.data');
 Route::post('/pcg/set/score','PcgController@set_loan_score')->name('pcg.set.score');
+Route::post('/pcg/get/data','PcgController@paging')->name('pcg.get.data');
 
 
 

@@ -209,7 +209,7 @@ function calculate_scoring(){
     var uid = $("#uid").val();
     var id_loan = $("#id_loan").val();
     $.ajax({
-        url:'http://127.0.0.1:8002/api/borrower/credit/scoring',
+        url:'http://172.31.143.16/api/borrower/credit/scoring',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
@@ -315,4 +315,91 @@ function set_score(id_loan,score){
         }
     })
 }
+
+function init_data_table(){
+    let table = $('#table_pcg');
+    if (table != null) {
+        table.DataTable({
+            "autoWidth": false,
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Indonesian.json",
+                "sEmptyTable":"Tidads"
+            },
+            responsive: true,
+            processing: true,
+
+            serverSide: true,
+            ajax: {
+                url: '/pcg/get/data',
+                type:"POST",
+                data: function ( d ) {
+                    d.myKey = "myValue";
+                    d._token = $('meta[name="csrf-token"]').attr('content');
+                }
+            },
+            columns: [
+                { data: 'DT_RowIndex', name: 'DT_RowIndex' },
+                { data: 'invoice_number', name: 'invoice_number' },
+                { data: 'request_loan_created_at', name: 'request_loan_created_at' },
+                { data: 'user_name', name: 'user_name' },
+                { data: 'identity_number', name: 'identity_number' },
+                { data: 'request_loan_status', name: 'request_loan_status' },
+                { data: 'loan_amount', name: 'loan_amount' },
+
+            ],
+            columnDefs: [
+                {
+                    targets: 5,
+                    className: "text-center",
+                    render:function (data, type, full, meta) {
+
+                        if(data === 0){
+                            return '<span class="badge badge-primary p-1">Pending</span> ';
+                        }
+                        else if(data === 1)
+                        {
+                            return '<span class="badge badge-danger p-1">Tahap Verifikasi</span> ';
+                        }
+                        else if(data === 3)
+                        {
+                            return '<span class="badge badge-danger p-1">Disetujui</span> ';
+                        }
+                        else if(data === 4)
+                        {
+                            return '<span class="badge badge-danger p-1">Ditolak</span> ';
+                        }
+                        else if(data === 5)
+                        {
+                            return '<span class="badge badge-danger p-1">Ditolak oleh PCG</span> ';
+                        }
+                    }
+                },
+                {
+                    targets: 6,
+                    className: "text-center",
+                    render:function (data, type, full, meta) {
+
+                        var	reverse = data.toString().split('').reverse().join(''),
+                            ribuan 	= reverse.match(/\d{1,3}/g);
+                        ribuan	= ribuan.join('.').split('').reverse().join('');
+                        return ribuan;
+                    }
+                },
+                {
+                    targets: 7,
+                    className: "text-center",
+                    render: function(data, type, full, meta) {
+                        return '<a href="/pcg/users/data/' + full.id + '/step-1" class=""><button class="btn btn-default"><i class="fa fa-folder-open"></i></button></a>';
+                    },
+                },
+
+            ],
+
+            drawCallback: function() {
+                feather.replace();
+            },
+        })
+    }
+}
+
 
