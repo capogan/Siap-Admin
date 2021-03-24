@@ -63,9 +63,8 @@ class PcgController extends Controller
         $months = array('september','oktober','november','desember','januari','februari','maret','april','mei','juni','juli','agustus');
         $get_sf = ShortFall::where('id_loan',$id_loan)->first();
         $get_user = DB::table('view_request_loan')->where('id',$id_loan)->first();
-        
         if($get_sf){
-            $get_sf = json_decode($get_sf->shortfall , true);
+            $get_sf = $get_sf->shortfall ? json_decode($get_sf->shortfall , true) : [];
             $get_sf = $get_sf['data'];
         }
         $data = [
@@ -88,7 +87,7 @@ class PcgController extends Controller
         $get_sf = ShortFall::where('id_loan',$id_loan)->first();
         $get_user = DB::table('view_request_loan')->where('id',$id_loan)->first();
         $data = [
-            'score' => $scoring ? json_decode($scoring->detail_scoring , true): [],
+            'score' => $scoring ? json_decode($scoring->detail_scoring , true): null,
             'months'=> $months,
             'id_loan'=>$id_loan,
             'get_shortfall'=>$get_sf,
