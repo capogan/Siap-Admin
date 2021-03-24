@@ -51,21 +51,25 @@
                 <table class="table">
                         <tbody>
                         <tr>
-                            <th style="width:50%">Detail hasil:</th>
-                            <td><h3 id="total_score"></h3></td>
+                            <th style="width:50%">Persentasi Skor:</th>
+                            <td><h3 id="total_score">{{isset($score) ? $score['credit_score'] : '-'}} %</h3></td>
+                        </tr>
+                        <tr>
+                            <th style="width:50%">Skor:</th>
+                            <td><h3 id="score">{{isset($score) ? $score['score'] : '-'}}</h3></td>
                         </tr>
                         <tr>
                             <th>Total Persentasi kredibilitas</th>
-                            <td><h3 id="credibility_percentage"></h3></td>
+                            <td><h3 id="credibility_percentage">{{isset($score) ? $score['message']['credibiliti_percentage'] : '-'}}</h3></td>
                         </tr>
                         <tr>
                             <th>Status:</th>
-                            <td><h5 id="status_score"></h5></td>
+                            <td><h5 id="status_score">{{isset($score) ? $score['message']['credibiliti_status'] : '-'}}</h5></td>
                         </tr>
 
                         <tr>
                             <th>Limit Pinjaman</th>
-                            <td><h5 id="credit_limit"></h5></td>
+                            <td><h5 id="credit_limit">Rp.{{isset($score) ? number_format($score['message']['credit_limit'] , 0 ,'.' ,'.') : '0'}}</h5></td>
                         </tr>
 
                         </tbody>
@@ -169,7 +173,9 @@
             </div>
         </div>
         <a href="step-2"><button class="btn btn-bd-download pull-left"><i class="fa fa-arrow-left"></i> Kembali</button></a>
-        <button class="btn btn-primary pull-right" id="btn_send_loan"><i class="fa fa-arrow-right"></i> Selesai</button>
+        @if($score['message']['credit_limit'] > 1000)
+            <button class="btn btn-primary pull-right" id="btn_send_loan"><i class="fa fa-arrow-right"></i> Setujui</button>
+        @endif
         <button class="btn btn-danger pull-right" id="btn_reject"><i class="fa fa-close"></i> Tolak Pengajuan</button>
     </div>
 
@@ -224,6 +230,7 @@
     <script>
         var ctx = document.getElementById('myChart');
         var myChart = new Chart(ctx, { type: 'bar', data: { labels: [], datasets: [] } });
+        //drawchart(a,b,c,d,e,f);
     </script>
 @endsection
 

@@ -10,7 +10,8 @@
                             <h2>Data Permintaan Pinjaman</h2>
                             <div class="clearfix"></div>
                         </div>
-
+                    
+                        
                         <div class="x_content">
 
                             <p>Melihat semua data permintaan borrower berdasarkan <code>Nomor Faktur</code></p>
@@ -34,7 +35,14 @@
 
                                     <tbody>
                                     @foreach($loan_request as $key=> $val)
-
+                                            <?php 
+                                                $score = 0;
+                                                if($val->scoring){
+                                                    $scoring = json_decode($val->scoring , true);
+                                                    $score = json_decode($scoring['detail_scoring'] , true);
+                                                    $score = $score['credit_score'];
+                                                }
+                                            ?>
                                         <tr class="even pointer">
                                             <td class=" "><a href="/loan/invoice/detail/{{$val->id}}">{{$val->invoice_number}}</a></td>
                                             <td class=" ">{{$val->created_at}}</td>
@@ -43,7 +51,7 @@
                                             <td class="a-right a-right ">{{number_format($val->loan_amount,2)}}</td>
                                             <td class=" last">
                                                 <div class="progress">
-                                                    <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: {{$val->current_score->score ?? 0}}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="{{$val->current_score->score ?? 0 }}">{{$val->loan_score_currently->score ?? '0'}}</div>
+                                                    <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: {{$score}}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="{{$score}}">{{ $score }}</div>
                                                 </div>
                                             </td>
                                         </tr>

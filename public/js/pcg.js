@@ -204,12 +204,11 @@ function confirm_loan(){
 }
 
 function calculate_scoring(){
-
     var token = $('meta[name="csrf-token"]').attr('content');
     var uid = $("#uid").val();
     var id_loan = $("#id_loan").val();
     $.ajax({
-        url:'http://172.31.143.11/api/borrower/credit/scoring',
+        url:'http://127.0.0.1:8003/api/borrower/credit/scoring',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
@@ -221,24 +220,28 @@ function calculate_scoring(){
         },
         success:function(response)
         {
-            console.log(response);
-            $('#total_score').text(response.data.credit_score);
-            $('#status_score').text(response.data.message.credibiliti_status);
-            $('#credibility_percentage').text(response.data.message.credibiliti_percentage);
-            var cl = parseFloat(response.data.message.credit_limit);
-            var	reverse = cl.toString().split('').reverse().join(''),
-            ribuan 	= reverse.match(/\d{1,3}/g);
-            ribuan	= ribuan.join('.').split('').reverse().join('');
-            $('#credit_limit').text('Rp.'+ribuan);
-
-
+            
+            $('#total_score').text(response.data.credit_score+' %');
+            $('#score').text(response.data.score);
+            if(response.data.status == true){
+                $('#btn_send_loan').show();
+                $('#status_score').text(response.data.message.credibiliti_status);
+                $('#credibility_percentage').text(response.data.message.credibiliti_percentage);
+                var cl = parseFloat(response.data.message.credit_limit);
+                var	reverse = cl.toString().split('').reverse().join(''),
+                ribuan 	= reverse.match(/\d{1,3}/g);
+                ribuan	= ribuan.join('.').split('').reverse().join('');
+                $('#credit_limit').text('Rp.'+ribuan);
+            }
             var a = response.data.detail.business_established_since;
             var b = response.data.detail.business_place_status;
             var c = response.data.detail.date_of_birth;
             var d = response.data.detail.legality_status;
             var e = response.data.detail.number_of_dependents;
             var f = response.data.detail.partnership_since;
+
             drawchart(a,b,c,d,e,f);
+
             set_score(id_loan,response.data.credit_score);
 
         },

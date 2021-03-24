@@ -14,6 +14,7 @@ use App\Helpers\Utils;
 use Illuminate\Support\Facades\Validator;
 use DB;
 use Illuminate\Support\Facades\Auth;
+use App\RequestLoanCurrentScore;
 
 class LoanController extends Controller
 {
@@ -26,8 +27,8 @@ class LoanController extends Controller
     }
 
     function index(Request $request){
-
-        $loan_request = LoanRequest::with('current_score')->whereNotIn('status',['0','5'])->get();
+        
+        $loan_request = LoanRequest::with('current_score')->with('scoring')->whereNotIn('status',['0','5'])->get();
         $data = [
             'loan_request'=> $loan_request
         ];

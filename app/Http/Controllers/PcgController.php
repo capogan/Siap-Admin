@@ -17,6 +17,7 @@ use File;
 use App\ShortFallMaster;
 use Yajra\DataTables\DataTables;
 use function GuzzleHttp\json_decode;
+use App\RequestLoanCurrentScore;
 
 class PcgController extends Controller
 {
@@ -62,6 +63,7 @@ class PcgController extends Controller
         $months = array('september','oktober','november','desember','januari','februari','maret','april','mei','juni','juli','agustus');
         $get_sf = ShortFall::where('id_loan',$id_loan)->first();
         $get_user = DB::table('view_request_loan')->where('id',$id_loan)->first();
+        
         if($get_sf){
             $get_sf = json_decode($get_sf->shortfall , true);
             $get_sf = $get_sf['data'];
@@ -70,7 +72,7 @@ class PcgController extends Controller
             'months'=> $months,
             'id_loan'=>$id_loan,
             'get_shortfall'=>$get_sf,
-            'keys_sf' => array_keys($get_sf),
+            'keys_sf' => isset($get_sf) ? array_keys($get_sf) : [],
             'get_user'=>$get_user,
 
         ];
@@ -81,13 +83,12 @@ class PcgController extends Controller
     public function view_data_step_3(Request $request){
 
         $id_loan = $request->id;
+        $scoring = RequestLoanCurrentScore::where('id_request_loan' , $id_loan)->first();
         $months = array('september','oktober','november','desember','januari','februari','maret','april','mei','juni','juli','agustus');
         $get_sf = ShortFall::where('id_loan',$id_loan)->first();
         $get_user = DB::table('view_request_loan')->where('id',$id_loan)->first();
-
-
-
         $data = [
+            'score' => $scoring ? json_decode($scoring->detail_scoring , true): [],
             'months'=> $months,
             'id_loan'=>$id_loan,
             'get_shortfall'=>$get_sf,
@@ -154,24 +155,24 @@ class PcgController extends Controller
         else{
             $check_id_loan = ShortFall::where('id_loan',$id_loan)->first();
             $data_shortfall = [];
-            //$total_invoice = 0;
-            //$total_shortfall = 0;
-            
             $c_value = 0;
+            $shortfall_last_three_month=0;
+            $total_shortfall = [];
             for($i = 1; $i<=12 ; $i++){
                 $mo  = 'month'.$i;
                 $am  = 'amount_'.$i;
-
-
-
                 if(isset($request->$mo)){
                     $iamount  = str_replace(array(',', 'Rp', ' '), '',  $request->$am);
                     $p_value = $c_value;
                     $total_invoice[] = $iamount;
                     if($i>1){
                         if($p_value > $iamount){
+                            $shortfall_last_three_month++;
                             $data_shortfall[$request->$mo] = $p_value - $iamount;
                             $total_shortfall[] = $iamount - $p_value ;
+                        }else{
+                            $shortfall_last_three_month = 0;
+                            $data_shortfall[$request->$mo] = 0;
                         }
                     }
                     $c_value = $iamount;
@@ -180,23 +181,31 @@ class PcgController extends Controller
 
                 
             }
-
-           // echo $c_value .'-'.round((array_sum($total_invoice)/count($total_invoice)));
-//            print_r($result);
-            if(round((array_sum($total_invoice)/count($total_invoice))) < $c_value){
+            //print_r($total_shortfall);
+            //echo array_sum($total_invoice).'-'. $c_value;
+           if(round((array_sum($total_invoice)/count($total_invoice))) < $c_value){
                 $total_shortfall[] = (array_sum($total_invoice)/count($total_invoice)) - $c_value;
                 $data_shortfall['last'] = $c_value - (array_sum($total_invoice)/count($total_invoice));
             }
 
-
-            $average_shortfall = (array_sum($total_shortfall)/count($total_shortfall));
-            $average_invoice =(array_sum($total_invoice)/count($total_invoice));
-            $core_shortfall = 0;
-            $data_score_shortfall = ShortFallMaster::whereRaw(abs(round((($average_shortfall / $average_invoice)) * 100)).' BETWEEN min AND max')->first();
-            if($data_score_shortfall){
-                $core_shortfall = $data_score_shortfall->score;
+            if(count($total_shortfall) > 0){
+                $average_shortfall = (array_sum($total_shortfall)/count($total_shortfall));
+                $average_invoice =(array_sum($total_invoice)/count($total_invoice));
+                $core_shortfall = 0;
+                $data_score_shortfall = ShortFallMaster::whereRaw(abs(round((($average_shortfall / $average_invoice)) * 100)).' BETWEEN min AND max')->first();
+                if($data_score_shortfall){
+                    $core_shortfall = $data_score_shortfall->score;
+                }
             }
             
+            if($shortfall_last_three_month > 2){
+                $core_shortfall = 1;
+            }
+
+            if(count($total_shortfall) <= 0){
+                $core_shortfall = 5;
+            }
+
             $results = [
                 'data' => $result , 
                 'data_shortfall' => $data_shortfall , 
@@ -218,7 +227,6 @@ class PcgController extends Controller
             $message = "Shortfall berhasil di input";
             return json_encode(['status'=> true, 'message'=> $message ]);
         }
-
     }
 
     public function reject(Request $request){
