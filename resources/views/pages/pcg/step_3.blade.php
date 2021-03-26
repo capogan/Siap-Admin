@@ -56,15 +56,15 @@
                         </tr>
                         <tr>
                             <th style="width:50%">Skor:</th>
-                            <td><h3 id="score">{{isset($score) ? $score['score'] : '-'}}</h3></td>
+                            <td><h3 id="score">{{isset($score['score']) ? $score['score'] : '-'}}</h3></td>
                         </tr>
                         <tr>
                             <th>Total Persentasi kredibilitas</th>
-                            <td><h3 id="credibility_percentage">{{isset($score) ? $score['message']['credibiliti_percentage'] : '-'}}</h3></td>
+                            <td><h3 id="credibility_percentage">{{isset($score['message']['credibiliti_percentage']) ? $score['message']['credibiliti_percentage'] : '-'}}</h3></td>
                         </tr>
                         <tr>
                             <th>Status:</th>
-                            <td><h5 id="status_score">{{isset($score) ? $score['message']['credibiliti_status'] : '-'}}</h5></td>
+                            <td><h5 id="status_score">{{isset($score['message']['credibiliti_status'] ) ? $score['message']['credibiliti_status'] : '-'}}</h5></td>
                         </tr>
 
                         <tr>
