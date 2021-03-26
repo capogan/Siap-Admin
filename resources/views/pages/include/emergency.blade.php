@@ -51,42 +51,6 @@
                         </div>
                     </div>
 
-                    <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align">Propinsi</label>
-                        <div class="col-md-6 col-sm-6 ">
-                            <h5 class="" for="first-name">{{$get_data_emergency->province_name ?? "-" }}</h5>
-                        </div>
-                    </div>
-
-                    <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align">Kabupaten / Kota</label>
-                        <div class="col-md-6 col-sm-6 ">
-                            <h5 class="" for="first-name">{{$get_data_emergency->city_name ?? "-" }}</h5>
-                        </div>
-                    </div>
-
-                    <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align">Kecamatan</label>
-                        <div class="col-md-6 col-sm-6 ">
-                            <h5 class="" for="first-name">{{$get_data_emergency->emergency_sub_kecamatan ?? "-" }}</h5>
-                        </div>
-                    </div>
-
-                    <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align">Kelurahan</label>
-                        <div class="col-md-6 col-sm-6 ">
-                            <h5 class="" for="first-name">{{$get_data_emergency->emergency_sub_kelurahan ?? "-" }}</h5>
-                        </div>
-                    </div>
-
-                    <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align">Kodepos</label>
-                        <div class="col-md-6 col-sm-6 ">
-                            <h5 class="" for="first-name">{{$get_data_emergency->emergency_zip_code ?? "-" }}</h5>
-                        </div>
-                    </div>
-
-
                     <div class="ln_solid"></div>
                 </form>
             </div>
@@ -127,8 +91,6 @@
                     <div class="ln_solid"></div>
                     <div class="form-group">
                         <div class="col-md-9 col-sm-9  offset-md-3">
-                            <button type="button" class="btn btn-primary">Cancel</button>
-                            <button type="reset" class="btn btn-primary">Reset</button>
                             <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                     </div>
@@ -141,4 +103,4 @@
 </div>
 <div class="ln_solid"></div>
 <button type="button" class="btn btn-primary next-step float-right">Selanjutnya ></button>
-<button type="button" class="btn btn-secondary  prev-step  float-right">< Kembali</button>
+<button class="btn btn-danger float-right" type="button" id="btn_reject4"><i class="fa fa-close"></i> Tolak</button>

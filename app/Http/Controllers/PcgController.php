@@ -46,8 +46,6 @@ class PcgController extends Controller
         $id_loan = $request->id;
         $get_user = DB::table('view_request_loan')->where('id',$id_loan)->first();
 
-
-
         $data = [
 
             'id_loan'=>$id_loan,

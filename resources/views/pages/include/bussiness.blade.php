@@ -47,13 +47,13 @@
                     <div class="item form-group">
                         <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Kecamatan</label>
                         <div class="col-md-12 col-sm-6 ">
-                            <h5 class="" for="first-name">{{$get_data_business->business_sub_kecamatan  ?? "-" }}</h5>
+                            <h5 class="" for="first-name">{{$get_data_business->district_name  ?? "-" }}</h5>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Kelurahan</label>
                         <div class="col-md-12 col-sm-6 ">
-                            <h5 class="" for="first-name">{{$get_data_business->business_sub_kelurahan  ?? "-" }}</h5>
+                            <h5 class="" for="first-name">{{$get_data_business->villages_name  ?? "-" }}</h5>
                         </div>
                     </div>
                     <div class="ln_solid"></div>
@@ -200,4 +200,4 @@
 </div>
 <div class="ln_solid"></div>
 <button type="button" class="btn btn-primary next-step float-right">Selanjutnya ></button>
-<button type="button" class="btn btn-secondary  prev-step  float-right">< Kembali</button>
+<button class="btn btn-danger float-right" type="button" id="btn_reject3"><i class="fa fa-close"></i> Tolak</button>

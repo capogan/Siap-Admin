@@ -19,11 +19,13 @@ use App\RequestLoanCurrentScore;
 class LoanController extends Controller
 {
     static $CONFIG = [
+        "name"=> '',
         "title" => "Loan",
     ];
     public function __construct()
     {
-        $this->middleware('auth');
+
+        $this->middleware('auth', ['except' => ['verification_final']]);
     }
 
     function index(Request $request){
@@ -54,9 +56,11 @@ class LoanController extends Controller
         $loan_request = LoanRequest::with('current_score')->with('get_user')->where('id',$request->id)->first();
         $get_data_business = PersonalBusiness::
                             select('personal_business.*','users.name as username','business_legality.*','credit_score_income_factory.*'
-                            ,'business_place_status.*','provinces.name as province_name','regencies.name as regencies_name')->
+                            ,'business_place_status.*','provinces.name as province_name','regencies.name as regencies_name','districts.name as district_name','villages.name as villages_name')->
                             leftJoin('provinces', 'personal_business.business_province', '=', 'provinces.id')->
                             leftJoin('regencies', 'personal_business.business_city', '=', 'regencies.id')->
+                            leftJoin('districts', 'personal_business.business_sub_kecamatan', '=', 'districts.id')->
+                            leftJoin('villages', 'personal_business.business_sub_kelurahan', '=', 'villages.id')->
                             leftJoin('users', 'personal_business.uid', '=', 'users.id')->
                             leftJoin('business_legality', 'personal_business.legality_status', '=', 'business_legality.id')->
                             leftJoin('credit_score_income_factory', 'personal_business.id_credit_score_income_factor', '=', 'credit_score_income_factory.id')->
@@ -253,7 +257,18 @@ class LoanController extends Controller
             return json_encode(['status'=> false, 'message'=> $validator->messages() ]);
         }
 
-        $message = "test";
+        LoanRequest::where([
+            ['id',$request->id_loan],
+
+        ])->update
+        ([
+            "reject_description" => $request->desc_reject,
+            "status" => static::STATUS_REJECT_SIAP,
+            "reject_date" => date('Y-m-d H:i:s'),
+            "updated_at"=>date('Y-m-d H:i:s'),
+        ]);
+
+        $message = "Tolak pengajuan Berhasil";
         return json_encode(['status'=> true, 'message'=> $message]);
     }
 
@@ -305,5 +320,14 @@ class LoanController extends Controller
         ]);
         $message = "Deskripsi berhasil ditambahkan";
         return json_encode(['status'=> true, 'message'=> $message]);
+    }
+
+
+    function verification_final(){
+
+        $data = [
+            'loan_request'=> ''
+        ];
+        return view('pages.loan.verification_final', $this->merge_response($data, static::$CONFIG));
     }
 }

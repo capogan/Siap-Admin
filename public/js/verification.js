@@ -31,8 +31,9 @@ $( document ).ready(function() {
 
     //End Wizard
 
-    $('#btn_reject').click(function(){
+    $('#btn_reject1,#btn_reject2,#btn_reject3,#btn_reject4,#btn_reject5,#btn_reject6').click(function(){
         $('#modal_reject_reason').modal({backdrop: 'static', keyboard: false})
+        // alert("test");
     });
 
     $('#btn_desc_add').click(function(){
@@ -86,58 +87,48 @@ $( document ).ready(function() {
 
 
 
-    // $("#reject_form").on("submit", function(event) {
-    //
-    //     event.preventDefault();
-    //
-    //     var btn = $("#btn_submit_voucher");
-    //     btn.attr("disabled", "disabled");
-    //
-    //     var token = $('meta[name="csrf-token"]').attr('content');
-    //
-    //     $.ajax({
-    //         url:'/loan/reject',
-    //         method:"POST",
-    //         headers: {
-    //             'X-CSRF-TOKEN': token
-    //         },
-    //         async:true,
-    //         data:new FormData(this),
-    //         contentType: false,
-    //         cache: false,
-    //         processData: false,
-    //         success:function(response)
-    //         {
-    //             var text = '';
-    //             var res = JSON.parse(response);
-    //             if(res.status) {
-    //
-    //                 bootbox.alert({
-    //                     title: "Berhasil!",
-    //                     message: "<i data-feather='check'></i> "+res.message,
-    //                     centerVertical:true,
-    //                     onShow: function(e) {
-    //                         feather.replace();
-    //                     },
-    //                     callback: function() {
-    //                         btn.removeAttr("disabled");
-    //                     },
-    //                     onHide: function(e) {
-    //                         window.location = "/product"
-    //                     },
-    //
-    //                 });
-    //             }else{
-    //                 close_loading();
-    //                 $.each(res.message, function( index, value ) {
-    //                     text += '<p class="error"><i data-feather="x-square"></i> '+ value[0]+'</p>';
-    //                 });
-    //                 $(".result-message").addClass('alert alert-error').html(text)
-    //             }
-    //         }
-    //     })
-    //
-    // });
+    $("#reject_form").on("submit", function(event) {
+
+        event.preventDefault();
+
+        var btn = $("#btn_submit_voucher");
+        btn.attr("disabled", "disabled");
+
+        var token = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+            url:'/loan/reject',
+            method:"POST",
+            headers: {
+                'X-CSRF-TOKEN': token
+            },
+            async:true,
+            data:new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+            success:function(response)
+            {
+                var text = '';
+                var res = JSON.parse(response);
+                if(res.status) {
+                    // $(".result-message").addClass('alert alert-success').html(response.message);
+                    $(".result-message").addClass('alert alert-success').html(res.message)
+                    setTimeout(function(){
+                        window.location = "/loan";
+                    }, 1000);
+
+                }else{
+                    close_loading();
+                    $.each(res.message, function( index, value ) {
+                        text += '<p class="error"><i data-feather="x-square"></i> '+ value[0]+'</p>';
+                    });
+                    $(".result-message").addClass('alert alert-error').html(text)
+                }
+            }
+        })
+
+    });
 
 
 
@@ -180,7 +171,7 @@ $( document ).ready(function() {
                         onHide: function(e) {
                         },
                     });
-                    location.reload();
+
                 }else{
 
                     $.each(res.message, function( index, value ) {
@@ -310,9 +301,9 @@ $( document ).ready(function() {
                         onHide: function(e) {
                         },
                     });
-                    location.reload();
+                    window.location.href= "/loan/verification/data/15#crm";
                 }else{
-                    // close_loading();
+
                     $.each(res.message, function( index, value ) {
                         text += '<p class="error"><i data-feather="x-square"></i> '+ value[0]+'</p>';
                     });
@@ -400,3 +391,9 @@ function confirm_image(uid,str,desc){
     });
 
 }
+
+function showImage(url) {
+    bootbox.alert("<img style='width: 100%;' src='" + url + "'>", function() {
+        console.log("It was awesome!");
+    });
+};

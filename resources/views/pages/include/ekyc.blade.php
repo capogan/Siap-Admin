@@ -23,7 +23,7 @@
                     <div class="profile_img">
                         <div id="crop-avatar">
                             <!-- Current avatar -->
-                            <img class="img-responsive avatar-view" src="/images/picture.jpg" alt="Avatar" title="Change the avatar">
+                            <img class="img-responsive avatar-view" src="http://localhost:8002/{{$get_data_users->self_photo}}" style="width: 80%" alt="Avatar" title="Change the avatar">
                         </div>
                     </div>
                 </div>
@@ -68,8 +68,7 @@
                     <span class="e_result"></span>
                     <div class="ln_solid"></div>
                     <button type="button" class="btn btn-primary next-step float-right">Selanjutnya ></button>
-                    <button type="button" class="btn btn-secondary  prev-step  float-right">< Kembali</button>
-
+                    <button class="btn btn-danger float-right" type="button" id="btn_reject2"><i class="fa fa-close"></i> Tolak</button>
                 </div>
             </div>
         </div>

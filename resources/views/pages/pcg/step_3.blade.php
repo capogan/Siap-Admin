@@ -68,6 +68,11 @@
                         </tr>
 
                         <tr>
+                            <th>Nilai Pengajuan:</th>
+                            <td><h5 id="status_score">Rp. {{number_format($get_user->loan_amount,0,'.','.') ?? ''}}</h5></td>
+                        </tr>
+
+                        <tr>
                             <th>Limit Pinjaman</th>
                             <td><h5 id="credit_limit">Rp.{{isset($score) ? number_format($score['message']['credit_limit'] , 0 ,'.' ,'.') : '0'}}</h5></td>
                         </tr>

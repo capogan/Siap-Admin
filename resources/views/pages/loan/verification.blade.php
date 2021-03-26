@@ -27,11 +27,11 @@
                 <div class="x_content">
 
                     <ul class="nav nav-tabs justify-content-end bar_tabs" id="myTab" role="tablist">
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link active" id="detail-tab" data-toggle="tab" href="#detail1" role="tab" aria-controls="detail" aria-selected="true">Detail Peminjaman</a>--}}
+{{--                        </li>--}}
                         <li class="nav-item">
-                            <a class="nav-link active" id="detail-tab" data-toggle="tab" href="#detail1" role="tab" aria-controls="detail" aria-selected="true">Detail Peminjaman</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" id="home-tab" data-toggle="tab" href="#home1" role="tab" aria-controls="home" aria-selected="false">Dokumen</a>
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home1" role="tab" aria-controls="home" aria-selected="false">Dokumen</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" id="profile-tab" data-toggle="tab" href="#profile1" role="tab" aria-controls="profile" aria-selected="false">EKYC</a>
@@ -50,10 +50,10 @@
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade active show" id="detail1" role="tabpanel" aria-labelledby="detail-tab">
-                            @include('pages.include.item')
-                        </div>
-                        <div class="tab-pane fade" id="home1" role="tabpanel" aria-labelledby="home-tab">
+{{--                        <div class="tab-pane fade active show" id="detail1" role="tabpanel" aria-labelledby="detail-tab">--}}
+{{--                            @include('pages.include.item')--}}
+{{--                        </div>--}}
+                        <div class="tab-pane fade active show" id="home1" role="tabpanel" aria-labelledby="home-tab">
                             @include('pages.include.document')
                         </div>
                         <div class="tab-pane fade" id="profile1" role="tabpanel" aria-labelledby="profile-tab">
@@ -73,9 +73,7 @@
                         </div>
 
                     </div>
-{{--                    <button class="btn btn-secondary">< Kembali</button>--}}
-{{--                    <button class="btn btn-primary">Selanjutnya ></button>--}}
-                </div>
+
             </div>
         </div>
 
@@ -84,10 +82,11 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <form id="reject_form">
+                        <input type="hidden" name="id_loan" id="id_loan" value="{{$id_loan}}">
                         <div class="modal-body">
                             <p>Berikan Alasan penolakan</p>
                             <textarea class="form-control" name="desc_reject" id="desc_reject" style="resize: none" rows="10"></textarea>
-                            <div class="alert-dismissible result-message " role="alert"></div>
+                            <div class="alert-dismissible result-message" role="alert"></div>
                         </div>
 
                         <div class="modal-footer">

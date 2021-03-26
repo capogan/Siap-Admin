@@ -39,6 +39,7 @@ Route::post('/loan/reject/image', 'LoanController@reject_image')->name('loan.rej
 Route::post('/loan/reject/image', 'LoanController@reject_image')->name('loan.reject.image');
 Route::post('/loan/add/noted/emergency', 'LoanController@add_noted_emergency')->name('loan.add.noted.emergency');
 Route::post('/loan/add/description/crm', 'LoanController@add_description_crm')->name('loan.add.description.crm');
+Route::get('/loan/verification/final', 'LoanController@verification_final')->name('loan.verification.final');
 
 
 
