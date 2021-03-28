@@ -13,7 +13,11 @@ class Funding extends Model
 
     public function directors()
     {
-        return $this->hasMany(LenderDirectorData::class , 'uid' , 'uid');
+        return $this->hasMany(LenderDirectorData::class , 'uid' , 'uid')
+        ->with('province')
+        ->with('regency')
+        ->with('district')
+        ->with('village');
     }
 
     public function commissioners()

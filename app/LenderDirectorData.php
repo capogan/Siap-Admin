@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Province;
+use App\Province;
 
 class LenderDirectorData extends Model
 {
@@ -13,11 +13,21 @@ class LenderDirectorData extends Model
         'identity_photo','self_photo','province_id','regency_id','village_id','district_id','position','address'
     ];
 
-    public function funcing()
+    public function funding()
     {
         return $this->hasOne(Funding::class , 'uid');
     }
     public function province(){
-        return $this->hasOne(Province::class , 'province_id');
+        return $this->hasOne(Province::class , 'id' , 'province_id');
+    }
+    public function regency(){
+        return $this->hasOne(Regency::class , 'id' ,'regency_id');
+    }
+
+    public function district(){
+        return $this->hasOne(District::class , 'id' , 'district_id');
+    }
+    public function village(){
+        return $this->hasOne(Village::class , 'id' ,'village_id');
     }
 }
