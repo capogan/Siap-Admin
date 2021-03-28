@@ -42,7 +42,7 @@ class FundingController extends Controller
     public function paging(Request $request){
 
         $funding = Funding::
-        leftJoin('users', 'request_funding.uid', '=', 'users.id')
+            leftJoin('users', 'request_funding.uid', '=', 'users.id')
             ->leftJoin('lender_business', 'users.id', '=', 'lender_business.uid')
             ->leftJoin('master_status_funding_request', 'request_funding.status', '=', 'master_status_funding_request.id')
             ->select('request_funding.*','lender_business.business_name as lender_business_name',

@@ -33,7 +33,7 @@ class PcgController extends Controller
     public function index(Request $request){
 
 
-        $loan_request = DB::table('view_request_loan')->where('request_loan_status','2')->orderBy('request_loan_created_at','DESC')->get();
+        $loan_request = DB::table('view_request_loan')->whereIn('request_loan_status',['1','2'])->orderBy('request_loan_created_at','DESC')->get();
         $data = [
             'loan_request'=> $loan_request
         ];
@@ -275,7 +275,8 @@ class PcgController extends Controller
 
     public function paging(Request $request){
 
-        return DataTables::of( DB::table('view_request_loan')->where('request_loan_status','0')->get())->addIndexColumn()->make(true);
+        $loan_request = DB::table('view_request_loan')->whereIn('request_loan_status',['1','2'])->orderBy('request_loan_created_at','DESC')->get();
+        return DataTables::of($loan_request)->addIndexColumn()->make(true);
     }
 
     public function set_loan_score(Request $request){

@@ -345,40 +345,13 @@ function init_data_table(){
                 { data: 'invoice_number', name: 'invoice_number' },
                 { data: 'request_loan_created_at', name: 'request_loan_created_at' },
                 { data: 'user_name', name: 'user_name' },
-                { data: 'identity_number', name: 'identity_number' },
-                { data: 'request_loan_status', name: 'request_loan_status' },
+                { data: 'status_title', name: 'status_title' },
                 { data: 'loan_amount', name: 'loan_amount' },
 
             ],
             columnDefs: [
                 {
                     targets: 5,
-                    className: "text-center",
-                    render:function (data, type, full, meta) {
-
-                        if(data === 0){
-                            return '<span class="badge badge-primary p-1">Pending</span> ';
-                        }
-                        else if(data === 1)
-                        {
-                            return '<span class="badge badge-danger p-1">Tahap Verifikasi</span> ';
-                        }
-                        else if(data === 3)
-                        {
-                            return '<span class="badge badge-danger p-1">Disetujui</span> ';
-                        }
-                        else if(data === 4)
-                        {
-                            return '<span class="badge badge-danger p-1">Ditolak</span> ';
-                        }
-                        else if(data === 5)
-                        {
-                            return '<span class="badge badge-danger p-1">Ditolak oleh PCG</span> ';
-                        }
-                    }
-                },
-                {
-                    targets: 6,
                     className: "text-center",
                     render:function (data, type, full, meta) {
 
@@ -389,7 +362,7 @@ function init_data_table(){
                     }
                 },
                 {
-                    targets: 7,
+                    targets: 6,
                     className: "text-center",
                     render: function(data, type, full, meta) {
                         return '<a href="/pcg/users/data/' + full.id + '/step-1" class=""><button class="btn btn-default"><i class="fa fa-folder-open"></i></button></a>';

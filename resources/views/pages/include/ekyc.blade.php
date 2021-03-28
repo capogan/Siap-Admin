@@ -23,7 +23,7 @@
                     <div class="profile_img">
                         <div id="crop-avatar">
                             <!-- Current avatar -->
-                            <img class="img-responsive avatar-view" src="http://localhost:8002/{{$get_data_users->self_photo}}" style="width: 80%" alt="Avatar" title="Change the avatar">
+                            <img class="img-responsive avatar-view" src="http://172.31.143.11/{{$get_data_users->self_photo}}" style="width: 80%" alt="Avatar" title="Change the avatar">
                         </div>
                     </div>
                 </div>

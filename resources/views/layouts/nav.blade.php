@@ -15,7 +15,7 @@
                     <li><a href="/verification/final">Verifikasi Akhir</a></li>
                 </ul>
             </li>
-            <li><a><i class="fa fa-users"></i> Pendanaan <span class="fa fa-chevron-down"></span></a>
+            <li class="{{ request()->is('funding/verification/*') ? "active" : ""  }}"><a><i class="fa fa-users"></i> Pendanaan <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="/funding">Permintaan Pendanaan</a></li>
                     <li><a href="/lender">Lender</a></li>

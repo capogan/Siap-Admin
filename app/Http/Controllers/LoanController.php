@@ -31,7 +31,7 @@ class LoanController extends Controller
     function index(Request $request){
 
 
-        $loan_request = LoanRequest::whereIn('request_loan.status',['1','2','3'])
+        $loan_request = LoanRequest::whereIn('request_loan.status',['4','5','6','7','8','9','10','11','12','13','14','15'])
             ->leftJoin('request_loan_score_current', 'request_loan.id', '=', 'request_loan_score_current.id_request_loan')
             ->leftJoin('master_status_loan_request', 'request_loan.status', '=', 'master_status_loan_request.id')
             ->select('request_loan.*','request_loan.id as request_loan_id','request_loan_score_current.*','master_status_loan_request.*','master_status_loan_request.title as status_name','request_loan.created_at as loan_created_at')
@@ -229,6 +229,10 @@ class LoanController extends Controller
                     $increment++;
 
                 }
+
+
+
+
                 DB::commit();
 
             } catch (\Exception $e) {
@@ -239,6 +243,14 @@ class LoanController extends Controller
             $message = "Data berhasil di tambah";
         }
 
+        LoanRequest::where([
+            ['id',$id_loan],
+
+        ])->update
+        ([
+            "status" => static::PENDING_FINAL_REVIEW,
+            "updated_at"=>date('Y-m-d H:i:s'),
+        ]);
         return json_encode(['status'=> true, 'message'=> $message]);
 
     }
