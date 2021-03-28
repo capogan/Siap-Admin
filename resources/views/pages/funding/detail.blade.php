@@ -283,32 +283,30 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <th>Alamat</th>
-                                                                        <td colspan="4">{{$item->commissioner_address}}</td>
+                                                                        <td colspan="4">{{$item->address}}</td>
                                                                     <tr>
                                                                         <td></td>
                                                                         <td>Provinsi</td>
-                                                                        <td>{{$item->province_id}}</td>
+                                                                        <td>{{$item->province->name}}</td>
                                                                         <td colspan="2"></td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td></td>
-                                                                        <td>Kabupaten / kota</td>
-                                                                        <td>{{$item->regency_id}}</td>
+                                                                        <td>Kabupaten</td>
+                                                                        <td>{{$item->regency->name}}</td>
                                                                         <td colspan="2"></td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td></td>
                                                                         <td>Kecataman</td>
-                                                                        <td>{{$item->district_id}}</td>
+                                                                        <td>{{$item->district->name}}</td>
                                                                         <td colspan="2"></td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td></td>
                                                                         <td>Kelurahan</td>
-                                                                        <td>{{$item->village_id}}</td>
-                                                                        <td colspan="2" class="text-center">
-                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                        </td>
+                                                                        <td>{{$item->village->name}}</td>
+                                                                        <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
                                                                     </tr>
                                                                     </tr>
                                                                     <tr>

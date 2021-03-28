@@ -31,8 +31,8 @@ class FundingController extends Controller
         ];
         return view('pages.funding.index', $this->merge_response($data, static::$CONFIG));
     }
-    function detail(Request $request){
-        $funding = Funding::with('directors')->with('commissioners')->first();
+    function detail($id){
+        $funding = Funding::with('directors')->with('commissioners')->where('id' ,$id )->first();
 
         $data = [
             'funding'=> $funding,
@@ -54,8 +54,8 @@ class FundingController extends Controller
     }
 
     public function update_lender_status(Request $request){
-        //print_r($request->all());
-        $uid = Funding::where('id' , $request->id)->first();
+
+        $uid = Funding::where('id' , $request->id)->first();       
         if(!$uid){
             $json = [
                 "status"=> false,
@@ -63,15 +63,15 @@ class FundingController extends Controller
             ];
             return response()->json($json);
         }
-        LenderVerification::where('uid' , $uid->uid)->update(['status' => 'verified']);
-
-        $uid->status = 4;
-        $uid->save();
-        $json = [
-            "status"=> true,
-            "message"=> 'Success to update data.',
-        ];
-        return response()->json($json);
+        if(LenderVerification::where('uid' , $uid->uid)->update(['status' => 'verified'])){
+            $json = [
+                "status"=> true,
+                "message"=> 'Success to update data.',
+            ];
+            return response()->json($json);
+        }
+       
+        
     }
 
 

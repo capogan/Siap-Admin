@@ -20,6 +20,7 @@ $( document ).ready(function() {
 
 function update_status_lender(status , id){
     var token = $('meta[name="csrf-token"]').attr('content');
+    //alert(token);
     $.ajax({
         url: '/lender/update/status',
         method:"POST",
@@ -35,7 +36,7 @@ function update_status_lender(status , id){
         success:function(response)
         {
             //console.log(response);
-            location.reload();
+            //location.reload();
         }
     })
 }

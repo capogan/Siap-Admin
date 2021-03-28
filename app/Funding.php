@@ -22,7 +22,11 @@ class Funding extends Model
 
     public function commissioners()
     {
-        return $this->hasMany(LenderCommissionerData::class , 'uid' , 'uid');
+        return $this->hasMany(LenderCommissionerData::class , 'uid' , 'uid')
+        ->with('province')
+        ->with('regency')
+        ->with('district')
+        ->with('village');
     }
 
 }
