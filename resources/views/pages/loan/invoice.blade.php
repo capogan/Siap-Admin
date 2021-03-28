@@ -31,11 +31,10 @@
                         <div class="row">
                             <!-- /.col -->
                             <div class="col-md-6">
-                                <h3 class="green"><i class="fa fa-paint-brush"></i> Skor Sementara : {{$loan_request->current_score->score ?? 0}}</h3>
+
                                 <div class="table-responsive">
                                     <table class="table">
                                         <tbody>
-
                                         <tr>
                                             <th>Nomor Faktur</th>
                                             <td>{{$loan_request->invoice_number}}</td>
@@ -105,7 +104,7 @@
 
                         <div class="row no-print">
                             <div class=" ">
-                                <a href="/loan/verification/data/{{$loan_request->id}}"><button class="btn btn-primary pull-right"><i class="fa fa-credit-card"></i>  Verifikasi Data Peminjam</button></a>
+                                <a href="/loan/verification/data/{{$loan_request->request_loan_id}}"><button class="btn btn-primary pull-right"><i class="fa fa-credit-card"></i>  Verifikasi Data Peminjam</button></a>
                             </div>
                         </div>
                     </section>

@@ -66,4 +66,11 @@ class Utils {
         }
     }
 
+    public static function debug($query) {
+        echo "<pre>";
+        print_r($query);
+        die();
+    }
+
+
 }

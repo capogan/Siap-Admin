@@ -66,6 +66,8 @@
 <script src="{{asset('vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js')}}"></script>
 <script src="{{asset('vendors/datatables.net-scroller/js/dataTables.scroller.min.js')}}"></script>
 <script src="https://cdnjs.com/libraries/Chart.js"></script>
+<script src="{{asset('vendors/echarts/dist/echarts.min.js')}}"></script>
+<script src="{{asset('vendors/echarts/map/js/world.js')}}"></script>
 
 
 <script src="{{ asset('/js/main.js') }}"></script>

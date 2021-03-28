@@ -33,7 +33,7 @@ class PcgController extends Controller
     public function index(Request $request){
 
 
-        $loan_request = DB::table('view_request_loan')->where('request_loan_status','0')->orderBy('request_loan_created_at','DESC')->get();
+        $loan_request = DB::table('view_request_loan')->where('request_loan_status','2')->orderBy('request_loan_created_at','DESC')->get();
         $data = [
             'loan_request'=> $loan_request
         ];
@@ -245,7 +245,7 @@ class PcgController extends Controller
         ])->update
         ([
             "reject_description" => $request->desc_reject,
-            "status" => static::STATUS_REJECT_PCG,
+            "status" => static::TOLAK_MERCHANT,
             "reject_date" => date('Y-m-d H:i:s'),
             "updated_at"=>date('Y-m-d H:i:s'),
         ]);
@@ -264,7 +264,7 @@ class PcgController extends Controller
         ])->update
         ([
             "reject_description" => $request->desc_reject,
-            "status" => static::STATUS_VERIFICATION,
+            "status" => static::PENDING_DOCUMENT_REVIEW,
             "reject_date" => date('Y-m-d H:i:s'),
             "updated_at"=>date('Y-m-d H:i:s'),
         ]);
@@ -279,7 +279,6 @@ class PcgController extends Controller
     }
 
     public function set_loan_score(Request $request){
-
 
         LoanScore::create([
             'id_loan'    => $request->id_loan,

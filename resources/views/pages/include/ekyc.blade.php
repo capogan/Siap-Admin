@@ -68,7 +68,7 @@
                     <span class="e_result"></span>
                     <div class="ln_solid"></div>
                     <button type="button" class="btn btn-primary next-step float-right">Selanjutnya ></button>
-                    <button class="btn btn-danger float-right" type="button" id="btn_reject2"><i class="fa fa-close"></i> Tolak</button>
+                    <button class="btn btn-danger float-right" type="button" onclick="reject_function(7)"><i class="fa fa-close"></i> Tolak</button>
                 </div>
             </div>
         </div>

@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <button type="button" id="btn_desc_add" class="btn btn-primary"><i class="fa fa-plus"></i></button>
-                    <table class="table table-striped">
+                    <table class="table table-striped" id="table_description_crm">
                         <thead>
                         <tr>
                             <th>No</th>
@@ -66,11 +66,11 @@
                         <tbody>
                         @foreach($phone_description as $key => $val)
                             <tr>
-                                <td>{{$loop->iteration}}</td>
+                                <td class="number">{{$loop->iteration}}</td>
                                 <td>{{$val->created_at}}</td>
                                 <td>{{Utils::convert_status_phone($val->phone_status)}}</td>
                                 <td>{{$val->phone_description}}</td>
-                                @if($val->phone_status == '4')
+                                @if($val->phone_status == '5')
                                     <td><button type="button" class="btn btn-success"><i class="fa fa-headphones"></i></button></td>
                                 @else
                                 <td>-</td>
@@ -228,7 +228,7 @@
                     <div class="ln_solid"></div>
                     <div class="item form-group">
                         <div class="col-md-6 col-sm-6 offset-md-3">
-                            <button class="btn btn-danger" type="button" id="btn_reject"><i class="fa fa-close"></i> Tolak</button>
+                            <button class="btn btn-danger" type="button" onclick="reject_function(15)"><i class="fa fa-close"></i> Tolak</button>
                             <button type="button" class="btn btn-primary" id="btn_submit_crm"><i class="fa fa-external-link-square"></i> Konfirmasi</button>
                         </div>
                     </div>

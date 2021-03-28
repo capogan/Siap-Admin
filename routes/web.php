@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/', 'AdminController@index')->name('dashboard');
 
-Route::get('/lender', 'AdminController@lender')->name('lender');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout','AdminController@logout')->name('logout');
 
@@ -28,6 +28,7 @@ Route::get('/logout','AdminController@logout')->name('logout');
 Route::get('/borrower', 'BorrowerController@index')->name('borrower');
 Route::post('/borrower/paging', 'BorrowerController@paging')->name('borrower.paguing');
 Route::get('/borrower/detail/{id}', 'BorrowerController@detail')->name('borrower.detail');
+
 
 //loan
 Route::get('/loan', 'LoanController@index')->name('loan');
@@ -39,8 +40,6 @@ Route::post('/loan/reject/image', 'LoanController@reject_image')->name('loan.rej
 Route::post('/loan/reject/image', 'LoanController@reject_image')->name('loan.reject.image');
 Route::post('/loan/add/noted/emergency', 'LoanController@add_noted_emergency')->name('loan.add.noted.emergency');
 Route::post('/loan/add/description/crm', 'LoanController@add_description_crm')->name('loan.add.description.crm');
-Route::get('/loan/verification/final', 'LoanController@verification_final')->name('loan.verification.final');
-
 
 
 //creditscore
@@ -79,6 +78,19 @@ Route::get('/pcg/users/data/{id}/step-2','PcgController@view_data_step_2')->name
 Route::get('/pcg/users/data/{id}/step-3','PcgController@view_data_step_3')->name('pcg.users.data');
 Route::post('/pcg/set/score','PcgController@set_loan_score')->name('pcg.set.score');
 Route::post('/pcg/get/data','PcgController@paging')->name('pcg.get.data');
+
+//verification
+Route::get('/verification/final', 'VerificationController@index')->name('loan.verification.final');
+Route::post('/verification/final/paging', 'VerificationController@paging')->name('loan.verification.paging');
+Route::get('/verification/invoice/detail/{id}', 'VerificationController@invoice_detail')->name('verification.detail');
+
+
+//funding
+Route::get('/funding', 'FundingController@index')->name('lender');
+Route::post('/funding/paging', 'FundingController@paging')->name('funding.paging');
+Route::get('/funding/verification/data/{id}', 'FundingController@detail')->name('lender');
+//lender
+Route::get('/lender/request', 'LenderController@index')->name('lender');
 
 
 

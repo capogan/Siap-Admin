@@ -20,17 +20,25 @@ class LoanController extends Controller
 {
     static $CONFIG = [
         "name"=> '',
-        "title" => "Loan",
+        "title" => "Peminjaman",
     ];
     public function __construct()
     {
 
-        $this->middleware('auth', ['except' => ['verification_final']]);
+        $this->middleware('auth', ['except' => ['verification']]);
     }
 
     function index(Request $request){
-        
-        $loan_request = LoanRequest::with('current_score')->with('scoring')->whereNotIn('status',['0','5'])->get();
+
+
+        $loan_request = LoanRequest::whereIn('request_loan.status',['1','2','3'])
+            ->leftJoin('request_loan_score_current', 'request_loan.id', '=', 'request_loan_score_current.id_request_loan')
+            ->leftJoin('master_status_loan_request', 'request_loan.status', '=', 'master_status_loan_request.id')
+            ->select('request_loan.*','request_loan.id as request_loan_id','request_loan_score_current.*','master_status_loan_request.*','master_status_loan_request.title as status_name','request_loan.created_at as loan_created_at')
+            ->get();
+
+      //  Utils::debug($loan_request);
+
         $data = [
             'loan_request'=> $loan_request
         ];
@@ -39,7 +47,16 @@ class LoanController extends Controller
 
     function invoice_detail(Request $request){
 
-        $loan_request = LoanRequest::with('current_score')->with('get_user')->where('id',$request->id)->first();
+
+        $loan_request = LoanRequest::leftJoin('request_loan_score_current', 'request_loan.id', '=', 'request_loan_score_current.id_request_loan')
+            ->leftJoin('master_status_loan_request', 'request_loan.status', '=', 'master_status_loan_request.id')
+            ->leftJoin('users', 'request_loan.uid', '=', 'users.id')
+            ->select('request_loan.*','request_loan.id as request_loan_id','request_loan_score_current.*','master_status_loan_request.*','master_status_loan_request.title as status_name')
+            ->where('request_loan.id',$request->id)
+            ->first();
+
+
+
         $data = [
             'loan_request'=> $loan_request
         ];
@@ -231,7 +248,6 @@ class LoanController extends Controller
         $uid = $request->uid;
         $variable = $request->str;
         $result_desc = $request->desc;
-
         if($request->desc)
         UserFile::where([
             ['uid',$uid],
@@ -263,7 +279,7 @@ class LoanController extends Controller
         ])->update
         ([
             "reject_description" => $request->desc_reject,
-            "status" => static::STATUS_REJECT_SIAP,
+            "status" => $request->id_status,
             "reject_date" => date('Y-m-d H:i:s'),
             "updated_at"=>date('Y-m-d H:i:s'),
         ]);
@@ -310,7 +326,7 @@ class LoanController extends Controller
         if ($validator->fails()) {
             return json_encode(['status'=> false, 'message'=> $validator->messages() ]);
         }
-        PhoneDescription::create([
+        $data = PhoneDescription::create([
            'id_request_loan' => $id_loan,
             'phone_status'=>$request->phone_status,
             'phone_description'=>$request->description,
@@ -319,15 +335,9 @@ class LoanController extends Controller
             'updated_by'                => Auth::user()->name,
         ]);
         $message = "Deskripsi berhasil ditambahkan";
-        return json_encode(['status'=> true, 'message'=> $message]);
+        return json_encode(['status'=> true, 'message'=> $message,'data'=>$data]);
     }
 
 
-    function verification_final(){
 
-        $data = [
-            'loan_request'=> ''
-        ];
-        return view('pages.loan.verification_final', $this->merge_response($data, static::$CONFIG));
-    }
 }

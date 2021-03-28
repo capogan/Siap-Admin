@@ -31,12 +31,9 @@ $( document ).ready(function() {
 
     //End Wizard
 
-    $('#btn_reject1,#btn_reject2,#btn_reject3,#btn_reject4,#btn_reject5,#btn_reject6').click(function(){
-        $('#modal_reject_reason').modal({backdrop: 'static', keyboard: false})
-        // alert("test");
-    });
-
     $('#btn_desc_add').click(function(){
+        $("#phone_status").val("");
+        $("#description").val("");
         $('#modal_add_crm_description').modal({backdrop: 'static', keyboard: false})
     });
 
@@ -288,40 +285,40 @@ $( document ).ready(function() {
                 var text = '';
                 var res = JSON.parse(response);
                 if(res.status) {
-                    bootbox.alert({
-                        title: "Berhasil!",
-                        message: "<i data-feather='check'></i> "+res.message,
-                        centerVertical:true,
-                        onShow: function(e) {
-                            feather.replace();
-                        },
-                        callback: function() {
-                            btn.removeAttr("disabled");
-                        },
-                        onHide: function(e) {
-                        },
-                    });
-                    window.location.href= "/loan/verification/data/15#crm";
+                    $("#alert-message").removeClass('alert-danger alert-dismissible ').addClass('alert-success alert-dismissible').html(res.message);
+                    var status_text = '';
+                    if(res.data.phone_status == '1'){
+                        var status_text = 'Tidak Aktif';
+                    }
+                    else if(res.data.phone_status == '2'){
+                        var status_text = 'Tidak ditempat';
+                    }
+                    else if(res.data.phone_status == '3'){
+                        var status_text = 'Nomor Salah';
+                    }
+                    else if(res.data.phone_status == '4'){
+                        var status_text = 'Tidak ditempat';
+                    }
+                    else if(res.data.phone_status == '5'){
+                        var status_text = 'Tersambung';
+                    }
+                    else if(res.data.phone_status == '6'){
+                        var status_text = 'Pemohon meminta reschedule telepon';
+                    }
+                    $("#table_description_crm").find('tbody').append('<tr>' +
+                        '<td  class="number">'+($('.number').length +1 ) +'</td>' +
+                        '<td>'+res.data.created_at+'</td>' +
+                        '<td>'+status_text+'</td>' +
+                        '<td>'+res.data.phone_description+'</td>' +
+                        '<td>-</td>' +
+                        '<td>'+res.data.updated_by+'</td>' +
+                        '</tr>');
                 }else{
 
                     $.each(res.message, function( index, value ) {
                         text += '<p class="error"><i data-feather="x-square"></i> '+ value[0]+'</p>';
                     });
-                    bootbox.alert({
-                        title: "Data Tidak lengkap!",
-                        message: text,
-                        centerVertical:true,
-                        onShow: function(e) {
-                            feather.replace();
-                        },
-                        callback: function() {
-                            btn.removeAttr("disabled");
-                        },
-                        onHide: function(e) {
-                            window.location = "/product"
-                        },
-
-                    });
+                    $("#alert-message").removeClass('alert-success alert-dismissible ').addClass('alert-danger alert-dismissible').html(text);
                 }
             }
         })
@@ -332,6 +329,12 @@ $( document ).ready(function() {
 
 
 });
+
+function reject_function(id_status){
+    $("#id_status").val(id_status);
+    $('#modal_reject_reason').modal({backdrop: 'static', keyboard: false})
+}
+
 
 
 function confirm_image(uid,str,desc){

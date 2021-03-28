@@ -25,7 +25,7 @@
                         <div class="profile_img">
                             <div id="crop-avatar">
                                 <!-- Current avatar -->
-                                <img class="img-responsive avatar-view" src="/images/picture.jpg" alt="Avatar" title="Change the avatar">
+                                <img class="img-responsive avatar-view" style="width: 100%; display: block;" src="{{ isset($user->self_photo) ? 'http://172.31.143.11/'.$user->self_photo : '/images/no_photo.jpeg' }}" alt="Avatar" title="Change the avatar">
                             </div>
                         </div>
                         <h3>{{$user->name}}</h3>
@@ -43,35 +43,7 @@
                             </li>
                         </ul>
                         <br />
-                        <!-- start skills -->
-                        <h4>Skills</h4>
-                        <ul class="list-unstyled user_data">
-                            <li>
-                                <p>Web Applications</p>
-                                <div class="progress progress_sm">
-                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
-                                </div>
-                            </li>
-                            <li>
-                                <p>Website Design</p>
-                                <div class="progress progress_sm">
-                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
-                                </div>
-                            </li>
-                            <li>
-                                <p>Automation & Testing</p>
-                                <div class="progress progress_sm">
-                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
-                                </div>
-                            </li>
-                            <li>
-                                <p>UI / UX</p>
-                                <div class="progress progress_sm">
-                                    <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
-                                </div>
-                            </li>
-                        </ul>
-                        <!-- end of skills -->
+
 
                     </div>
                     <div class="col-md-9 col-sm-9 ">

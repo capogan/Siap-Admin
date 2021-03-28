@@ -90,8 +90,8 @@
                     </select>
                     <div class="ln_solid"></div>
                     <div class="form-group">
-                        <div class="col-md-9 col-sm-9  offset-md-3">
-                            <button type="submit" class="btn btn-success">Submit</button>
+                        <div class="col-md-9 col-sm-9">
+                            <button type="submit" class="btn btn-success">Simpan</button>
                         </div>
                     </div>
 
@@ -103,4 +103,4 @@
 </div>
 <div class="ln_solid"></div>
 <button type="button" class="btn btn-primary next-step float-right">Selanjutnya ></button>
-<button class="btn btn-danger float-right" type="button" id="btn_reject4"><i class="fa fa-close"></i> Tolak</button>
+<button class="btn btn-danger float-right" type="button" onclick="reject_function(11)"><i class="fa fa-close"></i> Tolak</button>

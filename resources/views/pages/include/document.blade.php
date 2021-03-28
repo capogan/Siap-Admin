@@ -165,4 +165,4 @@
 
 <div class="ln_solid"></div>
 <button type="button" class="btn btn-primary next-step float-right">Selanjutnya ></button>
-<button class="btn btn-danger float-right" type="button" id="btn_reject1"><i class="fa fa-close"></i> Tolak</button>
+<button class="btn btn-danger float-right" type="button" onclick="reject_function('5')"><i class="fa fa-close"></i> Tolak</button>

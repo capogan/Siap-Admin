@@ -7,15 +7,17 @@
         <ul class="nav side-menu">
             <li><a href="/"><i class="fa fa-home"></i> Beranda </a></li>
 
-            <li class="{{ request()->is('loan/*') ||  request()->is('borrower/*') ||  request()->is('credit/*') ? "active" : "" }}"><a><i class="fa fa-users"></i> Peminjam <span class="fa fa-chevron-down"></span></a>
+            <li class="{{ request()->is('loan/*') ||  request()->is('borrower/*') ||  request()->is('credit/*') ||  request()->is('verification/*') ? "active" : "" }}"><a><i class="fa fa-users"></i> Peminjam <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="/loan">Permintaan Pinjaman</a></li>
                     <li><a href="/borrower">Borrower</a></li>
                     <li><a href="/credit/score">Kredit Score</a></li>
+                    <li><a href="/verification/final">Verifikasi Akhir</a></li>
                 </ul>
             </li>
-            <li><a><i class="fa fa-users"></i> Pemberi Pinjaman <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="fa fa-users"></i> Pendanaan <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
+                    <li><a href="/funding">Permintaan Pendanaan</a></li>
                     <li><a href="/lender">Lender</a></li>
                 </ul>
             </li>

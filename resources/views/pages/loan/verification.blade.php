@@ -27,9 +27,7 @@
                 <div class="x_content">
 
                     <ul class="nav nav-tabs justify-content-end bar_tabs" id="myTab" role="tablist">
-{{--                        <li class="nav-item">--}}
-{{--                            <a class="nav-link active" id="detail-tab" data-toggle="tab" href="#detail1" role="tab" aria-controls="detail" aria-selected="true">Detail Peminjaman</a>--}}
-{{--                        </li>--}}
+
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home1" role="tab" aria-controls="home" aria-selected="false">Dokumen</a>
                         </li>
@@ -50,9 +48,7 @@
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
-{{--                        <div class="tab-pane fade active show" id="detail1" role="tabpanel" aria-labelledby="detail-tab">--}}
-{{--                            @include('pages.include.item')--}}
-{{--                        </div>--}}
+
                         <div class="tab-pane fade active show" id="home1" role="tabpanel" aria-labelledby="home-tab">
                             @include('pages.include.document')
                         </div>
@@ -83,6 +79,7 @@
                 <div class="modal-content">
                     <form id="reject_form">
                         <input type="hidden" name="id_loan" id="id_loan" value="{{$id_loan}}">
+                        <input type="hidden" name="id_status" id="id_status">
                         <div class="modal-body">
                             <p>Berikan Alasan penolakan</p>
                             <textarea class="form-control" name="desc_reject" id="desc_reject" style="resize: none" rows="10"></textarea>
@@ -125,6 +122,13 @@
                                 <label for="message">Description</label>
                                 <textarea name="description" id="description" class="form-control"></textarea>
                             </div>
+
+                        </div>
+                        <div class="x_content bs-example-popovers">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                            </button>
+                            <div id="alert-message" class="alert" role="alert">
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -134,6 +138,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 @section('js')

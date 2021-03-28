@@ -16,11 +16,13 @@ class LoanRequest extends Model
 
     public function current_score(){
         return $this->hasOne('App\CurrentScore','id_request_loan','id')->latest();
-
     }
 
     public function scoring(){
         return $this->hasOne(RequestLoanCurrentScore::class , 'id_request_loan');
+    }
+    public function status(){
+        return $this->hasOne(MasterStatus::class , 'status','id');
     }
     public function get_user(){
         return $this->belongsTo('App\User','uid','id');

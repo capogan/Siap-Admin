@@ -27,7 +27,8 @@ class BorrowerController extends Controller
 
         $uid = $request->id;
         $user = User::
-                    select('users.*','personal_info.*','married_status.status as status_married','education.level as level_education','personal_emergency_contact.*','siblings_master.sibling_name')->
+                    select('users.*','users_file.*','personal_info.*','married_status.status as status_married','education.level as level_education','personal_emergency_contact.*','siblings_master.sibling_name')->
+                    leftJoin('users_file', 'users.id', '=', 'users_file.uid')->
                     leftJoin('personal_info', 'users.id', '=', 'personal_info.uid')->
                     leftJoin('married_status', 'personal_info.married_status', '=', 'married_status.id')->
                     leftJoin('education', 'personal_info.education', '=', 'education.id')->
