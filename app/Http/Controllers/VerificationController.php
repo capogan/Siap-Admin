@@ -62,8 +62,13 @@ class VerificationController extends Controller
         $get_data_document = UserFile::where('uid',$uid)->first();
 
         $phone_description = PhoneDescription::where('id_request_loan',$id_loan)->get();
+
         $phone_verification = PhoneVerification::where('id_request_loan',$id_loan)->first();
-        $data_crm = PhoneMatchingData::where('id_phone_verification',$phone_verification->id)->orderBy('id','ASC')->get();
+
+        $data_crm = '';
+        if($phone_verification){
+            $data_crm = PhoneMatchingData::where('id_phone_verification',$phone_verification->id)->orderBy('id','ASC')->get();
+        }
 
         $get_data_users = DB::table('view_request_loan')->where('id',$id_loan)->first();
 

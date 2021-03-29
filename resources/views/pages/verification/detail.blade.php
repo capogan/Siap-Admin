@@ -189,7 +189,7 @@
                                                 <tbody>
                                                 <tr>
                                                     <td>NIK</td>
-                                                    <td>{{$get_data_users->identity_number}}</td>
+                                                    <td>{{$get_data_users->identity_number ?? ''}}</td>
                                                     <td class="e_nik"></td>
                                                 </tr>
                                                 <tr>
@@ -199,18 +199,18 @@
                                                 </tr>
                                                 <tr>
                                                     <td>TEMPAT LAHIR</td>
-                                                    <td>{{$get_data_users->place_of_birth }}</td>
+                                                    <td>{{$get_data_users->place_of_birth ?? '' }}</td>
                                                     <td class="e_pob"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>TANGGAL LAHIR</td>
-                                                    <td>{{$get_data_users->date_of_birth }}</td>
+                                                    <td>{{$get_data_users->date_of_birth ?? '' }}</td>
                                                     <td class="e_dob"></td>
 
                                                 </tr>
                                                 <tr>
                                                     <td>ALAMAT</td>
-                                                    <td>{{$get_data_users->address }}</td>
+                                                    <td>{{$get_data_users->address ?? ''}}</td>
                                                     <td class="e_address"></td>
                                                 </tr>
                                                 <tr>
@@ -480,6 +480,7 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+                                                @if($phone_description )
                                                 @foreach($phone_description as $key => $val)
                                                     <tr>
                                                         <td class="number">{{$loop->iteration}}</td>
@@ -494,6 +495,9 @@
                                                         <td>{{$val->updated_by}}</td>
                                                     </tr>
                                                 @endforeach
+                                                @else
+                                                    <div class="col"></div>
+                                                @endif
                                                 </tbody>
                                             </table>
 
@@ -513,33 +517,36 @@
                                                         <div class="container">
                                                             <div class="row">
                                                                 <div class="col">
+                                                                    @if( $data_crm)
+                                                                            @foreach($data_crm as $key => $val)
+                                                                                <div class="row">
+                                                                                    <div class="col">
+                                                                                        <p>{{$val->variable}}</p>
+                                                                                    </div>
+                                                                                    <div class="col">
+                                                                                        <p>{{$val->data_user}}</p>
+                                                                                    </div>
+                                                                                    <div class="col">
+                                                                                        @if($val->result == '1')
+                                                                                            <label><input type="radio" name="result_{{ $val->result }}"  value="1" class="flat"> Sama</label>
+                                                                                        @else
+                                                                                            <label><input type="radio" name="result_{{ $val->result }}"  value="1" class="flat"> Beda</label>
+                                                                                        @endif
+                                                                                    </div>
+                                                                                    <div class="col">
+                                                                                        @if($val->description != '')
+                                                                                            <p>{{$val->description}}</p>
+                                                                                        @else
+                                                                                            <h5>-</h5>
+                                                                                        @endif
 
-                                                                    @foreach($data_crm as $key => $val)
-                                                                        <div class="row">
-                                                                            <div class="col">
-                                                                                <p>{{$val->variable}}</p>
-                                                                            </div>
-                                                                            <div class="col">
-                                                                                <p>{{$val->data_user}}</p>
-                                                                            </div>
-                                                                            <div class="col">
-                                                                                @if($val->result == '1')
-                                                                                    <label><input type="radio" name="result_{{ $val->result }}"  value="1" class="flat"> Sama</label>
-                                                                                @else
-                                                                                    <label><input type="radio" name="result_{{ $val->result }}"  value="1" class="flat"> Beda</label>
-                                                                                @endif
-                                                                            </div>
-                                                                            <div class="col">
-                                                                                @if($val->description != '')
-                                                                                    <p>{{$val->description}}</p>
-                                                                                @else
-                                                                                    <h5>-</h5>
-                                                                                @endif
-
-                                                                            </div>
-                                                                        </div>
-                                                                        <br>
-                                                                @endforeach
+                                                                                    </div>
+                                                                                </div>
+                                                                                <br>
+                                                                            @endforeach
+                                                                    @else
+                                                                        <div class="col"></div>
+                                                                    @endif
 
                                                                 <!--form end-->
                                                                 </div>
@@ -560,7 +567,7 @@
                                             </label>
                                             <div class="col-md-6 col-sm-6 ">
                                                 <div class="input-group">
-                                                    <textarea class="form-control" style="resize: none" id="description_business" name="description_business">{{ $phone_verification->desc_business_activities}}</textarea>
+                                                    <textarea class="form-control" style="resize: none" id="description_business" name="description_business">{{ $phone_verification->desc_business_activities ?? ''}}</textarea>
                                                 </div>
 
                                             </div>
@@ -572,13 +579,13 @@
                                                 <div class="input-group">
                                                     <div class="row">
                                                         <div class="col">
-                                                            <label><input type="radio" name="risk" class="flat" value="Resiko Rendah" {{ $phone_verification->result_data_analyst == "Resiko Rendah" ? "checked" : "" }}> Resiko Rendah</label>
+                                                            <label><input type="radio" name="risk" class="flat" value="Resiko Rendah" {{ isset($phone_verification->result_data_analyst ) ? $phone_verification->result_data_analyst == "Resiko Rendah" ? "checked" : "" : '' }}> Resiko Rendah</label>
                                                         </div>
                                                         <div class="col">
-                                                            <label><input type="radio" name="risk" class="flat" value="Resiko Sedang" {{ $phone_verification->result_data_analyst == "Resiko Sedang" ? "checked" : "" }}> Resiko Sedang</label>
+                                                            <label><input type="radio" name="risk" class="flat" value="Resiko Sedang" {{ isset($phone_verification->result_data_analyst) ? $phone_verification->result_data_analyst == "Resiko Sedang" ? "checked" : "" : '' }}> Resiko Sedang</label>
                                                         </div>
                                                         <div class="col">
-                                                            <label><input type="radio" name="risk" class="flat" value="Resiko Tinggi" {{ $phone_verification->result_data_analyst == "Resiko Tinggi" ? "checked" : "" }}> Resiko Tinggi</label>
+                                                            <label><input type="radio" name="risk" class="flat" value="Resiko Tinggi" {{ isset($phone_verification->result_data_analyst) ? $phone_verification->result_data_analyst == "Resiko Tinggi" ? "checked" : "" : '' }}> Resiko Tinggi</label>
                                                         </div>
                                                     </div>
                                                 </div>

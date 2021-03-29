@@ -27,13 +27,14 @@ class Controller extends BaseController
     protected const PENDING_FINAL_REVIEW= "16";
     protected const TOLAK_FINAL_REVIEW= "17";
     protected const MARKET_PLACE= "18";
-    protected const PENDING_PENDANAAN= "19";
-    protected const PINJAMAN_AKTIF= "20";
-    protected const PINJAMAN_JATUH_TEMPO= "21";
-    protected const PINJAMAN_OVER_DUE= "22";
-    protected const PINJAMAN_MACET= "23";
-    protected const SELESAI= "24";
-    protected const PINJAMAN_CICIL= "25";
+    protected const WAITING_SIGN_IN= "19";
+    protected const PENDING_PENDANAAN= "20";
+    protected const PINJAMAN_AKTIF= "21";
+    protected const PINJAMAN_JATUH_TEMPO= "22";
+    protected const PINJAMAN_OVER_DUE= "23";
+    protected const PINJAMAN_MACET= "24";
+    protected const SELESAI= "25";
+    protected const PINJAMAN_CICIL= "26";
 
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function merge_response($data, $config = null){
