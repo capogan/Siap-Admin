@@ -92,6 +92,9 @@ Route::get('/funding/verification/data/{id}', 'FundingController@detail')->name(
 //lender
 Route::get('/lender/request', 'LenderController@index')->name('lender');
 
+Route::post('/lender/update/status', 'FundingController@update_lender_status')->name('funding.paging');
+
+
 
 
 

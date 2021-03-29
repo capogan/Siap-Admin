@@ -57,345 +57,124 @@
                                         </div>
                                         <div class="tab-content" id="myTabContent">
                                             <div class="tab-pane fade show active" id="home1" role="tabpanel" aria-labelledby="home-tab">
-                                                <div class="row">
-                                                    <div class="col-3">
-                                                        <!-- Profile Image -->
-                                                        <div class="card card-primary card-outline">
-                                                            <div class="card-body box-profile">
-                                                                <div class="text-center">
-                                                                    <img class="profile-user-img img-fluid img-circle"
-                                                                         src="{{url('images/profile.png')}}">
-                                                                </div>
-                                                                <h5 class="profile-username text-center pt-5">Foto Direktur </h5>
-                                                            </div>
-                                                            <!-- /.card-body -->
-                                                        </div>
-                                                        <!-- /.card -->
-                                                        <!-- Profile Image -->
-                                                        <div class="card card-primary card-outline mt-4">
-                                                            <div class="card-body box-profile">
-                                                                <div class="text-center">
-                                                                    <img class="profile-user-img img-fluid img-circle"
-                                                                         src="{{url('images/profile.png')}}">
-                                                                </div>
-                                                                <h5 class="profile-username text-center pt-5">Foto KTP</h5>
 
-                                                            </div>
-                                                            <!-- /.card-body -->
-                                                        </div>
-                                                        <!-- /.card -->
-                                                    </div>
-                                                    <div class="col-9">
-                                                        <nav aria-label="breadcrumb">
-                                                            <ol class="breadcrumb">
-                                                                <li class="breadcrumb-item text-bold">Verifikasi Data EKYC dan Direktur Utama</li>
-                                                            </ol>
-                                                        </nav>
-                                                        <table id="example1" class="table table-bordered table-striped">
-                                                            <thead>
-                                                            <tr>
-                                                                <th>Nama</th>
-                                                                <td colspan="2">Yunia Saras</td>
-                                                                <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            <tr>
-                                                                <th>No KTP</th>
-                                                                <td colspan="2">367122123212</td>
-                                                                <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Nomor NPWP</th>
-                                                                <td colspan="2">897371727</td>
-                                                                <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Tanggal Lahir</th>
-                                                                <td colspan="2">01/07/1978</td>
-                                                                <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Email</th>
-                                                                <td colspan="2">user@gmail.com</td>
-                                                                <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Nomor Telepon</th>
-                                                                <td colspan="2">0896-3201-0992</td>
-                                                                <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Tanggal Bergabung</th>
-                                                                <td colspan="2">12/09/2021</td>
-                                                                <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Alamat</th>
-                                                                <td colspan="4"></td>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Provinsi</td>
-                                                                <td>DKI Jakarta</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kabupaten</td>
-                                                                <td>Jakarta Selatan</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kecataman</td>
-                                                                <td>Kuningan</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kelurahan</td>
-                                                                <td>Ragunan</td>
-                                                                <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Alamat Lengkap</th>
-                                                                <td colspan="2">
-                                                                    Jl.Jendral Sudirman No.20
-                                                                </td>
-                                                                <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <button class="btn btn-success mb-3"><i class="fa fa-check pr-2"></i>Cek EKYC</button>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-3">
-                                                        <!-- Profile Image -->
-                                                        <div class="card card-primary card-outline">
-                                                            <div class="card-body box-profile">
-                                                                <div class="text-center">
-                                                                    <img class="profile-user-img img-fluid img-circle"
-                                                                         src="{{url('images/profile.png')}}">
+                                                @if($funding->directors)
+                                                    @foreach($funding->directors as $item)
+                                                    <div class="row">
+                                                        <div class="col-3">
+                                                            <!-- Profile Image -->
+                                                            <div class="card card-primary card-outline">
+                                                                <div class="card-body box-profile">
+                                                                    <div class="text-center">
+                                                                        <img class="profile-user-img img-fluid img-circle"
+                                                                            src="http://172.31.143.11/upload/lender/file/{{$item->identity_photo}}">
+                                                                    </div>
+                                                                    <h5 class="profile-username text-center pt-5">Foto Direktur </h5>
                                                                 </div>
-                                                                <h5 class="profile-username text-center pt-5">Foto Direktur</h5>
+                                                                <!-- /.card-body -->
                                                             </div>
-                                                            <!-- /.card-body -->
-                                                        </div>
-                                                        <!-- /.card -->
-                                                        <!-- Profile Image -->
-                                                        <div class="card card-primary card-outline mt-4">
-                                                            <div class="card-body box-profile">
-                                                                <div class="text-center">
-                                                                    <img class="profile-user-img img-fluid img-circle"
-                                                                         src="{{url('images/profile.png')}}">
-                                                                </div>
-                                                                <h5 class="profile-username text-center pt-5">Foto KTP</h5>
+                                                            <!-- /.card -->
+                                                            <!-- Profile Image -->
+                                                            <div class="card card-primary card-outline mt-4">
+                                                                <div class="card-body box-profile">
+                                                                    <div class="text-center">
+                                                                        <img class="profile-user-img img-fluid img-circle"
+                                                                            src="http://172.31.143.11/upload/lender/file/{{$item->self_photo}}">
+                                                                    </div>
+                                                                    <h5 class="profile-username text-center pt-5">Foto KTP</h5>
 
-                                                            </div>
-                                                            <!-- /.card-body -->
-                                                        </div>
-                                                        <!-- /.card -->
-                                                    </div>
-                                                    <div class="col-9">
-                                                        <nav aria-label="breadcrumb">
-                                                            <ol class="breadcrumb">
-                                                                <li class="breadcrumb-item text-bold">Verifikasi Data EKYC dan Direktur</li>
-                                                            </ol>
-                                                        </nav>
-                                                        <table id="example1" class="table table-bordered table-striped">
-                                                            <thead>
-                                                            <tr>
-                                                                <th>Nama</th>
-                                                                <td colspan="2">Yunia Saras</td>
-                                                                <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            <tr>
-                                                                <th>No KTP</th>
-                                                                <td colspan="2">367122123212</td>
-                                                                <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Nomor NPWP</th>
-                                                                <td colspan="2">897371727</td>
-                                                                <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Tanggal Lahir</th>
-                                                                <td colspan="2">01/07/1978</td>
-                                                                <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Email</th>
-                                                                <td colspan="2">user@gmail.com</td>
-                                                                <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Nomor Telepon</th>
-                                                                <td colspan="2">0896-3201-0992</td>
-                                                                <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Tanggal Bergabung</th>
-                                                                <td colspan="2">12/09/2021</td>
-                                                                <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Alamat</th>
-                                                                <td colspan="4"></td>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Provinsi</td>
-                                                                <td>DKI Jakarta</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kabupaten</td>
-                                                                <td>Jakarta Selatan</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kecataman</td>
-                                                                <td>Kuningan</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kelurahan</td>
-                                                                <td>Ragunan</td>
-                                                                <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Alamat Lengkap</th>
-                                                                <td colspan="2">
-                                                                    Jl.Jendral Sudirman No.20
-                                                                </td>
-                                                                <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <button class="btn btn-success mb-3"><i class="fa fa-check pr-2"></i>Cek EKYC</button>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-3">
-                                                        <!-- Profile Image -->
-                                                        <div class="card card-primary card-outline">
-                                                            <div class="card-body box-profile">
-                                                                <div class="text-center">
-                                                                    <img class="profile-user-img img-fluid img-circle"
-                                                                         src="{{url('images/profile.png')}}">
                                                                 </div>
-                                                                <h5 class="profile-username text-center pt-5">Foto Direktur</h5>
+                                                                <!-- /.card-body -->
                                                             </div>
-                                                            <!-- /.card-body -->
+                                                            <!-- /.card -->
                                                         </div>
-                                                        <!-- /.card -->
-                                                        <!-- Profile Image -->
-                                                        <div class="card card-primary card-outline mt-4">
-                                                            <div class="card-body box-profile">
-                                                                <div class="text-center">
-                                                                    <img class="profile-user-img img-fluid img-circle"
-                                                                         src="{{url('images/profile.png')}}">
-                                                                </div>
-                                                                <h5 class="profile-username text-center pt-5">Foto KTP</h5>
-
-                                                            </div>
-                                                            <!-- /.card-body -->
+                                                        <div class="col-9">
+                                                            <nav aria-label="breadcrumb">
+                                                                <ol class="breadcrumb">
+                                                                    <li class="breadcrumb-item text-bold">Verifikasi Data EKYC dan Direktur Utama</li>
+                                                                </ol>
+                                                            </nav>
+                                                            <table id="example1" class="table table-bordered table-striped">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>Nama</th>
+                                                                    <td colspan="2">{{$item->director_name}}</td>
+                                                                    <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr>
+                                                                    <th>No KTP</th>
+                                                                    <td colspan="2">{{$item->director_nik}}</td>
+                                                                    <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Nomor NPWP</th>
+                                                                    <td colspan="2">{{$item->director_npwp}}</td>
+                                                                    <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Tanggal Lahir</th>
+                                                                    <td colspan="2">{{$item->director_dob}}</td>
+                                                                    <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Email</th>
+                                                                    <td colspan="2">{{$item->director_email}}</td>
+                                                                    <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Nomor Telepon</th>
+                                                                    <td colspan="2">{{$item->director_phone_number}}</td>
+                                                                    <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Tanggal Bergabung</th>
+                                                                    <td colspan="2">{{$item->created_at}}</td>
+                                                                    <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Alamat</th>
+                                                                    <td colspan="4">{{$item->address}}</td>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>Provinsi</td>
+                                                                    <td>{{$item->province->name}}</td>
+                                                                    <td colspan="2"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>Kabupaten</td>
+                                                                    <td>{{$item->regency->name}}</td>
+                                                                    <td colspan="2"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>Kecataman</td>
+                                                                    <td>{{$item->district->name}}</td>
+                                                                    <td colspan="2"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td>Kelurahan</td>
+                                                                    <td>{{$item->village->name}}</td>
+                                                                    <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                </tr>
+                                                                </tr>
+                                                                <!-- <tr>
+                                                                    <th>Alamat Lengkap</th>
+                                                                    <td colspan="2">
+                                                                        Jl.Jendral Sudirman No.20
+                                                                    </td>
+                                                                    <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                </tr> -->
+                                                                </tbody>
+                                                            </table>
+                                                            <button class="btn btn-success mb-3"><i class="fa fa-check pr-2"></i>Cek EKYC</button>
                                                         </div>
-                                                        <!-- /.card -->
                                                     </div>
-                                                    <div class="col-9">
-                                                        <nav aria-label="breadcrumb">
-                                                            <ol class="breadcrumb">
-                                                                <li class="breadcrumb-item text-bold">Verifikasi Data EKYC dan Direktur Utama</li>
-                                                            </ol>
-                                                        </nav>
-                                                        <table id="example1" class="table table-bordered table-striped">
-                                                            <thead>
-                                                            <tr>
-                                                                <th>Nama</th>
-                                                                <td colspan="2">Yunia Saras</td>
-                                                                <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            <tr>
-                                                                <th>No KTP</th>
-                                                                <td colspan="2">367122123212</td>
-                                                                <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Nomor NPWP</th>
-                                                                <td colspan="2">897371727</td>
-                                                                <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Tanggal Lahir</th>
-                                                                <td colspan="2">01/07/1978</td>
-                                                                <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Email</th>
-                                                                <td colspan="2">user@gmail.com</td>
-                                                                <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Nomor Telepon</th>
-                                                                <td colspan="2">0896-3201-0992</td>
-                                                                <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Tanggal Bergabung</th>
-                                                                <td colspan="2">12/09/2021</td>
-                                                                <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Alamat</th>
-                                                                <td colspan="4"></td>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Provinsi</td>
-                                                                <td>DKI Jakarta</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kabupaten</td>
-                                                                <td>Jakarta Selatan</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kecataman</td>
-                                                                <td>Kuningan</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kelurahan</td>
-                                                                <td>Ragunan</td>
-                                                                <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Alamat Lengkap</th>
-                                                                <td colspan="2">
-                                                                    Jl.Jendral Sudirman No.20
-                                                                </td>
-                                                                <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
-                                                            </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <button class="btn btn-success mb-3"><i class="fa fa-check pr-2"></i>Cek EKYC</button>
-                                                    </div>
-                                                </div>
+                                                    @endforeach
+                                                @endif
 
                                                 <div class="card-footer text-center">
 
@@ -413,399 +192,139 @@
 
                                             </div>
                                             <div class="tab-pane fade" id="profile1" role="tabpanel" aria-labelledby="profile-tab">
-                                                <div class="row">
-                                                    <div class="col-3">
-                                                        <!-- Profile Image -->
-                                                        <div class="card card-primary card-outline">
-                                                            <div class="card-body box-profile">
-                                                                <div class="text-center">
-                                                                    <img class="profile-user-img img-fluid img-circle"
-                                                                         src="{{url('images/profile.png')}}">
+                                                @if($funding->commissioners)
+                                                    @foreach($funding->commissioners as $item)
+                                                        <div class="row">
+                                                            <div class="col-3">
+                                                                <!-- Profile Image -->
+                                                                <div class="card card-primary card-outline">
+                                                                    <div class="card-body box-profile">
+                                                                        <div class="text-center">
+                                                                            <img class="profile-user-img img-fluid img-circle"
+                                                                                src="{{url('images/profile.png')}}">
+                                                                        </div>
+                                                                        <h5 class="profile-username text-center pt-5">Foto Komisaris Utama</h5>
+                                                                    </div>
+                                                                    <!-- /.card-body -->
                                                                 </div>
-                                                                <h5 class="profile-username text-center pt-5">Foto Komisaris Utama</h5>
-                                                            </div>
-                                                            <!-- /.card-body -->
-                                                        </div>
-                                                        <!-- /.card -->
-                                                        <!-- Profile Image -->
-                                                        <div class="card card-primary card-outline mt-4">
-                                                            <div class="card-body box-profile">
-                                                                <div class="text-center">
-                                                                    <img class="profile-user-img img-fluid img-circle"
-                                                                         src="{{url('images/profile.png')}}">
-                                                                </div>
-                                                                <h5 class="profile-username text-center pt-5">Foto KTP</h5>
+                                                                <!-- /.card -->
+                                                                <!-- Profile Image -->
+                                                                <div class="card card-primary card-outline mt-4">
+                                                                    <div class="card-body box-profile">
+                                                                        <div class="text-center">
+                                                                            <img class="profile-user-img img-fluid img-circle"
+                                                                                src="{{url('images/profile.png')}}">
+                                                                        </div>
+                                                                        <h5 class="profile-username text-center pt-5">Foto KTP</h5>
 
-                                                            </div>
-                                                            <!-- /.card-body -->
-                                                        </div>
-                                                        <!-- /.card -->
-                                                    </div>
-                                                    <div class="col-9">
-                                                        <nav aria-label="breadcrumb">
-                                                            <ol class="breadcrumb">
-                                                                <li class="breadcrumb-item text-bold">Verifikasi Data EKYC dan Komisaris Utama</li>
-                                                            </ol>
-                                                        </nav>
-                                                        <table id="example1" class="table table-bordered table-striped">
-                                                            <thead>
-                                                            <tr>
-                                                                <th>Nama</th>
-                                                                <td colspan="2">Yunia Saras</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            <tr>
-                                                                <th>NIK</th>
-                                                                <td colspan="2">367122123212</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Nomor NPWP</th>
-                                                                <td colspan="2">367122123212</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Tanggal Lahir</th>
-                                                                <td colspan="2">01/09/1982</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Email</th>
-                                                                <td colspan="2">user@gmail.com</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Nomor Telepon</th>
-                                                                <td colspan="2">08956635162</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Tanggal Bergabung</th>
-                                                                <td colspan="2">12/09/2021</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Alamat</th>
-                                                                <td colspan="4"></td>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Provinsi</td>
-                                                                <td>DKI Jakarta</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kabupaten</td>
-                                                                <td>Jakarta Selatan</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kecataman</td>
-                                                                <td>Kuningan</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kelurahan</td>
-                                                                <td>Ragunan</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Alamat Lengkap</th>
-                                                                <td colspan="2">
-                                                                    Jl.Jendral Sudirman No.20
-                                                                </td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <button class="btn btn-success mb-3"><i class="fa fa-check pr-2"></i>Cek EKYC</button>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-3">
-                                                        <!-- Profile Image -->
-                                                        <div class="card card-primary card-outline">
-                                                            <div class="card-body box-profile">
-                                                                <div class="text-center">
-                                                                    <img class="profile-user-img img-fluid img-circle"
-                                                                         src="{{url('images/profile.png')}}">
+                                                                    </div>
+                                                                    <!-- /.card-body -->
                                                                 </div>
-                                                                <h5 class="profile-username text-center pt-5">Foto Komisaris</h5>
+                                                                <!-- /.card -->
                                                             </div>
-                                                            <!-- /.card-body -->
-                                                        </div>
-                                                        <!-- /.card -->
-                                                        <!-- Profile Image -->
-                                                        <div class="card card-primary card-outline mt-4">
-                                                            <div class="card-body box-profile">
-                                                                <div class="text-center">
-                                                                    <img class="profile-user-img img-fluid img-circle"
-                                                                         src="{{url('images/profile.png')}}">
-                                                                </div>
-                                                                <h5 class="profile-username text-center pt-5">Foto KTP</h5>
-
+                                                            <div class="col-9">
+                                                                <nav aria-label="breadcrumb">
+                                                                    <ol class="breadcrumb">
+                                                                        <li class="breadcrumb-item text-bold">Verifikasi Data EKYC dan Komisaris Utama</li>
+                                                                    </ol>
+                                                                </nav>
+                                                                <table id="example1" class="table table-bordered table-striped">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th>Nama</th>
+                                                                        <td colspan="2">{{$item->commissioner_name}}</td>
+                                                                        <td colspan="2" class="text-center">
+                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <th>NIK</th>
+                                                                        <td colspan="2">{{$item->commissioner_nik}}</td>
+                                                                        <td colspan="3" class="text-center">
+                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Nomor NPWP</th>
+                                                                        <td colspan="2">{{$item->commissioner_npwp}}</td>
+                                                                        <td colspan="3" class="text-center">
+                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Tanggal Lahir</th>
+                                                                        <td colspan="2">{{$item->commissioner_dob}}</td>
+                                                                        <td colspan="3" class="text-center">
+                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Email</th>
+                                                                        <td colspan="2">{{$item->commissioner_email}}</td>
+                                                                        <td colspan="3" class="text-center">
+                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Nomor Telepon</th>
+                                                                        <td colspan="2">{{$item->commissioner_phone_number}}</td>
+                                                                        <td colspan="3" class="text-center">
+                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Tanggal Bergabung</th>
+                                                                        <td colspan="2">{{$item->created_at}}</td>
+                                                                        <td colspan="2" class="text-center">
+                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Alamat</th>
+                                                                        <td colspan="4">{{$item->address}}</td>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>Provinsi</td>
+                                                                        <td>{{$item->province->name}}</td>
+                                                                        <td colspan="2"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>Kabupaten</td>
+                                                                        <td>{{$item->regency->name}}</td>
+                                                                        <td colspan="2"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>Kecataman</td>
+                                                                        <td>{{$item->district->name}}</td>
+                                                                        <td colspan="2"></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>Kelurahan</td>
+                                                                        <td>{{$item->village->name}}</td>
+                                                                        <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                    </tr>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Alamat Lengkap</th>
+                                                                        <td colspan="2">
+                                                                            Jl.Jendral Sudirman No.20
+                                                                        </td>
+                                                                        <td colspan="2" class="text-center">
+                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <button class="btn btn-success mb-3"><i class="fa fa-check pr-2"></i>Cek EKYC</button>
                                                             </div>
-                                                            <!-- /.card-body -->
                                                         </div>
-                                                        <!-- /.card -->
-                                                    </div>
-                                                    <div class="col-9">
-                                                        <nav aria-label="breadcrumb">
-                                                            <ol class="breadcrumb">
-                                                                <li class="breadcrumb-item text-bold">Verifikasi Data EKYC dan Komisaris</li>
-                                                            </ol>
-                                                        </nav>
-                                                        <table id="example1" class="table table-bordered table-striped">
-                                                            <thead>
-                                                            <tr>
-                                                                <th>Nama</th>
-                                                                <td colspan="2">Yunia Saras</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            <tr>
-                                                                <th>NIK</th>
-                                                                <td colspan="2">367122123212</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Nomor NPWP</th>
-                                                                <td colspan="2">367122123212</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Tanggal Lahir</th>
-                                                                <td colspan="2">01/09/1982</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Email</th>
-                                                                <td colspan="2">user@gmail.com</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Nomor Telepon</th>
-                                                                <td colspan="2">08959938189</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Tanggal Bergabung</th>
-                                                                <td colspan="2">12/09/2021</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Alamat</th>
-                                                                <td colspan="4"></td>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Provinsi</td>
-                                                                <td>DKI Jakarta</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kabupaten</td>
-                                                                <td>Jakarta Selatan</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kecataman</td>
-                                                                <td>Kuningan</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kelurahan</td>
-                                                                <td>Ragunan</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Alamat Lengkap</th>
-                                                                <td colspan="2">
-                                                                    Jl.Jendral Sudirman No.20
-                                                                </td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <button class="btn btn-success mb-3"><i class="fa fa-check pr-2"></i>Cek EKYC</button>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-3">
-                                                        <!-- Profile Image -->
-                                                        <div class="card card-primary card-outline">
-                                                            <div class="card-body box-profile">
-                                                                <div class="text-center">
-                                                                    <img class="profile-user-img img-fluid img-circle"
-                                                                         src="{{url('images/profile.png')}}">
-                                                                </div>
-                                                                <h5 class="profile-username text-center pt-5">Foto Komisaris</h5>
-                                                            </div>
-                                                            <!-- /.card-body -->
-                                                        </div>
-                                                        <!-- /.card -->
-                                                        <!-- Profile Image -->
-                                                        <div class="card card-primary card-outline mt-4">
-                                                            <div class="card-body box-profile">
-                                                                <div class="text-center">
-                                                                    <img class="profile-user-img img-fluid img-circle"
-                                                                         src="{{url('images/profile.png')}}">
-                                                                </div>
-                                                                <h5 class="profile-username text-center pt-5">Foto KTP</h5>
-
-                                                            </div>
-                                                            <!-- /.card-body -->
-                                                        </div>
-                                                        <!-- /.card -->
-                                                    </div>
-                                                    <div class="col-9">
-                                                        <nav aria-label="breadcrumb">
-                                                            <ol class="breadcrumb">
-                                                                <li class="breadcrumb-item text-bold">Verifikasi Data EKYC dan Komisaris</li>
-                                                            </ol>
-                                                        </nav>
-                                                        <table id="example1" class="table table-bordered table-striped">
-                                                            <thead>
-                                                            <tr>
-                                                                <th>Nama</th>
-                                                                <td colspan="2">Yunia Saras</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            <tr>
-                                                                <th>NIK</th>
-                                                                <td colspan="2">367122123212</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Nomor NPWP</th>
-                                                                <td colspan="2">367122123212</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Tanggal Lahir</th>
-                                                                <td colspan="2">01/09/1982</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Email</th>
-                                                                <td colspan="2">user@gmail.com</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Nomor Telepon</th>
-                                                                <td colspan="2">08954647281</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Tanggal Bergabung</th>
-                                                                <td colspan="2">12/09/2021</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Alamat</th>
-                                                                <td colspan="4"></td>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Provinsi</td>
-                                                                <td>DKI Jakarta</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kabupaten</td>
-                                                                <td>Jakarta Selatan</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kecataman</td>
-                                                                <td>Kuningan</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kelurahan</td>
-                                                                <td>Ragunan</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Alamat Lengkap</th>
-                                                                <td colspan="2">
-                                                                    Jl.Jendral Sudirman No.20
-                                                                </td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
-                                                                </td>
-                                                            </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <button class="btn btn-success mb-3"><i class="fa fa-check pr-2"></i>Cek EKYC</button>
-                                                    </div>
-                                                </div>
+                                                    @endforeach
+                                                @endif
                                                 <div class="card-footer text-center">
 
                                                     <button class="btn btn-danger">
@@ -1053,7 +572,7 @@
                                                                 Tolak
                                                             </button>
 
-                                                            <button class="btn btn-primary">
+                                                            <button class="btn btn-primary" id="update_status_lender" attr="{{$funding->id}}">
                                                                 <i class="fa fa-check pr-1"></i>
                                                                 Setuju
                                                             </button>
@@ -1072,5 +591,7 @@
             </div>
         </section>
     </div>
-
+@endsection
+@section('js')
+<script src="{{ asset('/js/lender_verification.js') }}"></script>
 @endsection
