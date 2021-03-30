@@ -155,7 +155,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td></td>
-                                                                    <td>Kecataman</td>
+                                                                    <td>Kecamatan</td>
                                                                     <td>{{$item->district->name}}</td>
                                                                     <td colspan="2"></td>
                                                                 </tr>
@@ -300,7 +300,7 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td></td>
-                                                                        <td>Kecataman</td>
+                                                                        <td>Kecamatan</td>
                                                                         <td>{{$item->district->name}}</td>
                                                                         <td colspan="2"></td>
                                                                     </tr>
@@ -486,7 +486,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
-                                                                <td>Kecataman</td>
+                                                                <td>Kecamatan</td>
                                                                 <td>Kuningan</td>
                                                                 <td colspan="2"></td>
                                                             </tr>
