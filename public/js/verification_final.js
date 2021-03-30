@@ -88,6 +88,8 @@ function showImage(url) {
         console.log("It was awesome!");
     });
 };
+
+
 /* ECHRTS */
 
 
