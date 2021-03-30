@@ -24,8 +24,8 @@ class VerificationController extends Controller
         $this->middleware('auth', ['except' => ['verification']]);
     }
     function index(){
-
-        $loan_request = LoanRequest::with('current_score')->with('scoring')->whereIn('status',['16'])->get();
+        $loan_request = LoanRequest::with('current_score')->with('scoring')->whereIn('status',['16','17','18','19','20','21','22','23','24','25','26','27','28']
+        )->get();
 
 
         $data = [
