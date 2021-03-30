@@ -24,8 +24,14 @@ class VerificationController extends Controller
         $this->middleware('auth', ['except' => ['verification']]);
     }
     function index(){
-        $loan_request = LoanRequest::with('current_score')->with('scoring')->with('statuss')->whereIn('status',['16','17','18','19','20','21','22','23','24','25','26','27','28']
-        )->get();
+//        $loan_request = LoanRequest::with('current_score')->with('scoring')->whereIn('status',['16','17','18','19','20','21','22','23','24','25','26','27','28']
+//        )->get();
+
+        $loan_request = LoanRequest::whereIn('request_loan.status',['16'])
+            ->leftJoin('request_loan_score_current', 'request_loan.id', '=', 'request_loan_score_current.id_request_loan')
+            ->leftJoin('master_status_loan_request', 'request_loan.status', '=', 'master_status_loan_request.id')
+            ->select('request_loan.*','request_loan.id as request_loan_id','request_loan_score_current.*','master_status_loan_request.*','master_status_loan_request.title as status_name','request_loan.created_at as loan_created_at')
+            ->get();
 
 
         $data = [

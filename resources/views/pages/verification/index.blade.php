@@ -35,17 +35,16 @@
                             @foreach($loan_request as $key=> $val)
                                 <?php
                                 $score = 0;
-                                if($val->scoring){
-                                    $scoring = json_decode($val->scoring , true);
-                                    $score = json_decode($scoring['detail_scoring'] , true);
-                                    $score = $score['credit_score'];
+                                if($val->detail_scoring){
+                                    $scoring = json_decode($val->detail_scoring , true);
+                                    $score = $scoring['credit_score'];
                                 }
                                 ?>
                                 <tr class="even pointer">
-                                    <td class=" "><a href="/verification/invoice/detail/{{$val->id}}">{{$val->invoice_number}}</a></td>
-                                    <td class=" ">{{$val->created_at}}</td>
+                                    <td class=" "><a href="/verification/invoice/detail/{{$val->request_loan_id}}">{{$val->invoice_number}}</a></td>
+                                    <td class=" ">{{$val->loan_created_at}}</td>
                                     <td class=" "><a href="/borrower/detail/{{$val->uid}}">{{$val->get_user->name}}</a></td>
-                                    <td class=" ">{{$val->status}}</td>
+                                    <td class=" ">{{$val->status_name}}</td>
                                     <td class="a-right a-right ">{{number_format($val->loan_amount,2)}}</td>
                                     <td class=" last">
                                         <div class="progress">
@@ -55,7 +54,6 @@
                                 </tr>
 
                             @endforeach
-
                             </tbody>
                         </table>
                     </div>
