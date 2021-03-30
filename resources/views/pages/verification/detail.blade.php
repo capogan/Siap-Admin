@@ -528,9 +528,9 @@
                                                                                     </div>
                                                                                     <div class="col">
                                                                                         @if($val->result == '1')
-                                                                                            <label><input type="radio" name="result_{{ $val->result }}"  value="1" class="flat"> Sama</label>
+                                                                                            <label>Sama</label>
                                                                                         @else
-                                                                                            <label><input type="radio" name="result_{{ $val->result }}"  value="1" class="flat"> Beda</label>
+                                                                                            <label>Beda</label>
                                                                                         @endif
                                                                                     </div>
                                                                                     <div class="col">
