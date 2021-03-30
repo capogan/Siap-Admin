@@ -169,7 +169,7 @@
                                                 <tr>
                                                     <th>Nama Peminjam</th>
                                                     <td>
-                                                        jajang
+                                                        Festine Amelia Putri
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -217,7 +217,7 @@
                                                 <tr>
                                                     <th>Nilai Tagihan</th>
                                                     <td>
-                                                        Rp. 10.455.000
+                                                        Rp. 10.660.000
                                                     </td>
                                                 </tr>
                                                 <tr>
