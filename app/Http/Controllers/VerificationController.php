@@ -94,4 +94,20 @@ class VerificationController extends Controller
 
         return DataTables::of( LoanRequest::with('current_score')->with('scoring')->where('status',['2'])->get())->addIndexColumn()->make(true);
     }
+
+    public function confirm(Request $request){
+
+        $id_loan = $request->id_loan;
+        LoanRequest::where([
+            ['id',$id_loan],
+
+        ])->update
+        ([
+            "status" => static::MARKET_PLACE,
+            "updated_at"=>date('Y-m-d H:i:s'),
+        ]);
+        $message = "Sukses menyimpan Data";
+        return json_encode(['status'=> true, 'message'=> $id_loan]);
+
+    }
 }

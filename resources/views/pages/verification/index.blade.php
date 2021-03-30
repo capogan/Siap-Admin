@@ -45,7 +45,7 @@
                                     <td class=" "><a href="/verification/invoice/detail/{{$val->id}}">{{$val->invoice_number}}</a></td>
                                     <td class=" ">{{$val->created_at}}</td>
                                     <td class=" "><a href="/borrower/detail/{{$val->uid}}">{{$val->get_user->name}}</a></td>
-                                    <td class=" ">{{Utils::convert_status($val->status)}}</td>
+                                    <td class=" ">{{$val->status}}</td>
                                     <td class="a-right a-right ">{{number_format($val->loan_amount,2)}}</td>
                                     <td class=" last">
                                         <div class="progress">

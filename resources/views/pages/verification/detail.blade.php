@@ -643,7 +643,7 @@
                         <div class="item form-group pull-right">
                             <div class="">
                                 <button class="btn btn-danger" type="button" id="btn_reject6"><i class="fa fa-close"></i> Tolak</button>
-                                <button type="button" class="btn btn-primary" id="btn_submit_crm"><i class="fa fa-external-link-square"></i> Konfirmasi</button>
+                                <button type="button" class="btn btn-primary"  onclick="confirm_data('{{$id_loan}}')"><i class="fa fa-external-link-square"></i> Konfirmasi</button>
                             </div>
                         </div>
 

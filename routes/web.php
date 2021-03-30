@@ -83,6 +83,7 @@ Route::post('/pcg/get/data','PcgController@paging')->name('pcg.get.data');
 Route::get('/verification/final', 'VerificationController@index')->name('loan.verification.final');
 Route::post('/verification/final/paging', 'VerificationController@paging')->name('loan.verification.paging');
 Route::get('/verification/invoice/detail/{id}', 'VerificationController@invoice_detail')->name('verification.detail');
+Route::post('/verification/confirm', 'VerificationController@confirm')->name('loan.verification.confirm');
 
 
 //funding

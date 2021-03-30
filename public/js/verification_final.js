@@ -1,86 +1,52 @@
-$( document ).ready(function() {
-    $(document).on('click' , '#btn_submit_crm', function(){
-        bootbox.dialog({
-            message: "Anda akan menyetujui peminjaman ini dan meneruskan ke verifikasi akhir",
-            title: "Perhatian",
-            buttons: {
-                success: {
-                    label: "Ya, Saya setuju",
-                    className: "btn-primary",
-                    callback: function() {
-                        $('#crm_form').submit();
-                    }
-                },
+function confirm_data(id_loan){
 
-            }
-        });
-    });
 
-    $("#crm_form").on("submit", function(event) {
-
-        event.preventDefault();
-
-        var btn = $("#btn_submit_voucher");
-        btn.attr("disabled", "disabled");
-
-        var token = $('meta[name="csrf-token"]').attr('content');
-
-        $.ajax({
-            url: '/loan/verification/phone',
-            method:"POST",
-            headers: {
-                'X-CSRF-TOKEN': token
-            },
-            async:true,
-            data:new FormData(this),
-            contentType: false,
-            cache: false,
-            processData: false,
-            success:function(response)
-            {
-                var text = '';
-                var res = JSON.parse(response);
-                if(res.status) {
-                    bootbox.alert({
-                        title: "Berhasil!",
-                        message: "<i data-feather='check'></i> "+res.message,
-                        centerVertical:true,
-                        onShow: function(e) {
-                            feather.replace();
+    bootbox.dialog({
+        message: "Anda akan menyetujui peminjaman ini",
+        title: "Perhatian",
+        buttons: {
+            success: {
+                label: "Ya, Saya setuju",
+                className: "btn-primary",
+                callback: function() {
+                    var token = $('meta[name="csrf-token"]').attr('content');
+                    $.ajax({
+                        url:'/verification/confirm',
+                        method:"POST",
+                        headers: {
+                            'X-CSRF-TOKEN': token
                         },
-                        callback: function() {
-                            btn.removeAttr("disabled");
-                        },
-                        onHide: function(e) {
-                        },
-                    });
-                    location.reload();
-                }else{
-                    // close_loading();
-                    $.each(res.message, function( index, value ) {
-                        text += '<p class="error"><i data-feather="x-square"></i> '+ value[0]+'</p>';
-                    });
-                    bootbox.alert({
-                        title: "Data Tidak lengkap!",
-                        message: text,
-                        centerVertical:true,
-                        onShow: function(e) {
-                            feather.replace();
-                        },
-                        callback: function() {
-                            btn.removeAttr("disabled");
-                        },
-                        onHide: function(e) {
-                            window.location = "/product"
+                        data:{
+                            id_loan:id_loan
                         },
 
-                    });
-                    // $(".result-message").addClass('alert alert-error').html(text)
+                        success:function(response)
+                        {
+                            var text = '';
+                            var res = JSON.parse(response);
+
+                            if(res.status){
+                                $(".result-message").removeClass('alert alert-error').addClass('alert alert-success').html(res.message);
+                                setTimeout(function() {
+                                    window.location.replace( '/verification/final' );
+                                },1000);
+
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            var err = eval("(" + xhr.responseText + ")");
+                            alert(err);
+                        }
+                    })
                 }
-            }
-        })
+            },
+
+        }
     });
-});
+
+
+
+}
 
 
 function init_data_table(){
