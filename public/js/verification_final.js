@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-    $('#btn_submit_crm').click(function(){
+    $(document).on('click' , '#btn_submit_crm', function(){
         bootbox.dialog({
             message: "Anda akan menyetujui peminjaman ini dan meneruskan ke verifikasi akhir",
             title: "Perhatian",

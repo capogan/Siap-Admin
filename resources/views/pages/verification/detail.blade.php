@@ -684,7 +684,6 @@
 
     <script>
         $("#history_table").DataTable();
-
     </script>
 
 @endsection
