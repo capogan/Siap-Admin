@@ -1,5 +1,10 @@
 @extends('layouts.main')
 @section('content')
+<style>
+.fa-check{
+    padding: 8px !important;
+}
+</style>
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
@@ -88,7 +93,7 @@
                                                             </div>
                                                             <!-- /.card -->
                                                         </div>
-                                                        <div class="col-9">
+                                                        <div class="col-7">
                                                             <nav aria-label="breadcrumb">
                                                                 <ol class="breadcrumb">
                                                                     <li class="breadcrumb-item text-bold">Verifikasi Data EKYC dan Direktur Utama</li>
@@ -99,39 +104,39 @@
                                                                 <tr>
                                                                     <th>Nama</th>
                                                                     <td colspan="2">{{$item->director_name}}</td>
-                                                                    <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                    <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span></td>
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                 <tr>
                                                                     <th>No KTP</th>
                                                                     <td colspan="2">{{$item->director_nik}}</td>
-                                                                    <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                    <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Nomor NPWP</th>
                                                                     <td colspan="2">{{$item->director_npwp}}</td>
-                                                                    <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                    <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Tanggal Lahir</th>
                                                                     <td colspan="2">{{$item->director_dob}}</td>
-                                                                    <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                    <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Email</th>
                                                                     <td colspan="2">{{$item->director_email}}</td>
-                                                                    <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                    <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Nomor Telepon</th>
                                                                     <td colspan="2">{{$item->director_phone_number}}</td>
-                                                                    <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                    <td colspan="3" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Tanggal Bergabung</th>
                                                                     <td colspan="2">{{$item->created_at}}</td>
-                                                                    <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                    <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <th>Alamat</th>
@@ -158,7 +163,7 @@
                                                                     <td></td>
                                                                     <td>Kelurahan</td>
                                                                     <td>{{$item->village->name}}</td>
-                                                                    <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                    <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span></td>
                                                                 </tr>
                                                                 </tr>
                                                                 <!-- <tr>
@@ -166,31 +171,19 @@
                                                                     <td colspan="2">
                                                                         Jl.Jendral Sudirman No.20
                                                                     </td>
-                                                                    <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                    <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span></td>
                                                                 </tr> -->
                                                                 </tbody>
                                                             </table>
-                                                            <button class="btn btn-success mb-3"><i class="fa fa-check pr-2"></i>Cek EKYC</button>
+
                                                         </div>
                                                     </div>
                                                     @endforeach
                                                 @endif
 
-                                                <div class="card-footer text-center">
-
-                                                    <button class="btn btn-danger">
-                                                        <i class="fa fa-close pr-1"></i>
-                                                        Tolak
-                                                    </button>
-
-                                                    <button class="btn btn-primary">
-                                                        <i class="fa fa-check pr-1"></i>
-                                                        Lanjut
-                                                    </button>
-
-                                                </div>
 
                                             </div>
+
                                             <div class="tab-pane fade" id="profile1" role="tabpanel" aria-labelledby="profile-tab">
                                                 @if($funding->commissioners)
                                                     @foreach($funding->commissioners as $item)
@@ -222,7 +215,7 @@
                                                                 </div>
                                                                 <!-- /.card -->
                                                             </div>
-                                                            <div class="col-9">
+                                                            <div class="col-7">
                                                                 <nav aria-label="breadcrumb">
                                                                     <ol class="breadcrumb">
                                                                         <li class="breadcrumb-item text-bold">Verifikasi Data EKYC dan Komisaris Utama</li>
@@ -234,7 +227,7 @@
                                                                         <th>Nama</th>
                                                                         <td colspan="2">{{$item->commissioner_name}}</td>
                                                                         <td colspan="2" class="text-center">
-                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                         </td>
                                                                     </tr>
                                                                     </thead>
@@ -243,42 +236,42 @@
                                                                         <th>NIK</th>
                                                                         <td colspan="2">{{$item->commissioner_nik}}</td>
                                                                         <td colspan="3" class="text-center">
-                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th>Nomor NPWP</th>
                                                                         <td colspan="2">{{$item->commissioner_npwp}}</td>
                                                                         <td colspan="3" class="text-center">
-                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th>Tanggal Lahir</th>
                                                                         <td colspan="2">{{$item->commissioner_dob}}</td>
                                                                         <td colspan="3" class="text-center">
-                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th>Email</th>
                                                                         <td colspan="2">{{$item->commissioner_email}}</td>
                                                                         <td colspan="3" class="text-center">
-                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th>Nomor Telepon</th>
                                                                         <td colspan="2">{{$item->commissioner_phone_number}}</td>
                                                                         <td colspan="3" class="text-center">
-                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th>Tanggal Bergabung</th>
                                                                         <td colspan="2">{{$item->created_at}}</td>
                                                                         <td colspan="2" class="text-center">
-                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
@@ -306,7 +299,7 @@
                                                                         <td></td>
                                                                         <td>Kelurahan</td>
                                                                         <td>{{$item->village->name}}</td>
-                                                                        <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span></td>
+                                                                        <td colspan="2" class="text-center"><span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span></td>
                                                                     </tr>
                                                                     </tr>
                                                                     <tr>
@@ -315,30 +308,20 @@
                                                                             Jl.Jendral Sudirman No.20
                                                                         </td>
                                                                         <td colspan="2" class="text-center">
-                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                            <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                         </td>
                                                                     </tr>
                                                                     </tbody>
                                                                 </table>
-                                                                <button class="btn btn-success mb-3"><i class="fa fa-check pr-2"></i>Cek EKYC</button>
+
                                                             </div>
                                                         </div>
                                                     @endforeach
                                                 @endif
-                                                <div class="card-footer text-center">
 
-                                                    <button class="btn btn-danger">
-                                                        <i class="fa fa-close pr-1"></i>
-                                                        Tolak
-                                                    </button>
-
-                                                    <button class="btn btn-primary">
-                                                        <i class="fa fa-check pr-1"></i>
-                                                        Lanjut
-                                                    </button>
-
-                                                </div>
                                             </div>
+
+
                                             <div class="tab-pane fade" id="contact1" role="tabpanel" aria-labelledby="contact-tab">
                                                 <div class="row">
                                                     <div class="col">
@@ -360,14 +343,14 @@
                                                                 <td></td>
                                                                 <td>No Akta</td>
                                                                 <td>8932178372</td>
-                                                                <td colspan="2" class="text-center"><span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i>Lolos</span></td>
+                                                                <td colspan="2" class="text-center"><span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span></td>
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
                                                                 <td>Tangal Akta</td>
                                                                 <td>09/09/2021</td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i>Data Sama</span>
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -375,7 +358,7 @@
                                                                 <td>No Pengesahan AHU</td>
                                                                 <td>989SAK0ASA</td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i>Data Sama</span>
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -383,7 +366,7 @@
                                                                 <td>Lihat Akta Pendirian</td>
                                                                 <td><a href="">Lihat Akta Pendirian</a></td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i>Data Sama</span>
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -391,7 +374,7 @@
                                                                 <td>Lihat Pengesahan AHU</td>
                                                                 <td><a href="">Lihat Pengesahan</a></td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i>Data Sama</span>
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -413,7 +396,7 @@
                                                                 <td>No Akta</td>
                                                                 <td>8932178372</td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -421,7 +404,7 @@
                                                                 <td>Tangal Akta</td>
                                                                 <td>09/09/2021</td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -429,7 +412,7 @@
                                                                 <td>No Pengesahan AHU</td>
                                                                 <td>989SAK0ASA</td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -437,7 +420,7 @@
                                                                 <td>Lihat Akta Pendirian</td>
                                                                 <td>-</td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -445,7 +428,7 @@
                                                                 <td>Lihat Pengesahan AHU</td>
                                                                 <td>-</td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i>Hasil Sama</span>
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -461,7 +444,7 @@
                                                                 <th>Detail Perusahaan</th>
                                                                 <td colspan="2"></td>
                                                                 <td class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i>Lolos</span>
+                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -490,7 +473,7 @@
                                                                 <td>Kelurahan</td>
                                                                 <td>Ragunan</td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i>Data Sama</span>
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -499,7 +482,7 @@
                                                                     Jl. Jendral Sudirman No.2
                                                                 </td>
                                                                 <td class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i>Data Sama</span>
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -508,7 +491,7 @@
                                                                     021-3232-1213
                                                                 </td>
                                                                 <td class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i>Data Sama</span>
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -517,7 +500,7 @@
                                                                     <a href="">wwww.mnckapital.co.id</a>
                                                                 </td>
                                                                 <td class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i>Data Sama</span>
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -529,7 +512,7 @@
                                                                 <td>Kewajaran Nilai Liability</td>
                                                                 <td></td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i>Data Sama</span>
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -537,7 +520,7 @@
                                                                 <td>Kewajaran Ekuitas</td>
                                                                 <td></td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i>Data Sama</span>
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -545,7 +528,7 @@
                                                                 <td>Kewajaran Asset</td>
                                                                 <td></td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i>Data Sama</span>
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
                                                             </tr>
@@ -558,7 +541,7 @@
                                                                 <td>Transaksi Peminjaman Modal</td>
                                                                 <td></td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i>Data Sama</span>
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
                                                             </tr>
@@ -581,6 +564,10 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+
+
+
                                         </div>
                                     </div>
                                 </div>
