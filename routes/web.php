@@ -94,7 +94,7 @@ Route::get('/funding/verification/data/{id}', 'FundingController@detail')->name(
 Route::get('/lender/request', 'LenderController@index')->name('lender');
 Route::post('/lender/update/status', 'FundingController@update_lender_status')->name('funding.paging');
 Route::get('/lender', 'LenderController@lender_list')->name('lender');
-
+Route::get('/lender/detail/{id}', 'LenderController@detail')->name('borrower.detail');
 //Bill
 Route::get('/bill/reminder', 'BillController@index')->name('bill');
 Route::post('/lender/paging', 'LenderController@paging')->name('lender.paging');
