@@ -16,7 +16,25 @@ $( document ).ready(function() {
             }
         });
     });
+
+    $('.reject_status_lender').click(function(){
+        var id = $(this).attr('attr'); 
+        bootbox.dialog({
+            message: "Permintaan untuk menjadi lender akan ditolak.",
+            title: "Perhatian",
+            buttons: {
+                success: {
+                    label: "Ya, Tolak",
+                    className: "btn-primary",
+                    callback: function() {
+                        reject_status_lender('verified' , id);
+                    }
+                },
+            }
+        });
+    });
 });
+
 
 function update_status_lender(status , id){
     var token = $('meta[name="csrf-token"]').attr('content');
@@ -37,6 +55,28 @@ function update_status_lender(status , id){
         {
             //console.log(response);
             //location.reload();
+        }
+    })
+}
+
+function reject_status_lender(status , id){
+    var token = $('meta[name="csrf-token"]').attr('content');
+    //alert(token);
+    $.ajax({
+        url: '/lender/reject/status',
+        method:"POST",
+        headers: {
+            'X-CSRF-TOKEN': token
+        },
+        async:true,
+        dataType:'json',
+        data: {
+            status:status,
+            id:id
+        },
+        success:function(response)
+        {
+            window.location.href = '/funding';
         }
     })
 }
