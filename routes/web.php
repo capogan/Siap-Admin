@@ -99,6 +99,7 @@ Route::get('/lender', 'LenderController@lender_list')->name('lender');
 Route::get('/lender/detail/{id}', 'LenderController@detail')->name('borrower.detail');
 //Bill
 Route::get('/bill/reminder', 'BillController@index')->name('bill');
+Route::get('/bill/reminder/detail', 'BillController@detail')->name('bill');
 Route::post('/lender/paging', 'LenderController@paging')->name('lender.paging');
 
 

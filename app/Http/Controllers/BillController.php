@@ -24,5 +24,11 @@ class BillController extends Controller
 
         return view('pages.bill.index', $this->merge_response($data, static::$CONFIG));
     }
+    public function detail(){
+        $data = [
+            'coy'=>''
+        ];
+        return view('pages.bill.verification', $this->merge_response($data, static::$CONFIG));
+    }
 
 }
