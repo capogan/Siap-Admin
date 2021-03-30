@@ -41,7 +41,7 @@
                                 }
                                 ?>
                                 <tr class="even pointer">
-                                    <td class=" "><a href="/loan/invoice/detail/{{$val->request_loan_id}}">{{$val->invoice_number}}</a></td>
+                                    <td class=" "><a href="/verification/invoice/detail/{{$val->request_loan_id}}">{{$val->invoice_number}}</a></td>
                                     <td class=" ">{{$val->loan_created_at}}</td>
                                     <td class=" "><a href="/borrower/detail/{{$val->uid}}">{{$val->get_user->name}}</a></td>
                                     <td class=" ">{{$val->status_name}}</td>
