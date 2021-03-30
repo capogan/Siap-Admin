@@ -179,7 +179,7 @@
                                             <div class="profile_img">
                                                 <div id="crop-avatar">
                                                     <!-- Current avatar -->
-                                                    <img class="img-responsive avatar-view" src="http://localhost:8002/{{$get_data_users->self_photo}}" style="width: 80%" alt="Avatar" title="Change the avatar">
+                                                    <img class="img-responsive avatar-view" src="{{isset($get_data_document->self_photo) ? 'http://172.31.143.11/'.$get_data_document->self_photo : '/images/no_photo.jpeg'}}" style="width: 80%" alt="Avatar" title="Change the avatar">
                                                 </div>
                                             </div>
                                         </div>
@@ -528,9 +528,9 @@
                                                                                     </div>
                                                                                     <div class="col">
                                                                                         @if($val->result == '1')
-                                                                                            <label><input type="radio" name="result_{{ $val->result }}"  value="1" class="flat"> Sama</label>
+                                                                                            <label>Sama</label>
                                                                                         @else
-                                                                                            <label><input type="radio" name="result_{{ $val->result }}"  value="1" class="flat"> Beda</label>
+                                                                                            <label>Beda</label>
                                                                                         @endif
                                                                                     </div>
                                                                                     <div class="col">
@@ -614,7 +614,7 @@
                             <div class="col-md-12 col-sm-12 ">
                                 <div class="x_panel">
                                     <div class="x_title">
-                                        <h2>Gauge</h2>
+                                        <h2>Biro Kredit</h2>
                                         <ul class="nav navbar-right panel_toolbox">
                                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                             </li>
@@ -643,7 +643,7 @@
                         <div class="item form-group pull-right">
                             <div class="">
                                 <button class="btn btn-danger" type="button" id="btn_reject6"><i class="fa fa-close"></i> Tolak</button>
-                                <button type="button" class="btn btn-primary" id="btn_submit_crm"><i class="fa fa-external-link-square"></i> Konfirmasi</button>
+                                <button type="button" class="btn btn-primary"  onclick="confirm_data('{{$id_loan}}')"><i class="fa fa-external-link-square"></i> Konfirmasi</button>
                             </div>
                         </div>
 
@@ -681,9 +681,9 @@
 @section('js')
 
     <script src="{{ asset('/js/verification_final.js') }}"></script>
+
     <script>
         $("#history_table").DataTable();
-
     </script>
 
 @endsection

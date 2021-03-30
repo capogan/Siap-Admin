@@ -24,8 +24,10 @@ class VerificationController extends Controller
         $this->middleware('auth', ['except' => ['verification']]);
     }
     function index(){
+        $loan_request = LoanRequest::with('current_score')->with('scoring')->with('statuss')->whereIn('status',['16','17','18','19','20','21','22','23','24','25','26','27','28']
+        )->get();
 
-        $loan_request = LoanRequest::with('current_score')->with('scoring')->with('status')->whereIn('status',['16'])->get();
+
         $data = [
             'loan_request'=> $loan_request
         ];
@@ -93,5 +95,21 @@ class VerificationController extends Controller
     public function paging(Request $request){
 
         return DataTables::of( LoanRequest::with('current_score')->with('scoring')->where('status',['2'])->get())->addIndexColumn()->make(true);
+    }
+
+    public function confirm(Request $request){
+
+        $id_loan = $request->id_loan;
+        LoanRequest::where([
+            ['id',$id_loan],
+
+        ])->update
+        ([
+            "status" => static::MARKET_PLACE,
+            "updated_at"=>date('Y-m-d H:i:s'),
+        ]);
+        $message = "Sukses menyimpan Data";
+        return json_encode(['status'=> true, 'message'=> $id_loan]);
+
     }
 }

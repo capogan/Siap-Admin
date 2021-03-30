@@ -1,3 +1,54 @@
+function confirm_data(id_loan){
+
+
+    bootbox.dialog({
+        message: "Anda akan menyetujui peminjaman ini",
+        title: "Perhatian",
+        buttons: {
+            success: {
+                label: "Ya, Saya setuju",
+                className: "btn-primary",
+                callback: function() {
+                    var token = $('meta[name="csrf-token"]').attr('content');
+                    $.ajax({
+                        url:'/verification/confirm',
+                        method:"POST",
+                        headers: {
+                            'X-CSRF-TOKEN': token
+                        },
+                        data:{
+                            id_loan:id_loan
+                        },
+
+                        success:function(response)
+                        {
+                            var text = '';
+                            var res = JSON.parse(response);
+
+                            if(res.status){
+                                $(".result-message").removeClass('alert alert-error').addClass('alert alert-success').html(res.message);
+                                setTimeout(function() {
+                                    window.location.replace( '/verification/final' );
+                                },1000);
+
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            var err = eval("(" + xhr.responseText + ")");
+                            alert(err);
+                        }
+                    })
+                }
+            },
+
+        }
+    });
+
+
+
+}
+
+
 function init_data_table(){
     let table = $('#table_verification');
     if (table != null) {
@@ -88,6 +139,8 @@ function showImage(url) {
         console.log("It was awesome!");
     });
 };
+
+
 /* ECHRTS */
 
 
@@ -410,7 +463,7 @@ function biro_kredit() {
                     }
                 },
                 data: [{
-                    value: 100,
+                    value: 70,
                     name: 'Nilai Skor'
                 }]
             }]

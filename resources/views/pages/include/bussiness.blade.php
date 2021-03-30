@@ -25,33 +25,33 @@
                 <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Alamat Usaha Pemohon
-                        </label>
+                        <h5 class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Alamat Usaha Pemohon
+                        </h5>
                         <div class="col-md-12 col-sm-6 ">
                             <h5 class="" for="first-name">{{$get_data_business->business_full_address  ?? "-" }}</h5>
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Provinsi
-                        </label>
+                        <h5 class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Provinsi
+                        </h5>
                         <div class="col-md-12 col-sm-6 ">
                             <h5 class="" for="first-name">{{$get_data_business->province_name  ?? "-" }}</h5>
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Kabupaten / kota</label>
+                        <h5 for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Kabupaten / kota</h5>
                         <div class="col-md-12 col-sm-6 ">
                             <h5 class="" for="first-name">{{$get_data_business->regencies_name  ?? "-" }}</h5>
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Kecamatan</label>
+                        <h5 for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Kecamatan</h5>
                         <div class="col-md-12 col-sm-6 ">
                             <h5 class="" for="first-name">{{$get_data_business->district_name  ?? "-" }}</h5>
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Kelurahan</label>
+                        <h5 for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Kelurahan</h5>
                         <div class="col-md-12 col-sm-6 ">
                             <h5 class="" for="first-name">{{$get_data_business->villages_name  ?? "-" }}</h5>
                         </div>
@@ -89,33 +89,33 @@
                 <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama Usaha
-                        </label>
+                        <h5 class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama Usaha
+                        </h5>
                         <div class="col-md-12 col-sm-6 ">
                             <h5 class="" for="first-name">{{$get_data_business->business_name  ?? "-" }}</h5>
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Status Badan Hukum Usaha
-                        </label>
+                        <h5 class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Status Badan Hukum Usaha
+                        </h5>
                         <div class="col-md-12 col-sm-6 ">
                             <h5 class="" for="first-name">{{$get_data_business->legality_name  ?? "-" }}</h5>
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Nomor Izin Usaha</label>
+                        <h5 for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Nomor Izin Usaha</h5>
                         <div class="col-md-12 col-sm-6 ">
                             <h5 class="" for="first-name"></h5>
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Jenis Bidang Usaha</label>
+                        <h5 for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Jenis Bidang Usaha</h5>
                         <div class="col-md-12 col-sm-6 ">
                             <h5 class="" for="first-name">{{$get_data_business->industry_sectore  ?? "-"  }}</h5>
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Status Tempat Usaha</label>
+                        <h5 for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Status Tempat Usaha</h5>
                         <div class="col-md-12 col-sm-6 ">
                             <h5 class="" for="first-name">{{$get_data_business->place_status_name  ?? "-" }}</h5>
                         </div>
@@ -156,35 +156,35 @@
                 <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Rata Pendapatan penjualan Perbulan dalam 6 bulan terakhir
-                        </label>
+                        <h5 class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Rata Pendapatan penjualan Perbulan dalam 6 bulan terakhir
+                        </h5>
                         <div class="col-md-6 col-sm-6 ">
                             <h5 class="" for="first-name">{{ $get_data_business->average_sales_revenue_six_month ?? "-"   }}</h5>
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">rata-rata Keuntungan perbulan dalam 6 bulan terakhir
-                        </label>
+                        <h5 class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">rata-rata Keuntungan perbulan dalam 6 bulan terakhir
+                        </h5>
                         <div class="col-md-6 col-sm-6 ">
                             <h5 class="" for="first-name">{{$get_data_business->average_monthly_profit_six_month  ?? "-" }}</h5>
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">rata - rata Pengeluaran Perbulan dalam 6 bulan terakhir</label>
+                        <h5 for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">rata - rata Pengeluaran Perbulan dalam 6 bulan terakhir</h5>
                         <div class="col-md-6 col-sm-6 ">
                             <h5 class="" for="first-name">{{$get_data_business->average_monthly_expenditure_six_month  ?? "-" }}</h5>
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Total Karyawan saat ini</label>
+                        <h5 for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Total Karyawan saat ini</h5>
                         <div class="col-md-6 col-sm-6 ">
                             <h5 class="" for="first-name">{{$get_data_business->total_employees ?? "-" }} Orang</h5>
                         </div>
                     </div>
 
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Durasi Merchant Active
-                        </label>
+                        <h5 class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Durasi Merchant Active
+                        </h5>
                         <div class="col-md-6 col-sm-6 ">
                             <h5 class="" for="first-name">{{$get_data_business->partnership_since ?? "-"}} Tahun</h5>
                         </div>
