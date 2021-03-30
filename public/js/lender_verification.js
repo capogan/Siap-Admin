@@ -53,6 +53,7 @@ function update_status_lender(status , id){
         },
         success:function(response)
         {
+            window.location.href = '/funding';
             //console.log(response);
             //location.reload();
         }

@@ -21,8 +21,8 @@ class LoanRequest extends Model
     public function scoring(){
         return $this->hasOne(RequestLoanCurrentScore::class , 'id_request_loan');
     }
-    public function status(){
-        return $this->hasOne(MasterStatus::class , 'status');
+    public function statuss(){
+        return $this->hasOne(MasterStatus::class ,'id');
     }
     public function get_user(){
         return $this->belongsTo('App\User','uid','id');

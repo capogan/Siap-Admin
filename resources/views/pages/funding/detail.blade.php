@@ -155,7 +155,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td></td>
-                                                                    <td>Kecataman</td>
+                                                                    <td>Kecamatan</td>
                                                                     <td>{{$item->district->name}}</td>
                                                                     <td colspan="2"></td>
                                                                 </tr>
@@ -203,7 +203,7 @@
                                                                     <div class="card-body box-profile">
                                                                         <div class="text-center">
                                                                             <img class="profile-user-img img-fluid img-circle"
-                                                                                src="{{url('images/profile.png')}}">
+                                                                                src="http://172.31.143.11/upload/lender/file/{{$item->identity_photo}}">
                                                                         </div>
                                                                         <h5 class="profile-username text-center pt-5">Foto Komisaris Utama</h5>
                                                                     </div>
@@ -215,7 +215,7 @@
                                                                     <div class="card-body box-profile">
                                                                         <div class="text-center">
                                                                             <img class="profile-user-img img-fluid img-circle"
-                                                                                src="{{url('images/profile.png')}}">
+                                                                                src="http://172.31.143.11/upload/lender/file/{{$item->identity_photo}}">
                                                                         </div>
                                                                         <h5 class="profile-username text-center pt-5">Foto KTP</h5>
 
@@ -300,7 +300,7 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td></td>
-                                                                        <td>Kecataman</td>
+                                                                        <td>Kecamatan</td>
                                                                         <td>{{$item->district->name}}</td>
                                                                         <td colspan="2"></td>
                                                                     </tr>
@@ -486,7 +486,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
-                                                                <td>Kecataman</td>
+                                                                <td>Kecamatan</td>
                                                                 <td>Kuningan</td>
                                                                 <td colspan="2"></td>
                                                             </tr>
