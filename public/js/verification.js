@@ -63,22 +63,7 @@ $( document ).ready(function() {
 
 
 
-    $('#btn_submit_crm').click(function(){
-        bootbox.dialog({
-            message: "Anda akan menyetujui peminjaman ini dan meneruskan ke verifikasi akhir",
-            title: "Perhatian",
-            buttons: {
-                success: {
-                    label: "Ya, Saya setuju",
-                    className: "btn-primary",
-                    callback: function() {
-                        $('#crm_form').submit();
-                    }
-                },
 
-            }
-        });
-    });
 
 
 

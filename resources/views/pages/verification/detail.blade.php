@@ -681,7 +681,7 @@
 @section('js')
 
     <script src="{{ asset('/js/verification_final.js') }}"></script>
-    <script src="{{ asset('/js/verification.js') }}"></script>
+
     <script>
         $("#history_table").DataTable();
 

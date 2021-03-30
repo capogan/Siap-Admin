@@ -1,3 +1,20 @@
+$('#btn_submit_crm').click(function(){
+    bootbox.dialog({
+        message: "Anda akan menyetujui peminjaman ini dan meneruskan ke verifikasi akhir",
+        title: "Perhatian",
+        buttons: {
+            success: {
+                label: "Ya, Saya setuju",
+                className: "btn-primary",
+                callback: function() {
+                    $('#crm_form').submit();
+                }
+            },
+
+        }
+    });
+});
+
 function init_data_table(){
     let table = $('#table_verification');
     if (table != null) {
