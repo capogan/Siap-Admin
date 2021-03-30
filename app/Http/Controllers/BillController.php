@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class BillController extends Controller
 {
     static $CONFIG = [
-        "title" => "Bill",
+        "title" => "Penagihan",
         "subtitle" => "Monitoring Data",
         "icon" => "image"
     ];
