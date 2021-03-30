@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 <style>
-.fa-check{
+.text-white >.fa-check{
     padding: 8px !important;
 }
 </style>
@@ -61,7 +61,7 @@
                                             </ul>
                                         </div>
                                         <div class="tab-content" id="myTabContent">
-                                            <div class="tab-pane fade show active" id="home1" role="tabpanel" aria-labelledby="home-tab">
+                                            <div class="tab-pane fade show active" id="home1" role="tabpanel"  aria-labelledby="home-tab">
 
                                                 @if($funding->directors)
                                                     @foreach($funding->directors as $item)
@@ -180,7 +180,16 @@
                                                     </div>
                                                     @endforeach
                                                 @endif
-
+                                                <div class="card-footer text-center">
+                                                    <button class="btn btn-danger reject_status_lender" id="reject_status_lender" attr="{{$funding->id}}" data-status="reject">
+                                                        <i class="fa fa-close pr-1"></i>
+                                                        Tolak
+                                                    </button>
+                                                    <a class="btn btn-primary" href="#myTabContent" onclick="$('#profile-tab').click()">
+                                                        Lanjutkan
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </a>
+                                                </div>
 
                                             </div>
 
@@ -318,6 +327,19 @@
                                                         </div>
                                                     @endforeach
                                                 @endif
+                                                <div class="card-footer text-center">
+                                                    <button class="btn btn-danger reject_status_lender" id="reject_status_lender" attr="{{$funding->id}}" data-status="reject">
+                                                        <i class="fa fa-close pr-1"></i>
+                                                        Tolak
+                                                    </button>
+                                                    <a class="btn btn-secondary" href="#myTabContent" onclick="$('#home-tab').click()">
+                                                        <i class="fa fa-arrow-left"></i> Kembali
+                                                    </a>
+                                                    <a class="btn btn-primary" href="#myTabContent" onclick="$('#contact-tab').click()">
+                                                        Lanjutkan
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </a>
+                                                </div>
 
                                             </div>
 
@@ -549,12 +571,15 @@
                                                             </tbody>
                                                         </table>
                                                         <div class="card-footer text-center">
+                                                        <button class="btn btn-danger reject_status_lender" id="reject_status_lender" attr="{{$funding->id}}" data-status="reject">
+                                                        <i class="fa fa-close pr-1"></i>
+                                                        Tolak
+                                                    </button>
 
-                                                            <button class="btn btn-danger">
-                                                                <i class="fa fa-close pr-1"></i>
-                                                                Tolak
-                                                            </button>
-
+                                                        <a class="btn btn-secondary" href="#myTabContent" onclick="$('#profile-tab').click()">
+                                                            <i class="fa fa-arrow-left"></i>    
+                                                            Kembali
+                                                        </a>
                                                             <button class="btn btn-primary" id="update_status_lender" attr="{{$funding->id}}">
                                                                 <i class="fa fa-check pr-1"></i>
                                                                 Setuju
@@ -564,10 +589,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-
-
-
                                         </div>
                                     </div>
                                 </div>

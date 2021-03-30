@@ -24,8 +24,6 @@ class FundingController extends Controller
     }
 
     function index(Request $request){
-
-
         $data = [
             'funding'=> '',
         ];
@@ -72,6 +70,27 @@ class FundingController extends Controller
         }
        
         
+    }
+
+    public function reject_lender_status(Request $request){
+
+        $uid = Funding::where('id' , $request->id)->first();       
+        if(!$uid){
+            $json = [
+                "status"=> false,
+                "message"=> 'Error when try to save data.',
+            ];
+            return response()->json($json);
+        }
+        $uid->status = 3;
+        $uid->save();
+        if(LenderVerification::where('uid' , $uid->uid)->update(['status' => 'reject'])){
+            $json = [
+                "status"=> true,
+                "message"=> 'Success to update data.',
+            ];
+            return response()->json($json);
+        }
     }
 
 
