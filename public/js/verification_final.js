@@ -410,7 +410,7 @@ function biro_kredit() {
                     }
                 },
                 data: [{
-                    value: 100,
+                    value: 70,
                     name: 'Nilai Skor'
                 }]
             }]
