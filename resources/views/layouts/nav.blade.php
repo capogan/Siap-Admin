@@ -21,6 +21,16 @@
                     <li><a href="/lender">Lender</a></li>
                 </ul>
             </li>
+
+            <li class=""><a><i class="fa fa-desktop"></i> Penagihan <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="/bill/reminder">Pengingat penagihan</a></li>
+                    <li><a href="/#">Tagihan jatuh tempo</a></li>
+                    <li><a href="/#">Tagihan Keterlambatan</a></li>
+                </ul>
+            </li>
+            <li class=""><a><i class="fa fa-bar-chart-o"></i> Penagihan kredit macet</a>
+            </li>
         </ul>
 
     </div>

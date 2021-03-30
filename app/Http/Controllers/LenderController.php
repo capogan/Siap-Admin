@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class LenderController extends Controller
 {
@@ -21,5 +23,15 @@ class LenderController extends Controller
             'users'=> User::get(),
         ];
         return view('pages.lender.index', $this->merge_response($data, static::$CONFIG));
+    }
+    function lender_list(){
+        $data = [
+            'users'=> '',
+        ];
+        return view('pages.lender.users', $this->merge_response($data, static::$CONFIG));
+    }
+    public function paging(Request $request){
+
+        return DataTables::of(User::where('group','lender')->orderBy('created_at','DESC')->get())->addIndexColumn()->make(true);
     }
 }

@@ -18,7 +18,7 @@ class BorrowerController extends Controller
     }
     function index(Request $request){
         $data = [
-            'users'=> User::get(),
+            'users'=> User::where('group','borrower')->get(),
         ];
         return view('pages.borrower.index', $this->merge_response($data, static::$CONFIG));
     }
@@ -45,6 +45,6 @@ class BorrowerController extends Controller
 
     public function paging(Request $request){
 
-        return DataTables::of(User::orderBy('created_at','DESC')->get())->addIndexColumn()->make(true);
+        return DataTables::of(User::where('group','borrower')->orderBy('created_at','DESC')->get())->addIndexColumn()->make(true);
     }
 }

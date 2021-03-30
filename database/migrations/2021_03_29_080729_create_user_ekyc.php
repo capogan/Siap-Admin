@@ -15,8 +15,7 @@ class CreateUserEkyc extends Migration
     {
         Schema::create('user_ekyc', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('uid');
-            $table->string('score');
+            $table->text('callback');
             $table->timestamps();
         });
     }
