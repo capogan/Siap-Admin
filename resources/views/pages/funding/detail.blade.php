@@ -566,6 +566,44 @@
                                                                     <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
                                                             </tr>
+                                                            <tr>
+                                                                <th>Data Rekening</th>
+                                                                <td></td>
+                                                                <td colspan="4"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>BANK</td>
+                                                                <td>{{isset($funding->bank) ? strtoupper($funding->bank) : ''}}</td>
+                                                                <td colspan="2" class="text-center">
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>Nomor Rekening</td>
+                                                                <td>{{isset($funding->rekening_number) ? $funding->rekening_number : ''}}</td>
+                                                                <td colspan="2" class="text-center">
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>Nama Rekening</td>
+                                                                <td>{{isset($funding->rekening_name) ? $funding->rekening_name : ''}}</td>
+                                                                <td colspan="2" class="text-center">
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>Rekening Dana Lender</td>
+                                                                <td>{{isset($funding->rdl_number) ? $funding->rdl_number : ''}}</td>
+                                                                <td colspan="2" class="text-center">
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
+                                                                </td>
+                                                            </tr>
+                                                            
                                                             </tr>
                                                             </tr>
                                                             </tbody>

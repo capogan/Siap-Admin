@@ -20,6 +20,11 @@ class Funding extends Model
         ->with('village');
     }
 
+    public function rekening()
+    {
+        return $this->hasOne(LenderBankInfo::class , 'uid');
+    }
+
     public function commissioners()
     {
         return $this->hasMany(LenderCommissionerData::class , 'uid' , 'uid')
