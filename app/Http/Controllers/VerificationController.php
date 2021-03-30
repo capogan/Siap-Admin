@@ -26,6 +26,8 @@ class VerificationController extends Controller
     function index(){
 
         $loan_request = LoanRequest::with('current_score')->with('scoring')->whereIn('status',['16'])->get();
+
+
         $data = [
             'loan_request'=> $loan_request
         ];
