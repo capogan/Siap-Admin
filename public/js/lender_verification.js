@@ -177,7 +177,7 @@ function init_data_table(){
                 {
                     targets: 1,
                     render: function(data, type, full, meta) {
-                        return '<a href="/borrower/detail/' + full.id + '" class="">'+data+'</a>';
+                        return '<a href="/lender/detail/' + full.id + '" class="">'+data+'</a>';
                     },
                 },
             ],
