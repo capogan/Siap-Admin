@@ -356,122 +356,104 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <table id="example1" class="table table-bordered table-striped">
+                                                        <table id="example1" class="table table-bordered">
                                                             <thead>
                                                             <tr>
                                                                 <th>Akta Pendirian</th>
-                                                                <td colspan="4"></td>
+                                                                <td colspan="3"></td>
+                                                                <td class="text-center"><span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span></td>
                                                             <tr>
                                                                 <td></td>
                                                                 <td>No Akta</td>
-                                                                <td>8932178372</td>
-                                                                <td colspan="2" class="text-center"><span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span></td>
+                                                                <td colspan="3" >8932178372</td>
+                                                                
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
                                                                 <td>Tangal Akta</td>
-                                                                <td>09/09/2021</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
-                                                                </td>
+                                                                <td colspan="3">09/09/2021</td>
+                                                                
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
                                                                 <td>No Pengesahan AHU</td>
-                                                                <td>989SAK0ASA</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
-                                                                </td>
+                                                                <td colspan="3">989SAK0ASA</td>
+                                                                
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
                                                                 <td>Lihat Akta Pendirian</td>
-                                                                <td><a href="">Lihat Akta Pendirian</a></td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
-                                                                </td>
+                                                                <td colspan="3"><a href="">Lihat Akta Pendirian</a></td>
+                                                               
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
                                                                 <td>Lihat Pengesahan AHU</td>
-                                                                <td><a href="">Lihat Pengesahan</a></td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
-                                                                </td>
+                                                                <td colspan="3"><a href="">Lihat Pengesahan</a></td>
+                                                                
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
                                                                 <td>Masukan Link Pengesahan AHU</td>
-                                                                <td><a href="">Link Pengesahan AHU</a></td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <input type="text" class="form-control" id="exampleInputEmail1">
-                                                                </td>
+                                                                <td colspan="3"><a href="">Link Pengesahan AHU</a></td>
+                                                               
                                                             </tr>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
                                                             <tr>
                                                                 <th>Akta Perubahan</th>
-                                                                <td colspan="4"></td>
+                                                                <td colspan="3"></td>
+                                                                <td class="text-center">
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
+                                                                </td>
                                                             <tr>
                                                                 <td></td>
                                                                 <td>No Akta</td>
-                                                                <td>8932178372</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
-                                                                </td>
+                                                                <td colspan="3">8932178372</td>
+                                                                
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
                                                                 <td>Tangal Akta</td>
-                                                                <td>09/09/2021</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
-                                                                </td>
+                                                                <td colspan="3">09/09/2021</td>
+                                                                
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
                                                                 <td>No Pengesahan AHU</td>
-                                                                <td>989SAK0ASA</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
-                                                                </td>
+                                                                <td colspan="3">989SAK0ASA</td>
+                                                               
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
                                                                 <td>Lihat Akta Pendirian</td>
-                                                                <td>-</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
-                                                                </td>
+                                                                <td colspan="3">-</td>
+                                                                
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
                                                                 <td>Lihat Pengesahan AHU</td>
-                                                                <td>-</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
-                                                                </td>
+                                                                <td colspan="3">-</td>
+                                                                
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
                                                                 <td>Masukan Link Pengesahan AHU</td>
-                                                                <td>-</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <input type="text" class="form-control" id="exampleInputEmail1">
-                                                                </td>
+                                                                <td colspan="3">-</td>
+                                                                
                                                             </tr>
                                                             </tr>
                                                             <tr>
                                                                 <th>Detail Perusahaan</th>
-                                                                <td colspan="2"></td>
-                                                                <td class="text-center">
-                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span>
-                                                                </td>
+                                                                <td colspan="4"></td>
                                                             </tr>
                                                             <tr>
                                                                 <th class="text-center">Alamat</th>
-                                                                <td colspan="4"></td>
+                                                                <td colspan="3"></td>
+                                                                <td class="text-center">
+                                                                    <span class="bg-success text-white p-1"><i class="fa fa-check pr-2"></i></span>
+                                                                </td>
                                                             <tr>
                                                                 <td></td>
                                                                 <td>Provinsi</td>
@@ -488,37 +470,34 @@
                                                                 <td></td>
                                                                 <td>Kecamatan</td>
                                                                 <td>Kuningan</td>
-                                                                <td colspan="2"></td>
+                                                                <td colspan="4"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
                                                                 <td>Kelurahan</td>
-                                                                <td>Ragunan</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
-                                                                </td>
+                                                                <td colspan="4">Ragunan</td>
+                                                               
                                                             </tr>
                                                             <tr>
                                                                 <th class="text-center">Alamat Detail</th>
-                                                                <td colspan="2">
+                                                                <td colspan="4">
                                                                     Jl. Jendral Sudirman No.2
                                                                 </td>
-                                                                <td class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
-                                                                </td>
+                                                                
                                                             </tr>
                                                             <tr>
                                                                 <th class="text-center">Nomor Telepon</th>
-                                                                <td colspan="2">
+                                                                <td colspan="3">
                                                                     021-3232-1213
                                                                 </td>
                                                                 <td class="text-center">
                                                                     <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
                                                                 </td>
+                                                                
                                                             </tr>
                                                             <tr>
                                                                 <th class="text-center">Website Perusahaan</th>
-                                                                <td colspan="2">
+                                                                <td colspan="3">
                                                                     <a href="">wwww.mnckapital.co.id</a>
                                                                 </td>
                                                                 <td class="text-center">
@@ -526,23 +505,32 @@
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <th>Laporan Keuangan</th>
+                                                                <th>Data File</th>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td colspan=2 class="text-center">
+                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
+                                                                </td>
+                                                            <tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>Laporan Keuangan</td>
                                                                 <td><a href="">Klik to Download</a></td>
-                                                                <td colspan="4"></td>
+                                                                <td colspan="4" class="text-center">
+                                                                    
+                                                                </td>
                                                             <tr>
                                                                 <td></td>
                                                                 <td>Kewajaran Nilai Liability</td>
                                                                 <td></td>
-                                                                <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
-                                                                </td>
+                                                                
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
                                                                 <td>Kewajaran Ekuitas</td>
                                                                 <td></td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
+                                                                    
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -550,7 +538,7 @@
                                                                 <td>Kewajaran Asset</td>
                                                                 <td></td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
+                                                                   
                                                                 </td>
                                                             </tr>
                                                             </tr>
@@ -569,14 +557,15 @@
                                                             <tr>
                                                                 <th>Data Rekening</th>
                                                                 <td></td>
-                                                                <td colspan="4"></td>
+                                                                <td></td>
+                                                                <td colspan="2"  class="text-center"><span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span></td>
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
                                                                 <td>BANK</td>
                                                                 <td>{{isset($funding->bank) ? strtoupper($funding->bank) : ''}}</td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
+                                                                    
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -584,7 +573,7 @@
                                                                 <td>Nomor Rekening</td>
                                                                 <td>{{isset($funding->rekening_number) ? $funding->rekening_number : ''}}</td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
+                                                                    
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -592,7 +581,7 @@
                                                                 <td>Nama Rekening</td>
                                                                 <td>{{isset($funding->rekening_name) ? $funding->rekening_name : ''}}</td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
+                                                                    
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -600,7 +589,7 @@
                                                                 <td>Rekening Dana Lender</td>
                                                                 <td>{{isset($funding->rdl_number) ? $funding->rdl_number : ''}}</td>
                                                                 <td colspan="2" class="text-center">
-                                                                    <span class="bg-success text-white text-white p-1"><i class="fa fa-check pr-2"></i></span>
+                                                                    
                                                                 </td>
                                                             </tr>
                                                             
