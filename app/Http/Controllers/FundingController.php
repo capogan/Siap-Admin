@@ -30,8 +30,10 @@ class FundingController extends Controller
         return view('pages.funding.index', $this->merge_response($data, static::$CONFIG));
     }
     function detail($id){
-        $funding = Funding::with('directors')->with('commissioners')->where('id' ,$id )->first();
-
+        $funding = Funding::select('request_funding.*','lender_bank_info.rekening_name','lender_bank_info.rekening_number','lender_bank_info.rekening_name','lender_bank_info.rdl_number','lender_bank_info.bank')
+        ->leftJoin('lender_bank_info' , 'lender_bank_info.uid' ,'lender_bank_info.uid')
+        ->with('directors')->with('commissioners')->with('rekening')->where('request_funding.id' ,$id )
+        ->first();
         $data = [
             'funding'=> $funding,
         ];

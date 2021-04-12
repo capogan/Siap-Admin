@@ -2450,7 +2450,7 @@ as all that.'
 'Certainly not!' said Alice indignantly.
 
 'Ah! then yours wasn't a really good school,' said the Mock Turtle in
-a tone of great relief. 'Now at OURS they had at the end of the bill,
+a tone of great relief. 'Now at OURS they had at the end of the collect,
 "French, music, AND WASHING--extra."'
 
 'You couldn't have wanted it much,' said Alice; 'living at the bottom of

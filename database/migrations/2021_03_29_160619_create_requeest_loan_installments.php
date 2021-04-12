@@ -16,10 +16,11 @@ class CreateRequeestLoanInstallments extends Migration
         Schema::create('request_loan_installments', function (Blueprint $table) {
             $table->id();
             $table->integer('id_request_loan');
-            $table->string('stages');
+            $table->integer('stages');
             $table->float('amount');
-            $table->date('date_payment');
+            $table->date('date_payment')->nullable();
             $table->date('due_date_payment');
+            $table->integer('id_status_payment');
             $table->timestamps();
         });
     }

@@ -350,6 +350,24 @@ class LoanController extends Controller
         return json_encode(['status'=> true, 'message'=> $message,'data'=>$data]);
     }
 
+    public function get_invoice(Request $request){
+
+
+        if ($request->has('search')) {
+            $search = strtoupper($request->search);
+            $data = DB::table('request_loan')->select('id', 'invoice_number')->where('invoice_number', 'ilike', '%'.$search.'%')->get();
+            $response = array();
+            foreach($data as $person){
+                $response[] = array(
+                    "id"=>$person->id,
+                    "text"=>$person->invoice_number
+                );
+            }
+            return json_encode($response);
+
+        }
+    }
+
 
 
 }

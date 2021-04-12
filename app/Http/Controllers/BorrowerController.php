@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
 
 class BorrowerController extends Controller
@@ -46,5 +47,23 @@ class BorrowerController extends Controller
     public function paging(Request $request){
 
         return DataTables::of(User::where('group','borrower')->orderBy('created_at','DESC')->get())->addIndexColumn()->make(true);
+    }
+
+    public function get_user(Request $request){
+
+
+        if ($request->has('search')) {
+            $search = strtoupper($request->search);
+            $data = DB::table('personal_info')->select('id', 'first_name')->where('first_name', 'ilike', '%'.$search.'%')->get();
+            $response = array();
+            foreach($data as $person){
+                $response[] = array(
+                    "id"=>$person->id,
+                    "text"=>$person->first_name
+                );
+            }
+            return json_encode($response);
+
+        }
     }
 }

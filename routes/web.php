@@ -28,7 +28,7 @@ Route::get('/logout','AdminController@logout')->name('logout');
 Route::get('/borrower', 'BorrowerController@index')->name('borrower');
 Route::post('/borrower/paging', 'BorrowerController@paging')->name('borrower.paguing');
 Route::get('/borrower/detail/{id}', 'BorrowerController@detail')->name('borrower.detail');
-
+Route::post('/borrower/get/user', 'BorrowerController@get_user')->name('borrower.get.user');
 
 //loan
 Route::get('/loan', 'LoanController@index')->name('loan');
@@ -40,6 +40,7 @@ Route::post('/loan/reject/image', 'LoanController@reject_image')->name('loan.rej
 Route::post('/loan/reject/image', 'LoanController@reject_image')->name('loan.reject.image');
 Route::post('/loan/add/noted/emergency', 'LoanController@add_noted_emergency')->name('loan.add.noted.emergency');
 Route::post('/loan/add/description/crm', 'LoanController@add_description_crm')->name('loan.add.description.crm');
+Route::post('/loan/get/invoice', 'LoanController@get_invoice')->name('loan.get.invoice');
 
 
 //creditscore
@@ -64,7 +65,10 @@ Route::get('/setting/users','SettingController@user_admin')->name('setting.user.
 Route::post('/setting/list/admin/users','SettingController@user_admin_paging')->name('get.list.admin.users');
 Route::get('/setting/users/add','SettingController@add_user_admin')->name('setting.user.admin.add');
 Route::post('/setting/users/add','SettingController@store_user_admin')->name('setting.user.admin.add');
-
+Route::get('/setting/role/','SettingController@role')->name('setting.role');
+Route::post('/setting/role/paging','SettingController@roles_paging')->name('setting.role.paging');
+Route::get('/setting/role/add','SettingController@roles_add')->name('setting.role.add');
+Route::post('/setting/role/add','SettingController@roles_insert')->name('setting.role.add');
 
 
 //PCG
@@ -97,10 +101,17 @@ Route::post('/lender/update/status', 'FundingController@update_lender_status')->
 Route::post('/lender/reject/status', 'FundingController@reject_lender_status')->name('funding.paging');
 Route::get('/lender', 'LenderController@lender_list')->name('lender');
 Route::get('/lender/detail/{id}', 'LenderController@detail')->name('borrower.detail');
+
 //Bill
-Route::get('/bill/reminder', 'BillController@index')->name('bill');
-Route::get('/bill/reminder/detail', 'BillController@detail')->name('bill');
-Route::post('/lender/paging', 'LenderController@paging')->name('lender.paging');
+Route::get('/collect/reminder', 'BillController@index')->name('collect');
+Route::get('/collect/detail/{type}/{invoice_number}/{stages}', 'BillController@detail')->name('collect');
+Route::post('/collect/paging', 'BillController@paging')->name('lender.paging');
+Route::post('/collect/add/crm', 'BillController@collect_add_crm')->name('collect.add.crm');
+Route::get('/collect/due', 'BillController@due')->name('collect.due');
+Route::get('/collect/late', 'BillController@late')->name('collect.late');
+
+//Robo
+Route::get('/calculate', 'RoboController@index')->name('calculate');
 
 
 

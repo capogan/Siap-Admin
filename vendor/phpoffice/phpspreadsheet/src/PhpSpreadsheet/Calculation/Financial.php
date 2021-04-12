@@ -2011,13 +2011,13 @@ class Financial
     /**
      * TBILLEQ.
      *
-     * Returns the bond-equivalent yield for a Treasury bill.
+     * Returns the bond-equivalent yield for a Treasury collect.
      *
-     * @param mixed $settlement The Treasury bill's settlement date.
-     *                                The Treasury bill's settlement date is the date after the issue date when the Treasury bill is traded to the buyer.
-     * @param mixed $maturity The Treasury bill's maturity date.
-     *                                The maturity date is the date when the Treasury bill expires.
-     * @param int $discount The Treasury bill's discount rate
+     * @param mixed $settlement The Treasury collect's settlement date.
+     *                                The Treasury collect's settlement date is the date after the issue date when the Treasury collect is traded to the buyer.
+     * @param mixed $maturity The Treasury collect's maturity date.
+     *                                The maturity date is the date when the Treasury collect expires.
+     * @param int $discount The Treasury collect's discount rate
      *
      * @return float|string Result, or a string containing an error
      */
@@ -2050,13 +2050,13 @@ class Financial
     /**
      * TBILLPRICE.
      *
-     * Returns the yield for a Treasury bill.
+     * Returns the yield for a Treasury collect.
      *
-     * @param mixed $settlement The Treasury bill's settlement date.
-     *                                The Treasury bill's settlement date is the date after the issue date when the Treasury bill is traded to the buyer.
-     * @param mixed $maturity The Treasury bill's maturity date.
-     *                                The maturity date is the date when the Treasury bill expires.
-     * @param int $discount The Treasury bill's discount rate
+     * @param mixed $settlement The Treasury collect's settlement date.
+     *                                The Treasury collect's settlement date is the date after the issue date when the Treasury collect is traded to the buyer.
+     * @param mixed $maturity The Treasury collect's maturity date.
+     *                                The maturity date is the date when the Treasury collect expires.
+     * @param int $discount The Treasury collect's discount rate
      *
      * @return float|string Result, or a string containing an error
      */
@@ -2105,13 +2105,13 @@ class Financial
     /**
      * TBILLYIELD.
      *
-     * Returns the yield for a Treasury bill.
+     * Returns the yield for a Treasury collect.
      *
-     * @param mixed $settlement The Treasury bill's settlement date.
-     *                                The Treasury bill's settlement date is the date after the issue date when the Treasury bill is traded to the buyer.
-     * @param mixed $maturity The Treasury bill's maturity date.
-     *                                The maturity date is the date when the Treasury bill expires.
-     * @param int $price The Treasury bill's price per $100 face value
+     * @param mixed $settlement The Treasury collect's settlement date.
+     *                                The Treasury collect's settlement date is the date after the issue date when the Treasury collect is traded to the buyer.
+     * @param mixed $maturity The Treasury collect's maturity date.
+     *                                The maturity date is the date when the Treasury collect expires.
+     * @param int $price The Treasury collect's price per $100 face value
      *
      * @return float|mixed|string
      */

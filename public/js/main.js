@@ -1,11 +1,9 @@
 function loading(){
-    $("button").removeClass("hide");
-    $("body").addClass("overflow-hidden");
+    $('.btn-success[type=submit]').attr('disabled','disabled').html('<i class="fa fa-spinner fa-spin"></i> Mohon Tunggu');
 }
 
 function close_loading() {
-    $("button").addClass("hide");
-    $("body").removeClass("overflow-hidden");
+    $(".btn-success[type=submit]").removeAttr('disabled').html($(".btn-success").attr("data-text"));
 }
 
 function convert_status(str){

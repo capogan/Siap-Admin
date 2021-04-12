@@ -31,6 +31,8 @@ class CreateRequestLoan extends Migration
             $table->integer('status')->comment = '0=pending;1;process;2=approve;3=run;4=rejected';
             $table->text('reject_description')->nullable();
             $table->date('reject_date')->nullable();
+            $table->bigInteger('lender_uid')->nullable();
+            $table->date('due_date_payment')->nullable();
             $table->timestamps();
         });
     }

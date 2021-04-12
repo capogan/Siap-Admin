@@ -27,7 +27,7 @@ class PcgController extends Controller
 
     public function __construct()
     {
-        $this->middleware('role:pcg');
+        $this->middleware('auth');
     }
 
     public function index(Request $request){

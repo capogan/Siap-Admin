@@ -1,12 +1,14 @@
 <!-- sidebar menu -->
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-    @role('superadmin')
+
     <div class="menu_section">
         <h3>General</h3>
 
         <ul class="nav side-menu">
+            @can('beranda')
             <li><a href="/"><i class="fa fa-home"></i> Beranda </a></li>
-
+            @endcan
+            @can('peminjam')
             <li class="{{ request()->is('loan/*') ||    request()->is('credit/*') ||  request()->is('verification/*') ? "active" : "" }}"><a><i class="fa fa-users"></i> Peminjam <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="/loan">Permintaan Pinjaman</a></li>
@@ -15,54 +17,50 @@
                     <li><a href="/verification/final">Verifikasi Akhir</a></li>
                 </ul>
             </li>
+            @endcan
+            @can('pendanaan')
             <li class="{{ request()->is('funding/verification/*') ? "active" : ""  }}"><a><i class="fa fa-users"></i> Pendanaan <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="/funding">Permintaan Pendanaan</a></li>
 
                 </ul>
             </li>
+            @endcan
 
-            <li class=""><a><i class="fa fa-desktop"></i> Penagihan <span class="fa fa-chevron-down"></span></a>
+            @can('penagihan')
+            <li class="{{ request()->is('collect/*') ? "active" : "" }}"><a><i class="fa fa-desktop"></i> Penagihan <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="/bill/reminder">Pengingat penagihan</a></li>
-                    <li><a href="/#">Tagihan jatuh tempo</a></li>
-                    <li><a href="/#">Tagihan Keterlambatan</a></li>
+                    <li><a href="/collect/reminder">Pengingat penagihan</a></li>
+                    <li><a href="/collect/due">Tagihan jatuh tempo</a></li>
+                    <li><a href="/collect/late">Tagihan Keterlambatan</a></li>
                 </ul>
             </li>
+            @endcan
+            @can('penagihan_kredit_macet')
             <li class=""><a><i class="fa fa-bar-chart-o"></i> Penagihan kredit macet</a>
+            @endcan
+            @can('customer_service')
             <li class="{{ request()->is('borrower/*') ||  request()->is('lender/*')  ? "active" : "" }}"><a><i class="fa fa-child"></i> Customer Services <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="/borrower">Borrower</a></li>
                     <li><a href="/lender">Lender</a></li>
                 </ul>
             </li>
+            @endcan
             </li>
         </ul>
 
     </div>
 
     <div class="menu_section">
+
         <h3>Master Data</h3>
         <ul class="nav side-menu">
-            <li><a><i class="fa fa-map-marker"></i> Lokasi <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                    <li><a href="e_commerce.html">Propinsi</a></li>
-                    <li><a href="projects.html">Kota</a></li>
-                </ul>
-            </li>
-            <li><a><i class="fa fa-windows"></i> Ekstra <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                    <li><a href="page_500.html">Pekerjaan</a></li>
-                    <li><a href="plain_page.html">Pendidikan</a></li>
-                    <li><a href="login.html">Status Badan Usaha</a></li>
-                    <li><a href="pricing_tables.html">Status Tempat Tinggal</a></li>
-                    <li><a href="pricing_tables.html">Jenis Bidang Usaha</a></li>
-                    <li><a href="pricing_tables.html">Hubungan Kontrak Darurat</a></li>
-                </ul>
-            </li>
-            <li><a><i class="fa fa-wrench"></i> Pengaturan <span class="fa fa-chevron-down"></span></a>
+            @can('pengaturan')
+            <li class="{{ request()->is('setting/*')  ? "active" : "" }}"><a><i class="fa fa-wrench"></i> Pengaturan <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="/setting/users">Pengguna</a>
+                    <li><a href="/setting/role">Wewenang (Role)</a>
                     <li><a>Website<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="#level2_1">Banner</a></li>
@@ -76,19 +74,18 @@
                     </li>
                 </ul>
             </li>
+            @endcan
 
         </ul>
+
     </div>
-    @endrole
-    <div class="menu_section">
 
+    <div class="menu_section">
+        @can('pcg')
         <ul class="nav side-menu">
-            <li><a><i class="fa fa-cloud-upload"></i> PCG <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                    <li><a href="/pcg/">Unggah Data Shortfall</a></li>
-                </ul>
-            </li>
+            <li><a href="/pcg/"><i class="fa fa-cloud-upload"></i> PCG</a></li>
         </ul>
+       @endcan
     </div>
 
 </div>

@@ -7,11 +7,7 @@
                 <h2>Daftar Admin</h2>
 
                 <ul class="nav navbar-right panel_toolbox">
-                    <li><a href="/setting/users/add"><button class="btn btn-sm btn-primary">Tambah User</button></a></li>
-                    </li>
-
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
+                    <li><a href="/setting/users/add"><button class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah User</button></a></li>
                 </ul>
                 <div class="clearfix"></div>
             </div>
