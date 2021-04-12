@@ -33,7 +33,7 @@ class Utils {
         if($option == 'years'){
             return Carbon::parse($dob)->diff(Carbon::now())->format('%y Tahun');
         }else if($option == 'month'){
-            return Carbon::parse($dob)->diff(Carbon::now())->format('%y Tahu %m Bulan');
+            return Carbon::parse($dob)->diff(Carbon::now())->format('%y Tahun %m Bulan');
         }
 
     }
@@ -70,6 +70,27 @@ class Utils {
         echo "<pre>";
         print_r($query);
         die();
+    }
+
+    public static function date_in_indonesia($date){
+        $month = array (
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+
+        $array = explode('-', $date);
+        return $array[2] . ' ' . $month[ (int)$array[1] ] . ' ' . $array[0];
+
     }
 
 

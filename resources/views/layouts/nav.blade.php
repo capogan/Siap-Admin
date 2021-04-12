@@ -14,7 +14,9 @@
                     <li><a href="/loan">Permintaan Pinjaman</a></li>
 
                     <li><a href="/credit/score">Kredit Score</a></li>
+                    @can('verifikasi_akhir')
                     <li><a href="/verification/final">Verifikasi Akhir</a></li>
+                    @endcan
                 </ul>
             </li>
             @endcan

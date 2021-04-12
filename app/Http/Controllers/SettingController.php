@@ -135,11 +135,16 @@ class SettingController extends Controller
                     'created_by'=> Auth::user()->name,
                 ]);
 
+                $roles_name = Role::find($roles->id);
+
                 foreach ($request->permissions as $val){
+                    $permission_name = Permissions::where('id',$val)->first();
                     RolesHasPermission::create([
                         'permission_id'=>$val,
                         'role_id'=>$roles->id
                     ]);
+                    $roles_name->givePermissionTo($permission_name);
+
                 }
 
                 DB::commit();

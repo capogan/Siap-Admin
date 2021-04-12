@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\PersonalInfo;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -65,5 +66,17 @@ class BorrowerController extends Controller
             return json_encode($response);
 
         }
+    }
+
+    public function edit(Request $request){
+
+        $uid = $request->id;
+        $personal_info = PersonalInfo::where('uid',$uid)->first();
+
+        $data = [
+            'personal_info'=> $personal_info,
+        ];
+
+        return view('pages.borrower.edit', $this->merge_response($data, static::$CONFIG));
     }
 }

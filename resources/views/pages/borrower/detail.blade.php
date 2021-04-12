@@ -5,19 +5,6 @@
             <div class="x_panel">
                 <div class="x_title">
                     <h2>Info Pengguna</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Settings 1</a>
-                                <a class="dropdown-item" href="#">Settings 2</a>
-                            </div>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                    </ul>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -32,15 +19,8 @@
 
                         <ul class="list-unstyled user_data">
                             <li><i class="fa fa-map-marker user-profile-icon"></i> {{$user->address}}</li>
-
-                            <li>
-                                <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer
-                            </li>
-
-                            <li class="m-top-xs">
-                                <i class="fa fa-external-link user-profile-icon"></i>
-                                <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
-                            </li>
+                            <li><i class="fa fa-briefcase user-profile-icon"></i> Terdaftar tanggal : {{Utils::date_in_indonesia($user->created_at->todatestring())}}</li>
+                            <li><a href="/borrower/edit/{{$user->uid}}"><button class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Ubah Profile</button></a></li>
                         </ul>
                         <br />
 
