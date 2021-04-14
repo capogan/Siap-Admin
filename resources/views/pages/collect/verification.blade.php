@@ -154,7 +154,6 @@
                             @include('pages.collect.tab.payment')
                         </div>
 
-
                     </div>
 
                 </div>

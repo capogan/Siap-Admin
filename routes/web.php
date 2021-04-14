@@ -23,12 +23,7 @@ Route::get('/logout','AdminController@logout')->name('logout');
 
 
 Route::group(['middleware' => ['permission:peminjam']], function () {
-    //borrower
-    Route::get('/borrower', 'BorrowerController@index')->name('borrower');
-    Route::post('/borrower/paging', 'BorrowerController@paging')->name('borrower.paging');
-    Route::get('/borrower/detail/{id}', 'BorrowerController@detail')->name('borrower.detail');
-    Route::post('/borrower/get/user', 'BorrowerController@get_user')->name('borrower.get.user');
-    Route::get('/borrower/edit/{id}', 'BorrowerController@edit')->name('borrower.detail');
+
     //loan
     Route::get('/loan', 'LoanController@index')->name('loan');
     Route::get('/loan/invoice/detail/{id}', 'LoanController@invoice_detail')->name('loan.detail');
@@ -98,13 +93,9 @@ Route::group(['middleware' => ['permission:pendanaan']], function () {
     Route::get('/funding', 'FundingController@index')->name('lender');
     Route::post('/funding/paging', 'FundingController@paging')->name('funding.paging');
     Route::get('/funding/verification/data/{id}', 'FundingController@detail')->name('lender');
+    Route::post('/funding/update/status', 'FundingController@update_lender_status')->name('funding.paging');
+    Route::post('/funding/reject/status', 'FundingController@reject_lender_status')->name('funding.paging');
 
-//lender
-    Route::get('/lender/request', 'LenderController@index')->name('lender');
-    Route::post('/lender/update/status', 'FundingController@update_lender_status')->name('funding.paging');
-    Route::post('/lender/reject/status', 'FundingController@reject_lender_status')->name('funding.paging');
-    Route::get('/lender', 'LenderController@lender_list')->name('lender');
-    Route::get('/lender/detail/{id}', 'LenderController@detail')->name('borrower.detail');
 
 });
 
@@ -120,6 +111,22 @@ Route::group(['middleware' => ['permission:penagihan|penagihan_kredit_macet']], 
 
 });
 
+Route::group(['middleware' => ['permission:customer_service']], function () {
+    //borrower
+    Route::get('/borrower', 'BorrowerController@index')->name('borrower');
+    Route::post('/borrower/paging', 'BorrowerController@paging')->name('borrower.paging');
+    Route::get('/borrower/detail/{id}', 'BorrowerController@detail')->name('borrower.detail');
+    Route::post('/borrower/get/user', 'BorrowerController@get_user')->name('borrower.get.user');
+    Route::get('/borrower/edit/{id}', 'BorrowerController@edit')->name('borrower.detail');
+    Route::post('/borrower/edit', 'BorrowerController@update_profile')->name('borrower.edit.profile');
+
+//lender
+    Route::get('/lender', 'LenderController@index')->name('lender');
+    Route::get('/lender/detail/{id}', 'LenderController@detail')->name('lender.detail');
+    Route::post('/lender/paging', 'LenderController@paging')->name('lender.paging');
+});
+
+
 
 
 
@@ -129,8 +136,9 @@ Route::get('/calculate', 'RoboController@index')->name('calculate');
 Route::get('/role',function(){
 
     $user = Auth()->user();
-    echo $user->givePermissionTo('customer_service');
+    echo $user->givePermissionTo('pendanaan');
 });
+Route::get('/get/jwt', 'MasterController@jwt')->name('jwt');
 
 
 
