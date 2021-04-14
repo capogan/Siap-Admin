@@ -40,7 +40,7 @@ function update_status_lender(status , id){
     var token = $('meta[name="csrf-token"]').attr('content');
     //alert(token);
     $.ajax({
-        url: '/lender/update/status',
+        url: '/funding/update/status',
         method:"POST",
         headers: {
             'X-CSRF-TOKEN': token
@@ -64,7 +64,7 @@ function reject_status_lender(status , id){
     var token = $('meta[name="csrf-token"]').attr('content');
     //alert(token);
     $.ajax({
-        url: '/lender/reject/status',
+        url: '/funding/reject/status',
         method:"POST",
         headers: {
             'X-CSRF-TOKEN': token

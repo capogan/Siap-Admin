@@ -31,7 +31,6 @@ class LenderController extends Controller
         return view('pages.lender.users', $this->merge_response($data, static::$CONFIG));
     }
     public function paging(Request $request){
-
         return DataTables::of(User::where('group','lender')->orderBy('created_at','DESC')->get())->addIndexColumn()->make(true);
     }
     public function detail(Request $request){
