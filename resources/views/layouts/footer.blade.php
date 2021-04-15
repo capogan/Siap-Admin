@@ -69,6 +69,9 @@
 <script src="{{asset('vendors/echarts/dist/echarts.min.js')}}"></script>
 <script src="{{asset('vendors/echarts/map/js/world.js')}}"></script>
 
+<script src="{{asset('vendors/raphael/raphael.min.js')}}"></script>
+<script src="{{asset('vendors/morris.js/morris.min.js')}}"></script>
+
 
 <script src="{{ asset('/js/main.js') }}"></script>
 <!-- Custom Theme Scripts -->

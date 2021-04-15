@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Funding;
+use App\LoanRequest;
+use App\MasterStatus;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
@@ -20,8 +24,20 @@ class AdminController extends Controller
     }
     function index(Request $request){
 
+
+        $count_users = User::get();
+        $count_loan = LoanRequest::get();
+        $count_funding = Funding::get();
+        $count_borrower = User::where('group','borrower')->get();
+        $count_lender = User::where('group','lender')->get();
+        $master_status = MasterStatus::orderBy('id','ASC')->get();
         $data = [
-            'coy'=>''
+            'count_users'=> count($count_users),
+            'count_loan'=> count($count_loan),
+            'count_funding'=> count($count_funding),
+            'count_borrower'=> count($count_borrower),
+            'count_lender'=> count($count_lender),
+            'master_status'=> $master_status,
         ];
 
         return view('pages.home.index', $this->merge_response($data, static::$CONFIG));

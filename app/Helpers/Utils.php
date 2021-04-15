@@ -1,5 +1,6 @@
 <?php
 namespace App\Helpers;
+use App\LoanRequest;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
@@ -91,6 +92,11 @@ class Utils {
         $array = explode('-', $date);
         return $array[2] . ' ' . $month[ (int)$array[1] ] . ' ' . $array[0];
 
+    }
+
+    public static function count_status($id){
+        $total_request = LoanRequest::where('status',$id)->groupBy('status')->count();
+        return $total_request;
     }
 
 

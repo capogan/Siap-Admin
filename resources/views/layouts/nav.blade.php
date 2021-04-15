@@ -2,50 +2,64 @@
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 
     <div class="menu_section">
-        <h3>General</h3>
-
         <ul class="nav side-menu">
-            @can('beranda')
+            @can('Beranda')
             <li><a href="/"><i class="fa fa-home"></i> Beranda </a></li>
             @endcan
-            @can('peminjam')
+            @canany(['Permintaan Pinjaman', 'Kredit Score','Verifikasi Akhir'])
             <li class="{{ request()->is('loan/*') ||    request()->is('credit/*') ||  request()->is('verification/*') ? "active" : "" }}"><a><i class="fa fa-users"></i> Peminjam <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
+                    @can('Permintaan Pinjaman')
                     <li><a href="/loan">Permintaan Pinjaman</a></li>
-
+                    @endcan
+                    @can('Kredit Score')
                     <li><a href="/credit/score">Kredit Score</a></li>
-                    @can('verifikasi_akhir')
+                    @endcan
+                    @can('Verifikasi Akhir')
                     <li><a href="/verification/final">Verifikasi Akhir</a></li>
                     @endcan
                 </ul>
             </li>
             @endcan
-            @can('pendanaan')
+            @canany(['Permintaan Pendanaan', 'Permintaan Pendanaan Individual'])
             <li class="{{ request()->is('funding/verification/*') ? "active" : ""  }}"><a><i class="fa fa-users"></i> Pendanaan <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
+                    @can('Permintaan Pendanaan')
                     <li><a href="/funding">Permintaan Pendanaan</a></li>
-
+                    @endcan
+                    @can('Permintaan Pendanaan Individual')
+                    <li><a href="/funding/individual">Permintaan Pendanaan Individual</a></li>
+                    @endcan
                 </ul>
             </li>
             @endcan
-
-            @can('penagihan')
+            @canany(['Pengingat Penagihan', 'Tagihan Jatuh Tempo','Tagihan Keterlambatan'])
             <li class="{{ request()->is('collect/*') ? "active" : "" }}"><a><i class="fa fa-desktop"></i> Penagihan <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
+                    @can('Pengingat Penagihan')
                     <li><a href="/collect/reminder">Pengingat penagihan</a></li>
+                    @endcan
+                    @can('Tagihan Jatuh Tempo')
                     <li><a href="/collect/due">Tagihan jatuh tempo</a></li>
+                    @endcan
+                    @can('Tagihan Keterlambatan')
                     <li><a href="/collect/late">Tagihan Keterlambatan</a></li>
+                    @endcan
                 </ul>
             </li>
             @endcan
-            @can('penagihan_kredit_macet')
+            @canany(['Penagihan Kredit Macet'])
             <li class=""><a><i class="fa fa-bar-chart-o"></i> Penagihan kredit macet</a>
             @endcan
-            @can('customer_service')
+            @canany(['Borrower','Lender'])
             <li class="{{ request()->is('borrower/*') ||  request()->is('lender/*')  ? "active" : "" }}"><a><i class="fa fa-child"></i> Customer Services <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
+                    @can('Borrower')
                     <li><a href="/borrower">Borrower</a></li>
+                    @endcan
+                    @can('Lender')
                     <li><a href="/lender">Lender</a></li>
+                    @endcan
                 </ul>
             </li>
             @endcan
@@ -56,23 +70,26 @@
 
     <div class="menu_section">
 
-        <h3>Master Data</h3>
         <ul class="nav side-menu">
-            @can('pengaturan')
+            @canany(['Pengguna','Wewenang'])
             <li class="{{ request()->is('setting/*')  ? "active" : "" }}"><a><i class="fa fa-wrench"></i> Pengaturan <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
+                    @can('Pengguna')
                     <li><a href="/setting/users">Pengguna</a>
+                    @endcan
+                    @can('Wewenang')
                     <li><a href="/setting/role">Wewenang (Role)</a>
-                    <li><a>Website<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="#level2_1">Banner</a></li>
-                            <li><a href="page_403.html">Faq</a></li>
-                            <li><a href="page_404.html">Term of Condition</a></li>
-                            <li><a href="page_404.html">Tentang kami</a></li>
-                            <li><a href="page_404.html">Acara</a></li>
-                            </li>
-                        </ul>
-                    </li>
+                    @endcan
+{{--                    <li><a>Website<span class="fa fa-chevron-down"></span></a>--}}
+{{--                        <ul class="nav child_menu">--}}
+{{--                            <li><a href="#level2_1">Banner</a></li>--}}
+{{--                            <li><a href="page_403.html">Faq</a></li>--}}
+{{--                            <li><a href="page_404.html">Term of Condition</a></li>--}}
+{{--                            <li><a href="page_404.html">Tentang kami</a></li>--}}
+{{--                            <li><a href="page_404.html">Acara</a></li>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </li>--}}
                     </li>
                 </ul>
             </li>

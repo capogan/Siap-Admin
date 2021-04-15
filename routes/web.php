@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout','AdminController@logout')->name('logout');
 
 
-Route::group(['middleware' => ['permission:peminjam']], function () {
+Route::group(['middleware' => ['permission:Permintaan Pinjaman']], function () {
 
     //loan
     Route::get('/loan', 'LoanController@index')->name('loan');
@@ -38,6 +38,21 @@ Route::group(['middleware' => ['permission:peminjam']], function () {
 
 });
 
+Route::group(['middleware' => ['permission:Kredit Score']], function () {
+    Route::get('/credit/score', 'CreditScoreController@index')->name('loan.credit.score');
+    Route::post('/credit/score', 'CreditScoreController@credit_score_submit')->name('loan.credit.score.update');
+});
+
+Route::group(['middleware' => ['permission:Verifikasi Akhir']], function () {
+    //verification
+    Route::get('/verification/final', 'VerificationController@index')->name('loan.verification.final');
+    Route::post('/verification/final/paging', 'VerificationController@paging')->name('loan.verification.paging');
+    Route::get('/verification/invoice/detail/{id}', 'VerificationController@invoice_detail')->name('verification.detail');
+    Route::post('/verification/confirm', 'VerificationController@confirm')->name('loan.verification.confirm');
+});
+
+
+
 
 //Master
 Route::post('/get/location','MasterController@get_location')->name('location.get');
@@ -51,8 +66,7 @@ Route::post('/product/paging','ProductController@paging')->name('product.paging'
 
 Route::group(['middleware' => ['permission:pengaturan']], function () {
     //creditscore
-    Route::get('/credit/score', 'CreditScoreController@index')->name('loan.credit.score');
-    Route::post('/credit/score', 'CreditScoreController@credit_score_submit')->name('loan.credit.score.update');
+
     //setting
     Route::get('/setting/users','SettingController@user_admin')->name('setting.user.admin');
     Route::post('/setting/list/admin/users','SettingController@user_admin_paging')->name('get.list.admin.users');
@@ -79,24 +93,22 @@ Route::group(['middleware' => ['permission:peminjam']], function () {
     Route::post('/pcg/get/data','PcgController@paging')->name('pcg.get.data');
 
 });
-Route::group(['middleware' => ['permission:verifikasi_akhir']], function () {
-    //verification
-    Route::get('/verification/final', 'VerificationController@index')->name('loan.verification.final');
-    Route::post('/verification/final/paging', 'VerificationController@paging')->name('loan.verification.paging');
-    Route::get('/verification/invoice/detail/{id}', 'VerificationController@invoice_detail')->name('verification.detail');
-    Route::post('/verification/confirm', 'VerificationController@confirm')->name('loan.verification.confirm');
-});
 
-
-Route::group(['middleware' => ['permission:pendanaan']], function () {
+Route::group(['middleware' => ['permission:Permintaan Pendanaan']], function () {
     //funding
     Route::get('/funding', 'FundingController@index')->name('lender');
     Route::post('/funding/paging', 'FundingController@paging')->name('funding.paging');
     Route::get('/funding/verification/data/{id}', 'FundingController@detail')->name('lender');
     Route::post('/funding/update/status', 'FundingController@update_lender_status')->name('funding.paging');
     Route::post('/funding/reject/status', 'FundingController@reject_lender_status')->name('funding.paging');
+});
 
+Route::group(['middleware' => ['permission:Permintaan Pendanaan Individual']], function () {
 
+    Route::get('/funding/individual', function () {
+
+        echo "teest";
+    });
 });
 
 Route::group(['middleware' => ['permission:penagihan|penagihan_kredit_macet']], function () {
@@ -136,7 +148,7 @@ Route::get('/calculate', 'RoboController@index')->name('calculate');
 Route::get('/role',function(){
 
     $user = Auth()->user();
-    echo $user->givePermissionTo('pendanaan');
+    echo $user->givePermissionTo('Permintaan Pendanaan Individual');
 });
 Route::get('/get/jwt', 'MasterController@jwt')->name('jwt');
 
