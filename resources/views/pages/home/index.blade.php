@@ -54,7 +54,7 @@
                         @foreach($master_status as $val)
                             <tr>
                             <td>{{$val->title}}</td>
-                            <td>{{Utils::count_status($val->id)}}</td>
+                            <td>{{$val->count}}</td>
                             </tr>
                         @endforeach
                         </tbody>

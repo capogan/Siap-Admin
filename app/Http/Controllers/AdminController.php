@@ -6,6 +6,7 @@ use App\LoanRequest;
 use App\MasterStatus;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,7 +31,8 @@ class AdminController extends Controller
         $count_funding = Funding::get();
         $count_borrower = User::where('group','borrower')->get();
         $count_lender = User::where('group','lender')->get();
-        $master_status = MasterStatus::orderBy('id','ASC')->get();
+//        $master_status = MasterStatus::orderBy('id','ASC')->get();
+        $master_status = DB::table('view_monitoring_count')->get();
         $data = [
             'count_users'=> count($count_users),
             'count_loan'=> count($count_loan),
