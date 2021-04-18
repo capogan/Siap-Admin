@@ -131,6 +131,7 @@ class LoanController extends Controller
     public function verification_phone(Request $request){
 
         $id_loan = $request->id_loan;
+
         $validator = Validator::make($request->all(), [
             'description_business' => 'required',
             'risk' => 'required',

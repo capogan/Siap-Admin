@@ -96,4 +96,35 @@ class FundingController extends Controller
     }
 
 
+    public function individu(Request $request){
+
+        $data = [
+            'funding'=> '',
+        ];
+        return view('pages.funding.individu.index', $this->merge_response($data, static::$CONFIG));
+    }
+
+    public function paging_individu(){
+        $funding = Funding::
+        leftJoin('users', 'request_funding.uid', '=', 'users.id')
+            ->leftJoin('master_status_funding_request', 'request_funding.status', '=', 'master_status_funding_request.id')
+            ->select('request_funding.*','users.name as lender_name','request_funding.created_at as lender_request_date','master_status_funding_request.title as status_funding')
+            ->where('users.level','individu')
+            ->get();
+
+        return DataTables::of($funding)->addIndexColumn()->make(true);
+    }
+
+    function detail_individu($id){
+
+        $funding = Funding::where('id',$id)->first();
+        $uid = $funding->uid;
+        $data = [
+            'funding'=> $funding,
+            'uid'=> $uid,
+        ];
+        return view('pages.funding.individu.detail', $this->merge_response($data, static::$CONFIG));
+    }
+
+
 }

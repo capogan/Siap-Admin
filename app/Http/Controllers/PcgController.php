@@ -27,7 +27,7 @@ class PcgController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:pcg');
+//        $this->middleware('permission:pcg');
     }
 
     public function index(Request $request){
@@ -206,7 +206,7 @@ class PcgController extends Controller
             $results = [
                 'data' => $result , 
                 'data_shortfall' => $data_shortfall , 
-                'average_invoice' => $average_invoice, 
+                'average_invoice' => $average_invoice,
                 'average_shortfall' => $average_shortfall,
                 'shortfall' => round((($average_shortfall / $average_invoice)) * 100),
                 'shortfall_score' => $core_shortfall

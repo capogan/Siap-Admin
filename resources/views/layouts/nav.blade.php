@@ -28,7 +28,7 @@
                     <li><a href="/funding">Permintaan Pendanaan</a></li>
                     @endcan
                     @can('Permintaan Pendanaan Individual')
-                    <li><a href="/funding/individual">Permintaan Pendanaan Individual</a></li>
+                    <li><a href="/funding/individu">Permintaan Pendanaan Individual</a></li>
                     @endcan
                 </ul>
             </li>
@@ -49,7 +49,7 @@
             </li>
             @endcan
             @canany(['Penagihan Kredit Macet'])
-            <li class=""><a><i class="fa fa-bar-chart-o"></i> Penagihan kredit macet</a>
+            <li class=""><a href="/collect/credit/bad"><i class="fa fa-bar-chart-o"></i> Penagihan kredit macet</a>
             @endcan
             @canany(['Borrower','Lender'])
             <li class="{{ request()->is('borrower/*') ||  request()->is('lender/*')  ? "active" : "" }}"><a><i class="fa fa-child"></i> Customer Services <span class="fa fa-chevron-down"></span></a>
@@ -139,7 +139,7 @@
             <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                        <img src="{{asset('images/img.jpg')}}" alt="">{{Auth::user()->name ?? ''}}
+                        <img src="{{asset('images/user.png')}}" alt="">{{Auth::user()->name ?? ''}}
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item"  href="javascript:;"> Akun</a>

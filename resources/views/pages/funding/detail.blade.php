@@ -373,6 +373,7 @@
                                                             </button>
 
                                                         </div>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>

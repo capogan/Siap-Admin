@@ -3,21 +3,6 @@
         <div class="x_panel">
             <div class="x_title">
                 <h2>Verifikasi Telepon</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a class="dropdown-item" href="#">Settings 1</a>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Settings 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                </ul>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
@@ -94,31 +79,6 @@
     <div class="x_panel">
         <div class="x_title">
             <h2>Penyamaan Data</h2>
-            <ul class="nav navbar-right panel_toolbox">
-                <li>
-                    <a class="collapse-link">
-                        <i class="fa fa-chevron-up"></i>
-                    </a>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <i class="fa fa-wrench"></i>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <a href="#">Settings 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Settings 2</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="close-link">
-                        <i class="fa fa-close"></i>
-                    </a>
-                </li>
-            </ul>
             <div class="clearfix"></div>
         </div>
         <div class="x_content">
@@ -144,7 +104,7 @@
                                     <label><input type="radio" name="result_{{ $loop->iteration }}"  value="0" class="flat"> Beda</label>
                                 </div>
                                 <div class="col">
-                                    <input type="text" placeholder="keterangan" id="description_{{ $loop->iteration }}" name="decription_{{ $loop->iteration }}" class="form-control ">
+                                    <input type="text" placeholder="keterangan" id="description_{{ $loop->iteration }}" name="description_{{ $loop->iteration }}" class="form-control ">
                                 </div>
                             </div>
                         <br>
@@ -165,21 +125,6 @@
         <div class="x_panel">
             <div class="x_title">
                 <h2>Kesimpulan Telepon</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a class="dropdown-item" href="#">Settings 1</a>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Settings 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                </ul>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">

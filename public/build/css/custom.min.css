@@ -14,3 +14,13 @@
 .modal-header {
 	display: block;
 }
+.site_title {
+	text-overflow: ellipsis;
+
+	font-size: 22px;
+	line-height: 59px;
+	display: block;
+	height: 50px;
+	margin: 0;
+	padding-left: 50px;
+}

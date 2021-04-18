@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\AdminUsers;
+use App\AdminUsersMemberCode;
+use App\PcgMemberCode;
 use App\Permissions;
 use App\Roles;
 use App\RolesHasPermission;
@@ -51,7 +53,7 @@ class SettingController extends Controller
             'password' => ['required', 'string', 'min:8'],
         ],[
             'name.required' => 'Nama harus di isi',
-            'email.required' => 'Nama harus di isi',
+            'email.required' => 'email harus di isi',
         ]);
 
         if ($validator->fails()) {
@@ -68,6 +70,7 @@ class SettingController extends Controller
                     'password'           => Hash::make($request->password),
                     "created_at"        => date('Y-m-d H:i:s'),
                     "updated_at"        => date('Y-m-d H:i:s'),
+
                 ]);
 
                 $useradmin->assignRole($request->user_role);
@@ -84,7 +87,14 @@ class SettingController extends Controller
     }
 
     public function user_admin_paging(Request $request){
-        return DataTables::of(AdminUsers::orderBy('created_at','DESC')->get())->addIndexColumn()->make(true);
+//        $user_list = AdminUsers::join('model_has_roles','model_has_roles.model_id','admin_users.id')
+//            ->rightJoin('roles','roles.id','=','model_has_roles.role_id')
+//            ->select('admin_users.*','roles.name as role_name')
+//            ->orderBy('created_at','DESC')
+//            ->get();
+        $user_list = AdminUsers::orderBy('created_at','DESC')->get();
+
+        return DataTables::of($user_list)->addIndexColumn()->make(true);
     }
 
     public function role(){
@@ -156,6 +166,74 @@ class SettingController extends Controller
             return json_encode(['status'=> true, 'message'=> 'Sukses menambahkan pengguna']);
         }
 
+    }
+
+    public function add_pcg(Request $request){
+
+        $pcg_member_code = PcgMemberCode::get();
+        $data = [
+            'pcg_member_code'=> $pcg_member_code
+        ];
+        return view('pages.settings.userpcg.add', $this->merge_response($data, static::$CONFIG));
+    }
+
+    public function add_pcg_store(Request $request){
+
+        $permission_name = 'pcg';
+        $validator = Validator::make($request->all(), [
+            'username' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:admin_users'],
+            'password' => ['required', 'string', 'min:8'],
+            'member_code_list'=>['required']
+
+        ],[
+            'username.required' => 'Username harus di isi',
+            'email.required' => 'email harus di isi',
+            'member_code_list.required' => 'Pilih Kode Member',
+        ]);
+
+        if ($validator->fails()) {
+            return json_encode(['status'=> false, 'message'=> $validator->messages() ]);
+        }else{
+
+            DB::beginTransaction();
+            try{
+
+                $useradmin = AdminUsers::create([
+
+                    'name'              => $request->username,
+                    'email'             => $request->email,
+                    'password'          => Hash::make($request->password),
+                    'created_at'        => date('Y-m-d H:i:s'),
+                    'updated_at'        => date('Y-m-d H:i:s'),
+                    'full_name'         => $request->full_name,
+                    'phone_number'      => $request->phone_number,
+                    'address'           => $request->address,
+                    'created_by'        => Auth::user()->name,
+
+                ]);
+
+
+                $useradmin->givePermissionTo($permission_name);
+
+                foreach ($request->member_code_list as $val){
+                    AdminUsersMemberCode::create([
+                        'id_users'=>$useradmin->id,
+                        'id_member_code'=>$val,
+                    ]);
+                }
+
+                DB::commit();
+                $message = "Produk Berhasil di Ubah";
+
+            }
+            catch (Exception $e) {
+                DB::rollback();
+            }
+
+        }
+
+        return json_encode(['status'=> true, 'message'=> 'Sukses menambahkan pengguna']);
     }
 
 

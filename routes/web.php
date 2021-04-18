@@ -20,6 +20,14 @@ Auth::routes();
 Route::get('/', 'AdminController@index')->name('dashboard');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout','AdminController@logout')->name('logout');
+//Master
+Route::post('/get/location','MasterController@get_location')->name('location.get');
+//Product
+Route::get('/product','ProductController@index')->name('product');
+Route::get('/product/add','ProductController@add')->name('product.add');
+Route::get('/product/edit/{id}','ProductController@edit')->name('product.edit');
+Route::post('/product/store','ProductController@store')->name('product.store');
+Route::post('/product/paging','ProductController@paging')->name('product.paging');
 
 
 Route::group(['middleware' => ['permission:Permintaan Pinjaman']], function () {
@@ -52,34 +60,7 @@ Route::group(['middleware' => ['permission:Verifikasi Akhir']], function () {
 });
 
 
-
-
-//Master
-Route::post('/get/location','MasterController@get_location')->name('location.get');
-//Product
-Route::get('/product','ProductController@index')->name('product');
-Route::get('/product/add','ProductController@add')->name('product.add');
-Route::get('/product/edit/{id}','ProductController@edit')->name('product.edit');
-Route::post('/product/store','ProductController@store')->name('product.store');
-Route::post('/product/paging','ProductController@paging')->name('product.paging');
-
-
-Route::group(['middleware' => ['permission:pengaturan']], function () {
-    //creditscore
-
-    //setting
-    Route::get('/setting/users','SettingController@user_admin')->name('setting.user.admin');
-    Route::post('/setting/list/admin/users','SettingController@user_admin_paging')->name('get.list.admin.users');
-    Route::get('/setting/users/add','SettingController@add_user_admin')->name('setting.user.admin.add');
-    Route::post('/setting/users/add','SettingController@store_user_admin')->name('setting.user.admin.add');
-    Route::get('/setting/role/','SettingController@role')->name('setting.role');
-    Route::post('/setting/role/paging','SettingController@roles_paging')->name('setting.role.paging');
-    Route::get('/setting/role/add','SettingController@roles_add')->name('setting.role.add');
-    Route::post('/setting/role/add','SettingController@roles_insert')->name('setting.role.add');
-
-});
-
-Route::group(['middleware' => ['permission:peminjam']], function () {
+Route::group(['middleware' => ['permission:pcg']], function () {
     //PCG
     Route::get('/pcg/','PcgController@index')->name('pcg');
     Route::get('/move/','PcgController@move')->name('pcg.move');
@@ -105,25 +86,41 @@ Route::group(['middleware' => ['permission:Permintaan Pendanaan']], function () 
 
 Route::group(['middleware' => ['permission:Permintaan Pendanaan Individual']], function () {
 
-    Route::get('/funding/individual', function () {
+    Route::get('/funding/individu', 'FundingController@individu')->name('funding.individu');
+    Route::post('/funding/paging/individu', 'FundingController@paging_individu')->name('paging.individu');
+    Route::get('/funding/individu/verification/data/{id}', 'FundingController@detail_individu')->name('funding.individu.verification');
 
-        echo "teest";
-    });
 });
 
-Route::group(['middleware' => ['permission:penagihan|penagihan_kredit_macet']], function () {
-
-//Bill
+//BILL
+Route::group(['middleware' => ['permission:Pengingat Penagihan']], function () {
     Route::get('/collect/reminder', 'BillController@index')->name('collect');
+});
+
+Route::group(['middleware' => ['permission:Tagihan Jatuh Tempo']], function () {
+    Route::get('/collect/due', 'BillController@due')->name('collect.due');
+});
+
+Route::group(['middleware' => ['permission:Tagihan Keterlambatan']], function () {
+    Route::get('/collect/due', 'BillController@due')->name('collect.due');
+});
+
+
+Route::group(['middleware' => ['permission:Pengingat Penagihan|Tagihan Jatuh Tempo|Tagihan Keterlambatan']], function () {
     Route::get('/collect/detail/{type}/{invoice_number}/{stages}', 'BillController@detail')->name('collect');
     Route::post('/collect/paging', 'BillController@paging')->name('lender.paging');
     Route::post('/collect/add/crm', 'BillController@collect_add_crm')->name('collect.add.crm');
-    Route::get('/collect/due', 'BillController@due')->name('collect.due');
     Route::get('/collect/late', 'BillController@late')->name('collect.late');
 
 });
 
-Route::group(['middleware' => ['permission:customer_service']], function () {
+Route::group(['middleware' => ['permission:Penagihan Kredit Macet']], function () {
+    Route::get('/collect/credit/bad', 'BadCreditController@index')->name('collect.bad.credit');
+    Route::post('/collect/credit/bad/paging', 'BadCreditController@paging')->name('collect.bad.credit.paging');
+//    Route::post('/collect/credit/bad/detail', 'BadCreditController@detail')->name('collect.bad.credit.detail');
+});
+
+Route::group(['middleware' => ['permission:Borrower']], function () {
     //borrower
     Route::get('/borrower', 'BorrowerController@index')->name('borrower');
     Route::post('/borrower/paging', 'BorrowerController@paging')->name('borrower.paging');
@@ -131,7 +128,9 @@ Route::group(['middleware' => ['permission:customer_service']], function () {
     Route::post('/borrower/get/user', 'BorrowerController@get_user')->name('borrower.get.user');
     Route::get('/borrower/edit/{id}', 'BorrowerController@edit')->name('borrower.detail');
     Route::post('/borrower/edit', 'BorrowerController@update_profile')->name('borrower.edit.profile');
+});
 
+Route::group(['middleware' => ['permission:Lender']], function () {
 //lender
     Route::get('/lender', 'LenderController@index')->name('lender');
     Route::get('/lender/detail/{id}', 'LenderController@detail')->name('lender.detail');
@@ -139,16 +138,30 @@ Route::group(['middleware' => ['permission:customer_service']], function () {
 });
 
 
+Route::group(['middleware' => ['permission:Pengguna']], function () {
+    //setting
+    Route::get('/setting/users','SettingController@user_admin')->name('setting.user.admin');
+    Route::post('/setting/list/admin/users','SettingController@user_admin_paging')->name('get.list.admin.users');
+    Route::get('/setting/users/add','SettingController@add_user_admin')->name('setting.user.admin.add');
+    Route::post('/setting/users/add','SettingController@store_user_admin')->name('setting.user.admin.add');
+    Route::get('/setting/users/add/pcg','SettingController@add_pcg')->name('setting.user.admin.add.pcg');
+    Route::post('setting/users/add/pcg','SettingController@add_pcg_store')->name('setting.user.admin.add.pcg');
+});
 
-
+Route::group(['middleware' => ['permission:Wewenang']], function () {
+    Route::get('/setting/role/','SettingController@role')->name('setting.role');
+    Route::post('/setting/role/paging','SettingController@roles_paging')->name('setting.role.paging');
+    Route::get('/setting/role/add','SettingController@roles_add')->name('setting.role.add');
+    Route::post('/setting/role/add','SettingController@roles_insert')->name('setting.role.add');
+});
 
 
 //Robo
 Route::get('/calculate', 'RoboController@index')->name('calculate');
 Route::get('/role',function(){
-
     $user = Auth()->user();
-    echo $user->givePermissionTo('Permintaan Pendanaan Individual');
+    $user->givePermissionTo('pcg');
+//     $user->revokePermissionTo('Tagihan Jatuh Tempo');
 });
 Route::get('/get/jwt', 'MasterController@jwt')->name('jwt');
 

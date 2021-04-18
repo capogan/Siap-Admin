@@ -8,6 +8,7 @@
 
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a href="/setting/users/add"><button class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah User</button></a></li>
+                    <li><a href="/setting/users/add/pcg"><button class="btn btn-sm btn-warning"><i class="fa fa-plus"></i> Tambah User PCG</button></a></li>
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -19,9 +20,10 @@
                             <table id="user_admin_table" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Nama</th>
                                     <th>Email</th>
-                                    <th>Tingkat</th>
+{{--                                    <th>Level</th>--}}
                                     <th>Tanggal Pembuatan</th>
                                 </tr>
                                 </thead>

@@ -230,9 +230,10 @@ $( document ).ready(function() {
                             btn.removeAttr("disabled");
                         },
                         onHide: function(e) {
+                            window.location = "/loan"
                         },
                     });
-                    location.reload();
+
                 }else{
                     // close_loading();
                     $.each(res.message, function( index, value ) {
@@ -313,6 +314,11 @@ $( document ).ready(function() {
                         '<td>-</td>' +
                         '<td>'+res.data.updated_by+'</td>' +
                         '</tr>');
+                    setTimeout(function() {
+                        $("#alert-message").fadeOut();
+                        $('#modal_add_crm_description').modal('toggle');
+                    }, 2000);
+
                 }else{
 
                     $.each(res.message, function( index, value ) {
