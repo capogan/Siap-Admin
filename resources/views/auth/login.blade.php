@@ -11,7 +11,7 @@
                 <section class="login_content">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        <h1>Login Administrator</h1>
+                        <h1><img src="/images/siap.png" style="width: 50%;"></h1>
                         <div>
                             <input id="email" type="email" class="form-control input-login @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                             @error('email')
