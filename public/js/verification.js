@@ -219,21 +219,22 @@ $( document ).ready(function() {
                 var text = '';
                 var res = JSON.parse(response);
                 if(res.status) {
-                    bootbox.alert({
-                        title: "Berhasil!",
-                        message: "<i data-feather='check'></i> "+res.message,
-                        centerVertical:true,
-                        onShow: function(e) {
-                            feather.replace();
-                        },
-                        callback: function() {
-                            btn.removeAttr("disabled");
-                        },
-                        onHide: function(e) {
-                            window.location = "/loan"
-                        },
-                    });
-
+                    // bootbox.alert({
+                    //     title: "Berhasil!",
+                    //     message: "<i data-feather='check'></i> "+res.message,
+                    //     centerVertical:true,
+                    //     onShow: function(e) {
+                    //         feather.replace();
+                    //     },
+                    //     callback: function() {
+                    //         btn.removeAttr("disabled");
+                    //     },
+                    //     onHide: function(e) {
+                    //         window.location = "/loan"
+                    //     },
+                    //
+                    // });
+                    window.location.replace( '/loan' );
                 }else{
                     // close_loading();
                     $.each(res.message, function( index, value ) {
@@ -250,7 +251,7 @@ $( document ).ready(function() {
                             btn.removeAttr("disabled");
                         },
                         onHide: function(e) {
-                            window.location = "/product"
+                            // window.location = "/product"
                         },
 
                     });
