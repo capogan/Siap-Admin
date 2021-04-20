@@ -48,7 +48,9 @@ class FundingController extends Controller
             ->leftJoin('master_status_funding_request', 'request_funding.status', '=', 'master_status_funding_request.id')
             ->select('request_funding.*','lender_business.business_name as lender_business_name',
                 'master_status_funding_request.title as status_funding','request_funding.created_at as funding_created_at')
+            ->groupBy('request_funding.id','lender_business.business_name','master_status_funding_request.title','request_funding.created_at')
             ->orderBy('request_funding.created_at','DESC')
+
             ->get();
 
         return DataTables::of($funding)->addIndexColumn()->make(true);
