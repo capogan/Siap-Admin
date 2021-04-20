@@ -55,9 +55,9 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile1" role="tab" aria-controls="profile" aria-selected="false">Komisaris Utama</a>
                                                 </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact1" role="tab" aria-controls="contact" aria-selected="false">EKYC Perusahaan</a>
-                                                </li>
+{{--                                                <li class="nav-item">--}}
+{{--                                                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact1" role="tab" aria-controls="contact" aria-selected="false">EKYC Perusahaan</a>--}}
+{{--                                                </li>--}}
                                             </ul>
                                         </div>
                                         <div class="tab-content" id="myTabContent">
@@ -180,16 +180,38 @@
                                                     </div>
                                                     @endforeach
                                                 @endif
-                                                <div class="card-footer text-center">
-                                                    <button class="btn btn-danger reject_status_lender" id="reject_status_lender" attr="{{$funding->id}}" data-status="reject">
-                                                        <i class="fa fa-close pr-1"></i>
-                                                        Tolak
-                                                    </button>
-                                                    <a class="btn btn-primary" href="#myTabContent" onclick="$('#profile-tab').click()">
-                                                        Lanjutkan
-                                                        <i class="fa fa-arrow-right"></i>
-                                                    </a>
-                                                </div>
+{{--                                                <div class="card-footer text-center">--}}
+{{--                                                    <button class="btn btn-danger reject_status_lender" id="reject_status_lender" attr="{{$funding->id}}" data-status="reject">--}}
+{{--                                                        <i class="fa fa-close pr-1"></i>--}}
+{{--                                                        Tolak--}}
+{{--                                                    </button>--}}
+{{--                                                    <a class="btn btn-primary" href="#myTabContent" onclick="$('#profile-tab').click()">--}}
+{{--                                                        Lanjutkan--}}
+{{--                                                        <i class="fa fa-arrow-right"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                </div>--}}
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <table>
+                                                                <div class="card-footer text-center">
+                                                                    <button class="btn btn-danger reject_status_lender" id="reject_status_lender" attr="{{$funding->id}}" data-status="reject">
+                                                                        <i class="fa fa-close pr-1"></i>
+                                                                        Tolak
+                                                                    </button>
+
+                                                                    <a class="btn btn-secondary" href="#myTabContent" onclick="$('#profile-tab').click()">
+                                                                        <i class="fa fa-arrow-left"></i>
+                                                                        Kembali
+                                                                    </a>
+                                                                    <button class="btn btn-primary" id="update_status_lender" attr="{{$funding->id}}">
+                                                                        <i class="fa fa-check pr-1"></i>
+                                                                        Setuju
+                                                                    </button>
+
+                                                                </div>
+                                                            </table>
+                                                        </div>
+                                                    </div>
 
                                             </div>
 
