@@ -41,7 +41,7 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        if($user->permission('pcg')){
+        if($user->hasPermissionTo('pcg')){
             return redirect()->route('pcg');
         }
         return redirect()->route('dashboard');

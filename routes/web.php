@@ -160,8 +160,13 @@ Route::group(['middleware' => ['permission:Wewenang']], function () {
 Route::get('/calculate', 'RoboController@index')->name('calculate');
 Route::get('/role',function(){
     $user = Auth()->user();
-    $user->givePermissionTo('pcg');
-//     $user->revokePermissionTo('Tagihan Jatuh Tempo');
+
+    $permissions = $user->getAllPermissions();
+
+    dd($permissions);
+////    $user->givePermissionTo('pcg');
+//     $user->revokePermissionTo('pcg');
+
 });
 Route::get('/get/jwt', 'MasterController@jwt')->name('jwt');
 
