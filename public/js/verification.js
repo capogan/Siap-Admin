@@ -234,6 +234,7 @@ $( document ).ready(function() {
                     //     },
                     //
                     // });
+
                     window.location.replace( '/loan' );
                 }else{
                     // close_loading();
