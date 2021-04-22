@@ -43,7 +43,7 @@ Route::group(['middleware' => ['permission:Permintaan Pinjaman']], function () {
     Route::post('/loan/add/noted/emergency', 'LoanController@add_noted_emergency')->name('loan.add.noted.emergency');
     Route::post('/loan/add/description/crm', 'LoanController@add_description_crm')->name('loan.add.description.crm');
     Route::post('/loan/get/invoice', 'LoanController@get_invoice')->name('loan.get.invoice');
-
+    Route::post('/pcg/set/score','PcgController@set_loan_score')->name('pcg.set.score');
 });
 
 Route::group(['middleware' => ['permission:Kredit Score']], function () {
@@ -70,7 +70,6 @@ Route::group(['middleware' => ['permission:pcg']], function () {
     Route::get('/pcg/users/data/{id}/step-1','PcgController@view_data_step_1')->name('pcg.users.data');
     Route::get('/pcg/users/data/{id}/step-2','PcgController@view_data_step_2')->name('pcg.users.data');
     Route::get('/pcg/users/data/{id}/step-3','PcgController@view_data_step_3')->name('pcg.users.data');
-    Route::post('/pcg/set/score','PcgController@set_loan_score')->name('pcg.set.score');
     Route::post('/pcg/get/data','PcgController@paging')->name('pcg.get.data');
 
 });

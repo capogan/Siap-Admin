@@ -16,7 +16,11 @@
                     <ul class="nav nav-tabs justify-content-end bar_tabs" id="myTab" role="tablist">
 
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home1" role="tab" aria-controls="home" aria-selected="false">Dokumen</a>
+                            <a class="nav-link active" id="alpha-tab" data-toggle="tab" href="#alpha1" role="tab" aria-controls="alpha" aria-selected="false">Kredit Skoring</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link disabled" id="home-tab" data-toggle="tab" href="#home1" role="tab" aria-controls="home" aria-selected="false">Dokumen</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" id="profile-tab" data-toggle="tab" href="#profile1" role="tab" aria-controls="profile" aria-selected="false">EKYC</a>
@@ -35,8 +39,10 @@
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
-
-                        <div class="tab-pane fade active show" id="home1" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="tab-pane fade active show" id="alpha1" role="tabpanel" aria-labelledby="alpha-tab">
+                            @include('pages.include.credit_scoring')
+                        </div>
+                        <div class="tab-pane fade" id="home1" role="tabpanel" aria-labelledby="home-tab">
                             @include('pages.include.document')
                         </div>
                         <div class="tab-pane fade" id="profile1" role="tabpanel" aria-labelledby="profile-tab">
@@ -131,5 +137,11 @@
         $("#history_table").DataTable();
     </script>
     <script src="{{ asset('/js/verification.js') }}"></script>
+    <script src="{{ asset('vendors/echarts/dist/echarts.min.js')}}"></script>
+    <script>
+        var ctx = document.getElementById('myChart');
+        var myChart = new Chart(ctx, { type: 'bar', data: { labels: [], datasets: [] } });
+        //drawchart(a,b,c,d,e,f);
+    </script>
 @endsection
 @endsection

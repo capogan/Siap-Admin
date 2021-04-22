@@ -166,9 +166,7 @@
             </div>
         </div>
         <a href="step-2"><button class="btn btn-bd-download pull-left"><i class="fa fa-arrow-left"></i> Kembali</button></a>
-        
-            <button class="btn btn-primary pull-right" id="btn_send_loan" style="display:none"><i class="fa fa-arrow-right"></i> Setujui</button>
-
+        <button class="btn btn-primary pull-right" id="btn_send_loan" style="display:none"><i class="fa fa-arrow-right"></i> Setujui</button>
         <button class="btn btn-danger pull-right" id="btn_reject"><i class="fa fa-close"></i> Tolak Pengajuan</button>
     </div>
 

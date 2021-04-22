@@ -6,6 +6,7 @@ use App\CollectLoanCrm;
 use App\LoanRequest;
 use App\RequestLoanInstallments;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -87,21 +88,29 @@ class BillController extends Controller
     }
 
     public function paging(Request $request){
-        $status = $request->status;
 
+        $currentTime = Carbon::now();
+
+
+        $status = $request->status;
         $loan_installments = RequestLoanInstallments::
             select('request_loan_installments.*','request_loan.*',
             'users.name','master_status_payment.status_name','request_loan_installments.due_date_payment as installments_due_date_pay','personal_info.first_name')
             ->leftJoin('request_loan', 'request_loan_installments.id_request_loan', '=', 'request_loan.id')
             ->leftJoin('users', 'request_loan.uid', '=', 'users.id')
             ->leftJoin('master_status_payment', 'request_loan_installments.id_status_payment', '=', 'master_status_payment.id')
-            ->leftJoin('personal_info', 'users.id', '=', 'personal_info.uid')
-            ->where('request_loan_installments.id_status_payment',$status)
-            ->get();
-        if(isset($request->no_invoice)){
-            $loan_installments = $loan_installments->where('invoice_number', $request->invoice_number);
+            ->leftJoin('personal_info', 'users.id', '=', 'personal_info.uid');
+
+        if($status == 1){
+            $loan_installments = $loan_installments->where('request_loan_installments.due_date_payment', $currentTime->addDays(2));
         }
-        return DataTables::of($loan_installments)->addIndexColumn()->make(true);
+        else if($status == 2){
+            $loan_installments = $loan_installments->where('request_loan_installments.due_date_payment', $currentTime);
+        }
+        else{
+            $loan_installments = $loan_installments->where('request_loan_installments.due_date_payment','<', $currentTime);
+        }
+        return DataTables::of($loan_installments->get())->addIndexColumn()->make(true);
     }
 
     public function collect_add_crm(Request $request){

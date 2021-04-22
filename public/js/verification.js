@@ -408,3 +408,119 @@ function showImage(url) {
         console.log("It was awesome!");
     });
 };
+
+function calculate_scoring(){
+    var token = $('meta[name="csrf-token"]').attr('content');
+    var uid = $("#uid").val();
+    var id_loan = $("#id_loan").val();
+    $.ajax({
+        url:'http://172.31.143.11/api/borrower/credit/scoring',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        method:"POST",
+        dataType:'json',
+        data: {
+            id:uid,
+            loan_id:id_loan,
+        },
+        success:function(response)
+        {
+
+            $('#total_score').text(response.data.credit_score+' %');
+            $('#score').text(response.data.score);
+            if(response.data.status == true){
+                $('#btn_send_loan').show();
+                $('#status_score').text(response.data.message.credibiliti_status);
+                $('#credibility_percentage').text(response.data.message.credibiliti_percentage);
+                var cl = parseFloat(response.data.message.credit_limit);
+                var	reverse = cl.toString().split('').reverse().join(''),
+                    ribuan 	= reverse.match(/\d{1,3}/g);
+                ribuan	= ribuan.join('.').split('').reverse().join('');
+                $('#credit_limit').text('Rp.'+ribuan);
+            }
+            var a = response.data.detail.business_established_since;
+            var b = response.data.detail.business_place_status;
+            var c = response.data.detail.date_of_birth;
+            var d = response.data.detail.legality_status;
+            var e = response.data.detail.number_of_dependents;
+            var f = response.data.detail.partnership_since;
+
+            drawchart(a,b,c,d,e,f);
+
+            set_score(id_loan,response.data.credit_score);
+
+        },
+        error: function(xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err);
+        }
+    });
+}
+
+function drawchart(a,b,c,d,e,f){
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Lama Usaha', 'Status tempat Usaha', 'Usia', 'Status Badan Hukum', 'Jumlah Tanggungan', 'Lama kerjasama dengan supplier'],
+            datasets: [{
+                label: '# of Votes',
+                data: [a, b, c, d, e, f],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+}
+
+function set_score(id_loan,score){
+
+    var token = $('meta[name="csrf-token"]').attr('content');
+    $.ajax({
+        url:'/pcg/set/score',
+        method:"POST",
+        headers: {
+            'X-CSRF-TOKEN': token,
+        },
+        data: {
+            id_loan: id_loan,
+            score_loan:score
+        },
+
+        success:function(response){
+            console.log(response);
+        },
+        error: function(xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err);
+        }
+    })
+}
