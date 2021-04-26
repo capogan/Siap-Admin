@@ -24,4 +24,7 @@ class LenderCommissionerData extends Model
     public function village(){
         return $this->hasOne(Village::class , 'id' ,'village_id');
     }
+    public function ekyc_commissioner(){
+        return $this->hasOne(PrivyID::class , 'uid' ,'uid')->where('position' ,'commissioner');
+    }
 }

@@ -44,4 +44,43 @@ class User extends Authenticatable
     public  function personal_info(){
         return $this->hasOne('App\PersonalInfo','uid');
     }
+
+    public function directors()
+    {
+        return $this->hasMany(LenderDirectorData::class , 'uid')
+        ->with('ekyc_director')
+        ->with('province')
+        ->with('regency')
+        ->with('district')
+        ->with('village');
+    }
+
+    public function rekening()
+    {
+        return $this->hasOne(LenderBankInfo::class , 'uid');
+    }
+
+    public function document()
+    {
+        return $this->hasOne(LenderAttachmentData::class , 'uid');
+    }
+
+    public function business()
+    {
+        return $this->hasOne(LenderBusiness::class , 'uid')
+        ->with('province')
+        ->with('regency')
+        ->with('district')
+        ->with('village');
+    }
+
+    public function commissioners()
+    {
+        return $this->hasMany(LenderCommissionerData::class , 'uid')
+        ->with('ekyc_commissioner')
+        ->with('province')
+        ->with('regency')
+        ->with('district')
+        ->with('village');
+    }
 }

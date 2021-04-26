@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\LenderVerification;
+use App\PrivyLogs;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 
 class LenderController extends Controller
@@ -24,6 +27,76 @@ class LenderController extends Controller
         ];
         return view('pages.lender.index', $this->merge_response($data, static::$CONFIG));
     }
+
+    public function verification(){
+        $data = [
+            'users'=>'',
+        ];
+        return view('pages.lender.verification', $this->merge_response($data, static::$CONFIG));
+    }
+
+    public function verification_lender_data($id){
+
+        $user = User::where('id' , $id)->first();
+
+        if($user->level == 'business'){
+            $lender = User::
+            with('commissioners')
+            ->with('rekening')
+            ->with('directors')
+            ->with('business')
+            ->with('document')
+            ->where('id' , $id)->first();
+            $log_status_director = PrivyLogs::where('uid' , $id)->where('event' ,'register')->where('position' , 'director')->orderBy('id' , 'DESC')->get();
+            $log_status_commissioner = PrivyLogs::where('uid' , $id)->where('event' ,'register')->where('position' , 'commissioner')->orderBy('id' , 'DESC')->get();
+            $data = [
+                'funding'=> $lender,
+                'director_log' => $log_status_director,
+                'commissioner' => $log_status_commissioner
+            ];
+            return view('pages.lender.verification_detail', $this->merge_response($data, static::$CONFIG));
+        }else{
+            $lender ='';
+        }
+
+
+
+    }
+
+    public function update_lender_status(Request $request){
+        if(!isset($request->id) || !$request->status){
+            return  $json = [
+                "status"=> 'error',
+                "message"=> 'Data tidak ditemukan.',
+            ];
+        }
+
+        $lender = LenderVerification::where('uid' , $request->id)->first();
+        $lender->status = $request->status;
+        $lender->updated_at = date('Y-m-d H:i:s');
+        $lender->updated_by = Auth::id();
+        if($lender->save()){
+            return  $json = [
+                "status"=> 'success',
+                "message"=> 'Data berhasil diupdate.',
+            ];
+        }
+        return  $json = [
+            "status"=> 'error',
+            "message"=> 'Data tidak ditemukan.',
+        ];
+    }
+
+    public function verification_paging(Request $request){
+        return DataTables::of(
+            User::leftJoin('lender_verification' ,'lender_verification.uid' ,'users.id' )
+            ->where('users.group','lender')
+            ->where('lender_verification.sign_agreement',true)
+            //->WhereNull('status')
+            ->orderBy('users.created_at','DESC')->get()
+        )->addIndexColumn()->make(true);
+    }
+
     function lender_list(){
         $data = [
             'users'=> '',

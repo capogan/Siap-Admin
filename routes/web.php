@@ -139,6 +139,11 @@ Route::group(['middleware' => ['permission:Lender']], function () {
     Route::get('/lender', 'LenderController@index')->name('lender');
     Route::get('/lender/detail/{id}', 'LenderController@detail')->name('lender.detail');
     Route::post('/lender/paging', 'LenderController@paging')->name('lender.paging');
+    Route::post('/lender/verification/paging', 'LenderController@verification_paging')->name('lender.paging');
+    Route::get('/verification/data/lender' , 'LenderController@verification')->name('lender.verification.data');
+
+    Route::get('/verification/lender/{id}' , 'LenderController@verification_lender_data')->name('lender.verification.data');
+    Route::post('/lender/update/status', 'LenderController@update_lender_status')->name('Lender.update.status.lender');
 });
 
 
