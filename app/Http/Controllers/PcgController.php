@@ -6,6 +6,7 @@ use App\LoanRequest;
 use App\LoanScore;
 use App\PCGUser;
 use App\Products;
+use App\RequestLoanInstallments;
 use App\ShortFall;
 use App\User;
 use Illuminate\Http\Request;
@@ -32,13 +33,27 @@ class PcgController extends Controller
 
     public function index(Request $request){
 
-
         $loan_request = DB::table('view_request_loan')->whereIn('request_loan_status',['1','2'])->orderBy('request_loan_created_at','DESC')->get();
         $data = [
             'loan_request'=> $loan_request
         ];
         return view('pages.pcg.index', $this->merge_response($data, static::$CONFIG));
+    }
 
+    public function need_shortfall(Request $request){
+
+        $data = [
+            'loan_request'=> ''
+        ];
+        return view('pages.pcg.shortfall', $this->merge_response($data, static::$CONFIG));
+    }
+
+    public function approve(Request $request){
+
+        $data = [
+            'loan_request'=> ''
+        ];
+        return view('pages.pcg.approve', $this->merge_response($data, static::$CONFIG));
     }
 
     public function view_data_step_1(Request $request){
@@ -96,6 +111,7 @@ class PcgController extends Controller
 
 
     }
+
 
 
 
@@ -273,9 +289,90 @@ class PcgController extends Controller
 
     }
 
+    public function confirm_shipping(Request $request){
+
+        $id_loan = $request->id_loan;
+
+        LoanRequest::where([
+            ['id',$id_loan],
+
+        ])->update
+        ([
+            "status" => '27',
+            "updated_at"=>date('Y-m-d H:i:s'),
+        ]);
+        $message = "Status mengirimkan barang berhasil";
+        return json_encode(['status'=> true, 'message'=> $message]);
+
+    }
+
+    public function confirm_arrive(Request $request){
+
+        $id_loan = $request->id_loan;
+
+        LoanRequest::where([
+            ['id',$id_loan],
+
+        ])->update
+        ([
+            "status" => '21',
+            "updated_at"=>date('Y-m-d H:i:s'),
+        ]);
+
+
+        $loan = LoanRequest::where('id',$id_loan)->first();
+        $periode = $loan->periode;
+        $loan_amount = $loan->loan_amount;
+        if($periode == '14')
+        {
+            $amount = $loan_amount / 2 ;
+            $x = 3;
+        }else{
+            $amount = $loan_amount / 4 ;
+            $x = 5;
+        }
+
+        for ($row = 1; $row < $x; $row++){
+            $startDate = time();
+            $due_date = "";
+            if($row == 1){
+                $due_date =   date('Y-m-d H:i:s', strtotime('+7 day', $startDate));
+            }else if($row == 2){
+                $due_date =   date('Y-m-d H:i:s', strtotime('+14 day', $startDate));
+            }else if($row == 3){
+                $due_date =   date('Y-m-d H:i:s', strtotime('+21 day', $startDate));
+            }
+            else if($row == 4){
+                $due_date =   date('Y-m-d H:i:s', strtotime('+28 day', $startDate));
+            }
+            RequestLoanInstallments::create([
+                'id_request_loan'=>$id_loan,
+                'stages'=>$row,
+                'amount'=>$amount,
+                'due_date_payment'=>$due_date,
+                'created_at'=>date('Y-m-d H:i:s'),
+                'updated_at'=>date('Y-m-d H:i:s'),
+                'id_status_payment'=>'1',
+
+            ]);
+
+        }
+
+        $message = "Pengiriman barang berhasil";
+        return json_encode(['status'=> true, 'message'=> $message]);
+
+    }
+
+
     public function paging(Request $request){
 
         $loan_request = DB::table('view_request_loan')->whereIn('request_loan_status',['1','2'])->orderBy('request_loan_created_at','DESC')->get();
+        return DataTables::of($loan_request)->addIndexColumn()->make(true);
+    }
+
+    public function paging_shipping(Request $request){
+
+        $loan_request = DB::table('view_request_loan')->whereIn('request_loan_status',['27','28'])->orderBy('request_loan_created_at','DESC')->get();
         return DataTables::of($loan_request)->addIndexColumn()->make(true);
     }
 

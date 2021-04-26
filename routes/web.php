@@ -63,6 +63,8 @@ Route::group(['middleware' => ['permission:Verifikasi Akhir']], function () {
 Route::group(['middleware' => ['permission:pcg']], function () {
     //PCG
     Route::get('/pcg/','PcgController@index')->name('pcg');
+    Route::get('/pcg/need/shortfall','PcgController@need_shortfall')->name('pcg');
+    Route::get('/pcg/approve','PcgController@approve')->name('approve');
     Route::get('/move/','PcgController@move')->name('pcg.move');
     Route::post('/pcg/shoortfall/add','PcgController@add')->name('pcg.shoortfall.add');
     Route::post('/pcg/reject/loan','PcgController@reject')->name('pcg.reject.loan');
@@ -71,6 +73,9 @@ Route::group(['middleware' => ['permission:pcg']], function () {
     Route::get('/pcg/users/data/{id}/step-2','PcgController@view_data_step_2')->name('pcg.users.data');
     Route::get('/pcg/users/data/{id}/step-3','PcgController@view_data_step_3')->name('pcg.users.data');
     Route::post('/pcg/get/data','PcgController@paging')->name('pcg.get.data');
+    Route::post('/pcg/get/data/shipping','PcgController@paging_shipping')->name('pcg.get.data');
+    Route::post('/pcg/approve/shipping/','PcgController@confirm_shipping')->name('approve.shipping');
+    Route::post('/pcg/approve/arrive/','PcgController@confirm_arrive')->name('approve.arrive');
 
 });
 

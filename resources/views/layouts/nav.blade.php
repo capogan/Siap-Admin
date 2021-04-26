@@ -80,16 +80,6 @@
                     @can('Wewenang')
                     <li><a href="/setting/role">Wewenang (Role)</a>
                     @endcan
-{{--                    <li><a>Website<span class="fa fa-chevron-down"></span></a>--}}
-{{--                        <ul class="nav child_menu">--}}
-{{--                            <li><a href="#level2_1">Banner</a></li>--}}
-{{--                            <li><a href="page_403.html">Faq</a></li>--}}
-{{--                            <li><a href="page_404.html">Term of Condition</a></li>--}}
-{{--                            <li><a href="page_404.html">Tentang kami</a></li>--}}
-{{--                            <li><a href="page_404.html">Acara</a></li>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-{{--                    </li>--}}
                     </li>
                 </ul>
             </li>
@@ -102,7 +92,12 @@
     <div class="menu_section">
         @can('pcg')
         <ul class="nav side-menu">
-            <li><a href="/pcg/"><i class="fa fa-cloud-upload"></i> PCG</a></li>
+            <li class="{{ request()->is('pcg/*')  ? "active" : "" }}"><a><i class="fa fa-shopping-cart"></i> PCG <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="/pcg/need/shortfall">Shortfall</a></li>
+                    <li><a href="/pcg/approve">Permintaan Pengiriman</a></li>
+                </ul>
+            </li>
         </ul>
        @endcan
     </div>

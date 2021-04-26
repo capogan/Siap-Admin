@@ -37,32 +37,32 @@
             </div>
             <!-- /top tiles -->
         <!-- /page content -->
-    <div class="row">
-        <div class="col-md-6 col-sm-6  widget_tally_box">
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2>Monitor</h2>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content" style="height:250px;overflow:auto;">
-                    <table id="table_monitor" class="table table-striped jambo_table bulk_action" style="width:100%">
-                        <thead>
-                        <th class="column-title">Status</th>
-                        <th class="column-title">Jumlah</th>
-                        </thead>
-                        <tbody>
-                        @foreach($master_status as $val)
-                            <tr>
-                            <td>{{$val->title}}</td>
-                            <td>{{$val->count}}</td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+        <div class="row">
+            <div class="col-md-6 col-sm-6  widget_tally_box">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Monitor</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content" style="height:250px;overflow:auto;">
+                        <table id="table_monitor" class="table table-striped jambo_table bulk_action" style="width:100%">
+                            <thead>
+                            <th class="column-title">Status</th>
+                            <th class="column-title">Jumlah</th>
+                            </thead>
+                            <tbody>
+                            @foreach($master_status as $val)
+                                <tr>
+                                <td>{{$val->title}}</td>
+                                <td>{{$val->count}}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 @section('js')
     <script src="{{ asset('/js/home.js') }}"></script>

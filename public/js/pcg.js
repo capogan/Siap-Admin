@@ -378,4 +378,151 @@ function init_data_table(){
     }
 }
 
+function init_data_table_shipping(){
+    let table = $('#table_pcg_shipping');
+    if (table != null) {
+        table.DataTable({
+            "autoWidth": false,
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.22/i18n/Indonesian.json",
+                "sEmptyTable":"Tidads"
+            },
+            responsive: true,
+            processing: true,
+
+            serverSide: true,
+            ajax: {
+                url: '/pcg/get/data/shipping',
+                type:"POST",
+                data: function ( d ) {
+                    d.myKey = "myValue";
+                    d._token = $('meta[name="csrf-token"]').attr('content');
+                }
+            },
+            columns: [
+                { data: 'DT_RowIndex', name: 'DT_RowIndex' },
+                { data: 'invoice_number', name: 'invoice_number' },
+                { data: 'request_loan_created_at', name: 'request_loan_created_at' },
+                { data: 'user_name', name: 'user_name' },
+                { data: 'status_title', name: 'status_title' },
+                { data: 'loan_amount', name: 'loan_amount' },
+
+            ],
+            columnDefs: [
+                {
+                    targets: 5,
+                    className: "text-center",
+                    render:function (data, type, full, meta) {
+
+                        var	reverse = data.toString().split('').reverse().join(''),
+                            ribuan 	= reverse.match(/\d{1,3}/g);
+                        ribuan	= ribuan.join('.').split('').reverse().join('');
+                        return ribuan;
+                    }
+                },
+                {
+                    targets: 6,
+                    className: "text-center",
+                    render: function(data, type, full, meta) {
+                        if(full.status_title =='Menunggu persetujuan pengiriman barang'){
+                            return '<a href="/pcg/approve/shipping/' + full.invoice_number + '" class=""><button class="btn btn-default"><i class="fa fa-cloud-download"></i></button></a>' +
+                                '<button class="btn btn-default" onclick="sending('+full.id+')"><i class="fa fa-send"></i></button>';
+                        }else{
+                            return '<a href="/pcg/approve/shipping/' + full.invoice_number + '" class=""><button class="btn btn-default"><i class="fa fa-cloud-download"></i></button></a>' +
+                                '<button class="btn btn-default" onclick="arrive('+full.id+')"><i class="fa fa-check"></i></button>';
+                        }
+
+
+                    },
+                },
+
+            ],
+
+            drawCallback: function() {
+                feather.replace();
+            },
+        })
+    }
+}
+
+function sending(id_loan){
+
+    var token = $('meta[name="csrf-token"]').attr('content');
+    $.ajax({
+        url:'/pcg/approve/shipping/',
+        method:"POST",
+        dataType:'json',
+        headers: {
+            'X-CSRF-TOKEN': token,
+        },
+        data: {
+            id_loan: id_loan,
+        },
+
+        success:function(response){
+            if(response.status) {
+                bootbox.alert({
+                    title: "Berhasil!",
+                    message: "<i data-feather='check'></i> "+response.message,
+                    centerVertical:true,
+                    onShow: function(e) {
+                        feather.replace();
+                    },
+                    callback: function() {
+                        window.location = "/pcg/approve"
+                    },
+                    onHide: function(e) {
+                        window.location = "/pcg/approve"
+                    },
+                });
+            }
+        },
+        error: function(xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err);
+        }
+    })
+}
+
+function arrive(id_loan){
+
+    var token = $('meta[name="csrf-token"]').attr('content');
+    $.ajax({
+        url:'/pcg/approve/arrive/',
+        method:"POST",
+        dataType:'json',
+        headers: {
+            'X-CSRF-TOKEN': token,
+        },
+        data: {
+            id_loan: id_loan,
+        },
+
+        success:function(response){
+            if(response.status) {
+                bootbox.alert({
+                    title: "Berhasil!",
+                    message: "<i data-feather='check'></i> "+response.message,
+                    centerVertical:true,
+                    onShow: function(e) {
+                        feather.replace();
+                    },
+                    callback: function() {
+                        window.location = "/pcg/approve"
+                    },
+                    onHide: function(e) {
+                        window.location = "/pcg/approve"
+                    },
+                });
+            }
+        },
+        error: function(xhr, status, error) {
+            var err = eval("(" + xhr.responseText + ")");
+            alert(err);
+        }
+    })
+}
+
+
+
 

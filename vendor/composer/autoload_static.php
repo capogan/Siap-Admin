@@ -621,6 +621,7 @@ class ComposerStaticInitade150c1b588d7967a8e0c492146d208
 
     public static $classMap = array (
         'App\\AdminUsers' => __DIR__ . '/../..' . '/app/AdminUsers.php',
+        'App\\AdminUsersMemberCode' => __DIR__ . '/../..' . '/app/AdminUsersMemberCode.php',
         'App\\BecomePartner' => __DIR__ . '/../..' . '/app/BecomePartner.php',
         'App\\BuildingPlaceStatus' => __DIR__ . '/../..' . '/app/BuildingPlaceStatus.php',
         'App\\BusinessCreditScoreIncomeFactory' => __DIR__ . '/../..' . '/app/BusinessCreditScoreIncomeFactory.php',
