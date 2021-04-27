@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Province;
 
+
 class LenderDirectorData extends Model
 {
     protected $table = 'lender_director_data';
@@ -29,5 +30,13 @@ class LenderDirectorData extends Model
     }
     public function village(){
         return $this->hasOne(Village::class , 'id' ,'village_id');
+    }
+
+    public function ekyc_director(){
+        return $this->hasOne(PrivyID::class , 'uid' ,'uid')->where('position' ,'director');
+    }
+   
+    public function ekyc_individu(){
+        return $this->hasOne(PrivyID::class , 'id' ,'uid')->where('position' ,'individu');
     }
 }
