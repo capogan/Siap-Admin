@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\DigiSignDocumentLogs;
+use App\DigiSignSignersLogs;
 use App\LenderVerification;
 use App\PrivyLogs;
 use App\User;
@@ -46,21 +48,34 @@ class LenderController extends Controller
             ->with('directors')
             ->with('business')
             ->with('document')
+            ->with('eqycdata')
+            ->with('agreementfile')
             ->where('id' , $id)->first();
-            $log_status_director = PrivyLogs::where('uid' , $id)->where('event' ,'register')->where('position' , 'director')->orderBy('id' , 'DESC')->get();
-            $log_status_commissioner = PrivyLogs::where('uid' , $id)->where('event' ,'register')->where('position' , 'commissioner')->orderBy('id' , 'DESC')->get();
+            $eqyc_logs = DigiSignDocumentLogs::where('uid' , $id)->get();
+            $eqyc_signers_logs = DigiSignSignersLogs::where('uid' , $id)->get();
+            $eqyc_document_logs = DigiSignDocumentLogs::where('uid' , $id)->get();
             $data = [
                 'funding'=> $lender,
-                'director_log' => $log_status_director,
-                'commissioner' => $log_status_commissioner
+                'eqyc_logs' => $eqyc_logs,
+                'eqyc_signers_logs' => $eqyc_signers_logs,
+                'eqyc_document_logs' => $eqyc_document_logs,
             ];
             return view('pages.lender.verification_detail', $this->merge_response($data, static::$CONFIG));
         }else{
-            $lender ='';
+            $eqyc_logs = DigiSignDocumentLogs::where('uid' , $id)->get();
+            $eqyc_signers_logs = DigiSignSignersLogs::where('uid' , $id)->get();
+            $eqyc_document_logs = DigiSignDocumentLogs::where('uid' , $id)->get();
+
+            $lender = User::with('individuinfo')
+                            ->where('id' , $id)->first();
+            $data = [
+                'funding'=> $lender,
+                'funding'=> $lender,
+                'eqyc_logs' => $eqyc_logs,
+                'eqyc_signers_logs' => $eqyc_signers_logs,
+            ];
+            return view('pages.lender.verification_detail_individual', $this->merge_response($data, static::$CONFIG));
         }
-
-
-
     }
 
     public function update_lender_status(Request $request){
@@ -75,6 +90,7 @@ class LenderController extends Controller
         $lender->status = $request->status;
         $lender->updated_at = date('Y-m-d H:i:s');
         $lender->updated_by = Auth::id();
+        $lender->reason = $request->reason;
         if($lender->save()){
             return  $json = [
                 "status"=> 'success',
@@ -89,9 +105,9 @@ class LenderController extends Controller
 
     public function verification_paging(Request $request){
         return DataTables::of(
-            User::leftJoin('lender_verification' ,'lender_verification.uid' ,'users.id' )
+            User::Join('lender_verification' ,'lender_verification.uid' ,'users.id' )
             ->where('users.group','lender')
-            ->where('lender_verification.sign_agreement',true)
+            //->where('lender_verification.sign_agreement',true)
             //->WhereNull('status')
             ->orderBy('users.created_at','DESC')->get()
         )->addIndexColumn()->make(true);

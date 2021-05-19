@@ -33,6 +33,9 @@
                 </ul>
             </li>
             @endcan
+            @canany(['Permintaan Pendanaan', 'Permintaan Pendanaan Individual'])
+             <li class="{{ request()->is('verification/data/lender/*') ? "active" : ""  }}"><a href="/verification/data/lender/"><i class="fa fa-users"></i> Lender </a></li>
+            @endcan
             @canany(['Pengingat Penagihan', 'Tagihan Jatuh Tempo','Tagihan Keterlambatan'])
             <li class="{{ request()->is('collect/*') ? "active" : "" }}"><a><i class="fa fa-desktop"></i> Penagihan <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
