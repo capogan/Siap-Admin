@@ -212,6 +212,7 @@ function calculate_scoring(){
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
+        crossDomain: true,
         method:"POST",
         dataType:'json',
         data: {
