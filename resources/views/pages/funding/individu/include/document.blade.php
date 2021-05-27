@@ -24,11 +24,11 @@
                     <div class="col-md-55">
                         <div class="thumbnail">
                             <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->identity_photo) ? 'http://172.31.143.11/'.$get_data_document->identity_photo : '/images/no_photo.jpeg' }}" alt="image">
+                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->identity_photo) ? 'https://siapdanain.id/'.$get_data_document->identity_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
                                         <a href="#"><i class="fa fa-check" onclick="confirm_image('{{$uid}}','noted_identity_photo','confirm')"></i></a>
-                                        <a href="#"><i class="fa fa-eye" onclick="showImage( '{{ isset($get_data_document->identity_photo) ? 'http://172.31.143.11/'.$get_data_document->identity_photo : '/images/no_photo.jpeg' }}'  )"></i></a>
+                                        <a href="#"><i class="fa fa-eye" onclick="showImage( '{{ isset($get_data_document->identity_photo) ? 'https://siapdanain.id/'.$get_data_document->identity_photo : '/images/no_photo.jpeg' }}'  )"></i></a>
                                         <a href="#"><i class="fa fa-times" onclick="confirm_image('{{$uid}}','noted_identity_photo','reject')"></i></a>
                                     </div>
                                 </div>
@@ -43,11 +43,11 @@
                     <div class="col-md-55">
                         <div class="thumbnail">
                             <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->self_photo) ? 'http://172.31.143.11/'.$get_data_document->self_photo : '/images/no_photo.jpeg' }}" alt="image">
+                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->self_photo) ? 'https://siapdanain.id/'.$get_data_document->self_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
                                         <a href="#"><i class="fa fa-check" onclick="confirm_image('{{$uid}}','noted_self_photo','confirm')"></i></a>
-                                        <a href="#"><i class="fa fa-eye" onclick="showImage( '{{ isset($get_data_document->self_photo) ? 'http://172.31.143.11/'.$get_data_document->self_photo : '/images/no_photo.jpeg' }}'  )"></i></a>
+                                        <a href="#"><i class="fa fa-eye" onclick="showImage( '{{ isset($get_data_document->self_photo) ? 'https://siapdanain.id/'.$get_data_document->self_photo : '/images/no_photo.jpeg' }}'  )"></i></a>
                                         <a href="#"><i class="fa fa-times" onclick="confirm_image('{{$uid}}','noted_self_photo','reject')"></i></a>
                                     </div>
                                 </div>
@@ -62,11 +62,11 @@
                     <div class="col-md-55">
                         <div class="thumbnail">
                             <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->npwp_photo) ? 'http://172.31.143.11/'.$get_data_document->npwp_photo : '/images/no_photo.jpeg' }}" alt="image">
+                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->npwp_photo) ? 'https://siapdanain.id/'.$get_data_document->npwp_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
                                         <a href="#"><i class="fa fa-check" onclick="confirm_image('{{$uid}}','noted_npwp_photo','confirm')"></i></a>
-                                        <a href="#"><i class="fa fa-eye" onclick="showImage( '{{ isset($get_data_document->npwp_photo) ? 'http://172.31.143.11/'.$get_data_document->npwp_photo : '/images/no_photo.jpeg' }}'  )"></i></a>
+                                        <a href="#"><i class="fa fa-eye" onclick="showImage( '{{ isset($get_data_document->npwp_photo) ? 'https://siapdanain.id/'.$get_data_document->npwp_photo : '/images/no_photo.jpeg' }}'  )"></i></a>
                                         <a href="#"><i class="fa fa-times" onclick="confirm_image('{{$uid}}','noted_npwp_photo','reject')"></i></a>
                                     </div>
                                 </div>
@@ -82,11 +82,11 @@
                     <div class="col-md-55">
                         <div class="thumbnail">
                             <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->business_build_photo) ? 'http://172.31.143.11/'.$get_data_document->business_build_photo : '/images/no_photo.jpeg' }}" alt="image">
+                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->business_build_photo) ? 'https://siapdanain.id/'.$get_data_document->business_build_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
                                         <a href="#"><i class="fa fa-check" onclick="confirm_image('{{$uid}}','noted_business_build_photo','confirm')"></i></a>
-                                        <a href="#"><i class="fa fa-eye" onclick="showImage( '{{ isset($get_data_document->business_build_photo) ? 'http://172.31.143.11/'.$get_data_document->business_build_photo : '/images/no_photo.jpeg' }}'  )"></i></a>
+                                        <a href="#"><i class="fa fa-eye" onclick="showImage( '{{ isset($get_data_document->business_build_photo) ? 'https://siapdanain.id/'.$get_data_document->business_build_photo : '/images/no_photo.jpeg' }}'  )"></i></a>
                                         <a href="#"><i class="fa fa-times" onclick="confirm_image('{{$uid}}','noted_business_build_photo','reject')"></i></a>
                                     </div>
                                 </div>
@@ -102,11 +102,11 @@
                     <div class="col-md-55">
                         <div class="thumbnail">
                             <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->siup_photo) ? 'http://172.31.143.11/'.$get_data_document->siup_photo : '/images/no_photo.jpeg' }}" alt="image">
+                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->siup_photo) ? 'https://siapdanain.id/'.$get_data_document->siup_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
                                         <a href="#"><i class="fa fa-check" onclick="confirm_image('{{$uid}}','noted_siup_photo','confirm')"></i></a>
-                                        <a href="#"><i class="fa fa-eye" onclick="showImage( '{{ isset($get_data_document->siup_photo) ? 'http://172.31.143.11/'.$get_data_document->siup_photo : '/images/no_photo.jpeg' }}'  )"></i></a>
+                                        <a href="#"><i class="fa fa-eye" onclick="showImage( '{{ isset($get_data_document->siup_photo) ? 'https://siapdanain.id/'.$get_data_document->siup_photo : '/images/no_photo.jpeg' }}'  )"></i></a>
                                         <a href="#"><i class="fa fa-times" onclick="confirm_image('{{$uid}}','noted_siup_photo','reject')"></i></a>
                                     </div>
                                 </div>
@@ -121,11 +121,11 @@
                     <div class="col-md-55">
                         <div class="thumbnail">
                             <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->business_activity_photo) ? 'http://172.31.143.11/'.$get_data_document->business_activity_photo : '/images/no_photo.jpeg' }}" alt="image">
+                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->business_activity_photo) ? 'https://siapdanain.id/'.$get_data_document->business_activity_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
                                         <a href="#"><i class="fa fa-check" onclick="confirm_image('{{$uid}}','noted_business_activity_photo','confirm')"></i></a>
-                                        <a href="#"><i class="fa fa-eye" onclick="showImage( '{{ isset($get_data_document->business_activity_photo) ? 'http://172.31.143.11/'.$get_data_document->business_activity_photo : '/images/no_photo.jpeg' }}'  )"></i></a>
+                                        <a href="#"><i class="fa fa-eye" onclick="showImage( '{{ isset($get_data_document->business_activity_photo) ? 'https://siapdanain.id/'.$get_data_document->business_activity_photo : '/images/no_photo.jpeg' }}'  )"></i></a>
                                         <a href="#"><i class="fa fa-times" onclick="confirm_image('{{$uid}}','noted_business_activity_photo','reject')"></i></a>
                                     </div>
                                 </div>
@@ -140,11 +140,11 @@
                     <div class="col-md-55">
                         <div class="thumbnail">
                             <div class="image view view-first">
-                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->npwp_business_photo) ? 'http://172.31.143.11/'.$get_data_document->npwp_business_photo : '/images/no_photo.jpeg' }}" alt="image">
+                                <img style="width: 100%; display: block;" src="{{ isset($get_data_document->npwp_business_photo) ? 'https://siapdanain.id/'.$get_data_document->npwp_business_photo : '/images/no_photo.jpeg' }}" alt="image">
                                 <div class="mask no-caption">
                                     <div class="tools tools-bottom">
                                         <a href="#"><i class="fa fa-check" onclick="confirm_image('{{$uid}}','noted_npwp_business_photo','confirm')"></i></a>
-                                        <a href="#"><i class="fa fa-eye" onclick="showImage( '{{ isset($get_data_document->npwp_business_photo) ? 'http://172.31.143.11/'.$get_data_document->npwp_business_photo : '/images/no_photo.jpeg' }}'  )"></i></a>
+                                        <a href="#"><i class="fa fa-eye" onclick="showImage( '{{ isset($get_data_document->npwp_business_photo) ? 'https://siapdanain.id/'.$get_data_document->npwp_business_photo : '/images/no_photo.jpeg' }}'  )"></i></a>
                                         <a href="#"><i class="fa fa-times" onclick="confirm_image('{{$uid}}','noted_npwp_business_photo','reject')"></i></a>
                                     </div>
                                 </div>

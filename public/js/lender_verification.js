@@ -1,16 +1,43 @@
-$( document ).ready(function() {
+$(document ).ready(function() {
 
-    $('#update_status_lender').click(function(){
+    $(document).on('click' , '#approve_individual_lender' , function(){
         var id = $(this).attr('attr'); 
         bootbox.dialog({
-            message: "Anda akan menyetujui registrasi pendanaan lender ini.",
+            message: "<p>Anda akan menyetujui registrasi pendanaan lender ini.<p> <textarea placeholder='Alasan  cth : Semua data, file lengkap dan sangat direkomendasikan ....' class='form-control' id='reason'></textarea>",
             title: "Perhatian",
             buttons: {
                 success: {
                     label: "Ya, Saya setuju",
                     className: "btn-primary",
                     callback: function() {
-                        verified_lender('verified' , id);
+                        var reason =  $(document).find('#reason').val();
+                        if(reason == '' || reason == null){
+                            bootbox.alert("Alasan tidak boleh kosong.");
+                            return;
+                        }   
+                        verified_lender('verified' , id ,reason);
+                    }
+                },
+            }
+        });
+    });
+
+    $('#update_status_lender').click(function(){
+        var id = $(this).attr('attr'); 
+        bootbox.dialog({
+            message: "<p>Anda akan menyetujui registrasi pendanaan lender ini.<p> <textarea placeholder='Alasan  cth : Semua data, file lengkap dan sangat direkomendasikan ....' class='form-control' id='reason'></textarea>",
+            title: "Perhatian",
+            buttons: {
+                success: {
+                    label: "Ya, Saya setuju",
+                    className: "btn-primary",
+                    callback: function() {
+                        var reason =  $(document).find('#reason').val();
+                        if(reason == '' || reason == null){
+                            bootbox.alert("Alasan tidak boleh kosong.");
+                            return;
+                        } 
+                        verified_lender('verified' , id , reason);
                     }
                 },
             }
@@ -19,14 +46,19 @@ $( document ).ready(function() {
     $('.reject_status_lender').click(function(){
         var id = $(this).attr('attr'); 
         bootbox.dialog({
-            message: "Permintaan untuk menjadi lender akan ditolak.",
+            message: "<p>Permintaan untuk menjadi lender akan ditolak.</p> <textarea placeholder='Alasan  cth : Semua data, file lengkap dan sangat direkomendasikan ....' class='form-control' id='reason'></textarea>",
             title: "Perhatian",
             buttons: {
                 success: {
                     label: "Ya, Tolak",
                     className: "btn-primary",
                     callback: function() {
-                        verified_lender('reject' , id);
+                        var reason =  $(document).find('#reason').val();
+                        if(reason == '' || reason == null){
+                            bootbox.alert("Alasan tidak boleh kosong.");
+                            return;
+                        }
+                        verified_lender('reject' , id , reason);
                     }
                 },
             }
@@ -57,7 +89,7 @@ function update_status_lender(status , id){
     })
 }
 
-function verified_lender(status , id){
+function verified_lender(status , id , reason){
     var token = $('meta[name="csrf-token"]').attr('content');
     //alert(token);
     $.ajax({
@@ -70,7 +102,8 @@ function verified_lender(status , id){
         dataType:'json',
         data: {
             status:status,
-            id:id
+            id:id,
+            reason : reason
         },
         success:function(response)
         {

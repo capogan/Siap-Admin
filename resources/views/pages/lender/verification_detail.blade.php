@@ -362,6 +362,49 @@
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade " id="commissioner" role="tabpanel"  aria-labelledby="commissioner-tab">
+                                                <div class="row">
+                                                    <div class="col-10">
+                                                        <nav aria-label="breadcrumb">
+                                                            <ol class="breadcrumb">
+                                                                <li class="breadcrumb-item text-bold">Verifikasi Data EKYC dan Direktur Utama</li>
+                                                            </ol>
+                                                        </nav>
+                                                        
+                                                        <table id="example1" class="table table-bordered table-striped">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Status akun digisign</th>
+                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->status_activation : '' }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Email</th>
+                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->email : '' }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Phone</th>
+                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->phone_number : '' }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Nik</th>
+                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->nik : '' }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Last Updated</th>
+                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->updated_at : '' }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Agreement File</th>
+                                                                <td colspan="2">{{$funding->agreementfile ? $funding->agreementfile->document_id : '' }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>EKYC Log Status</th>
+                                                                <td colspan="2"><button class="btn btn-primary log-director-modal">lihat</button></td>
+                                                            </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
                                                 @if($funding->directors)
                                                     @foreach($funding->directors as $index => $item)
                                                     <div class="row">
@@ -370,7 +413,7 @@
                                                                 <div class="card-body box-profile">
                                                                     <div class="text-center">
                                                                         <img class="profile-user-img img-fluid"
-                                                                            src="http://172.31.143.11/upload/lender/file/{{$item->identity_photo}}">
+                                                                            src="https://siapdanain.id/upload/lender/file/{{$item->identity_photo}}">
                                                                     </div>
                                                                     <h5 class="profile-username text-center pt-5">Foto Direktur </h5>
                                                                 </div>
@@ -379,7 +422,7 @@
                                                                 <div class="card-body box-profile">
                                                                     <div class="text-center">
                                                                         <img class="profile-user-img img-fluid"
-                                                                            src="http://172.31.143.11/upload/lender/file/{{$item->self_photo}}">
+                                                                            src="https://siapdanain.id/upload/lender/file/{{$item->self_photo}}">
                                                                     </div>
                                                                     <h5 class="profile-username text-center pt-5">Foto KTP</h5>
 
@@ -387,25 +430,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-7">
-                                                            <nav aria-label="breadcrumb">
-                                                                <ol class="breadcrumb">
-                                                                    <li class="breadcrumb-item text-bold">Verifikasi Data EKYC dan Direktur Utama</li>
-                                                                </ol>
-                                                            </nav>
-                                                            @if($index == 0)
-                                                            <table id="example1" class="table table-bordered table-striped">
-                                                                <thead>
-                                                                <tr>
-                                                                    <th>EKYC Status</th>
-                                                                    <td colspan="2">{{$item->ekyc_director ? $item->ekyc_director->status : ''}}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th>EKYC Log Status</th>
-                                                                    <td colspan="2"><button class="btn btn-primary log-director-modal">lihat</button></td>
-                                                                </tr>
-                                                                </thead>
-                                                            </table>
-                                                            @endif
+                                                            
                                                             <table id="example1" class="table table-bordered table-striped">
                                                                 <thead>
                                                                 <tr>
@@ -511,7 +536,7 @@
                                                                     <div class="card-body box-profile">
                                                                         <div class="text-center">
                                                                             <img class="profile-user-img img-fluid"
-                                                                                src="http://172.31.143.11/upload/lender/file/{{$item->identity_photo}}">
+                                                                                src="https://siapdanain.id/upload/lender/file/{{$item->identity_photo}}">
                                                                         </div>
                                                                         <h5 class="profile-username text-center pt-5">Foto Komisaris Utama</h5>
                                                                     </div>
@@ -523,7 +548,7 @@
                                                                     <div class="card-body box-profile">
                                                                         <div class="text-center">
                                                                             <img class="profile-user-img img-fluid"
-                                                                                src="http://172.31.143.11/upload/lender/file/{{$item->identity_photo}}">
+                                                                                src="https://siapdanain.id/upload/lender/file/{{$item->identity_photo}}">
                                                                         </div>
                                                                         <h5 class="profile-username text-center pt-5">Foto KTP</h5>
 

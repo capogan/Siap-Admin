@@ -74,6 +74,15 @@ class User extends Authenticatable
         ->with('village');
     }
 
+    public function agreementfile(){
+        return $this->hasOne(DigiSignDocument::class , 'uid')->where('step' , 'registration');
+    }
+
+    public function eqycdata()
+    {
+        return $this->hasOne(DigisignActivation::class , 'uid');
+    }
+
     public function commissioners()
     {
         return $this->hasMany(LenderCommissionerData::class , 'uid')
@@ -83,4 +92,22 @@ class User extends Authenticatable
         ->with('district')
         ->with('village');
     }
+    public function individuinfo()
+    {
+        return $this->hasOne(LenderIndividualPersonalInfo::class , 'uid')
+                ->with('educations')
+                ->with('marital_status')
+                ->with('status_of_residence')
+                ->with('provinces')
+                ->with('cities')
+                ->with('districts')
+                ->with('villagess')
+                ->with('individubank')
+                ->with('individubusiness')
+                ->with('individuemergency')
+                ->with('individufile')
+                ->with('individualjob');
+    }
+    
+
 }

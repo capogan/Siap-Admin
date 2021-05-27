@@ -170,7 +170,7 @@ class SettingController extends Controller
 
     public function add_pcg(Request $request){
 
-        $pcg_member_code = PcgMemberCode::get();
+        $pcg_member_code = PcgMemberCode::orderBy('id','ASC')->get();
         $data = [
             'pcg_member_code'=> $pcg_member_code
         ];
