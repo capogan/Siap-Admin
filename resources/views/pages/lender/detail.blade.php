@@ -25,7 +25,7 @@
                         <div class="profile_img">
                             <div id="crop-avatar">
                                 <!-- Current avatar -->
-                                <img class="img-responsive avatar-view" style="width: 100%; display: block;" src="{{ isset($user->self_photo) ? 'http://172.31.143.11/'.$user->self_photo : '/images/no_photo.jpeg' }}" alt="Avatar" title="Change the avatar">
+                                <img class="img-responsive avatar-view" style="width: 100%; display: block;" src="{{ isset($user->self_photo) ? 'https://siapdanain.id/'.$user->self_photo : '/images/no_photo.jpeg' }}" alt="Avatar" title="Change the avatar">
                             </div>
                         </div>
                         <h3>{{$user->name}}</h3>
