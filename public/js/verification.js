@@ -416,7 +416,7 @@ function calculate_scoring(){
     $.ajax({
         url:'https://siapdanain.id/api/borrower/credit/scoring',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Access-Control-Allow-Origin': '*'
         },
         method:"POST",
         dataType: "json",
