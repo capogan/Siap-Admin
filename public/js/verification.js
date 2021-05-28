@@ -418,7 +418,7 @@ function calculate_scoring(){
         headers: {
             'Access-Control-Allow-Origin': '*'
         },
-        method:"POST",
+        method:"GET",
         dataType: "json",
         processData: false,
         contentType: 'application/json',
