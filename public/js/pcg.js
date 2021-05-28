@@ -211,7 +211,6 @@ function calculate_scoring(){
         url:'https://siapdanain.id/api/borrower/credit/scoring',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': 'https://siapdanain.id/'
         },
         crossDomain: true,
         method:"POST",
