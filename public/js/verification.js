@@ -415,9 +415,7 @@ function calculate_scoring(){
     var id_loan = $("#id_loan").val();
     $.ajax({
         url:'https://siapdanain.id/api/borrower/credit/scoring',
-        headers: {
-            'Access-Control-Allow-Origin': '*'
-        },
+        headers: {  'Access-Control-Allow-Origin': 'https://siapdanain.id/' },
         method:"GET",
         dataType: "json",
         processData: false,
