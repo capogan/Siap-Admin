@@ -15,12 +15,27 @@
                     </div>
                 </div>
                 <div class="col-md-9 col-sm-9 ">
-
+                    
                     <table class="table table-hover">
                         <tbody>
                         <tr>
+                            <td>EKYC Status</td>
+                            <td><b>@if($ekyc)<span class="success" style="color: green">verified<span>@else<span class="danger" style="color: red">not verify<span>@endif</b></td>
+                            <td class="e_nik"></td>
+                        </tr>
+                        <tr>
                             <td>NIK</td>
-                            <td>{{$get_data_users->identity_number}}</td>
+                            <td><b>{{$ekyc ? $ekyc->nik : ''}}</b></td>
+                            <td class="e_nik"></td>
+                        </tr>
+                        <tr>
+                            <td>Nomor Telepon</td>
+                            <td><b>{{$ekyc ? $ekyc->phone_number : ''}}</b></td>
+                            <td class="e_nik"></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td><b>{{$ekyc ? $ekyc->email : ''}}</b></td>
                             <td class="e_nik"></td>
                         </tr>
                         <tr>
@@ -51,7 +66,14 @@
                         </tr>
                         </tbody>
                     </table>
-                    <button class="btn btn-warning" id="check_ekyc_button"><i class="fa fa-refresh"></i> CEK EKYC</button>
+                    <div style="display: none" id="log_messages_ekyc">
+                        @if($ekyc_logs)
+                            @foreach ($ekyc_logs as $item)
+                                <p>{{$item->response}}</p>
+                            @endforeach
+                        @endif
+                    </div>
+                    <button class="btn btn-warning" id="check_ekyc_button"><i class="fa fa-refresh"></i>EKYC LOGS</button>
                     <span class="e_result"></span>
                     <div class="ln_solid"></div>
                     <button type="button" class="btn btn-primary next-step float-right">Selanjutnya ></button>

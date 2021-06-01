@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\DigisignActivation;
+use App\DigiSignLogs;
 use App\PersonalBusiness;
 use App\PersonalEmergencyContact;
 use App\PhoneDescription;
@@ -123,7 +125,9 @@ class LoanController extends Controller
             'loan_request'=> $loan_request,
             'get_data_document'=> $get_data_document,
             'phone_description'=> $phone_description,
-            'scoring'=>$scoring
+            'scoring'=>$scoring,
+            'ekyc' => DigisignActivation::where('uid' , $uid)->first(),
+            'ekyc_logs' => DigiSignLogs::where('uid' , $uid)->orderBy('id' , 'DESC')->get()
         ];
         return view('pages.loan.verification', $this->merge_response($data, static::$CONFIG));
     }

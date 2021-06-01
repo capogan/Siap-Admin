@@ -41,24 +41,8 @@ $( document ).ready(function() {
 
         var dialog = bootbox.dialog({
             title: 'Mohon Tunggu',
-            message: '<p><i class="fa fa-spin fa-spinner"></i> Sedang melakukan pengecekan...</p>'
+            message: '<p>'+ $("#log_messages_ekyc").html()+'</p>'
         });
-
-        dialog.init(function(){
-            setTimeout(function(){
-                dialog.modal('hide');
-                $('.e_nik').html('<i class="fa fa-check"></i>');
-                $('.e_name').html('<i class="fa fa-check"></i>');
-                $('.e_pob').html('<i class="fa fa-check"></i>');
-                $('.e_dob').html('<i class="fa fa-close "></i>');
-                $('.e_address').html('<i class="fa fa-check"></i>');
-                $('.e_selfie').html('<i class="fa fa-check"></i>');
-                $('.e_result').html('hasil pengecekan EKYC : 83%');
-            }, 3000);
-        });
-
-
-
     });
 
 
@@ -414,14 +398,13 @@ function calculate_scoring(){
     var uid = $("#uid").val();
     var id_loan = $("#id_loan").val();
     $.ajax({
-        url:'https://siapdanain.id/api/borrower/credit/scoring',
-        headers: {  'Access-Control-Allow-Origin': 'https://siapdanain.id/' },
+        url:'/api/borrower/credit/scoring',
+        cors: true,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+          },
         method:"GET",
         dataType: "json",
-        processData: false,
-        contentType: 'application/json',
-        CrossDomain:true,
-        async: false,
         data: {
             id:uid,
             loan_id:id_loan,
