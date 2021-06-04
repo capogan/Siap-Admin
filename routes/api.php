@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/get/user', 'Api\ApiMasterController@get_user')->name('api.get.user');
+Route::get('/borrower/credit/scoring', 'Api\ApiCreditScoringController@check_my_credit_score')->name('borrower.credit.scoring');
