@@ -56,10 +56,10 @@
                         <div class="item form-group">
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Penanganan Kode Member <span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 ">
-                                <select class="form-control" name="member_code_list[]" id="member_code_list"  multiple="multiple">
+                                <select class="form-control" name="member_code_list" id="member_code_list">
                                     <option value="">--Pilih Kode Member--</option>
                                     @foreach($pcg_member_code as $val)
-                                         <option value="{{$val->id}}">{{$val->member_code}}</option>
+                                         <option value="{{$val->member_code}}">{{$val->member_code}}</option>
                                     @endforeach
                                 </select>
                             </div>

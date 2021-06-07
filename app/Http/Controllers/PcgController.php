@@ -19,6 +19,7 @@ use App\ShortFallMaster;
 use Yajra\DataTables\DataTables;
 use function GuzzleHttp\json_decode;
 use App\RequestLoanCurrentScore;
+use Illuminate\Support\Facades\Auth;
 
 class PcgController extends Controller
 {
@@ -113,11 +114,10 @@ class PcgController extends Controller
     }
 
 
-
-
     public function add(Request $request){
 
         $id_loan  = $request->id_loan;
+
 
         $validator = Validator::make($request->all(), [
             'amount_1'=>'required|required_with:month1',
@@ -162,6 +162,8 @@ class PcgController extends Controller
             ]);
 
 
+
+
         if ($validator->fails()) {
             return json_encode(['status'=> false, 'message'=> $validator->messages() ]);
         }
@@ -192,14 +194,16 @@ class PcgController extends Controller
                     $result[$request->$mo] = $iamount;
                 }
 
-                
+
             }
-            //print_r($total_shortfall);
-            //echo array_sum($total_invoice).'-'. $c_value;
+
            if(round((array_sum($total_invoice)/count($total_invoice))) < $c_value){
                 $total_shortfall[] = (array_sum($total_invoice)/count($total_invoice)) - $c_value;
                 $data_shortfall['last'] = $c_value - (array_sum($total_invoice)/count($total_invoice));
             }
+
+            $average_invoice = 0;
+            $average_shortfall = 0;
 
             if(count($total_shortfall) > 0){
                 $average_shortfall = (array_sum($total_shortfall)/count($total_shortfall));
@@ -210,7 +214,7 @@ class PcgController extends Controller
                     $core_shortfall = $data_score_shortfall->score;
                 }
             }
-            
+
             if($shortfall_last_three_month > 2){
                 $core_shortfall = 1;
             }
@@ -220,11 +224,11 @@ class PcgController extends Controller
             }
 
             $results = [
-                'data' => $result , 
-                'data_shortfall' => $data_shortfall , 
+                'data' => $result ,
+                'data_shortfall' => $data_shortfall ,
                 'average_invoice' => $average_invoice,
                 'average_shortfall' => $average_shortfall,
-                'shortfall' => round((($average_shortfall / $average_invoice)) * 100),
+                'shortfall' =>  $average_invoice  > 0 ? round((($average_shortfall / $average_invoice)) * 100) : 0,
                 'shortfall_score' => $core_shortfall
             ];
             ShortFall::updateOrCreate(
@@ -366,7 +370,8 @@ class PcgController extends Controller
 
     public function paging(Request $request){
 
-        $loan_request = DB::table('view_request_loan')->whereIn('request_loan_status',['1','2'])->orderBy('request_loan_created_at','DESC')->get();
+        $member_code =  Auth::user()->member_code;
+        $loan_request = DB::table('view_request_loan')->whereIn('request_loan_status',['1','2'])->where('request_loan_member_code',$member_code)->orderBy('request_loan_created_at','DESC')->get();
         return DataTables::of($loan_request)->addIndexColumn()->make(true);
     }
 

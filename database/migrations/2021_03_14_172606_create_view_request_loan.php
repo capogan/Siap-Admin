@@ -34,6 +34,7 @@ class CreateViewRequestLoan extends Migration
                       request_loan.status as request_loan_status,
                       request_loan.created_at as request_loan_created_at,
                       request_loan.updated_at as request_loan_updated_at,
+                      request_loan.id_member_code as request_loan_member_code,
                       users.id as user_id,
                       users.name as user_name,
                       users.email as user_email,

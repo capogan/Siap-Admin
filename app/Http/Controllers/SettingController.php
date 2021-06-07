@@ -87,11 +87,7 @@ class SettingController extends Controller
     }
 
     public function user_admin_paging(Request $request){
-//        $user_list = AdminUsers::join('model_has_roles','model_has_roles.model_id','admin_users.id')
-//            ->rightJoin('roles','roles.id','=','model_has_roles.role_id')
-//            ->select('admin_users.*','roles.name as role_name')
-//            ->orderBy('created_at','DESC')
-//            ->get();
+
         $user_list = AdminUsers::orderBy('created_at','DESC')->get();
 
         return DataTables::of($user_list)->addIndexColumn()->make(true);
@@ -210,18 +206,18 @@ class SettingController extends Controller
                     'phone_number'      => $request->phone_number,
                     'address'           => $request->address,
                     'created_by'        => Auth::user()->name,
+                    'member_code'        => $request->member_code_list,
 
                 ]);
 
-
                 $useradmin->givePermissionTo($permission_name);
 
-                foreach ($request->member_code_list as $val){
-                    AdminUsersMemberCode::create([
-                        'id_users'=>$useradmin->id,
-                        'id_member_code'=>$val,
-                    ]);
-                }
+//                foreach ($request->member_code_list as $val){
+//                    AdminUsersMemberCode::create([
+//                        'id_users'=>$useradmin->id,
+//                        'id_member_code'=>$val,
+//                    ]);
+//                }
 
                 DB::commit();
                 $message = "Produk Berhasil di Ubah";
