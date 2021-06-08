@@ -374,6 +374,31 @@ class LoanController extends Controller
         }
     }
 
+    public function reason_approve(Request $request){
+        $validator = Validator::make($request->all(), [
+            'desc_approve' => 'required',
+        ],
+            [
+                'desc_approve.required' => 'Masukkan alasan penolakan pinjaman',
+            ]);
+
+        if ($validator->fails()) {
+            return json_encode(['status'=> false, 'message'=> $validator->messages() ]);
+        }
+
+        LoanRequest::where([
+            ['id',$request->id_loan],
+
+        ])->update
+        ([
+            "approve_reason_under_limit_scoring" => $request->desc_approve,
+            "updated_at"=>date('Y-m-d H:i:s'),
+        ]);
+
+        $message = "Alasan Berhasil di input";
+        return json_encode(['status'=> true, 'message'=> $message]);
+    }
+
 
 
 }

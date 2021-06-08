@@ -73,6 +73,7 @@
                                 </tbody>
                             </table>
                             <button class="btn btn-secondary" onclick="calculate_scoring()"><i class="fa fa-calculator"></i> Hitung Skor</button>
+
                         </div>
                     </div>
                 </div>
@@ -83,4 +84,5 @@
 </div>
 
 <div class="ln_solid"></div>
-<button type="button" class="btn btn-primary next-step float-right">Selanjutnya ></button>
+<button type="button" id="scoring_next" class="btn btn-primary next-step float-right" style="display: none" >Selanjutnya ></button>
+<button class="btn btn-danger float-right" type="button" id="btn_reject_credit_scoring" style="display: none" onclick="reject_function('3')"><i class="fa fa-close"></i> Tolak</button>

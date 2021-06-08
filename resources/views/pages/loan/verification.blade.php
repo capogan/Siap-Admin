@@ -129,6 +129,28 @@
                 </div>
             </div>
         </div>
+
+            <div id="modal_approve_with_reason" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <form id="loan_approve_form">
+                            <input type="hidden" name="id_loan" id="id_loan" value="{{$id_loan}}">
+                            <input type="hidden" name="id_status" id="id_status">
+                            <div class="modal-body">
+                                <p>Berikan Alasan Penerimaan</p>
+                                <textarea class="form-control" name="desc_approve" id="desc_approve" style="resize: none" rows="10"></textarea>
+                                <div class="alert-dismissible result-message" role="alert"></div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                <input type="submit" class="btn btn-primary" value="Simpan">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
     </div>
     </div>
 

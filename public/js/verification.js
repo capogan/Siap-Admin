@@ -112,6 +112,50 @@ $( document ).ready(function() {
     });
 
 
+    $("#loan_approve_form").on("submit", function(event) {
+
+        event.preventDefault();
+
+        var btn = $("#btn_submit_voucher");
+        btn.attr("disabled", "disabled");
+
+        var token = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+            url:'/loan/reason/approve',
+            method:"POST",
+            headers: {
+                'X-CSRF-TOKEN': token
+            },
+            async:true,
+            data:new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+            success:function(response)
+            {
+                var text = '';
+                var res = JSON.parse(response);
+                if(res.status) {
+                    // $(".result-message").addClass('alert alert-success').html(response.message);
+                    $(".result-message").addClass('alert alert-success').html(res.message)
+                    setTimeout(function(){
+                        $('#modal_approve_with_reason').modal('toggle');
+                    }, 1000);
+
+                }else{
+                    close_loading();
+                    $.each(res.message, function( index, value ) {
+                        text += '<p class="error"><i data-feather="x-square"></i> '+ value[0]+'</p>';
+                    });
+                    $(".result-message").addClass('alert alert-error').html(text)
+                }
+            }
+        })
+
+    });
+
+
 
 
     $("#result_from_emergency_form").on("submit", function(event) {
@@ -423,6 +467,15 @@ function calculate_scoring(){
                     ribuan 	= reverse.match(/\d{1,3}/g);
                 ribuan	= ribuan.join('.').split('').reverse().join('');
                 $('#credit_limit').text('Rp.'+ribuan);
+                $('#scoring_next').show();
+               if(response.data.message.max < 40)
+               {
+                   $('#btn_reject_credit_scoring').show();
+                   $("#scoring_next").removeClass('next-step');
+                   $("#scoring_next").click(function (e) {
+                       $('#modal_approve_with_reason').modal({backdrop: 'static', keyboard: false})
+                   });
+               }
             }
             var a = response.data.detail.business_established_since;
             var b = response.data.detail.business_place_status;

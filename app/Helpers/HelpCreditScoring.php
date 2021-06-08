@@ -145,7 +145,7 @@ class HelpCreditScoring {
             return ['status' => false , 'score' => $score , 'detail' => $detail, 'credit_score' => $score_first_step , 'message' => [ 'credit_limit' => 0 , 'credibiliti_status' => 0, 'credibiliti_percentage' => 0]];
         }
 
-        return ['status' => true , 'score' =>$score , 'detail' => $detail , 'credit_score' => $score_first_step, 'message' => [ 'credit_limit' => $credibility_check->maximal_loan , 'credibiliti_status' =>$limit_of_loan->title, 'credibiliti_percentage' => $limit_of_loan->max .' %']];
+        return ['status' => true , 'score' =>$score , 'detail' => $detail , 'credit_score' => $score_first_step, 'message' => [ 'credit_limit' => $credibility_check->maximal_loan , 'credibiliti_status' =>$limit_of_loan->title, 'credibiliti_percentage' => $limit_of_loan->max .' %', 'max' => $limit_of_loan->max]];
     }
 
     public static function shortfall_formula($id_loan){
