@@ -81,7 +81,7 @@ class VerificationController extends Controller
         $get_data_users = DB::table('view_request_loan')->where('id',$id_loan)->first();
         
         $msg_scoring = $this->scoring_message($id_loan); 
-        //print_r($msg_scoring);exit;
+        //print_r($loan_request);exit;
         $data = [
             'id_loan' => $id_loan,
             'data_crm'=> $data_crm,
