@@ -32,7 +32,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Nilai Pencairan</td>
-                                                    <td>{{number_format($loan_request->disbrusement, 0 , '.','.')}}</td>
+                                                    <td>Rp {{number_format($loan_request->disbrusement, 0 , '.','.')}}</td>
                                                     <td class="e_name"></td>
                                                 </tr>
                                                 <tr>
@@ -43,7 +43,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Kredit limit</td>
-                                                    <td>{{number_format($credit_limit['credit_limit'], 0 , '.','.')}}</td>
+                                                    <td>Rp {{number_format($credit_limit['credit_limit'], 0 , '.','.')}}</td>
                                                     <td class="e_dob"></td>
 
                                                 </tr>
