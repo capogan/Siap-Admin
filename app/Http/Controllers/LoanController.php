@@ -379,7 +379,7 @@ class LoanController extends Controller
             'desc_approve' => 'required',
         ],
             [
-                'desc_approve.required' => 'Masukkan alasan penolakan pinjaman',
+                'desc_approve.required' => 'Masukkan alasan penerimaan pinjaman',
             ]);
 
         if ($validator->fails()) {
