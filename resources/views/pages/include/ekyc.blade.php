@@ -69,11 +69,17 @@
                     <div style="display: none" id="log_messages_ekyc">
                         @if($ekyc_logs)
                             @foreach ($ekyc_logs as $item)
-                                <p>{{$item->response}}</p>
+                                <?php 
+                                $nofif = json_decode($item->response , true);
+                                if(array_key_exists('JSONFile' , $nofif)){
+                                    echo '<p>'.$nofif['JSONFile']['notif'].'</p>';
+                                }
+                                ?>
+                                
                             @endforeach
                         @endif
                     </div>
-                    <button class="btn btn-warning" id="check_ekyc_button"><i class="fa fa-refresh"></i>EKYC LOGS</button>
+                    <button class="btn btn-warning" id="check_ekyc_button">Rincian EQYK</button>
                     <span class="e_result"></span>
                     <div class="ln_solid"></div>
                     <button type="button" class="btn btn-primary next-step float-right">Selanjutnya ></button>
