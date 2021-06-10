@@ -20,7 +20,7 @@
                         <tbody>
                         <tr>
                             <td>EKYC Status</td>
-                            <td><b>@if($ekyc)<span class="success" style="color: green">verified<span>@else<span class="danger" style="color: red">not verify<span>@endif</b></td>
+                            <td><b>@if($ekyc)<span class="success" style="color: green">Terverifikasi <i class="fa fa-check-circle"></i> <span>@else<span class="danger" style="color: red">Tidak terverifikasi<span>@endif</b></td>
                             <td class="e_nik"></td>
                         </tr>
                         <tr>
