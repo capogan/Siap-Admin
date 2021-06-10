@@ -137,13 +137,15 @@
                             <input type="hidden" name="id_loan" id="id_loan" value="{{$id_loan}}">
                             <input type="hidden" name="id_status" id="id_status">
                             <div class="modal-body">
-                                <p>Berikan Alasan Penerimaan</p>
+                                <center>
+                                    <h5 style="color: red">NILAI PINJAMAN DIBAWAH NILAI LIMIT.</h5></center>
+                                <p>Apakah anda yakin ingin tetap melanjutkan proses? Jika iya. berikan penjelasannya!</p>
                                 <textarea class="form-control" name="desc_approve" id="desc_approve" style="resize: none" rows="10"></textarea>
                                 <div class="alert-dismissible result-message" role="alert"></div>
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+{{--                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>--}}
                                 <input type="submit" class="btn btn-primary" value="Simpan">
                             </div>
                         </form>
