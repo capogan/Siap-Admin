@@ -52,8 +52,12 @@
                                                     <a class="nav-link" id="document-tab" data-toggle="tab" href="#document" role="tab" aria-controls="document" >{{$funding->individuinfo->individualjob ? 'Informasi Pekerjaan' : 'Informasi Usaha'}}</a>
                                                 </li>
                                                 <li class="nav-item">
+                                                    <a class="nav-link" id="director-tab" data-toggle="tab" href="#director" role="tab" aria-controls="Director">EQYC</a>
+                                                </li>
+                                                <li class="nav-item">
                                                     <a class="nav-link" id="commissioner-tab" data-toggle="tab" href="#commissioner" role="tab" aria-controls="commissioner">Dokumen</a>
                                                 </li>
+                                               
                                             </ul>
                                         </div>
                                         <div class="tab-content" id="myTabContent">
@@ -565,6 +569,198 @@
                                                     </a>
                                                 </div>
                                             </div>
+                                            <div class="tab-pane fade" id="director" role="tabpanel" aria-labelledby="director-tab">
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <div class="card card-primary card-outline">
+                                                            <div class="card-body box-profile">
+                                                                <div class="text-center">
+                                                                    <img class="profile-user-img img-fluid"
+                                                                        src="http://127.0.0.1:8000/upload/lender/file/attachment/{{$funding->individuinfo->individufile->identity_image}}">
+                                                                </div>
+                                                                <h5 class="profile-username text-center pt-5">Swafoto</h5>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        <div class="card card-primary card-outline mt-4">
+                                                            <div class="card-body box-profile">
+                                                                <div class="text-center">
+                                                                    <img class="profile-user-img img-fluid"
+                                                                        src="http://127.0.0.1:8000/upload/lender/file/attachment/{{$funding->individuinfo->individufile->identity_image}}">
+                                                                </div>
+                                                                <h5 class="profile-username text-center pt-5">Foto KTP</h5>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-7">
+                                                        <nav aria-label="breadcrumb">
+                                                            <ol class="breadcrumb">
+                                                                <li class="breadcrumb-item text-bold">Verifikasi Data EKYC dan Komisaris Utama</li>
+                                                            </ol>
+                                                        </nav>
+                                                        
+                                                            <table id="example1" class="table table-bordered table-striped">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>EKYC Status</th>
+                                                                    <td colspan="2">{{$eqcy ? 'verified' : 'Not verified'}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>EKYC Log Status</th>
+                                                                    <td colspan="2"><button class="btn btn-primary log-commissioner-modal">lihat</button></td>
+                                                                </tr>
+                                                                </thead>
+                                                            </table>
+                                                        
+                                                        <table id="example1" class="table table-bordered table-striped">
+                                                                <tr>
+                                                                    <th>No KTP</th>
+                                                                    <td colspan="2">{{$funding->individuinfo->identity_number}}</td>
+                                                                    <td colspan="3" class="text-center">
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th>Nama Lengkap</th>
+                                                                    <td colspan="2">{{$funding->individuinfo->full_name}}</td>
+                                                                    <td colspan="3" class="text-center">
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th>Nomor Telepon</th>
+                                                                    <td colspan="2">{{$funding->phone_number_verified}}</td>
+                                                                    <td colspan="3" class="text-center">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Email</th>
+                                                                    <td colspan="2">{{$funding->individuinfo->email}}</td>
+                                                                    <td colspan="3" class="text-center">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Jenis Kelamin</th>
+                                                                    <td colspan="2">{{$funding->individuinfo->gender}}</td>
+                                                                    <td colspan="3" class="text-center">
+                                                                        
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <th>Tempat Tanggal Lahir</th>
+                                                                    <td colspan="2">{{$funding->individuinfo->pob}} , {{$funding->individuinfo->dob}}</td>
+                                                                    <td colspan="3" class="text-center">
+                                                                    </td>
+                                                                </tr>
+                                                            <thead>
+                                                            {{-- <tr>
+                                                                <th>Nama</th>
+                                                                <td colspan="2">{{$eqyc->commissioner_name}}</td>
+                                                                <td colspan="2" class="text-center">
+                                                                    
+                                                                </td>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr>
+                                                                <th>NIK</th>
+                                                                <td colspan="2">{{$eqyc->commissioner_nik}}</td>
+                                                                <td colspan="3" class="text-center">
+                                                                    
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Nomor NPWP</th>
+                                                                <td colspan="2">{{$eqyc->commissioner_npwp}}</td>
+                                                                <td colspan="3" class="text-center">
+                                                                    
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Tanggal Lahir</th>
+                                                                <td colspan="2">{{$eqyc->commissioner_dob}}</td>
+                                                                <td colspan="3" class="text-center">
+                                                                    
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Email</th>
+                                                                <td colspan="2">{{$eqyc->commissioner_email}}</td>
+                                                                <td colspan="3" class="text-center">
+                                                                    
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Nomor Telepon</th>
+                                                                <td colspan="2">{{$eqyc->commissioner_phone_number}}</td>
+                                                                <td colspan="3" class="text-center">
+                                                                    
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Tanggal Bergabung</th>
+                                                                <td colspan="2">{{$eqyc->created_at}}</td>
+                                                                <td colspan="2" class="text-center">
+                                                                    
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>Alamat</th>
+                                                                <td colspan="4">{{$eqyc->address}}</td>
+                                                            </tr> --}}
+                                                            {{-- <tr>
+                                                                <td></td>
+                                                                <td>Provinsi</td>
+                                                                <td>{{$item->province->name}}</td>
+                                                                <td colspan="2"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>Kabupaten</td>
+                                                                <td>{{$item->regency->name}}</td>
+                                                                <td colspan="2"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>Kecamatan</td>
+                                                                <td>{{$item->district->name}}</td>
+                                                                <td colspan="2"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td>Kelurahan</td>
+                                                                <td>{{$item->village->name}}</td>
+                                                                <td colspan="2" class="text-center"></td>
+                                                            </tr> --}}
+                                                            
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                </div>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <table>
+                                                                <div class="card-footer text-center">
+                                                                    <button class="btn btn-danger reject_status_lender" id="reject_status_lender" attr="{{$funding->id}}" data-status="reject">
+                                                                        <i class="fa fa-close pr-1"></i>
+                                                                        Tolak
+                                                                    </button>
+                                                                    <a class="btn btn-secondary" href="#myTabContent" onclick="$('#business-tab').click()">
+                                                                        <i class="fa fa-arrow-left"></i>
+                                                                        Kembali
+                                                                    </a>
+                                                                    <a class="btn btn-primary" href="#myTabContent" onclick="$('#commissioner-tab').click()">
+                                                                        Lanjutkan
+                                                                        <i class="fa fa-arrow-right"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                            </div> 
                                             <div class="tab-pane fade " id="commissioner" role="tabpanel"  aria-labelledby="commissioner-tab">
                                                     <div class="row">
                                                     @if($funding->individuinfo->individufile != '' || $funding->individuinfo->individufile !== null)
@@ -634,164 +830,6 @@
                                                 </div>
                                                
                                             </div>
-                                            {{-- <div class="tab-pane fade" id="director" role="tabpanel" aria-labelledby="director-tab">
-                                                @if($funding->commissioners)
-                                                    @foreach($funding->commissioners as $item)
-                                                        <div class="row">
-                                                            <div class="col-3">
-                                                                
-                                                                <div class="card card-primary card-outline">
-                                                                    <div class="card-body box-profile">
-                                                                        <div class="text-center">
-                                                                            <img class="profile-user-img img-fluid"
-                                                                                src="https://siapdanain.id/upload/lender/file/{{$item->identity_photo}}">
-                                                                        </div>
-                                                                        <h5 class="profile-username text-center pt-5">Foto Komisaris Utama</h5>
-                                                                    </div>
-                                                                   
-                                                                </div>
-                                                                <div class="card card-primary card-outline mt-4">
-                                                                    <div class="card-body box-profile">
-                                                                        <div class="text-center">
-                                                                            <img class="profile-user-img img-fluid"
-                                                                                src="https://siapdanain.id/upload/lender/file/{{$item->identity_photo}}">
-                                                                        </div>
-                                                                        <h5 class="profile-username text-center pt-5">Foto KTP</h5>
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-7">
-                                                                <nav aria-label="breadcrumb">
-                                                                    <ol class="breadcrumb">
-                                                                        <li class="breadcrumb-item text-bold">Verifikasi Data EKYC dan Komisaris Utama</li>
-                                                                    </ol>
-                                                                </nav>
-                                                                @if($index == 0 && $item->ekyc_commissioner != null)
-                                                                    <table id="example1" class="table table-bordered table-striped">
-                                                                        <thead>
-                                                                        <tr>
-                                                                            <th>EKYC Status</th>
-                                                                            <td colspan="2">{{$item->ekyc_commissioner->status == 'verified' ? $item->ekyc_commissioner->status : ''}}</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th>EKYC Log Status</th>
-                                                                            <td colspan="2"><button class="btn btn-primary log-commissioner-modal">lihat</button></td>
-                                                                        </tr>
-                                                                        </thead>
-                                                                    </table>
-                                                                @endif
-                                                                <table id="example1" class="table table-bordered table-striped">
-                                                                    <thead>
-                                                                    <tr>
-                                                                        <th>Nama</th>
-                                                                        <td colspan="2">{{$item->commissioner_name}}</td>
-                                                                        <td colspan="2" class="text-center">
-                                                                            
-                                                                        </td>
-                                                                    </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                    <tr>
-                                                                        <th>NIK</th>
-                                                                        <td colspan="2">{{$item->commissioner_nik}}</td>
-                                                                        <td colspan="3" class="text-center">
-                                                                            
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>Nomor NPWP</th>
-                                                                        <td colspan="2">{{$item->commissioner_npwp}}</td>
-                                                                        <td colspan="3" class="text-center">
-                                                                            
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>Tanggal Lahir</th>
-                                                                        <td colspan="2">{{$item->commissioner_dob}}</td>
-                                                                        <td colspan="3" class="text-center">
-                                                                            
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>Email</th>
-                                                                        <td colspan="2">{{$item->commissioner_email}}</td>
-                                                                        <td colspan="3" class="text-center">
-                                                                            
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>Nomor Telepon</th>
-                                                                        <td colspan="2">{{$item->commissioner_phone_number}}</td>
-                                                                        <td colspan="3" class="text-center">
-                                                                            
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>Tanggal Bergabung</th>
-                                                                        <td colspan="2">{{$item->created_at}}</td>
-                                                                        <td colspan="2" class="text-center">
-                                                                            
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <th>Alamat</th>
-                                                                        <td colspan="4">{{$item->address}}</td>
-                                                                    <tr>
-                                                                        <td></td>
-                                                                        <td>Provinsi</td>
-                                                                        <td>{{$item->province->name}}</td>
-                                                                        <td colspan="2"></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td></td>
-                                                                        <td>Kabupaten</td>
-                                                                        <td>{{$item->regency->name}}</td>
-                                                                        <td colspan="2"></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td></td>
-                                                                        <td>Kecamatan</td>
-                                                                        <td>{{$item->district->name}}</td>
-                                                                        <td colspan="2"></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td></td>
-                                                                        <td>Kelurahan</td>
-                                                                        <td>{{$item->village->name}}</td>
-                                                                        <td colspan="2" class="text-center"></td>
-                                                                    </tr>
-                                                                    </tr>
-                                                                    
-                                                                    </tbody>
-                                                                </table>
-
-                                                            </div>
-                                                        </div>
-                                                    @endforeach
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <table>
-                                                                <div class="card-footer text-center">
-                                                                    <button class="btn btn-danger reject_status_lender" id="reject_status_lender" attr="{{$funding->id}}" data-status="reject">
-                                                                        <i class="fa fa-close pr-1"></i>
-                                                                        Tolak
-                                                                    </button>
-                                                                    <a class="btn btn-secondary" href="#myTabContent" onclick="$('#commissioner-tab').click()">
-                                                                        <i class="fa fa-arrow-left"></i>
-                                                                        Kembali
-                                                                    </a>
-                                                                    <button class="btn btn-primary" id="update_status_lender" attr="{{$funding->id}}">
-                                                                        <i class="fa fa-check pr-1"></i>
-                                                                        Setuju
-                                                                    </button>
-
-                                                                </div>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                @endif
-                                            </div>  --}}
                                         </div>
                                     </div>
                                 </div>

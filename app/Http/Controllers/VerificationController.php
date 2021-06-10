@@ -11,6 +11,7 @@ use App\UserFile;
 use Illuminate\Http\Request;
 use DB;
 use App\LoanRequest;
+use App\RequestLoanCurrentScore;
 use Yajra\DataTables\DataTables;
 
 class VerificationController extends Controller
@@ -66,21 +67,21 @@ class VerificationController extends Controller
         leftJoin('provinces', 'personal_emergency_contact.emergency_province', '=', 'provinces.id')->
         leftJoin('regencies', 'personal_emergency_contact.emergency_city', '=', 'regencies.id')->
         where('uid',$uid)->first();
-
         $get_data_document = UserFile::where('uid',$uid)->first();
 
         $phone_description = PhoneDescription::where('id_request_loan',$id_loan)->get();
 
         $phone_verification = PhoneVerification::where('id_request_loan',$id_loan)->first();
-
+        
         $data_crm = '';
         if($phone_verification){
             $data_crm = PhoneMatchingData::where('id_phone_verification',$phone_verification->id)->orderBy('id','ASC')->get();
         }
 
         $get_data_users = DB::table('view_request_loan')->where('id',$id_loan)->first();
-
-
+        
+        $msg_scoring = $this->scoring_message($id_loan); 
+        //print_r($msg_scoring);exit;
         $data = [
             'id_loan' => $id_loan,
             'data_crm'=> $data_crm,
@@ -91,10 +92,28 @@ class VerificationController extends Controller
             'loan_request'=> $loan_request,
             'get_data_document'=> $get_data_document,
             'phone_description'=> $phone_description,
-            'phone_verification'=> $phone_verification
+            'phone_verification'=> $phone_verification,
+            'credit_limit' => $msg_scoring
         ];
         return view('pages.verification.detail', $this->merge_response($data, static::$CONFIG));
 
+
+    }
+    public function scoring_message($id_loan){
+        $credit_limit = RequestLoanCurrentScore::where('id_request_loan',$id_loan)->first();
+        $scoring = json_decode($credit_limit , true);
+        if(array_key_exists('detail_scoring' , $scoring)){
+            $s = json_decode($scoring['detail_scoring'] , true);
+            if(array_key_exists('message' , $s)){
+                return $s['message'];//$data_scoring['message'];
+            }
+        }
+        return  array(
+            'credit_limit' => '',
+            'credibiliti_status' => '',
+            'credibiliti_percentage' => '',
+            'max'
+        );
 
     }
 

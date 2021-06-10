@@ -38,6 +38,56 @@
                         </div>
 
                         <div class="row">
+                            <div class="col-md-12 col-sm-12 ">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>CREDIT LIMIT</h2>
+
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <div class="col-md-12 col-sm-12 ">
+                                            <table class="table table-hover">
+                                                <tbody>
+                                                <tr>
+                                                    <td>Nomor Invoice</td>
+                                                    <td>{{$loan_request->invoice_number ?? ''}}</td>
+                                                    <td class="e_nik"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Nilai Pencairan</td>
+                                                    <td>Rp {{number_format($loan_request->disbrusement, 0 , '.','.')}}</td>
+                                                    <td class="e_name"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Scoring</td>
+                                                    <td>{{$credit_limit['credibiliti_percentage'] ?? '' }}</td>
+                                                    <td class="e_pob"></td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td>Kredit limit</td>
+                                                    <td>Rp {{number_format($credit_limit['credit_limit'], 0 , '.','.')}}</td>
+                                                    <td class="e_dob"></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>Kredibilitas status</td>
+                                                    <td>{{$credit_limit['credibiliti_status'] ?? ''}}</td>
+                                                    <td class="e_address"></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <span class="e_result"></span>
+                                            <div class="ln_solid"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-md-12">
                                 <div class="x_panel">
                                     <div class="x_title">

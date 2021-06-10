@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\DigisignActivation;
 use App\DigiSignDocumentLogs;
+use App\DigiSignLogs;
 use App\DigiSignSignersLogs;
 use App\LenderVerification;
 use App\PrivyLogs;
@@ -62,18 +64,20 @@ class LenderController extends Controller
             ];
             return view('pages.lender.verification_detail', $this->merge_response($data, static::$CONFIG));
         }else{
-            $eqyc_logs = DigiSignDocumentLogs::where('uid' , $id)->get();
+            $eqyc_logs = DigiSignLogs::where('uid' , $id)->get();
             $eqyc_signers_logs = DigiSignSignersLogs::where('uid' , $id)->get();
             $eqyc_document_logs = DigiSignDocumentLogs::where('uid' , $id)->get();
 
             $lender = User::with('individuinfo')
                             ->where('id' , $id)->first();
+                            
             $data = [
-                'funding'=> $lender,
+                'eqcy' => DigisignActivation::where('uid' , $id)->first(),
                 'funding'=> $lender,
                 'eqyc_logs' => $eqyc_logs,
                 'eqyc_signers_logs' => $eqyc_signers_logs,
             ];
+            
             return view('pages.lender.verification_detail_individual', $this->merge_response($data, static::$CONFIG));
         }
     }
