@@ -76,6 +76,11 @@
                                                     <td>{{$credit_limit['credibiliti_status'] ?? ''}}</td>
                                                     <td class="e_address"></td>
                                                 </tr>
+                                                <tr>
+                                                    <td>Catatan</td>
+                                                    <td><span style="color: red;">{{$loan_request->approve_reason_under_limit_scoring ?? '-'}}</span></td>
+                                                    <td class="e_address"></td>
+                                                </tr>
                                                 </tbody>
                                             </table>
                                             <span class="e_result"></span>
