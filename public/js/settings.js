@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#member_code_list').select2();
+    $('#member_code_list,#list_bank').select2();
 });
 $("#add_admin_form").on("submit", function(event) {
 
