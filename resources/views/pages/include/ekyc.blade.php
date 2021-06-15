@@ -71,9 +71,15 @@
                             @foreach ($ekyc_logs as $item)
                                 <?php 
                                 $nofif = json_decode($item->response , true);
-                                if(array_key_exists('JSONFile' , $nofif)){
-                                    echo '<p>'.$nofif['JSONFile']['notif'].'</p>';
+                                if($nofif != null)
+                                {
+                                    if(array_key_exists('JSONFile' , $nofif)){
+                                        echo '<p>'.$nofif['JSONFile']['notif'].'</p>';
+                                    }
+                                }else{
+                                    echo '<p>Data di reject</p>';
                                 }
+
                                 ?>
                                 
                             @endforeach
