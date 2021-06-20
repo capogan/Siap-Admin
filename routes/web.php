@@ -157,7 +157,9 @@ Route::group(['middleware' => ['permission:Pengguna']], function () {
     Route::get('/setting/users/add','SettingController@add_user_admin')->name('setting.user.admin.add');
     Route::post('/setting/users/add','SettingController@store_user_admin')->name('setting.user.admin.add');
     Route::get('/setting/users/add/pcg','SettingController@add_pcg')->name('setting.user.admin.add.pcg');
-    Route::post('setting/users/add/pcg','SettingController@add_pcg_store')->name('setting.user.admin.add.pcg');
+    Route::post('/setting/users/add/pcg','SettingController@add_pcg_store')->name('setting.user.admin.add.pcg');
+    Route::post('/setting/pcg/add/code','SettingController@add_code_member')->name('setting..add.code');
+
 });
 
 Route::group(['middleware' => ['permission:Wewenang']], function () {

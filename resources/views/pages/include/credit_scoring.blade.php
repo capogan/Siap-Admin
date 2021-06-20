@@ -62,12 +62,15 @@
 
                                 <tr>
                                     <th>Nilai Pengajuan:</th>
-                                    <td><h5 id="status_score">Rp. {{number_format($get_data_users->loan_amount,0,'.','.') ?? ''}}</h5></td>
+                                    <td><h5 id="">Rp. {{number_format($get_data_users->loan_amount,0,'.','.') ?? ''}}</h5></td>
+                                    <input type="text" style="display:none" id="status_score" name="status_score" value="{{$get_data_users->loan_amount}}">
                                 </tr>
 
                                 <tr>
                                     <th>Limit Pinjaman</th>
-                                    <td><h5 id="credit_limit">Rp.{{isset($score) ? number_format($score['message']['credit_limit'] , 0 ,'.' ,'.') : '0'}}</h5></td>
+                                    <td><h5 id="credit_limit">Rp.{{isset($score) ? number_format($score['message']['credit_limit'] , 0 ,'.' ,'.') : '0'}}</h5>
+
+                                    </td>
                                 </tr>
 
                                 </tbody>

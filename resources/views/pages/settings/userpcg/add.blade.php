@@ -62,6 +62,7 @@
                                          <option value="{{$val->member_code}}">{{$val->member_code}}</option>
                                     @endforeach
                                 </select>
+                                <button type="button" id="add_code_member" class="btn btn-primary">Tambah Kode Member</button>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -92,6 +93,25 @@
 
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal_create_code_member" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <form id="form_code_member">
+                    <div class="modal-body">
+                        <p>Tambah Kode Member</p>
+                        <input type="text" name="member_code" id="member_code" class="form-control">
+                        <div class="alert-dismissible result-message" role="alert"></div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        <input type="submit" class="btn btn-primary" value="Simpan">
+                    </div>
+                </form>
             </div>
         </div>
     </div>

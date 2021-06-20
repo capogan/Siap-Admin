@@ -239,6 +239,35 @@ class SettingController extends Controller
         return json_encode(['status'=> true, 'message'=> 'Sukses menambahkan pengguna']);
     }
 
+    public function add_code_member(Request $request){
+
+//        PcgMemberCode
+        $validator = Validator::make($request->all(), [
+            'member_code' => ['required'],
+
+        ],[
+            'member_code.required' => 'Kode Member harus di isi',
+        ]);
+
+        if ($validator->fails()) {
+            return json_encode(['status'=> false, 'message'=> $validator->messages() ]);
+        }else {
+
+            $member_code = PcgMemberCode::create([
+
+                'member_code'       => $request->member_code,
+                'created_at'        => date('Y-m-d H:i:s'),
+                'updated_at'        => date('Y-m-d H:i:s'),
+
+            ]);
+
+        }
+
+        $message = "Berhasil membuat kode member";
+        return json_encode(['status'=> true, 'message'=> $message]);
+
+    }
+
 
 
 }

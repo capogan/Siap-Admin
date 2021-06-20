@@ -133,6 +133,10 @@ $("#add_roles_form").on("submit", function(event) {
 
 });
 
+$('#add_code_member').on('click', function() {
+    $('#modal_create_code_member').modal({backdrop: 'static', keyboard: false})
+});
+
 
 $("#add_pcg_form").on("submit", function(event) {
 
@@ -268,4 +272,45 @@ function init_roles_table(){
         })
     }
 }
+
+
+$("#form_code_member").on("submit", function(event) {
+
+    event.preventDefault();
+
+    var btn = $("#btn_submit_voucher");
+    btn.attr("disabled", "disabled");
+
+    var token = $('meta[name="csrf-token"]').attr('content');
+
+    $.ajax({
+        url: '/setting/pcg/add/code',
+        method:"POST",
+        headers: {
+            'X-CSRF-TOKEN': token
+        },
+        async:true,
+        data:new FormData(this),
+        contentType: false,
+        cache: false,
+        processData: false,
+        success:function(response)
+        {
+            var text = '';
+            var res = JSON.parse(response);
+            if(res.status) {
+               alert(res.message);
+                location.reload();
+            }else{
+                close_loading();
+                $.each(res.message, function( index, value ) {
+                    text += value[0];
+                });
+                alert(text);
+
+            }
+
+        }
+    })
+});
 

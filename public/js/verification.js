@@ -456,8 +456,13 @@ function calculate_scoring(){
         success:function(response)
         {
 
+
             $('#total_score').text(response.data.credit_score+' %');
             $('#score').text(response.data.score);
+
+
+
+
             if(response.data.status == true){
                 $('#btn_send_loan').show();
                 $('#status_score').text(response.data.message.credibiliti_status);
@@ -468,7 +473,9 @@ function calculate_scoring(){
                 ribuan	= ribuan.join('.').split('').reverse().join('');
                 $('#credit_limit').text('Rp.'+ribuan);
                 $('#scoring_next').show();
-               if(response.data.message.max < 40)
+                console.log(response.data.message);
+
+               if(cl < $("#status_score").val())
                {
                    $('#btn_reject_credit_scoring').show();
                    $("#scoring_next").removeClass('next-step');
