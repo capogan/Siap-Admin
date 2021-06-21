@@ -23,19 +23,7 @@
 
                         </div>
                     </div>
-                    <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Telepon Tempat Usaha Tambahan
-                        </label>
-                        <div class="col-md-6 col-sm-6 ">
-                            <div class="input-group">
-                                <input type="text" class="form-control">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-primary"><i class="fa fa-phone"></i></button>
-                                      <button type="button" class="btn btn-danger"><i class="fa fa-microphone"></i></button>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+
                     <button type="button" id="btn_desc_add_1" class="btn btn-primary"><i class="fa fa-plus"></i></button>
                     <table class="table table-striped" id="table_description_crm_1">
                         <thead>
