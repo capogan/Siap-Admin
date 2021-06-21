@@ -450,7 +450,7 @@ function sending(id_loan){
 
     var token = $('meta[name="csrf-token"]').attr('content');
     $.ajax({
-        url:'/pcg/approve/shipping/',
+        url:'/pcg/approve/shipping',
         method:"POST",
         dataType:'json',
         headers: {
@@ -489,7 +489,7 @@ function arrive(id_loan){
 
     var token = $('meta[name="csrf-token"]').attr('content');
     $.ajax({
-        url:'/pcg/approve/arrive/',
+        url:'/pcg/approve/arrive',
         method:"POST",
         dataType:'json',
         headers: {
