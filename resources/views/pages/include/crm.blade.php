@@ -36,8 +36,8 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" id="btn_desc_add" class="btn btn-primary"><i class="fa fa-plus"></i></button>
-                    <table class="table table-striped" id="table_description_crm">
+                    <button type="button" id="btn_desc_add_2" class="btn btn-primary"><i class="fa fa-plus"></i></button>
+                    <table class="table table-striped" id="table_description_crm_2">
                         <thead>
                         <tr>
                             <th>No</th>

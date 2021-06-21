@@ -1,4 +1,79 @@
 <div class="row">
+    <div class="col-md-12 col-sm-12 ">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Verifikasi Telepon</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Telepon Darurat
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <div class="input-group">
+                                <input type="text" class="form-control" value="{{$get_data_emergency->emergency_phone ?? "-"}}">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary"><i class="fa fa-phone"></i></button>
+                                     <button type="button" class="btn btn-danger"><i class="fa fa-microphone"></i></button>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Telepon Tempat Usaha Tambahan
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <div class="input-group">
+                                <input type="text" class="form-control">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary"><i class="fa fa-phone"></i></button>
+                                      <button type="button" class="btn btn-danger"><i class="fa fa-microphone"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" id="btn_desc_add_1" class="btn btn-primary"><i class="fa fa-plus"></i></button>
+                    <table class="table table-striped" id="table_description_crm_1">
+                        <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Tanggal Tindakan</th>
+                            <th>Status Telepon</th>
+                            <th>Deskripsi</th>
+                            <th>Rekaman</th>
+                            <th>Nama Agent</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($phone_description_emergency_contact as $key => $val)
+                            <tr>
+                                <td class="number">{{$loop->iteration}}</td>
+                                <td>{{$val->created_at}}</td>
+                                <td>{{Utils::convert_status_phone($val->phone_status)}}</td>
+                                <td>{{$val->phone_description}}</td>
+                                @if($val->phone_status == '5')
+                                    <td><button type="button" class="btn btn-success"><i class="fa fa-headphones"></i></button></td>
+                                @else
+                                    <td>-</td>
+                                @endif
+                                <td>{{$val->updated_by}}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+
+                    <div class="ln_solid"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
     <div class="col-md-6 col-sm-12 ">
         <div class="x_panel">
             <div class="x_title">
@@ -42,6 +117,7 @@
         </div>
     </div>
 
+
     <div class="col-md-6 ">
         <div class="x_panel">
             <div class="x_title">
@@ -50,6 +126,7 @@
             </div>
             <div class="x_content">
                 <br>
+
                 <form id="result_from_emergency_form">
                     <label class="col-form-label label-align" for="first-name">Kesimpulan <span class="required">*</span>
                     </label>

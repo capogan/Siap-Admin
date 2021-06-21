@@ -15,5 +15,6 @@ class PhoneDescription extends Model
         'created_at',
         'updated_at',
         'updated_by',
+        'status'
     ];
 }

@@ -97,6 +97,7 @@
                     </div>
                     <form id="add_crm_description_form" name="contact" role="form">
                         <input type="hidden" name="id_loan" id="id_loan" value="{{$id_loan}}">
+                        <input type="hidden" name="id_status_phone" id="id_status_phone">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="name">Status Telepon</label>
