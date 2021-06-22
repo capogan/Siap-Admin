@@ -57,6 +57,9 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" id="commissioner-tab" data-toggle="tab" href="#commissioner" role="tab" aria-controls="commissioner">Dokumen</a>
                                                 </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="vbu-tab" data-toggle="tab" href="#vbu" role="tab" aria-controls="vbu">Verifikasi Bidang Usaha</a>
+                                                </li>
                                                
                                             </ul>
                                         </div>
@@ -655,86 +658,6 @@
                                                                     </td>
                                                                 </tr>
                                                             <thead>
-                                                            {{-- <tr>
-                                                                <th>Nama</th>
-                                                                <td colspan="2">{{$eqyc->commissioner_name}}</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    
-                                                                </td>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            <tr>
-                                                                <th>NIK</th>
-                                                                <td colspan="2">{{$eqyc->commissioner_nik}}</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Nomor NPWP</th>
-                                                                <td colspan="2">{{$eqyc->commissioner_npwp}}</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Tanggal Lahir</th>
-                                                                <td colspan="2">{{$eqyc->commissioner_dob}}</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Email</th>
-                                                                <td colspan="2">{{$eqyc->commissioner_email}}</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Nomor Telepon</th>
-                                                                <td colspan="2">{{$eqyc->commissioner_phone_number}}</td>
-                                                                <td colspan="3" class="text-center">
-                                                                    
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Tanggal Bergabung</th>
-                                                                <td colspan="2">{{$eqyc->created_at}}</td>
-                                                                <td colspan="2" class="text-center">
-                                                                    
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Alamat</th>
-                                                                <td colspan="4">{{$eqyc->address}}</td>
-                                                            </tr> --}}
-                                                            {{-- <tr>
-                                                                <td></td>
-                                                                <td>Provinsi</td>
-                                                                <td>{{$item->province->name}}</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kabupaten</td>
-                                                                <td>{{$item->regency->name}}</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kecamatan</td>
-                                                                <td>{{$item->district->name}}</td>
-                                                                <td colspan="2"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td></td>
-                                                                <td>Kelurahan</td>
-                                                                <td>{{$item->village->name}}</td>
-                                                                <td colspan="2" class="text-center"></td>
-                                                            </tr> --}}
-                                                            
                                                             </tbody>
                                                         </table>
 
@@ -830,6 +753,232 @@
                                                 </div>
                                                
                                             </div>
+
+
+                                            <div class="tab-pane fade " id="vbu" role="tabpanel"  aria-labelledby="vbu-tab">
+                                                <div class="row">
+                                                    <h3>PENGECEKAN INFORMASI PERUSAHAAN DENGAN AKTA PENDIRIAN</h3>
+                                                    <table id="example1" class="table table-bordered table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>AKTA PENDIRIAN</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>NOMOR DAN TANGGAL AKTA PENDIRIAN</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>DOKUMEN PENGESAHAN KEMENKUNHAM</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>NOMOR PENGESAHAAN KEMENKUNHAM</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>NAMA PERUSAHAAN</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>ALAMAT PERUSAHAAN</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>ALAMAT PERUSAHAAN</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>NO INDUK BERUSAHAN (NIB)</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>DOKUMEN NIB</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <h3>PENGECEKAN AKTA PERUBAHAN TERAKHIR</h3>
+                                                    <table id="example1" class="table table-bordered table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>AKTA PERUBAHAN TERAKHIR</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>NOMOR DAN TANGGAL AKTA PERUBAHAN TERAKHIR</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>DOKUMEN PENGESAHAN KEMENKUMHAM</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>NOMOR PENGESAHAAN KEMENKUNHAM</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <h3>PENGECEKAN KEUANGAN PERUSAHAAN</h3>
+                                                    <table id="example1" class="table table-bordered table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>TOTAL SETORAN MODAL</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>NILAI ASET</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>NILAI EKUITAS</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>KEWAJIBAN JANGKA PENDEK</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+
+                                                        {{--TEST--}}
+
+                                                        <tr>
+                                                            <th>PENDAPATAN TAHUN BERJALAN</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>STATUS PAJAK</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>DOKUMEN NPWP</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>LAPORAN NERACA KEUANGAN</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>LAPORAN LABA RUGI</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>LAPORAN ARUS KAS</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                                <div class="row">
+                                                    <h3>PENGECEKAN REKENING TRANSAKSI</h3>
+                                                    <table id="example1" class="table table-bordered table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>NAMA PADA REKENING</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>NAMA BANK</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>NOMOR REKENING</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>NOMOR REKENING DANA LENDER (RDL) BNI</th>
+                                                            <td colspan="2" style="vertical-align:middle">Lihat</td>
+                                                            <td colspan="1"><button class="btn btn-success">Sama</button></td>
+                                                            <td colspan="1"><button class="btn btn-danger">beda</button></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+
+                                                <div class="card-footer text-center">
+                                                    <button class="btn btn-danger reject_status_lender" id="reject_status_lender" attr="{{$funding->id}}" data-status="reject">
+                                                        <i class="fa fa-close pr-1"></i>
+                                                        Tolak
+                                                    </button>
+                                                    <a class="btn btn-secondary" href="#myTabContent" onclick="$('#document-tab').click()">
+                                                        <i class="fa fa-arrow-left"></i>
+                                                        Kembali
+                                                    </a>
+                                                    <a class="btn btn-primary" attr="{{$funding->id}}" href="javascript:void(0)" id="approve_individual_lender">
+                                                        Setujui
+                                                        <i class="fa fa-check pr-1"></i>
+                                                    </a>
+                                                </div>
+
+                                            </div>
+
+
                                         </div>
                                     </div>
                                 </div>
