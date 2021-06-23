@@ -31,7 +31,7 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-11">
-                                        <h5 class="card-title text-bold">Verifikasi Data dan EKYC</h5>
+                                        <h5 class="card-title text-bold">Verifikasi Data dan EKYC Pendana Badan Hukum</h5>
                                     </div>
                                     <div class="col">
                                     </div>
@@ -46,22 +46,25 @@
                                         <div class="x_content">
 
                                             <ul class="nav nav-tabs justify-content-end bar_tabs" id="myTab" role="tablist">
+{{--                                                <li class="nav-item">--}}
+{{--                                                    <a class="nav-link active" id="business-tab" data-toggle="tab" href="#business" role="tab" aria-controls="business">Informasi Usaha</a>--}}
+{{--                                                </li>--}}
+{{--                                                <li class="nav-item">--}}
+{{--                                                    <a class="nav-link" id="document-tab" data-toggle="tab" href="#document" role="tab" aria-controls="document" >Bank/Dokumen Usaha</a>--}}
+{{--                                                </li>--}}
                                                 <li class="nav-item">
-                                                    <a class="nav-link active" id="business-tab" data-toggle="tab" href="#business" role="tab" aria-controls="business">Informasi Usaha</a>
+                                                    <a class="nav-link active" id="commissioner-tab" data-toggle="tab" href="#commissioner" role="tab" aria-controls="commissioner">EKYC Direktur Utama</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" id="document-tab" data-toggle="tab" href="#document" role="tab" aria-controls="document" >Bank/Dokumen Usaha</a>
+                                                    <a class="nav-link" id="director-tab" data-toggle="tab" href="#director" role="tab" aria-controls="director" >EKYC Komisaris Utama</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" id="commissioner-tab" data-toggle="tab" href="#commissioner" role="tab" aria-controls="commissioner">Direktur Utama</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="director-tab" data-toggle="tab" href="#director" role="tab" aria-controls="director" >Komisaris Utama</a>
+                                                    <a class="nav-link" id="vbu-tab" data-toggle="tab" href="#vbu" role="tab" aria-controls="vbu">Verifikasi Perusahaan</a>
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="tab-content" id="myTabContent">
-                                            <div class="tab-pane fade active show" id="business" role="tabpanel" aria-labelledby="business-tab">
+                                            <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">
                                                 <div class="row">
                                                     <div class="x_content">
                                                         <h1>Informasi Perusahaan</h1>
@@ -361,7 +364,7 @@
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div class="tab-pane fade " id="commissioner" role="tabpanel"  aria-labelledby="commissioner-tab">
+                                            <div class="tab-pane fade active show " id="commissioner" role="tabpanel"  aria-labelledby="commissioner-tab">
                                                 <div class="row">
                                                     <div class="col-10">
                                                         <nav aria-label="breadcrumb">
@@ -369,33 +372,33 @@
                                                                 <li class="breadcrumb-item text-bold">Verifikasi Data EKYC dan Direktur Utama</li>
                                                             </ol>
                                                         </nav>
-                                                        
+
                                                         <table id="example1" class="table table-bordered table-striped">
                                                             <thead>
                                                             <tr>
                                                                 <th>Status akun digisign</th>
                                                                 <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->status_activation : '' }}</td>
                                                             </tr>
-                                                            <tr>
-                                                                <th>Email</th>
-                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->email : '' }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Phone</th>
-                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->phone_number : '' }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Nik</th>
-                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->nik : '' }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Last Updated</th>
-                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->updated_at : '' }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Agreement File</th>
-                                                                <td colspan="2">{{$funding->agreementfile ? $funding->agreementfile->document_id : '' }}</td>
-                                                            </tr>
+{{--                                                            <tr>--}}
+{{--                                                                <th>Email</th>--}}
+{{--                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->email : '' }}</td>--}}
+{{--                                                            </tr>--}}
+{{--                                                            <tr>--}}
+{{--                                                                <th>Phone</th>--}}
+{{--                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->phone_number : '' }}</td>--}}
+{{--                                                            </tr>--}}
+{{--                                                            <tr>--}}
+{{--                                                                <th>Nik</th>--}}
+{{--                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->nik : '' }}</td>--}}
+{{--                                                            </tr>--}}
+{{--                                                            <tr>--}}
+{{--                                                                <th>Last Updated</th>--}}
+{{--                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->updated_at : '' }}</td>--}}
+{{--                                                            </tr>--}}
+{{--                                                            <tr>--}}
+{{--                                                                <th>Agreement File</th>--}}
+{{--                                                                <td colspan="2">{{$funding->agreementfile ? $funding->agreementfile->document_id : '' }}</td>--}}
+{{--                                                            </tr>--}}
                                                             <tr>
                                                                 <th>EKYC Log Status</th>
                                                                 <td colspan="2"><button class="btn btn-primary log-director-modal">lihat</button></td>
@@ -677,16 +680,322 @@
                                                                         <i class="fa fa-arrow-left"></i>
                                                                         Kembali
                                                                     </a>
-                                                                    <button class="btn btn-primary" id="update_status_lender" attr="{{$funding->id}}">
-                                                                        <i class="fa fa-check pr-1"></i>
-                                                                        Setuju
-                                                                    </button>
-
+                                                                    <a class="btn btn-primary" href="#myTabContent" onclick="$('#vbu-tab').click()">
+                                                                        Lanjutkan
+                                                                        <i class="fa fa-arrow-right"></i>
+                                                                    </a>
                                                                 </div>
                                                             </table>
                                                         </div>
                                                     </div>
                                                 @endif
+                                            </div>
+
+                                            <div class="tab-pane fade " id="vbu" role="tabpanel"  aria-labelledby="vbu-tab">
+                                                <div class="row">
+                                                    <h3>PENGECEKAN INFORMASI PERUSAHAAN DENGAN AKTA PENDIRIAN</h3>
+                                                    <table id="example1" class="table table-bordered table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>Akta Pendirian</th>
+                                                            <td colspan="3" style="vertical-align:middle">Lihat</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nomor dan Tanggal Akta Pendirian</th>
+                                                            <td colspan="1" style="vertical-align:middle">1234</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Nama Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">PT abc</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Alamat Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">Jl alamat</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <h4>PENGECEKAN INFORMASI PERUSAHAAN DENGAN PENGESAHAN KEMENKUNHAM AKTA PENDIRIAN</h4>
+                                                    <table id="example1" class="table table-bordered table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>Dokumen Pengesahan Kemenkumham</th>
+                                                            <td colspan="3" style="vertical-align:middle">Lihat</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nomor pengesahaan Kemenkumham</th>
+                                                            <td colspan="1" style="vertical-align:middle">123</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nama Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">PT xyz</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Alamat Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">Jl alamat</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <h4>PENGECEKAN INFORMASI PERUSAHAAN DENGAN NOMOR INDUK BERUSAHA</h4>
+                                                    <table id="example1" class="table table-bordered table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>Dokumen Nomor Induk Berusaha (NIB)</th>
+                                                            <td colspan="3" style="vertical-align:middle">Lihat</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nomor Induk Berusaha</th>
+                                                            <td colspan="1" style="vertical-align:middle">123</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nama Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">PT xyz</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Alamat Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">Jl alamat</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <h3>PENGECEKAN INFORMASI PERUSAHAAN DENGAN AKTA PERUBAHAN TERAKHIR</h3>
+                                                    <table id="example1" class="table table-bordered table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>Akta Pendirian</th>
+                                                            <td colspan="3" style="vertical-align:middle">Lihat</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nomor dan Tanggal Akta Pendirian</th>
+                                                            <td colspan="1" style="vertical-align:middle">1234</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Nama Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">PT abc</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Alamat Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">Jl alamat</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                                <div class="row">
+                                                    <h4>PENGECEKAN INFORMASI PERUSAHAAN DENGAN PENGESAHAN KEMENKUNHAM AKTA PERUBAHAN TERAKHIR</h4>
+                                                    <table id="example1" class="table table-bordered table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>Dokumen Pengesahan Kemenkumham</th>
+                                                            <td colspan="3" style="vertical-align:middle">Lihat</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nomor pengesahaan Kemenkumham</th>
+                                                            <td colspan="1" style="vertical-align:middle">123</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nama Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">PT xyz</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Alamat Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">Jl alamat</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <h3>ANALISA BERDASARKAN LAPORAN KEUANGAN</h3>
+                                                    <table id="example1" class="table table-bordered table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>Laporan neraca Keuangan</th>
+                                                            <td colspan="3" style="vertical-align:middle">Lihat</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Laporan Laba Rugi</th>
+                                                            <td colspan="3" style="vertical-align:middle">Lihat</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Laporan Arus Kas</th>
+                                                            <td colspan="3" style="vertical-align:middle">Lihat</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Total Setoran Modal</th>
+                                                            <td colspan="1" style="vertical-align:middle">RP. 1.000.000.000</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Rekomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Belum direkomendasi</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Nilai Aset</th>
+                                                            <td colspan="1" style="vertical-align:middle">RP. 100.000.000</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Rekomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Belum direkomendasi</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Nilai Ekuitas</th>
+                                                            <td colspan="1" style="vertical-align:middle">RP. 800.000.000</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Rekomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Belum direkomendasi</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Kewajiban Jangka Pendek</th>
+                                                            <td colspan="1" style="vertical-align:middle">RP. 1.000.000</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Rekomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Belum direkomendasi</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Pendapatan Tahun Berjalan</th>
+                                                            <td colspan="1" style="vertical-align:middle">RP. 100.000.000</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Rekomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Belum direkomendasi</label></td>
+                                                        </tr>
+
+
+                                                        {{--TEST--}}
+
+                                                        <tr>
+                                                            <th>Dokumen Kartu NPWP</th>
+                                                            <td colspan="3" style="vertical-align:middle">Lihat</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>status Pajak</th>
+                                                            <td colspan="1" style="vertical-align:middle">Non PKP</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Nomor NPWP</th>
+                                                            <td colspan="1" style="vertical-align:middle">23-244432-12214-24</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nama Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">PT xyz</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Alamat Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">Jl alamat</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                                <div class="row">
+                                                    <h3>PENGECEKAN REKENING TRANSAKSI</h3>
+                                                    <table id="example1" class="table table-bordered table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>NAMA PADA REKENING</th>
+                                                            <td colspan="2" style="vertical-align:middle">Tobias</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>NAMA BANK</th>
+                                                            <td colspan="2" style="vertical-align:middle">Mandiri</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>NOMOR REKENING</th>
+                                                            <td colspan="2" style="vertical-align:middle">122381262</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>NOMOR REKENING DANA LENDER (RDL) BNI</th>
+                                                            <td colspan="2" style="vertical-align:middle">123261826</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+
+                                                <div class="card-footer text-center">
+                                                    <button class="btn btn-danger reject_status_lender" id="reject_status_lender" attr="{{$funding->id}}" data-status="reject">
+                                                        <i class="fa fa-close pr-1"></i>
+                                                        Tolak
+                                                    </button>
+                                                    <a class="btn btn-secondary" href="#myTabContent" onclick="$('#director-tab').click()">
+                                                        <i class="fa fa-arrow-left"></i>
+                                                        Kembali
+                                                    </a>
+                                                    <a class="btn btn-primary" attr="{{$funding->id}}" href="javascript:void(0)" id="approve_individual_lender">
+                                                        Setujui
+                                                        <i class="fa fa-check pr-1"></i>
+                                                    </a>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>

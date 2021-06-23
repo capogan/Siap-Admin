@@ -21,18 +21,18 @@
                 </ul>
             </li>
             @endcan
-            @canany(['Permintaan Pendanaan', 'Permintaan Pendanaan Individual'])
-            <li class="{{ request()->is('funding/verification/*') ? "active" : ""  }}"><a><i class="fa fa-users"></i> Pendanaan <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                    @can('Permintaan Pendanaan')
-                    <li><a href="/funding">Permintaan Pendanaan</a></li>
-                    @endcan
-                    @can('Permintaan Pendanaan Individual')
-                    <li><a href="/funding/individu">Permintaan Pendanaan Individual</a></li>
-                    @endcan
-                </ul>
-            </li>
-            @endcan
+{{--            @canany(['Permintaan Pendanaan', 'Permintaan Pendanaan Individual'])--}}
+{{--            <li class="{{ request()->is('funding/verification/*') ? "active" : ""  }}"><a><i class="fa fa-users"></i> Pendanaan <span class="fa fa-chevron-down"></span></a>--}}
+{{--                <ul class="nav child_menu">--}}
+{{--                    @can('Permintaan Pendanaan')--}}
+{{--                    <li><a href="/funding">Permintaan Pendanaan</a></li>--}}
+{{--                    @endcan--}}
+{{--                    @can('Permintaan Pendanaan Individual')--}}
+{{--                    <li><a href="/funding/individu">Permintaan Pendanaan Individual</a></li>--}}
+{{--                    @endcan--}}
+{{--                </ul>--}}
+{{--            </li>--}}
+{{--            @endcan--}}
             @canany(['Permintaan Pendanaan', 'Permintaan Pendanaan Individual'])
              <li class="{{ request()->is('verification/data/lender/*') ? "active" : ""  }}"><a href="/verification/data/lender/"><i class="fa fa-users"></i> Lender </a></li>
             @endcan
