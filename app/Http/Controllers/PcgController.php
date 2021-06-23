@@ -376,6 +376,7 @@ class PcgController extends Controller
     }
 
     public function paging_shipping(Request $request){
+
         $member_code =  Auth::user()->member_code;
         $loan_request = DB::table('view_request_loan')->where('request_loan_status','29')->where('request_loan_member_code',$member_code)->orderBy('request_loan_created_at','DESC')->get();
         return DataTables::of($loan_request)->addIndexColumn()->make(true);
