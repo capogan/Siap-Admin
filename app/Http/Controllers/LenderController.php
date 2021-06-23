@@ -53,6 +53,10 @@ class LenderController extends Controller
             ->with('eqycdata')
             ->with('agreementfile')
             ->where('id' , $id)->first();
+
+//            echo "<pre>";
+//            print_r($lender);
+//            die();
             $eqyc_logs = DigiSignDocumentLogs::where('uid' , $id)->get();
             $eqyc_signers_logs = DigiSignSignersLogs::where('uid' , $id)->get();
             $eqyc_document_logs = DigiSignDocumentLogs::where('uid' , $id)->get();
