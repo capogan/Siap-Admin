@@ -816,14 +816,14 @@
                                                         </tr>
                                                         <tr>
                                                             <th>Nomor dan Tanggal Akta Pendirian</th>
-                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->last_akta_perubahan}}</td>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->last_akta_perubahan ? $funding->business->last_akta_perubahan :'' }}</td>
                                                             <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_10" id="akta_pendirian_10">Sama</label></td>
                                                             <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_10" id="akta_pendirian_10">Beda</label></td>
                                                         </tr>
 
                                                         <tr>
                                                             <th>Nama Perusahaan</th>
-                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->business_name}}</td>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->business_name }}</td>
                                                             <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_11" id="akta_pendirian_11">Sama</label></td>
                                                             <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_11" id="akta_pendirian_11">Beda</label></td>
                                                         </tr>
@@ -855,7 +855,7 @@
                                                         </tr>
                                                         <tr>
                                                             <th>Nomor pengesahaan Kemenkumham</th>
-                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->letter_change_pengesahan_kemenkunham}}</td>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->letter_change_pengesahan_kemenkunham ? $funding->business->letter_change_pengesahan_kemenkunham : ''}}</td>
                                                             <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_13" id="akta_pendirian_13">Sama</label></td>
                                                             <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_13" id="akta_pendirian_13">Beda</label></td>
                                                         </tr>
