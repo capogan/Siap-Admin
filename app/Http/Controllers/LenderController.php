@@ -114,7 +114,7 @@ class LenderController extends Controller
     public function verification_paging(Request $request){
         return DataTables::of(
             User::Join('lender_verification' ,'lender_verification.uid' ,'users.id' )
-            ->where('users.group','lender')
+            ->where('users.group','lender')->where('status','register')
             //->where('lender_verification.sign_agreement',true)
             //->WhereNull('status')
             ->orderBy('users.created_at','DESC')->get()
