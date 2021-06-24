@@ -85,7 +85,7 @@
                             @endforeach
                         @endif
                     </div>
-                    <button class="btn btn-warning" id="check_ekyc_button">Rincian EQYK</button>
+                    <button class="btn btn-warning" id="check_ekyc_button">Rincian EKYC</button>
                     <span class="e_result"></span>
                     <div class="ln_solid"></div>
                     <button type="button" class="btn btn-primary next-step float-right">Selanjutnya ></button>
