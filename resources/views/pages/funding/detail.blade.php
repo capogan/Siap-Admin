@@ -72,7 +72,7 @@
                                                                 <div class="card-body box-profile">
                                                                     <div class="text-center">
                                                                         <img class="profile-user-img img-fluid img-circle"
-                                                                            src="https://siapdanain.id/upload/lender/file/{{$item->identity_photo}}">
+                                                                            src="https://siapdanain.id/upload/lender/file/{{$item->self_photo}}">
                                                                     </div>
                                                                     <h5 class="profile-username text-center pt-5">Foto Direktur </h5>
                                                                 </div>
@@ -84,7 +84,7 @@
                                                                 <div class="card-body box-profile">
                                                                     <div class="text-center">
                                                                         <img class="profile-user-img img-fluid img-circle"
-                                                                            src="https://siapdanain.id/upload/lender/file/{{$item->self_photo}}">
+                                                                            src="https://siapdanain.id/upload/lender/file/{{$item->identity_photo}}">
                                                                     </div>
                                                                     <h5 class="profile-username text-center pt-5">Foto KTP</h5>
 

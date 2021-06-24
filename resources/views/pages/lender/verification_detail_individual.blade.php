@@ -55,7 +55,7 @@
                                                     <a class="nav-link active" id="commissioner-tab" data-toggle="tab" href="#commissioner" role="tab" aria-controls="commissioner">Dokumen</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" id="director-tab" data-toggle="tab" href="#director" role="tab" aria-controls="Director">EQYC</a>
+                                                    <a class="nav-link" id="document-tab" data-toggle="tab" href="#document" role="tab" aria-controls="document" >{{$funding->individuinfo->individualjob ? 'Informasi Pekerjaan' : 'Informasi Usaha'}}</a>
                                                 </li>
 
 
@@ -293,6 +293,10 @@
                                                                     <i class="fa fa-close pr-1"></i>
                                                                     Tolak
                                                                 </button>
+                                                                <a class="btn btn-secondary" href="#myTabContent" onclick="$('#director-tab').click()">
+                                                                    <i class="fa fa-arrow-left"></i>
+                                                                    Kembali
+                                                                </a>
                                                                 <a class="btn btn-primary" href="#myTabContent" onclick="$('#document-tab').click()">
                                                                     Lanjutkan
                                                                     <i class="fa fa-arrow-right"></i>
@@ -575,6 +579,10 @@
                                                     </a>
                                                 </div>
                                             </div>
+<<<<<<< HEAD
+                                            
+                                            <div class="tab-pane fade " id="commissioner" role="tabpanel"  aria-labelledby="commissioner-tab">
+=======
                                             <div class="tab-pane fade" id="director" role="tabpanel" aria-labelledby="director-tab">
                                                 <div class="row">
                                                     <div class="col-3">
@@ -688,6 +696,7 @@
                                                     </div>
                                             </div> 
                                             <div class="tab-pane fade active show" id="commissioner" role="tabpanel"  aria-labelledby="commissioner-tab">
+>>>>>>> b914d832e041b2a3d2e153e11c937d7c4bb61140
                                                     <div class="row">
                                                     @if($funding->individuinfo->individufile != '' || $funding->individuinfo->individufile !== null)
                                                         <h3>Unggah Berkas Pribadi</h3>
@@ -974,4 +983,13 @@
 @endsection
 @section('js')
 <script src="{{ asset('/js/lender_verification.js') }}"></script>
+<script>
+$('#check_ekyc_button').click(function(){
+
+    var dialog = bootbox.dialog({
+        title: 'Rincian EKYC',
+        message: '<p>'+ $("#log_messages_ekyc").html()+'</p>'
+    });
+});
+</script>
 @endsection

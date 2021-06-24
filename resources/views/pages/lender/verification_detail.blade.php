@@ -401,7 +401,7 @@
 {{--                                                            </tr>--}}
                                                             <tr>
                                                                 <th>EKYC Log Status</th>
-                                                                <td colspan="2"><button class="btn btn-primary log-director-modal">lihat</button></td>
+                                                                <td colspan="2"><button class="btn btn-primary log-director-modal" id="digisign_director_logs">lihats</button></td>
                                                             </tr>
                                                             </thead>
                                                         </table>
@@ -416,7 +416,7 @@
                                                                 <div class="card-body box-profile">
                                                                     <div class="text-center">
                                                                         <img class="profile-user-img img-fluid"
-                                                                            src="https://siapdanain.id/upload/lender/file/{{$item->identity_photo}}">
+                                                                            src="https://siapdanain.id/upload/lender/file/{{$item->self_photo}}">
                                                                     </div>
                                                                     <h5 class="profile-username text-center pt-5">Foto Direktur </h5>
                                                                 </div>
@@ -425,7 +425,7 @@
                                                                 <div class="card-body box-profile">
                                                                     <div class="text-center">
                                                                         <img class="profile-user-img img-fluid"
-                                                                            src="https://siapdanain.id/upload/lender/file/{{$item->self_photo}}">
+                                                                            src="https://siapdanain.id/upload/lender/file/{{$item->identity_photo}}">
                                                                     </div>
                                                                     <h5 class="profile-username text-center pt-5">Foto KTP</h5>
 
@@ -539,7 +539,7 @@
                                                                     <div class="card-body box-profile">
                                                                         <div class="text-center">
                                                                             <img class="profile-user-img img-fluid"
-                                                                                src="https://siapdanain.id/upload/lender/file/{{$item->identity_photo}}">
+                                                                                src="https://siapdanain.id/upload/lender/file/{{$item->self_photo}}">
                                                                         </div>
                                                                         <h5 class="profile-username text-center pt-5">Foto Komisaris Utama</h5>
                                                                     </div>
@@ -1037,7 +1037,14 @@
             </div>
         </section>
     </div>
+
 @endsection
 @section('js')
 <script src="{{ asset('/js/lender_verification.js') }}"></script>
+
+<script>
+    $(document).on('click', '#digisign_director_logs', function(){
+
+    });
+</script>
 @endsection

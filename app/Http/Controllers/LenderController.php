@@ -38,6 +38,25 @@ class LenderController extends Controller
         ];
         return view('pages.lender.verification', $this->merge_response($data, static::$CONFIG));
     }
+    
+    // public function scoring_message($id_loan){
+    //     $credit_limit = RequestLoanCurrentScore::where('id_request_loan',$id_loan)->first();
+    //     $scoring = json_decode($credit_limit , true);
+    //     if(array_key_exists('detail_scoring' , $scoring)){
+    //         $s = json_decode($scoring['detail_scoring'] , true);
+    //         if(array_key_exists('message' , $s)){
+    //             return $s['message'];//$data_scoring['message'];
+    //         }
+    //     }
+    //     return  array(
+    //         'credit_limit' => '',
+    //         'credibiliti_status' => '',
+    //         'credibiliti_percentage' => '',
+    //         'max'
+    //     );
+
+    // }
+
 
     public function verification_lender_data($id){
 
@@ -57,15 +76,19 @@ class LenderController extends Controller
 //            echo "<pre>";
 //            print_r($lender);
 //            die();
+            $eqyc = DigiSignLogs::where('uid' , $id)->get();
             $eqyc_logs = DigiSignDocumentLogs::where('uid' , $id)->get();
             $eqyc_signers_logs = DigiSignSignersLogs::where('uid' , $id)->get();
             $eqyc_document_logs = DigiSignDocumentLogs::where('uid' , $id)->get();
+            //print_r($eqyc->toArray()); exit;
             $data = [
                 'funding'=> $lender,
+                'eqyc' => $eqyc,
                 'eqyc_logs' => $eqyc_logs,
                 'eqyc_signers_logs' => $eqyc_signers_logs,
                 'eqyc_document_logs' => $eqyc_document_logs,
             ];
+            
             return view('pages.lender.verification_detail', $this->merge_response($data, static::$CONFIG));
         }else{
             $eqyc_logs = DigiSignLogs::where('uid' , $id)->get();
@@ -73,8 +96,7 @@ class LenderController extends Controller
             $eqyc_document_logs = DigiSignDocumentLogs::where('uid' , $id)->get();
 
             $lender = User::with('individuinfo')
-                            ->where('id' , $id)->first();
-                            
+                            ->where('id' , $id)->first();       
             $data = [
                 'eqcy' => DigisignActivation::where('uid' , $id)->first(),
                 'funding'=> $lender,
