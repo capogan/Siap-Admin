@@ -509,48 +509,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 ">
-                                <div class="x_panel">
-                                    <div class="x_title">
-                                        <h2>Review Fintech Data Center(FDC)</h2>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="x_content">
 
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="card-box table-responsive">
-                                                    <table id="history_table" class="table table-striped table-bordered" style="width:100%">
-                                                        <thead>
-                                                        <tr>
-                                                            <th>ID Pelanggan</th>
-                                                            <th>No KTP</th>
-                                                            <th>Nama</th>
-                                                            <th>Nilai Pinjaman</th>
-                                                            <th>Tanggal Pencairan</th>
-                                                            <th>Tanggal Jatuh Tempo</th>
-                                                            <th>DPD Terakhir</th>
-                                                            <th>DPD Max</th>
-                                                            <th>Sisa Pinjaman</th>
-                                                            <th>Kualitas Pinjaman</th>
-                                                            <th>Status Pinjaman</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-
-                                                        </tbody>
-                                                    </table>
-                                                    <button class="btn btn-success"><i class="fa fa-refresh" aria-hidden="true"></i> Periksa FDC</button>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="ln_solid"></div>
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="col-md-12 col-sm-12 ">
                                 <div class="x_panel">
@@ -725,7 +684,48 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 ">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Review Fintech Data Center(FDC)</h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
 
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="card-box table-responsive">
+                                                    <table id="history_table" class="table table-striped table-bordered" style="width:100%">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>ID Pelanggan</th>
+                                                            <th>No KTP</th>
+                                                            <th>Nama</th>
+                                                            <th>Nilai Pinjaman</th>
+                                                            <th>Tanggal Pencairan</th>
+                                                            <th>Tanggal Jatuh Tempo</th>
+                                                            <th>DPD Terakhir</th>
+                                                            <th>DPD Max</th>
+                                                            <th>Sisa Pinjaman</th>
+                                                            <th>Kualitas Pinjaman</th>
+                                                            <th>Status Pinjaman</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        </tbody>
+                                                    </table>
+                                                    <button class="btn btn-success"><i class="fa fa-refresh" aria-hidden="true"></i> Periksa FDC</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="ln_solid"></div>
+                            </div>
+                        </div>
                         <div class="row">
 
                             <div class="col-md-12 col-sm-12 ">
