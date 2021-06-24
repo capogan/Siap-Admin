@@ -37,9 +37,23 @@ class FundingController extends Controller
         ->with('directors')->with('commissioners')->with('rekening')->where('request_funding.id' ,$id )
         ->first();
 
+        $data_crm = array(
+
+            'Nama Pemohon' => $get_data_business->username ?? "-",
+            'nomor Telepon Tempat Usaha' => $get_data_business->business_phone_number ??  "-",
+            'Alamat tempat usaha' => $get_data_business->business_name ?? '-',
+            'Bidang usaha' => $get_data_business->industry_sectore ?? '-',
+            'Detail Jenis Bidang Usaha' =>$get_data_business->business_description ?? '-',
+            'Badan Hukum Usaha' => $get_data_business->legality_name ?? '-',
+            'Status Tempat Usaha' => $get_data_business->place_status_name ?? '-',
+            'rata Pendapatan penjualan Perbulan dalam 6 bulan terakhir' => $get_data_business->average_sales_revenue_six_month ?? '-',
+            'rata - rata Pengeluaran Perbulan dalam dalam 6 bulan terakhir' => $get_data_business->average_monthly_expenditure_six_month ?? '-',
+            'rata-rata Keuntungan perbulan dalam 6 bulan terakhir' => $get_data_business->average_monthly_profit_six_month ?? '-',
+        );
         
         $data = [
             'funding'=> $funding,
+            'data_crm'=> $data_crm,
         ];
         return view('pages.funding.detail', $this->merge_response($data, static::$CONFIG));
     }

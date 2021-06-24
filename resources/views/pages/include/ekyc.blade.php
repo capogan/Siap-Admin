@@ -71,15 +71,21 @@
                             @foreach ($ekyc_logs as $item)
                                 <?php 
                                 $nofif = json_decode($item->response , true);
-                                if(array_key_exists('JSONFile' , $nofif)){
-                                    echo '<p>'.$nofif['JSONFile']['notif'].'</p>';
+                                if($nofif != null)
+                                {
+                                    if(array_key_exists('JSONFile' , $nofif)){
+                                        echo '<p>'.$nofif['JSONFile']['notif'].'</p>';
+                                    }
+                                }else{
+                                    echo '<p>Data di reject</p>';
                                 }
+
                                 ?>
                                 
                             @endforeach
                         @endif
                     </div>
-                    <button class="btn btn-warning" id="check_ekyc_button">Rincian EQYK</button>
+                    <button class="btn btn-warning" id="check_ekyc_button">Rincian EKYC</button>
                     <span class="e_result"></span>
                     <div class="ln_solid"></div>
                     <button type="button" class="btn btn-primary next-step float-right">Selanjutnya ></button>

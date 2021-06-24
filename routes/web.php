@@ -44,10 +44,11 @@ Route::group(['middleware' => ['permission:Permintaan Pinjaman']], function () {
     Route::post('/loan/add/description/crm', 'LoanController@add_description_crm')->name('loan.add.description.crm');
     Route::post('/loan/get/invoice', 'LoanController@get_invoice')->name('loan.get.invoice');
     Route::post('/pcg/set/score','PcgController@set_loan_score')->name('pcg.set.score');
-
-
     Route::post('/loan/reason/approve', 'LoanController@reason_approve')->name('loan.reason.approve');
 });
+
+
+//Route::post('/funding/add/description/crm', 'LoanController@add_description_crm')->name('loan.add.description.crm');
 
 Route::group(['middleware' => ['permission:Kredit Score']], function () {
     Route::get('/credit/score', 'CreditScoreController@index')->name('loan.credit.score');
@@ -157,7 +158,9 @@ Route::group(['middleware' => ['permission:Pengguna']], function () {
     Route::get('/setting/users/add','SettingController@add_user_admin')->name('setting.user.admin.add');
     Route::post('/setting/users/add','SettingController@store_user_admin')->name('setting.user.admin.add');
     Route::get('/setting/users/add/pcg','SettingController@add_pcg')->name('setting.user.admin.add.pcg');
-    Route::post('setting/users/add/pcg','SettingController@add_pcg_store')->name('setting.user.admin.add.pcg');
+    Route::post('/setting/users/add/pcg','SettingController@add_pcg_store')->name('setting.user.admin.add.pcg');
+    Route::post('/setting/pcg/add/code','SettingController@add_code_member')->name('setting..add.code');
+
 });
 
 Route::group(['middleware' => ['permission:Wewenang']], function () {

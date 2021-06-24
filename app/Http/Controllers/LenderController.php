@@ -72,16 +72,23 @@ class LenderController extends Controller
             ->with('eqycdata')
             ->with('agreementfile')
             ->where('id' , $id)->first();
+
+//            echo "<pre>";
+//            print_r($lender);
+//            die();
+            $eqyc = DigiSignLogs::where('uid' , $id)->get();
             $eqyc_logs = DigiSignDocumentLogs::where('uid' , $id)->get();
             $eqyc_signers_logs = DigiSignSignersLogs::where('uid' , $id)->get();
             $eqyc_document_logs = DigiSignDocumentLogs::where('uid' , $id)->get();
-
+            //print_r($eqyc->toArray()); exit;
             $data = [
                 'funding'=> $lender,
+                'eqyc' => $eqyc,
                 'eqyc_logs' => $eqyc_logs,
                 'eqyc_signers_logs' => $eqyc_signers_logs,
                 'eqyc_document_logs' => $eqyc_document_logs,
             ];
+            
             return view('pages.lender.verification_detail', $this->merge_response($data, static::$CONFIG));
         }else{
             $eqyc_logs = DigiSignLogs::where('uid' , $id)->get();

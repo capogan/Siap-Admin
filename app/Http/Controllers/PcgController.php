@@ -319,12 +319,12 @@ class PcgController extends Controller
 
         ])->update
         ([
-            "status" => '21',
+            "status" => '27',
             "updated_at"=>date('Y-m-d H:i:s'),
         ]);
 
 
-        $loan = LoanRequest::where('id',$id_loan)->first();
+       /* $loan = LoanRequest::where('id',$id_loan)->first();
         $periode = $loan->periode;
         $loan_amount = $loan->loan_amount;
         if($periode == '14')
@@ -360,7 +360,7 @@ class PcgController extends Controller
 
             ]);
 
-        }
+        }*/
 
         $message = "Pengiriman barang berhasil";
         return json_encode(['status'=> true, 'message'=> $message]);
@@ -377,7 +377,8 @@ class PcgController extends Controller
 
     public function paging_shipping(Request $request){
 
-        $loan_request = DB::table('view_request_loan')->whereIn('request_loan_status',['27','28'])->orderBy('request_loan_created_at','DESC')->get();
+        $member_code =  Auth::user()->member_code;
+        $loan_request = DB::table('view_request_loan')->where('request_loan_status','29')->where('request_loan_member_code',$member_code)->orderBy('request_loan_created_at','DESC')->get();
         return DataTables::of($loan_request)->addIndexColumn()->make(true);
     }
 

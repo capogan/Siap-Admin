@@ -18,16 +18,16 @@ class LenderBusiness extends Model
         return $this->hasOne(User::class);
     }
     public function province(){
-        return $this->hasOne(Province::class , 'id' , 'province_id');
+        return $this->hasOne(Province::class , 'id' , 'id_province');
     }
     public function regency(){
-        return $this->hasOne(Regency::class , 'id' ,'regency_id');
+        return $this->hasOne(Regency::class , 'id' ,'id_regency');
     }
 
     public function district(){
-        return $this->hasOne(District::class , 'id' , 'district_id');
+        return $this->hasOne(District::class , 'id' , 'id_district');
     }
     public function village(){
-        return $this->hasOne(Village::class , 'id' ,'village_id');
+        return $this->hasOne(Village::class , 'id' ,'id_village');
     }
 }

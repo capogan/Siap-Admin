@@ -69,7 +69,8 @@ class VerificationController extends Controller
         where('uid',$uid)->first();
         $get_data_document = UserFile::where('uid',$uid)->first();
 
-        $phone_description = PhoneDescription::where('id_request_loan',$id_loan)->get();
+        $phone_description = PhoneDescription::where('id_request_loan',$id_loan)->where('status',2)->get();
+        $phone_description_emergency = PhoneDescription::where('id_request_loan',$id_loan)->where('status',1)->get();
 
         $phone_verification = PhoneVerification::where('id_request_loan',$id_loan)->first();
         
@@ -93,7 +94,8 @@ class VerificationController extends Controller
             'get_data_document'=> $get_data_document,
             'phone_description'=> $phone_description,
             'phone_verification'=> $phone_verification,
-            'credit_limit' => $msg_scoring
+            'credit_limit' => $msg_scoring,
+            'phone_description_emergency' => $phone_description_emergency
         ];
         return view('pages.verification.detail', $this->merge_response($data, static::$CONFIG));
 

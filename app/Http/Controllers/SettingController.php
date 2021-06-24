@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\AdminUsers;
 use App\AdminUsersMemberCode;
+use App\MasterBank;
 use App\PcgMemberCode;
 use App\Permissions;
 use App\Roles;
@@ -167,8 +168,10 @@ class SettingController extends Controller
     public function add_pcg(Request $request){
 
         $pcg_member_code = PcgMemberCode::orderBy('id','ASC')->get();
+        $list_bank = MasterBank::get();
         $data = [
-            'pcg_member_code'=> $pcg_member_code
+            'pcg_member_code'=> $pcg_member_code,
+            'list_bank'=> $list_bank
         ];
         return view('pages.settings.userpcg.add', $this->merge_response($data, static::$CONFIG));
     }
@@ -180,7 +183,9 @@ class SettingController extends Controller
             'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:admin_users'],
             'password' => ['required', 'string', 'min:8'],
-            'member_code_list'=>['required']
+            'member_code_list'=>['required'],
+            'id_bank'=>['required'],
+            'bank_account'=>['required'],
 
         ],[
             'username.required' => 'Username harus di isi',
@@ -206,7 +211,9 @@ class SettingController extends Controller
                     'phone_number'      => $request->phone_number,
                     'address'           => $request->address,
                     'created_by'        => Auth::user()->name,
-                    'member_code'        => $request->member_code_list,
+                    'member_code'       => $request->member_code_list,
+                    'id_bank'           => $request->id_bank,
+                    'bank_account'      => $request->bank_account,
 
                 ]);
 
@@ -230,6 +237,35 @@ class SettingController extends Controller
         }
 
         return json_encode(['status'=> true, 'message'=> 'Sukses menambahkan pengguna']);
+    }
+
+    public function add_code_member(Request $request){
+
+//        PcgMemberCode
+        $validator = Validator::make($request->all(), [
+            'member_code' => ['required'],
+
+        ],[
+            'member_code.required' => 'Kode Member harus di isi',
+        ]);
+
+        if ($validator->fails()) {
+            return json_encode(['status'=> false, 'message'=> $validator->messages() ]);
+        }else {
+
+            $member_code = PcgMemberCode::create([
+
+                'member_code'       => $request->member_code,
+                'created_at'        => date('Y-m-d H:i:s'),
+                'updated_at'        => date('Y-m-d H:i:s'),
+
+            ]);
+
+        }
+
+        $message = "Berhasil membuat kode member";
+        return json_encode(['status'=> true, 'message'=> $message]);
+
     }
 
 

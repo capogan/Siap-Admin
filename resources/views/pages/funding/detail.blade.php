@@ -55,9 +55,9 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile1" role="tab" aria-controls="profile" aria-selected="false">Komisaris Utama</a>
                                                 </li>
-{{--                                                <li class="nav-item">--}}
-{{--                                                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact1" role="tab" aria-controls="contact" aria-selected="false">EKYC Perusahaan</a>--}}
-{{--                                                </li>--}}
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact1" role="tab" aria-controls="contact" aria-selected="false">Verifikasi Perusahaan</a>
+                                                </li>
                                             </ul>
                                         </div>
                                         <div class="tab-content" id="myTabContent">
@@ -367,15 +367,51 @@
 
 
                                             <div class="tab-pane fade" id="contact1" role="tabpanel" aria-labelledby="contact-tab">
+
                                                 <div class="row">
-                                                    <div class="col">
-                                                        <nav aria-label="breadcrumb">
-                                                            <ol class="breadcrumb">
-                                                                <li class="breadcrumb-item text-bold">EKYC Perusahaan</li>
-                                                            </ol>
-                                                        </nav>
+                                                <div class="x_panel" style="border:none">
+                                                    <div class="x_title">
+                                                        <h2>Penyamaan Data</h2>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <div class="x_content">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col">
+
+                                                                    @foreach($data_crm as $key => $val)
+                                                                        <div class="row">
+                                                                            <div class="col">
+                                                                                <p>{{$key}}</p>
+                                                                                <input type="hidden" value="{{$key}}" id="variable" name="variable[]">
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <p>{{$val}}</p>
+                                                                                <input type="hidden" value="{{$val}}" id="data_user" name="data_user_{{ $loop->iteration }}">
+                                                                            </div>
+
+                                                                            <div class="col">
+                                                                                <label><input type="radio" name="result_{{ $loop->iteration }}" value="1" class="flat"> Sama</label>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <label><input type="radio" name="result_{{ $loop->iteration }}"  value="0" class="flat"> Beda</label>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <input type="text" placeholder="keterangan" id="description_{{ $loop->iteration }}" name="description_{{ $loop->iteration }}" class="form-control ">
+                                                                            </div>
+                                                                        </div>
+                                                                        <br>
+                                                                @endforeach
+
+                                                                <!--form end-->
+                                                                </div>
+                                                                <!---->
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                            </div>
+
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <table>

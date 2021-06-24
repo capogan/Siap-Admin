@@ -110,8 +110,9 @@ class LoanController extends Controller
             'rata-rata Keuntungan perbulan dalam 6 bulan terakhir' => $get_data_business->average_monthly_profit_six_month ?? '-',
         );
 
+        $phone_description_emergency_contact = PhoneDescription::where('id_request_loan',$id_loan)->where('status',1)->get();
 
-        $phone_description = PhoneDescription::where('id_request_loan',$id_loan)->get();
+        $phone_description = PhoneDescription::where('id_request_loan',$id_loan)->where('status',2)->get();
         $get_data_users = DB::table('view_request_loan')->where('id',$id_loan)->first();
         $scoring = RequestLoanCurrentScore::where('id_request_loan' , $id_loan)->first();
 
@@ -124,6 +125,7 @@ class LoanController extends Controller
             'get_data_emergency'=>$get_data_emergency,
             'loan_request'=> $loan_request,
             'get_data_document'=> $get_data_document,
+            'phone_description_emergency_contact'=> $phone_description_emergency_contact,
             'phone_description'=> $phone_description,
             'scoring'=>$scoring,
             'ekyc' => DigisignActivation::where('uid' , $uid)->first(),
@@ -351,6 +353,7 @@ class LoanController extends Controller
             'created_at'                => date('Y-m-d H:i:s'),
             'updated_at'                => date('Y-m-d H:i:s'),
             'updated_by'                => Auth::user()->name,
+            'status'                    => $request->id_status_phone,
         ]);
         $message = "Deskripsi berhasil ditambahkan";
         return json_encode(['status'=> true, 'message'=> $message,'data'=>$data]);

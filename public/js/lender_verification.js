@@ -66,6 +66,85 @@ $(document ).ready(function() {
     });
 });
 
+$('#btn_desc_add_1').click(function(){
+    $("#phone_status").val("");
+    $("#description").val("");
+    $('#modal_add_crm_description').modal({backdrop: 'static', keyboard: false})
+    $("#id_status_phone").val("1");
+});
+
+
+$("#add_crm_description_form").on("submit", function(event) {
+
+    event.preventDefault();
+
+    var btn = $("#btn_submit_voucher");
+    btn.attr("disabled", "disabled");
+
+    var token = $('meta[name="csrf-token"]').attr('content');
+
+    $.ajax({
+        url: '/funding/add/description/crm',
+        method:"POST",
+        headers: {
+            'X-CSRF-TOKEN': token
+        },
+        async:true,
+        data:new FormData(this),
+        contentType: false,
+        cache: false,
+        processData: false,
+        success:function(response)
+        {
+            var text = '';
+            var res = JSON.parse(response);
+            if(res.status) {
+                $("#alert-message").removeClass('alert-danger alert-dismissible ').addClass('alert-success alert-dismissible').html(res.message);
+                var status_text = '';
+                if(res.data.phone_status == '1'){
+                    var status_text = 'Tidak Aktif';
+                }
+                else if(res.data.phone_status == '2'){
+                    var status_text = 'Tidak ditempat';
+                }
+                else if(res.data.phone_status == '3'){
+                    var status_text = 'Nomor Salah';
+                }
+                else if(res.data.phone_status == '4'){
+                    var status_text = 'Tidak ditempat';
+                }
+                else if(res.data.phone_status == '5'){
+                    var status_text = 'Tersambung';
+                }
+                else if(res.data.phone_status == '6'){
+                    var status_text = 'Pemohon meminta reschedule telepon';
+                }
+
+                $("#table_description_crm_3").find('tbody').append('<tr>' +
+                    '<td  class="number">'+($('.number').length +1 ) +'</td>' +
+                    '<td>'+res.data.created_at+'</td>' +
+                    '<td>'+status_text+'</td>' +
+                    '<td>'+res.data.phone_description+'</td>' +
+                    '<td>-</td>' +
+                    '<td>'+res.data.updated_by+'</td>' +
+                    '</tr>');
+                setTimeout(function() {
+                    $("#alert-message").fadeOut();
+                    $('#modal_add_crm_description').modal('toggle');
+                }, 2000);
+
+
+            }else{
+
+                $.each(res.message, function( index, value ) {
+                    text += '<p class="error"><i data-feather="x-square"></i> '+ value[0]+'</p>';
+                });
+                $("#alert-message").removeClass('alert-success alert-dismissible ').addClass('alert-danger alert-dismissible').html(text);
+            }
+        }
+    })
+});
+
 
 function update_status_lender(status , id){
     var token = $('meta[name="csrf-token"]').attr('content');

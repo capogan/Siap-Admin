@@ -31,10 +31,18 @@ $( document ).ready(function() {
 
     //End Wizard
 
-    $('#btn_desc_add').click(function(){
+    $('#btn_desc_add_1').click(function(){
         $("#phone_status").val("");
         $("#description").val("");
         $('#modal_add_crm_description').modal({backdrop: 'static', keyboard: false})
+        $("#id_status_phone").val("1");
+    });
+
+    $('#btn_desc_add_2').click(function(){
+        $("#phone_status").val("");
+        $("#description").val("");
+        $('#modal_add_crm_description').modal({backdrop: 'static', keyboard: false})
+        $("#id_status_phone").val("2");
     });
 
     $('#check_ekyc_button').click(function(){
@@ -336,19 +344,34 @@ $( document ).ready(function() {
                     else if(res.data.phone_status == '6'){
                         var status_text = 'Pemohon meminta reschedule telepon';
                     }
-                    $("#table_description_crm").find('tbody').append('<tr>' +
-                        '<td  class="number">'+($('.number').length +1 ) +'</td>' +
-                        '<td>'+res.data.created_at+'</td>' +
-                        '<td>'+status_text+'</td>' +
-                        '<td>'+res.data.phone_description+'</td>' +
-                        '<td>-</td>' +
-                        '<td>'+res.data.updated_by+'</td>' +
-                        '</tr>');
-                    setTimeout(function() {
-                        $("#alert-message").fadeOut();
-                        $('#modal_add_crm_description').modal('toggle');
-                    }, 2000);
 
+                    if(res.data.status == '1'){
+                        $("#table_description_crm_1").find('tbody').append('<tr>' +
+                            '<td  class="number">'+($('.number').length +1 ) +'</td>' +
+                            '<td>'+res.data.created_at+'</td>' +
+                            '<td>'+status_text+'</td>' +
+                            '<td>'+res.data.phone_description+'</td>' +
+                            '<td>-</td>' +
+                            '<td>'+res.data.updated_by+'</td>' +
+                            '</tr>');
+                        setTimeout(function() {
+                            $("#alert-message").fadeOut();
+                            $('#modal_add_crm_description').modal('toggle');
+                        }, 2000);
+                    }else{
+                        $("#table_description_crm_2").find('tbody').append('<tr>' +
+                            '<td  class="number">'+($('.number').length +1 ) +'</td>' +
+                            '<td>'+res.data.created_at+'</td>' +
+                            '<td>'+status_text+'</td>' +
+                            '<td>'+res.data.phone_description+'</td>' +
+                            '<td>-</td>' +
+                            '<td>'+res.data.updated_by+'</td>' +
+                            '</tr>');
+                        setTimeout(function() {
+                            $("#alert-message").fadeOut();
+                            $('#modal_add_crm_description').modal('toggle');
+                        }, 2000);
+                    }
                 }else{
 
                     $.each(res.message, function( index, value ) {
@@ -456,8 +479,13 @@ function calculate_scoring(){
         success:function(response)
         {
 
+
             $('#total_score').text(response.data.credit_score+' %');
             $('#score').text(response.data.score);
+
+
+
+
             if(response.data.status == true){
                 $('#btn_send_loan').show();
                 $('#status_score').text(response.data.message.credibiliti_status);
@@ -468,7 +496,9 @@ function calculate_scoring(){
                 ribuan	= ribuan.join('.').split('').reverse().join('');
                 $('#credit_limit').text('Rp.'+ribuan);
                 $('#scoring_next').show();
-               if(response.data.message.max < 40)
+                console.log(response.data.message);
+
+               if(cl < $("#status_score").val())
                {
                    $('#btn_reject_credit_scoring').show();
                    $("#scoring_next").removeClass('next-step');

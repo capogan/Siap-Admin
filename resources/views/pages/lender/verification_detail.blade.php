@@ -31,7 +31,7 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-11">
-                                        <h5 class="card-title text-bold">Verifikasi Data dan EKYC</h5>
+                                        <h5 class="card-title text-bold">Verifikasi Data dan EKYC Pendana Badan Hukum</h5>
                                     </div>
                                     <div class="col">
                                     </div>
@@ -46,22 +46,25 @@
                                         <div class="x_content">
 
                                             <ul class="nav nav-tabs justify-content-end bar_tabs" id="myTab" role="tablist">
+{{--                                                <li class="nav-item">--}}
+{{--                                                    <a class="nav-link active" id="business-tab" data-toggle="tab" href="#business" role="tab" aria-controls="business">Informasi Usaha</a>--}}
+{{--                                                </li>--}}
+{{--                                                <li class="nav-item">--}}
+{{--                                                    <a class="nav-link" id="document-tab" data-toggle="tab" href="#document" role="tab" aria-controls="document" >Bank/Dokumen Usaha</a>--}}
+{{--                                                </li>--}}
                                                 <li class="nav-item">
-                                                    <a class="nav-link active" id="business-tab" data-toggle="tab" href="#business" role="tab" aria-controls="business">Informasi Usaha</a>
+                                                    <a class="nav-link active" id="commissioner-tab" data-toggle="tab" href="#commissioner" role="tab" aria-controls="commissioner">EKYC Direktur Utama</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" id="document-tab" data-toggle="tab" href="#document" role="tab" aria-controls="document" >Bank/Dokumen Usaha</a>
+                                                    <a class="nav-link" id="director-tab" data-toggle="tab" href="#director" role="tab" aria-controls="director" >EKYC Komisaris Utama</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" id="commissioner-tab" data-toggle="tab" href="#commissioner" role="tab" aria-controls="commissioner">Direktur Utama</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="director-tab" data-toggle="tab" href="#director" role="tab" aria-controls="director" >Komisaris Utama</a>
+                                                    <a class="nav-link" id="vbu-tab" data-toggle="tab" href="#vbu" role="tab" aria-controls="vbu">Verifikasi Perusahaan</a>
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="tab-content" id="myTabContent">
-                                            <div class="tab-pane fade active show" id="business" role="tabpanel" aria-labelledby="business-tab">
+                                            <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">
                                                 <div class="row">
                                                     <div class="x_content">
                                                         <h1>Informasi Perusahaan</h1>
@@ -361,7 +364,7 @@
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div class="tab-pane fade " id="commissioner" role="tabpanel"  aria-labelledby="commissioner-tab">
+                                            <div class="tab-pane fade active show " id="commissioner" role="tabpanel"  aria-labelledby="commissioner-tab">
                                                 <div class="row">
                                                     <div class="col-10">
                                                         <nav aria-label="breadcrumb">
@@ -369,36 +372,36 @@
                                                                 <li class="breadcrumb-item text-bold">Verifikasi Data EKYC dan Direktur Utama</li>
                                                             </ol>
                                                         </nav>
-                                                        
+
                                                         <table id="example1" class="table table-bordered table-striped">
                                                             <thead>
                                                             <tr>
                                                                 <th>Status akun digisign</th>
                                                                 <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->status_activation : '' }}</td>
                                                             </tr>
-                                                            <tr>
-                                                                <th>Email</th>
-                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->email : '' }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Phone</th>
-                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->phone_number : '' }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Nik</th>
-                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->nik : '' }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Last Updated</th>
-                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->updated_at : '' }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Agreement File</th>
-                                                                <td colspan="2">{{$funding->agreementfile ? $funding->agreementfile->document_id : '' }}</td>
-                                                            </tr>
+{{--                                                            <tr>--}}
+{{--                                                                <th>Email</th>--}}
+{{--                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->email : '' }}</td>--}}
+{{--                                                            </tr>--}}
+{{--                                                            <tr>--}}
+{{--                                                                <th>Phone</th>--}}
+{{--                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->phone_number : '' }}</td>--}}
+{{--                                                            </tr>--}}
+{{--                                                            <tr>--}}
+{{--                                                                <th>Nik</th>--}}
+{{--                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->nik : '' }}</td>--}}
+{{--                                                            </tr>--}}
+{{--                                                            <tr>--}}
+{{--                                                                <th>Last Updated</th>--}}
+{{--                                                                <td colspan="2">{{$funding->eqycdata ? $funding->eqycdata->updated_at : '' }}</td>--}}
+{{--                                                            </tr>--}}
+{{--                                                            <tr>--}}
+{{--                                                                <th>Agreement File</th>--}}
+{{--                                                                <td colspan="2">{{$funding->agreementfile ? $funding->agreementfile->document_id : '' }}</td>--}}
+{{--                                                            </tr>--}}
                                                             <tr>
                                                                 <th>EKYC Log Status</th>
-                                                                <td colspan="2"><button class="btn btn-primary log-director-modal">lihat</button></td>
+                                                                <td colspan="2"><button class="btn btn-primary log-director-modal" id="digisign_director_logs">lihats</button></td>
                                                             </tr>
                                                             </thead>
                                                         </table>
@@ -536,7 +539,7 @@
                                                                     <div class="card-body box-profile">
                                                                         <div class="text-center">
                                                                             <img class="profile-user-img img-fluid"
-                                                                                src="https://siapdanain.id/upload/lender/file/{{$item->identity_photo}}">
+                                                                                src="https://siapdanain.id/upload/lender/file/{{$item->self_photo}}">
                                                                         </div>
                                                                         <h5 class="profile-username text-center pt-5">Foto Komisaris Utama</h5>
                                                                     </div>
@@ -677,16 +680,352 @@
                                                                         <i class="fa fa-arrow-left"></i>
                                                                         Kembali
                                                                     </a>
-                                                                    <button class="btn btn-primary" id="update_status_lender" attr="{{$funding->id}}">
-                                                                        <i class="fa fa-check pr-1"></i>
-                                                                        Setuju
-                                                                    </button>
-
+                                                                    <a class="btn btn-primary" href="#myTabContent" onclick="$('#vbu-tab').click()">
+                                                                        Lanjutkan
+                                                                        <i class="fa fa-arrow-right"></i>
+                                                                    </a>
                                                                 </div>
                                                             </table>
                                                         </div>
                                                     </div>
                                                 @endif
+                                            </div>
+
+                                            <div class="tab-pane fade " id="vbu" role="tabpanel"  aria-labelledby="vbu-tab">
+                                                <div class="row">
+                                                    <h3>PENGECEKAN INFORMASI PERUSAHAAN DENGAN AKTA PENDIRIAN</h3>
+                                                    <table id="example1" class="table table-bordered table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>Akta Pendirian</th>
+                                                            <td colspan="3" style="vertical-align:middle"><a href="https://siapdanain.id/upload/lender/file/attachment/{{$funding->document->tdp}}" target="_blank">Lihat</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nomor dan Tanggal Akta Pendirian</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->akta_pendirian}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_1" id="akta_pendirian_1">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_1" id="akta_pendirian_1">Beda</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Nama Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->business_name}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="nama_perusahaan_2" id="nama_perusahaan_2">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="nama_perusahaan_2" id="nama_perusahaan_2">Beda</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Alamat Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->address}}<br/>
+                                                                Propinsi : {{$funding->business->id_province ? $funding->business->province->name : '-'}}<br/>
+                                                                Kabupaten : {{$funding->business->id_regency ? $funding->business->regency->name : '-'}}<br/>
+                                                                Kecamatan : {{$funding->business->id_district ? $funding->business->district->name : '-'}}<br/>
+                                                                Kelurahan : {{$funding->business->id_village ? $funding->business->village->name : '-'}}<br/>
+                                                            </td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="alamat_perusahaan_3" id="alamat_perusahaan_3">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="alamat_perusahaan_3" id="alamat_perusahaan_3">Beda</label></td>
+                                                        </tr>
+
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <h4>PENGECEKAN INFORMASI PERUSAHAAN DENGAN PENGESAHAN KEMENKUNHAM AKTA PENDIRIAN</h4>
+                                                    <table id="example1" class="table table-bordered table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>Dokumen Pengesahan Kemenkumham</th>
+                                                            <td colspan="3" style="vertical-align:middle"><a href="https://siapdanain.id/upload/lender/file/attachment/{{$funding->document->akta_pendirian}}" target="_blank">Lihat</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nomor pengesahaan Kemenkumham</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->letter_register_pengesahan_kemenkunham}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_4" id="akta_pendirian_4">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_4" id="akta_pendirian_4">Beda</label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nama Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->business_name}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_5" id="akta_pendirian_5">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_5" id="akta_pendirian_5">Beda</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Alamat Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->address}}<br/>
+                                                                Propinsi : {{$funding->business->id_province ? $funding->business->province->name : '-'}}<br/>
+                                                                Kabupaten : {{$funding->business->id_regency ? $funding->business->regency->name : '-'}}<br/>
+                                                                Kecamatan : {{$funding->business->id_district ? $funding->business->district->name : '-'}}<br/>
+                                                                Kelurahan : {{$funding->business->id_village ? $funding->business->village->name : '-'}}<br/>
+                                                            </td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_6" id="akta_pendirian_6">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_6" id="akta_pendirian_6">Beda</label></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <h4>PENGECEKAN INFORMASI PERUSAHAAN DENGAN NOMOR INDUK BERUSAHA</h4>
+                                                    <table id="example1" class="table table-bordered table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>Dokumen Nomor Induk Berusaha (NIB)</th>
+                                                            <td colspan="3" style="vertical-align:middle"><a href="https://siapdanain.id/upload/lender/file/attachment/{{$funding->document->nib}}" target="_blank">Lihat</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nomor Induk Berusaha</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->induk_berusaha_number}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_7" id="akta_pendirian_7">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_7" id="akta_pendirian_7">Beda</label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nama Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->business_name}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_8" id="akta_pendirian_8">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_8" id="akta_pendirian_8">Beda</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Alamat Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->address}}<br/>
+                                                                Propinsi : {{$funding->business->id_province ? $funding->business->province->name : '-'}}<br/>
+                                                                Kabupaten : {{$funding->business->id_regency ? $funding->business->regency->name : '-'}}<br/>
+                                                                Kecamatan : {{$funding->business->id_district ? $funding->business->district->name : '-'}}<br/>
+                                                                Kelurahan : {{$funding->business->id_village ? $funding->business->village->name : '-'}}<br/>
+                                                            </td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_9" id="akta_pendirian_9">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_9" id="akta_pendirian_9">Beda</label></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <h3>PENGECEKAN INFORMASI PERUSAHAAN DENGAN AKTA PERUBAHAN TERAKHIR</h3>
+                                                    <table id="example1" class="table table-bordered table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>Akta Pendirian</th>
+                                                            <td colspan="3" style="vertical-align:middle"><a href="https://siapdanain.id/upload/lender/file/attachment/{{$funding->document->akta_perubahan}}" target="_blank">Lihat</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nomor dan Tanggal Akta Pendirian</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->last_akta_perubahan ? $funding->business->last_akta_perubahan :'' }}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_10" id="akta_pendirian_10">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_10" id="akta_pendirian_10">Beda</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Nama Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->business_name }}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_11" id="akta_pendirian_11">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_11" id="akta_pendirian_11">Beda</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Alamat Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->address}}<br/>
+                                                                Propinsi : {{$funding->business->id_province ? $funding->business->province->name : '-'}}<br/>
+                                                                Kabupaten : {{$funding->business->id_regency ? $funding->business->regency->name : '-'}}<br/>
+                                                                Kecamatan : {{$funding->business->id_district ? $funding->business->district->name : '-'}}<br/>
+                                                                Kelurahan : {{$funding->business->id_village ? $funding->business->village->name : '-'}}<br/>
+                                                            </td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_12" id="akta_pendirian_12">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_12" id="akta_pendirian_12">Beda</label></td>
+                                                        </tr>
+
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                                <div class="row">
+                                                    <h4>PENGECEKAN INFORMASI PERUSAHAAN DENGAN PENGESAHAN KEMENKUNHAM AKTA PERUBAHAN TERAKHIR</h4>
+                                                    <table id="example1" class="table table-bordered table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>Dokumen Pengesahan Kemenkumham</th>
+                                                            <td colspan="3" style="vertical-align:middle"><a href="https://siapdanain.id/upload/lender/file/attachment/{{$funding->document->structure_organization}}" target="_blank">Lihat</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nomor pengesahaan Kemenkumham</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->letter_change_pengesahan_kemenkunham ? $funding->business->letter_change_pengesahan_kemenkunham : ''}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_13" id="akta_pendirian_13">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_13" id="akta_pendirian_13">Beda</label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nama Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->business_name}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_14" id="akta_pendirian_14">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_14" id="akta_pendirian_14">Beda</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Alamat Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->address}}<br/>
+                                                                Propinsi : {{$funding->business->id_province ? $funding->business->province->name : '-'}}<br/>
+                                                                Kabupaten : {{$funding->business->id_regency ? $funding->business->regency->name : '-'}}<br/>
+                                                                Kecamatan : {{$funding->business->id_district ? $funding->business->district->name : '-'}}<br/>
+                                                                Kelurahan : {{$funding->business->id_village ? $funding->business->village->name : '-'}}<br/>
+                                                            </td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_15" id="akta_pendirian_15">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_15" id="akta_pendirian_15">Beda</label></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <h3>ANALISA BERDASARKAN LAPORAN KEUANGAN</h3>
+                                                    <table id="example1" class="table table-bordered table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>Laporan neraca Keuangan</th>
+                                                            <td colspan="3" style="vertical-align:middle"><a href="https://siapdanain.id/upload/lender/file/attachment/{{$funding->document->balance_sheet}}" target="_blank">Lihat</a></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Laporan Laba Rugi</th>
+                                                            <td colspan="3" style="vertical-align:middle"><a href="https://siapdanain.id/upload/lender/file/attachment/{{$funding->document->income_statement}}" target="_blank">Lihat</a></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Laporan Arus Kas</th>
+                                                            <td colspan="3" style="vertical-align:middle"><a href="https://siapdanain.id/upload/lender/file/attachment/{{$funding->document->cash_flow_statement}}" target="_blank">Lihat</a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Total Setoran Modal</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{Utils::convert_currency($funding->business->amount_setoran_modal)}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_16" id="akta_pendirian_16">Rekomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_16" id="akta_pendirian_16">Belum direkomendasi</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Nilai Aset</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{Utils::convert_currency($funding->business->asset_value)}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_17" id="akta_pendirian_17">Rekomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_17" id="akta_pendirian_17">Belum direkomendasi</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Nilai Ekuitas</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{Utils::convert_currency($funding->business->equity_value)}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_18" id="akta_pendirian_18">Rekomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_18" id="akta_pendirian_18">Belum direkomendasi</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Kewajiban Jangka Pendek</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{Utils::convert_currency($funding->business->short_term_obligations)}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_19" id="akta_pendirian_19">Rekomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_19" id="akta_pendirian_19">Belum direkomendasi</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Pendapatan Tahun Berjalan</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{Utils::convert_currency($funding->business->annual_income)}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_20" id="akta_pendirian_20">Rekomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_20" id="akta_pendirian_20">Belum direkomendasi</label></td>
+                                                        </tr>
+
+
+                                                        {{--TEST--}}
+
+                                                        <tr>
+                                                            <th>Dokumen Kartu NPWP</th>
+                                                            <td colspan="3" style="vertical-align:middle"><a href="https://siapdanain.id/upload/lender/file/attachment/{{$funding->document->npwp}}" target="_blank">Lihat</a></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>status Pajak</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->taxpayer}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_21" id="akta_pendirian_21">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_21" id="akta_pendirian_21">Beda</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Nomor NPWP</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->npwp}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_22" id="akta_pendirian_22">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_22" id="akta_pendirian_22">Beda</label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Nama Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->business_name}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_23" id="akta_pendirian_23">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_23" id="akta_pendirian_23">Beda</label></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <th>Alamat Perusahaan</th>
+                                                            <td colspan="1" style="vertical-align:middle">{{$funding->business->address}}<br/>
+                                                                Propinsi : {{$funding->business->id_province ? $funding->business->province->name : '-'}}<br/>
+                                                                Kabupaten : {{$funding->business->id_regency ? $funding->business->regency->name : '-'}}<br/>
+                                                                Kecamatan : {{$funding->business->id_district ? $funding->business->district->name : '-'}}<br/>
+                                                                Kelurahan : {{$funding->business->id_village ? $funding->business->village->name : '-'}}<br/>
+                                                            </td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_24" id="akta_pendirian_24">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_24" id="akta_pendirian_24">Beda</label></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                                <div class="row">
+                                                    <h3>PENGECEKAN REKENING TRANSAKSI</h3>
+                                                    <table id="example1" class="table table-bordered table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th>NAMA PADA REKENING</th>
+                                                            <td colspan="2" style="vertical-align:middle">{{$funding->rekening->rekening_name}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_25" id="akta_pendirian_25">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_25" id="akta_pendirian_25">Beda</label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>NAMA BANK</th>
+                                                            <td colspan="2" style="vertical-align:middle"> {{$funding->rekening->bank ? $funding->rekening->bank : '-'}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_26" id="akta_pendirian_26">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_26" id="akta_pendirian_26">Beda</label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>NOMOR REKENING</th>
+                                                            <td colspan="2" style="vertical-align:middle"> {{$funding->rekening->rekening_number ? $funding->rekening->rekening_number : '-'}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_27" id="akta_pendirian_27">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_27" id="akta_pendirian_27">Beda</label></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>NOMOR REKENING DANA LENDER (RDL) BNI</th>
+                                                            <td colspan="2" style="vertical-align:middle"> {{$funding->rekening->rdl_number ? $funding->rekening->rdl_number : '-'}}</td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_28" id="akta_pendirian_28">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_28" id="akta_pendirian_28">Beda</label></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+
+                                                <div class="card-footer text-center">
+                                                    <button class="btn btn-danger reject_status_lender" id="reject_status_lender" attr="{{$funding->id}}" data-status="reject">
+                                                        <i class="fa fa-close pr-1"></i>
+                                                        Tolak
+                                                    </button>
+                                                    <a class="btn btn-secondary" href="#myTabContent" onclick="$('#director-tab').click()">
+                                                        <i class="fa fa-arrow-left"></i>
+                                                        Kembali
+                                                    </a>
+                                                    <a class="btn btn-primary" attr="{{$funding->id}}" href="javascript:void(0)" id="approve_individual_lender">
+                                                        Setujui
+                                                        <i class="fa fa-check pr-1"></i>
+                                                    </a>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -698,7 +1037,18 @@
             </div>
         </section>
     </div>
+
+    @foreach ($collection as $item)
+            
+    @endforeach
+
 @endsection
 @section('js')
 <script src="{{ asset('/js/lender_verification.js') }}"></script>
+
+<script>
+    $(document).on('click', '#digisign_director_logs', function(){
+
+    });
+</script>
 @endsection

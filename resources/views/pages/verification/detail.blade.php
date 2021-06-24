@@ -13,30 +13,6 @@
                 <div class="x_content">
 {{--                    Upload Document--}}
                     <div class="tab-content" id="myTabContent">
-
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 ">
-                                <div class="x_panel">
-                                    <div class="x_title">
-                                        <h2>Credit Scoring</h2>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="x_content">
-
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="card-box table-responsive">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="ln_solid"></div>
-                            </div>
-                        </div>
-
                         <div class="row">
                             <div class="col-md-12 col-sm-12 ">
                                 <div class="x_panel">
@@ -460,6 +436,39 @@
                                             @endif
                                             <div class="ln_solid"></div>
                                         </form>
+
+                                        <table class="table table-striped" id="table_description_crm">
+                                            <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Tanggal Tindakan</th>
+                                                <th>Status Telepon</th>
+                                                <th>Deskripsi</th>
+                                                <th>Rekaman</th>
+                                                <th>Nama Agent</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @if($phone_description )
+                                                @foreach($phone_description_emergency as $key => $val)
+                                                    <tr>
+                                                        <td class="number">{{$loop->iteration}}</td>
+                                                        <td>{{$val->created_at}}</td>
+                                                        <td>{{Utils::convert_status_phone($val->phone_status)}}</td>
+                                                        <td>{{$val->phone_description}}</td>
+                                                        @if($val->phone_status == '5')
+                                                            <td><button type="button" class="btn btn-success"><i class="fa fa-headphones"></i></button></td>
+                                                        @else
+                                                            <td>-</td>
+                                                        @endif
+                                                        <td>{{$val->updated_by}}</td>
+                                                    </tr>
+                                                @endforeach
+                                            @else
+                                                <div class="col"></div>
+                                            @endif
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
 
@@ -499,6 +508,8 @@
                                 <div class="ln_solid"></div>
                             </div>
                         </div>
+
+
                         <div class="row">
                             <div class="col-md-12 col-sm-12 ">
                                 <div class="x_panel">
@@ -673,7 +684,48 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 ">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Review Fintech Data Center(FDC)</h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
 
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="card-box table-responsive">
+                                                    <table id="history_table" class="table table-striped table-bordered" style="width:100%">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>ID Pelanggan</th>
+                                                            <th>No KTP</th>
+                                                            <th>Nama</th>
+                                                            <th>Nilai Pinjaman</th>
+                                                            <th>Tanggal Pencairan</th>
+                                                            <th>Tanggal Jatuh Tempo</th>
+                                                            <th>DPD Terakhir</th>
+                                                            <th>DPD Max</th>
+                                                            <th>Sisa Pinjaman</th>
+                                                            <th>Kualitas Pinjaman</th>
+                                                            <th>Status Pinjaman</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        </tbody>
+                                                    </table>
+                                                    <button class="btn btn-success"><i class="fa fa-refresh" aria-hidden="true"></i> Periksa FDC</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="ln_solid"></div>
+                            </div>
+                        </div>
                         <div class="row">
 
                             <div class="col-md-12 col-sm-12 ">
