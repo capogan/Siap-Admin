@@ -703,15 +703,15 @@
                                                         <tr>
                                                             <th>Nomor dan Tanggal Akta Pendirian</th>
                                                             <td colspan="1" style="vertical-align:middle">{{$funding->business->akta_pendirian}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_1" id="akta_pendirian_1">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_1" id="akta_pendirian_1">Beda</label></td>
                                                         </tr>
 
                                                         <tr>
                                                             <th>Nama Perusahaan</th>
                                                             <td colspan="1" style="vertical-align:middle">{{$funding->business->business_name}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="nama_perusahaan_2" id="nama_perusahaan_2">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="nama_perusahaan_2" id="nama_perusahaan_2">Beda</label></td>
                                                         </tr>
 
                                                         <tr>
@@ -722,8 +722,8 @@
                                                                 Kecamatan : {{$funding->business->id_district ? $funding->business->district->name : '-'}}<br/>
                                                                 Kelurahan : {{$funding->business->id_village ? $funding->business->village->name : '-'}}<br/>
                                                             </td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="alamat_perusahaan_3" id="alamat_perusahaan_3">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="alamat_perusahaan_3" id="alamat_perusahaan_3">Beda</label></td>
                                                         </tr>
 
 
@@ -743,14 +743,14 @@
                                                         <tr>
                                                             <th>Nomor pengesahaan Kemenkumham</th>
                                                             <td colspan="1" style="vertical-align:middle">{{$funding->business->letter_register_pengesahan_kemenkunham}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_4" id="akta_pendirian_4">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_4" id="akta_pendirian_4">Beda</label></td>
                                                         </tr>
                                                         <tr>
                                                             <th>Nama Perusahaan</th>
                                                             <td colspan="1" style="vertical-align:middle">{{$funding->business->business_name}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_5" id="akta_pendirian_5">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_5" id="akta_pendirian_5">Beda</label></td>
                                                         </tr>
 
                                                         <tr>
@@ -761,8 +761,8 @@
                                                                 Kecamatan : {{$funding->business->id_district ? $funding->business->district->name : '-'}}<br/>
                                                                 Kelurahan : {{$funding->business->id_village ? $funding->business->village->name : '-'}}<br/>
                                                             </td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_6" id="akta_pendirian_6">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_6" id="akta_pendirian_6">Beda</label></td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -780,14 +780,14 @@
                                                         <tr>
                                                             <th>Nomor Induk Berusaha</th>
                                                             <td colspan="1" style="vertical-align:middle">{{$funding->business->induk_berusaha_number}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_7" id="akta_pendirian_7">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_7" id="akta_pendirian_7">Beda</label></td>
                                                         </tr>
                                                         <tr>
                                                             <th>Nama Perusahaan</th>
                                                             <td colspan="1" style="vertical-align:middle">{{$funding->business->business_name}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_8" id="akta_pendirian_8">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_8" id="akta_pendirian_8">Beda</label></td>
                                                         </tr>
 
                                                         <tr>
@@ -798,8 +798,8 @@
                                                                 Kecamatan : {{$funding->business->id_district ? $funding->business->district->name : '-'}}<br/>
                                                                 Kelurahan : {{$funding->business->id_village ? $funding->business->village->name : '-'}}<br/>
                                                             </td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_9" id="akta_pendirian_9">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_9" id="akta_pendirian_9">Beda</label></td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -817,15 +817,15 @@
                                                         <tr>
                                                             <th>Nomor dan Tanggal Akta Pendirian</th>
                                                             <td colspan="1" style="vertical-align:middle">{{$funding->business->last_akta_perubahan}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_10" id="akta_pendirian_10">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_10" id="akta_pendirian_10">Beda</label></td>
                                                         </tr>
 
                                                         <tr>
                                                             <th>Nama Perusahaan</th>
                                                             <td colspan="1" style="vertical-align:middle">{{$funding->business->business_name}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_11" id="akta_pendirian_11">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_11" id="akta_pendirian_11">Beda</label></td>
                                                         </tr>
 
                                                         <tr>
@@ -836,8 +836,8 @@
                                                                 Kecamatan : {{$funding->business->id_district ? $funding->business->district->name : '-'}}<br/>
                                                                 Kelurahan : {{$funding->business->id_village ? $funding->business->village->name : '-'}}<br/>
                                                             </td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_12" id="akta_pendirian_12">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_12" id="akta_pendirian_12">Beda</label></td>
                                                         </tr>
 
 
@@ -856,14 +856,14 @@
                                                         <tr>
                                                             <th>Nomor pengesahaan Kemenkumham</th>
                                                             <td colspan="1" style="vertical-align:middle">{{$funding->business->letter_change_pengesahan_kemenkunham}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_13" id="akta_pendirian_13">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_13" id="akta_pendirian_13">Beda</label></td>
                                                         </tr>
                                                         <tr>
                                                             <th>Nama Perusahaan</th>
                                                             <td colspan="1" style="vertical-align:middle">{{$funding->business->business_name}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_14" id="akta_pendirian_14">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_14" id="akta_pendirian_14">Beda</label></td>
                                                         </tr>
 
                                                         <tr>
@@ -874,8 +874,8 @@
                                                                 Kecamatan : {{$funding->business->id_district ? $funding->business->district->name : '-'}}<br/>
                                                                 Kelurahan : {{$funding->business->id_village ? $funding->business->village->name : '-'}}<br/>
                                                             </td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_15" id="akta_pendirian_15">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_15" id="akta_pendirian_15">Beda</label></td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -903,36 +903,36 @@
                                                         <tr>
                                                             <th>Total Setoran Modal</th>
                                                             <td colspan="1" style="vertical-align:middle">{{Utils::convert_currency($funding->business->amount_setoran_modal)}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Rekomendasi</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Belum direkomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_16" id="akta_pendirian_16">Rekomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_16" id="akta_pendirian_16">Belum direkomendasi</label></td>
                                                         </tr>
 
                                                         <tr>
                                                             <th>Nilai Aset</th>
                                                             <td colspan="1" style="vertical-align:middle">{{Utils::convert_currency($funding->business->asset_value)}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Rekomendasi</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Belum direkomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_17" id="akta_pendirian_17">Rekomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_17" id="akta_pendirian_17">Belum direkomendasi</label></td>
                                                         </tr>
 
                                                         <tr>
                                                             <th>Nilai Ekuitas</th>
                                                             <td colspan="1" style="vertical-align:middle">{{Utils::convert_currency($funding->business->equity_value)}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Rekomendasi</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Belum direkomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_18" id="akta_pendirian_18">Rekomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_18" id="akta_pendirian_18">Belum direkomendasi</label></td>
                                                         </tr>
 
                                                         <tr>
                                                             <th>Kewajiban Jangka Pendek</th>
                                                             <td colspan="1" style="vertical-align:middle">{{Utils::convert_currency($funding->business->short_term_obligations)}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Rekomendasi</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Belum direkomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_19" id="akta_pendirian_19">Rekomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_19" id="akta_pendirian_19">Belum direkomendasi</label></td>
                                                         </tr>
 
                                                         <tr>
                                                             <th>Pendapatan Tahun Berjalan</th>
                                                             <td colspan="1" style="vertical-align:middle">{{Utils::convert_currency($funding->business->annual_income)}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Rekomendasi</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Belum direkomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_20" id="akta_pendirian_20">Rekomendasi</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_20" id="akta_pendirian_20">Belum direkomendasi</label></td>
                                                         </tr>
 
 
@@ -946,21 +946,21 @@
                                                         <tr>
                                                             <th>status Pajak</th>
                                                             <td colspan="1" style="vertical-align:middle">{{$funding->business->taxpayer}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_21" id="akta_pendirian_21">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_21" id="akta_pendirian_21">Beda</label></td>
                                                         </tr>
 
                                                         <tr>
                                                             <th>Nomor NPWP</th>
                                                             <td colspan="1" style="vertical-align:middle">{{$funding->business->npwp}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_22" id="akta_pendirian_22">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_22" id="akta_pendirian_22">Beda</label></td>
                                                         </tr>
                                                         <tr>
                                                             <th>Nama Perusahaan</th>
                                                             <td colspan="1" style="vertical-align:middle">{{$funding->business->business_name}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_23" id="akta_pendirian_23">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_23" id="akta_pendirian_23">Beda</label></td>
                                                         </tr>
 
                                                         <tr>
@@ -971,8 +971,8 @@
                                                                 Kecamatan : {{$funding->business->id_district ? $funding->business->district->name : '-'}}<br/>
                                                                 Kelurahan : {{$funding->business->id_village ? $funding->business->village->name : '-'}}<br/>
                                                             </td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_24" id="akta_pendirian_24">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_24" id="akta_pendirian_24">Beda</label></td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -985,26 +985,26 @@
                                                         <tr>
                                                             <th>NAMA PADA REKENING</th>
                                                             <td colspan="2" style="vertical-align:middle">{{$funding->rekening->rekening_name}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_25" id="akta_pendirian_25">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_25" id="akta_pendirian_25">Beda</label></td>
                                                         </tr>
                                                         <tr>
                                                             <th>NAMA BANK</th>
                                                             <td colspan="2" style="vertical-align:middle"> {{$funding->rekening->bank ? $funding->rekening->bank : '-'}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_26" id="akta_pendirian_26">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_26" id="akta_pendirian_26">Beda</label></td>
                                                         </tr>
                                                         <tr>
                                                             <th>NOMOR REKENING</th>
                                                             <td colspan="2" style="vertical-align:middle"> {{$funding->rekening->rekening_number ? $funding->rekening->rekening_number : '-'}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_27" id="akta_pendirian_27">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_27" id="akta_pendirian_27">Beda</label></td>
                                                         </tr>
                                                         <tr>
                                                             <th>NOMOR REKENING DANA LENDER (RDL) BNI</th>
                                                             <td colspan="2" style="vertical-align:middle"> {{$funding->rekening->rdl_number ? $funding->rekening->rdl_number : '-'}}</td>
-                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian" id="akta_pendirian">Sama</label></td>
-                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian" id="akta_pendirian">Beda</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat" name="akta_pendirian_28" id="akta_pendirian_28">Sama</label></td>
+                                                            <td colspan="1"><label><input type="radio" class="flat"  name="akta_pendirian_28" id="akta_pendirian_28">Beda</label></td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
