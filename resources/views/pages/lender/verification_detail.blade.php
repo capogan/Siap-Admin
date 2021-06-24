@@ -401,7 +401,7 @@
 {{--                                                            </tr>--}}
                                                             <tr>
                                                                 <th>EKYC Log Status</th>
-                                                                <td colspan="2"><button class="btn btn-primary log-director-modal" id="digisign_director_logs">lihats</button></td>
+                                                                <td colspan="2"><button class="btn btn-primary log-director-modal" id="digisign_director_logs">lihat</button></td>
                                                             </tr>
                                                             </thead>
                                                         </table>
@@ -1037,6 +1037,37 @@
             </div>
         </section>
     </div>
+    <div id="log_messages_ekyc" style="display: none">
+        @if($eqyc)
+            <?php $msg ='';?>
+            @foreach ($eqyc as $item)
+                <?php 
+                
+                $nofif = json_decode($item->response , true);
+                
+                if($nofif != null)
+                {
+                    if(array_key_exists('JSONFile' , $nofif)){
+                        if(array_key_exists('notif' , $nofif['JSONFile'])){
+                            $msg .= '<p>'.$nofif['JSONFile']['notif'].'</p>';
+                        }
+                        
+                    }
+                    if(array_key_exists('result' , $nofif)){
+                        if(array_key_exists('notif' , $nofif))
+                        $msg .= '<p>'.$nofif['notif'].'</p>';
+                    }
+                }else{
+                    echo '<p>Data di reject</p>';
+                }
+
+                ?>
+                
+            @endforeach
+            <?php print_r($msg);?>
+        @endif
+    </div>
+    
 
 @endsection
 @section('js')
@@ -1044,7 +1075,10 @@
 
 <script>
     $(document).on('click', '#digisign_director_logs', function(){
-
+        var dialog = bootbox.dialog({
+            title: 'EKYC Logs',
+            message: '<p>'+ $("#log_messages_ekyc").html()+'</p>'
+        });
     });
 </script>
 @endsection
