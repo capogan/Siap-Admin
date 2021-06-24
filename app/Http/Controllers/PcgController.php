@@ -319,7 +319,7 @@ class PcgController extends Controller
 
         ])->update
         ([
-            "status" => '19',
+            "status" => '27',
             "updated_at"=>date('Y-m-d H:i:s'),
         ]);
 
