@@ -1038,10 +1038,6 @@
         </section>
     </div>
 
-    @foreach ($collection as $item)
-            
-    @endforeach
-
 @endsection
 @section('js')
 <script src="{{ asset('/js/lender_verification.js') }}"></script>
