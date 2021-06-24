@@ -38,6 +38,25 @@ class LenderController extends Controller
         ];
         return view('pages.lender.verification', $this->merge_response($data, static::$CONFIG));
     }
+    
+    // public function scoring_message($id_loan){
+    //     $credit_limit = RequestLoanCurrentScore::where('id_request_loan',$id_loan)->first();
+    //     $scoring = json_decode($credit_limit , true);
+    //     if(array_key_exists('detail_scoring' , $scoring)){
+    //         $s = json_decode($scoring['detail_scoring'] , true);
+    //         if(array_key_exists('message' , $s)){
+    //             return $s['message'];//$data_scoring['message'];
+    //         }
+    //     }
+    //     return  array(
+    //         'credit_limit' => '',
+    //         'credibiliti_status' => '',
+    //         'credibiliti_percentage' => '',
+    //         'max'
+    //     );
+
+    // }
+
 
     public function verification_lender_data($id){
 
@@ -56,6 +75,7 @@ class LenderController extends Controller
             $eqyc_logs = DigiSignDocumentLogs::where('uid' , $id)->get();
             $eqyc_signers_logs = DigiSignSignersLogs::where('uid' , $id)->get();
             $eqyc_document_logs = DigiSignDocumentLogs::where('uid' , $id)->get();
+
             $data = [
                 'funding'=> $lender,
                 'eqyc_logs' => $eqyc_logs,
@@ -69,8 +89,7 @@ class LenderController extends Controller
             $eqyc_document_logs = DigiSignDocumentLogs::where('uid' , $id)->get();
 
             $lender = User::with('individuinfo')
-                            ->where('id' , $id)->first();
-                            
+                            ->where('id' , $id)->first();       
             $data = [
                 'eqcy' => DigisignActivation::where('uid' , $id)->first(),
                 'funding'=> $lender,
