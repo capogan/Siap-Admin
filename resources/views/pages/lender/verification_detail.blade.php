@@ -698,7 +698,7 @@
                                                         <tbody>
                                                         <tr>
                                                             <th>Akta Pendirian</th>
-                                                            <td colspan="3" style="vertical-align:middle"><a href="http://localhost:8002/upload/lender/file/attachment/{{$funding->document->tdp}}" target="_blank">Lihat</a></td>
+                                                            <td colspan="3" style="vertical-align:middle"><a href="https://siapdanain.id/upload/lender/file/attachment/{{$funding->document->tdp}}" target="_blank">Lihat</a></td>
                                                         </tr>
                                                         <tr>
                                                             <th>Nomor dan Tanggal Akta Pendirian</th>
@@ -738,7 +738,7 @@
                                                         <tbody>
                                                         <tr>
                                                             <th>Dokumen Pengesahan Kemenkumham</th>
-                                                            <td colspan="3" style="vertical-align:middle"><a href="http://localhost:8002/upload/lender/file/attachment/{{$funding->document->akta_pendirian}}" target="_blank">Lihat</a></td>
+                                                            <td colspan="3" style="vertical-align:middle"><a href="https://siapdanain.id/upload/lender/file/attachment/{{$funding->document->akta_pendirian}}" target="_blank">Lihat</a></td>
                                                         </tr>
                                                         <tr>
                                                             <th>Nomor pengesahaan Kemenkumham</th>
@@ -775,7 +775,7 @@
                                                         <tbody>
                                                         <tr>
                                                             <th>Dokumen Nomor Induk Berusaha (NIB)</th>
-                                                            <td colspan="3" style="vertical-align:middle"><a href="http://localhost:8002/upload/lender/file/attachment/{{$funding->document->nib}}" target="_blank">Lihat</a></td>
+                                                            <td colspan="3" style="vertical-align:middle"><a href="https://siapdanain.id/upload/lender/file/attachment/{{$funding->document->nib}}" target="_blank">Lihat</a></td>
                                                         </tr>
                                                         <tr>
                                                             <th>Nomor Induk Berusaha</th>
@@ -812,7 +812,7 @@
                                                         <tbody>
                                                         <tr>
                                                             <th>Akta Pendirian</th>
-                                                            <td colspan="3" style="vertical-align:middle"><a href="http://localhost:8002/upload/lender/file/attachment/{{$funding->document->akta_perubahan}}" target="_blank">Lihat</a></td>
+                                                            <td colspan="3" style="vertical-align:middle"><a href="https://siapdanain.id/upload/lender/file/attachment/{{$funding->document->akta_perubahan}}" target="_blank">Lihat</a></td>
                                                         </tr>
                                                         <tr>
                                                             <th>Nomor dan Tanggal Akta Pendirian</th>
@@ -851,7 +851,7 @@
                                                         <tbody>
                                                         <tr>
                                                             <th>Dokumen Pengesahan Kemenkumham</th>
-                                                            <td colspan="3" style="vertical-align:middle"><a href="http://localhost:8002/upload/lender/file/attachment/{{$funding->document->structure_organization}}" target="_blank">Lihat</a></td>
+                                                            <td colspan="3" style="vertical-align:middle"><a href="https://siapdanain.id/upload/lender/file/attachment/{{$funding->document->structure_organization}}" target="_blank">Lihat</a></td>
                                                         </tr>
                                                         <tr>
                                                             <th>Nomor pengesahaan Kemenkumham</th>
@@ -888,17 +888,17 @@
                                                         <tbody>
                                                         <tr>
                                                             <th>Laporan neraca Keuangan</th>
-                                                            <td colspan="3" style="vertical-align:middle"><a href="http://localhost:8002/upload/lender/file/attachment/{{$funding->document->balance_sheet}}" target="_blank">Lihat</a></td>
+                                                            <td colspan="3" style="vertical-align:middle"><a href="https://siapdanain.id/upload/lender/file/attachment/{{$funding->document->balance_sheet}}" target="_blank">Lihat</a></td>
                                                         </tr>
 
                                                         <tr>
                                                             <th>Laporan Laba Rugi</th>
-                                                            <td colspan="3" style="vertical-align:middle"><a href="http://localhost:8002/upload/lender/file/attachment/{{$funding->document->income_statement}}" target="_blank">Lihat</a></td>
+                                                            <td colspan="3" style="vertical-align:middle"><a href="https://siapdanain.id/upload/lender/file/attachment/{{$funding->document->income_statement}}" target="_blank">Lihat</a></td>
                                                         </tr>
 
                                                         <tr>
                                                             <th>Laporan Arus Kas</th>
-                                                            <td colspan="3" style="vertical-align:middle"><a href="http://localhost:8002/upload/lender/file/attachment/{{$funding->document->cash_flow_statement}}" target="_blank">Lihat</a></td>
+                                                            <td colspan="3" style="vertical-align:middle"><a href="https://siapdanain.id/upload/lender/file/attachment/{{$funding->document->cash_flow_statement}}" target="_blank">Lihat</a></td>
                                                         </tr>
                                                         <tr>
                                                             <th>Total Setoran Modal</th>
@@ -940,7 +940,7 @@
 
                                                         <tr>
                                                             <th>Dokumen Kartu NPWP</th>
-                                                            <td colspan="3" style="vertical-align:middle"><a href="http://localhost:8002/upload/lender/file/attachment/{{$funding->document->npwp}}" target="_blank">Lihat</a></td>
+                                                            <td colspan="3" style="vertical-align:middle"><a href="https://siapdanain.id/upload/lender/file/attachment/{{$funding->document->npwp}}" target="_blank">Lihat</a></td>
                                                         </tr>
 
                                                         <tr>
