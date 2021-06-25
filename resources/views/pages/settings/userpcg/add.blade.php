@@ -11,6 +11,14 @@
                     <br>
                     <form id="add_pcg_form" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
 
+
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                                <button type="button" id="add_code_member" class="btn btn-primary">Tambah Kode Member</button>
+                            </div>
+                        </div>
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama <span class="required">*</span>
                             </label>
@@ -62,7 +70,7 @@
                                          <option value="{{$val->member_code}}">{{$val->member_code}}</option>
                                     @endforeach
                                 </select>
-                                <button type="button" id="add_code_member" class="btn btn-primary">Tambah Kode Member</button>
+
                             </div>
                         </div>
                         <div class="item form-group">
