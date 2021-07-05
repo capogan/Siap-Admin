@@ -1067,6 +1067,33 @@
             <?php print_r($msg);?>
         @endif
     </div>
+
+    <div id="log_messages_ekyc_coms" style="display: none">
+        @if($eqyc_coms)
+            <?php $msg ='';?>
+            
+                <?php 
+                
+                $nofif = json_decode($eqyc_coms->response , true);
+                if($nofif != null)
+                {
+                    if(array_key_exists('JSONFile' , $nofif)){
+                        if(array_key_exists('notif' , $nofif['JSONFile'])){
+                            $msg .= '<p>'.$nofif['JSONFile']['notif'].'</p>';
+                        }
+                        
+                    }
+                    if(array_key_exists('result' , $nofif)){
+                        if(array_key_exists('notif' , $nofif))
+                        $msg .= '<p>'.$nofif['notif'].'</p>';
+                    }
+                }else{
+                    echo '<p>Data di reject</p>';
+                }
+                ?>
+                 <?php print_r($msg);?>
+        @endif
+    </div>
     
 
 @endsection
@@ -1083,7 +1110,7 @@
     $(document).on('click', '#digisign_director_logs_commissioner', function(){
         var dialog = bootbox.dialog({
             title: 'EKYC Logs',
-            message: '<p>'+ $("#log_messages_ekyc").html()+'</p>'
+            message: '<p>'+ $("#log_messages_ekyc_coms").html()+'</p>'
         });
     });
 </script>

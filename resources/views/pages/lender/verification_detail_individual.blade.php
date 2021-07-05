@@ -579,10 +579,6 @@
                                                     </a>
                                                 </div>
                                             </div>
-<<<<<<< HEAD
-                                            
-                                            <div class="tab-pane fade " id="commissioner" role="tabpanel"  aria-labelledby="commissioner-tab">
-=======
                                             <div class="tab-pane fade" id="director" role="tabpanel" aria-labelledby="director-tab">
                                                 <div class="row">
                                                     <div class="col-3">
@@ -696,7 +692,6 @@
                                                     </div>
                                             </div> 
                                             <div class="tab-pane fade active show" id="commissioner" role="tabpanel"  aria-labelledby="commissioner-tab">
->>>>>>> b914d832e041b2a3d2e153e11c937d7c4bb61140
                                                     <div class="row">
                                                     @if($funding->individuinfo->individufile != '' || $funding->individuinfo->individufile !== null)
                                                         <h3>Unggah Berkas Pribadi</h3>

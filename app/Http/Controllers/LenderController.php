@@ -77,13 +77,15 @@ class LenderController extends Controller
 //            print_r($lender);
 //            die();
             $eqyc = DigiSignLogs::where('uid' , $id)->get();
+            $eqyc_coms = DigiSignLogs::where('uid' , $id)->where('event' , 'registration')->orderBy('id' , "DESC")->first();
             $eqyc_logs = DigiSignDocumentLogs::where('uid' , $id)->get();
             $eqyc_signers_logs = DigiSignSignersLogs::where('uid' , $id)->get();
             $eqyc_document_logs = DigiSignDocumentLogs::where('uid' , $id)->get();
-            //print_r($eqyc->toArray()); exit;
+            //print_r($eqyc_coms->toArray()); exit;
             $data = [
                 'funding'=> $lender,
                 'eqyc' => $eqyc,
+                'eqyc_coms' => $eqyc_coms,
                 'eqyc_logs' => $eqyc_logs,
                 'eqyc_signers_logs' => $eqyc_signers_logs,
                 'eqyc_document_logs' => $eqyc_document_logs,
