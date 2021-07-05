@@ -567,18 +567,18 @@
                                                                     </ol>
                                                                 </nav>
                                                                 
-                                                                    <table id="example1" class="table table-bordered table-striped">
-                                                                        <thead>
-                                                                        <tr>
-                                                                            <th>EKYC Status</th>
-                                                                            <td colspan="2">{{$item->ekyc_commissioner->status == 'verified' ? $item->ekyc_commissioner->status : ''}}</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th>EKYC Log Status</th>
-                                                                            <td colspan="2"><button class="btn btn-primary log-director-modal" id="digisign_director_logs_commissioner">lihat</button></td>
-                                                                        </tr>
-                                                                        </thead>
-                                                                    </table>
+                                                                <table id="example1" class="table table-bordered table-striped">
+                                                                    <thead>
+                                                                    {{-- <tr>
+                                                                        <th>EKYC Status</th>
+                                                                        <td colspan="2">{{$item->ekyc_commissioner->status == 'verified' ? $item->ekyc_commissioner->status : ''}}</td>
+                                                                    </tr> --}}
+                                                                    <tr>
+                                                                        <th>EKYC Log Status</th>
+                                                                        <td colspan="2"><button class="btn btn-primary log-director-modal" id="digisign_director_logs_commissioner">lihat</button></td>
+                                                                    </tr>
+                                                                    </thead>
+                                                                </table>
                                                                 
                                                                 <table id="example1" class="table table-bordered table-striped">
                                                                     <thead>
