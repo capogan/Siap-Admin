@@ -575,7 +575,7 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <th>EKYC Log Status</th>
-                                                                            <td colspan="2"><button class="btn btn-primary log-commissioner-modal">lihat</button></td>
+                                                                            <td colspan="2"><button class="btn btn-primary log-director-modal" id="digisign_director_logs_commissioner">lihat</button></td>
                                                                         </tr>
                                                                         </thead>
                                                                     </table>
@@ -1075,6 +1075,12 @@
 
 <script>
     $(document).on('click', '#digisign_director_logs', function(){
+        var dialog = bootbox.dialog({
+            title: 'EKYC Logs',
+            message: '<p>'+ $("#log_messages_ekyc").html()+'</p>'
+        });
+    });
+    $(document).on('click', '#digisign_director_logs_commissioner', function(){
         var dialog = bootbox.dialog({
             title: 'EKYC Logs',
             message: '<p>'+ $("#log_messages_ekyc").html()+'</p>'
