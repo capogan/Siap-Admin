@@ -566,7 +566,7 @@
                                                                         <li class="breadcrumb-item text-bold">Verifikasi Data EKYC dan Komisaris Utama</li>
                                                                     </ol>
                                                                 </nav>
-                                                                @if($index == 0 && $item->ekyc_commissioner != null)
+                                                                
                                                                     <table id="example1" class="table table-bordered table-striped">
                                                                         <thead>
                                                                         <tr>
@@ -579,7 +579,7 @@
                                                                         </tr>
                                                                         </thead>
                                                                     </table>
-                                                                @endif
+                                                                
                                                                 <table id="example1" class="table table-bordered table-striped">
                                                                     <thead>
                                                                     <tr>
